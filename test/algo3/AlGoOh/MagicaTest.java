@@ -21,5 +21,14 @@ class MagicaTest {
 		
 		assertTrue(cartaMagica.estaBocaAbajo());
 	}
+	
+	@Test
+	void test03CartaMagicaBocaAbajoNoRealizaEfecto() {
+		Magica cartaMagica = new Magica();
+		
+		cartaMagica.darVuelta();
+		
+		assertFalse(cartaMagica.realizarEfecto());
+	}
 
 }

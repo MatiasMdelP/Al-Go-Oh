@@ -34,8 +34,11 @@ public class Monstruo extends Carta {
 	}
 
 	public void atacar(Monstruo atacado) {
-		atacado.reducirVida(puntosDeAtaque);
-		
+		if (posicionAtaque) {
+			atacado.esAtacadoEnPosicionDeAtaque(this, puntosDeAtaque);
+		} else {
+			atacado.esAtacadoEnPosicionDeDefensa(this, puntosDeAtaque);
+		}
 	}
 
 	public void reducirVidaJugador(Jugador jugador) {
@@ -48,11 +51,23 @@ public class Monstruo extends Carta {
 	
 	private void reducirVida(int puntosRecibidos) {
 		vida -= puntosRecibidos;
-		if(vida<=0) {
+		if(vida <= 0) {
 			this.mandarAlCementerio();
 		}
 	}
 	
 	
+	private void esAtacadoEnPosicionDeAtaque(Monstruo atacante, int puntosDelAtacante) {
+		if (puntosDelAtacante > puntosDeAtaque) {
+			this.reducirVida(puntosDelAtacante);
+		} else {
+			atacante.reducirVida(puntosDeAtaque);
+		}
+	}
 	
+	private void esAtacadoEnPosicionDeDefensa(Monstruo atacante, int puntosDelAtacante) {
+		if (puntosDelAtacante > puntosDeDefensa) {
+			this.reducirVida(puntosDelAtacante);
+		} 
+	}
 }
