@@ -6,14 +6,16 @@ import com.sun.org.apache.bcel.internal.generic.ReturnaddressType;
 
 public class Monstruo {
 	
+	private int estrellas;
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
 	private String nombre;
 	private boolean posicionAtaque;
 	
 	
-	public Monstruo(String unNombre, int ataque, int defensa) {
+	public Monstruo(String unNombre, int cantidadDeEstrellas, int ataque, int defensa) {
 		nombre = unNombre;
+		estrellas = cantidadDeEstrellas;
 		puntosDeAtaque = ataque;
 		puntosDeDefensa = defensa;
 	}

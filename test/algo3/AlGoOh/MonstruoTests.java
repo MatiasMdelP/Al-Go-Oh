@@ -10,7 +10,7 @@ public class MonstruoTests {
 	
 	@Test
 	public void test01ColocarMonstruoEnAtaque() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		
@@ -19,7 +19,7 @@ public class MonstruoTests {
 	
 	@Test
 	public void test02ColocarMonstruoEnDefensa() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		
