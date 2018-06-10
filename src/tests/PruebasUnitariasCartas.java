@@ -1,5 +1,5 @@
 package tests;
 
 public class PruebasUnitariasCartas {
-	private int a = 1;
+	private int a = 2;
 }
