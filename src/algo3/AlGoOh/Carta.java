@@ -1,5 +1,5 @@
 package algo3.AlGoOh;
 
-public class Carta {
+public abstract class Carta {
 
 }
