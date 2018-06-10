@@ -1,8 +1,8 @@
 package algo3.AlGoOh;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.Test;
 
@@ -25,5 +25,41 @@ public class MonstruoTests {
 		
 		assertFalse(huevoMonstruoso.estaEnPosicionDeAtaque());
 	}
+	
+	@Test
+	public void test03CrearCartaMontruoYVerificarQueNoEstaEnElCementero(){
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
+	}
+	
+	@Test
+	public void test04MandarCartaMontruoAlCementerioYVerificarQueEstaAhi(){
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		
+		huevoMonstruoso.mandarAlCementerio();
+		
+		assertTrue(huevoMonstruoso.estaEnElCementerio());
+	}
+
+	@Test
+	public void test05AtacarConMonstruoConMAyorAtaqueYMatarYVerificarQueEstaEnElCementerio() {
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo monoAcrobatico = new Monstruo("Huevo Monstruoso", 3, 1000, 1800);
+		
+		huevoMonstruoso.colocarEnPosicionAtaque();
+		monoAcrobatico.colocarEnPosicionAtaque();
+		
+		monoAcrobatico.atacar(huevoMonstruoso);
+		assertTrue(huevoMonstruoso.estaEnElCementerio());
+		assertEquals(huevoMonstruoso.getVida(),-400);
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 }
