@@ -55,13 +55,42 @@ public class JugadorTest {
 		// Hay que ser boludo para hacer esto pero bueno, es una opcion por lo tanto tiene prueba
 	}
 	
-	public void test04AtacoAMonstruoEnPosicionDefensaConMenorAtaqueYNoSufroDanio() {
+	@Test
+	public void test04AtacoAMonstruoEnPosicionDefensaConMayorAtaqueYNoSufroDanio() {
 		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		
+		huevoMonstruoso.colocarEnPosicionDefensa();
+		monoAcrobata.colocarEnPosicionAtaque();
+		
+		unJugador.agregarMounstro(huevoMonstruoso);
+		oponente.agregarMounstro(monoAcrobata);
+	
+		oponente.atacar(unJugador, 0, 0);
+	
+		assertEquals(8000, unJugador.obtenerPuntosDeVida());
+		assertTrue(huevoMonstruoso.estaEnElCementerio);
+	
+	}
+	
+	@Test
+	public void test05OponenteAtacaAMonstruoEnDefensaConMenorAtaqueYJugadorNoSufreDanioYSuMonstruoNoMuere() {
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
-		monoAcrobata.colocarEnPosicionAtaque();
+		monoAcrobata.colocarEnPosicionDefensa();
+
+		unJugador.agregarMounstro(monoAcrobata);
+		oponente.agregarMounstro(huevoMonstruoso);
 		
+		oponente.atacar(unJugador, 0,0);
+		
+		assertEquals(8000, unJugador.obtenerPuntosDeVida());
+		assertFalse(monoAcrobata.estaEnElCementerio);
 	}
 }
