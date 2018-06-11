@@ -6,7 +6,10 @@ import java.util.List;
 public class Jugador {
 	
 	private int puntosDeVida;
-	private List<Monstruo> monstruos = new ArrayList<Monstruo>();
+	private Campo campo;
+	//private List<Monstruo> monstruos = new ArrayList<Monstruo>();
+	
+	
 	
 	public Jugador() {
 		puntosDeVida = 8000;
@@ -16,25 +19,49 @@ public class Jugador {
 		return puntosDeVida;
 	}
 
-	public void agregarMounstro(Monstruo huevoMonstruoso) {
-		monstruos.add(huevoMonstruoso);
+	public void agregarMonstruoEnAtaque(Monstruo monstruo) {
+		campo.agregarMonstruoEnAtaque(monstruo);;
 	}
 
-	public int atacar(int nroDeMonstruo, Monstruo monstruoAtacante) {
-		int diferenciaDePuntos = monstruoAtacante.atacar(monstruos.get(nroDeMonstruo));
+	public void agregarMonstruoEnDefensa(Monstruo monstruo) {
+		campo.agregarMonstruoEnDefensa(monstruo);
+	}
+	
+	public void atacar(Jugador oponente, int nroMonstruoAtacante, int nroMonstruoAtacado) {
+		Monstruo atacante = campo.getMonstruo(nroMonstruoAtacante);
+		int diferenciaDePuntos = oponente.atacarse(atacante, nroMonstruoAtacado);
+		puntosDeVida -= diferenciaDePuntos;
+	
+	}
+	
+	public int atacarse(Monstruo atacante, int nroMonstruoAtacado) {
+		
+		int diferenciaDePuntos = atacante.atacar(campo.getMonstruo(i));
 		
 		if (diferenciaDePuntos > 0) {
 			puntosDeVida -= diferenciaDePuntos;
 			return 0;
 		}
+		
 		return -1*diferenciaDePuntos;
 	}
-
-	public void atacar(Jugador atacante, int nroDeMonstruoAtacante, int nroDeMonstruoAtacado) {
-		int diferenciaDePuntos = atacante.atacar(nroDeMonstruoAtacado, monstruos.get(nroDeMonstruoAtacante));
-		
-		if (diferenciaDePuntos > 0) {
-			puntosDeVida -= diferenciaDePuntos;
-		}
-	}
-}
+	
+	
+//	public int atacar(int nroDeMonstruo, Monstruo monstruoAtacante) {
+//		int diferenciaDePuntos = monstruoAtacante.atacar(monstruos.get(nroDeMonstruo));
+//		
+//		if (diferenciaDePuntos > 0) {
+//			puntosDeVida -= diferenciaDePuntos;
+//			return 0;
+//		}
+//		return -1*diferenciaDePuntos;
+//	}
+//
+//	public void atacar(Jugador atacante, int nroDeMonstruoAtacante, int nroDeMonstruoAtacado) {
+//		int diferenciaDePuntos = atacante.atacar(nroDeMonstruoAtacado, monstruos.get(nroDeMonstruoAtacante));
+//		
+//		if (diferenciaDePuntos > 0) {
+///			puntosDeVida -= diferenciaDePuntos;
+//		}
+//	}
+//}
