@@ -70,4 +70,12 @@ public class Monstruo extends Carta {
 			this.reducirVida(puntosDelAtacante);
 		} 
 	}
+
+	public int diferenciaDeAtaque(Monstruo monstruo) {
+		return monstruo.diferenciaDeAtaque(puntosDeAtaque);
+	}
+
+	private int diferenciaDeAtaque(int puntosDeAtaque2) {
+		return Math.abs(puntosDeAtaque2 - puntosDeAtaque);
+	}
 }

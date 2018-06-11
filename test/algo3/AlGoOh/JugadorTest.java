@@ -24,8 +24,17 @@ public class JugadorTest {
 	@Test
 	public void test03AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYSeReduceMiVida() {
 		Jugador unJugador = new Jugador();
-		unJugador.descontarPuntosDeVida(500);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
 		
-		assertEquals(7500, unJugador.obtenerPuntosDeVida());
+		huevoMonstruoso.colocarEnPosicionAtaque();
+		monoAcrobata.colocarEnPosicionAtaque();
+	
+		unJugador.agregarMounstro(huevoMonstruoso);
+		
+		unJugador.atacar(0, monoAcrobata);
+		
+		assertEquals(7600, unJugador.obtenerPuntosDeVida());
 	}
+	
 }
