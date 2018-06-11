@@ -22,7 +22,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test03AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYSeReduceMiVida() {
+	public void test03AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelAtacado() {
 		Jugador unJugador = new Jugador();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
@@ -36,5 +36,4 @@ public class JugadorTest {
 		
 		assertEquals(7600, unJugador.obtenerPuntosDeVida());
 	}
-	
 }

@@ -68,7 +68,7 @@ public class Monstruo extends Carta {
 	private void esAtacadoEnPosicionDeDefensa(Monstruo atacante, int puntosDelAtacante) {
 		if (puntosDelAtacante > puntosDeDefensa) {
 			this.reducirVida(puntosDelAtacante);
-		} 
+		}
 	}
 
 	public int diferenciaDeAtaque(Monstruo monstruo) {
