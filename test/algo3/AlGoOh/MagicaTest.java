@@ -14,7 +14,7 @@ class MagicaTest {
 	}
 	
 	@Test
-	void test02CrearCartaMagicaYVerificarQueEstaBocaAbajo() {
+	void test02PonerCartaMagicaBocaArriba() {
 		Magica cartaMagica = new Magica();
 		
 		cartaMagica.darVuelta();

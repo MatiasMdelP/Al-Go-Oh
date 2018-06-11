@@ -1,9 +1,12 @@
 package algo3.AlGoOh;
 
 public abstract class Carta {
+	
+	protected boolean bocaAbajo;
 	protected boolean estaEnElCementerio;
 
 	public Carta() {
+		bocaAbajo = false;
 		estaEnElCementerio = false;
 	}
 	public void mandarAlCementerio() {
@@ -14,5 +17,12 @@ public abstract class Carta {
 		return estaEnElCementerio;
 	}
 
+	public boolean estaBocaAbajo() {
+		return bocaAbajo;
+	}
+	
+	public void darVuelta() {
+		bocaAbajo = !bocaAbajo;
+	}
 
 }
