@@ -27,7 +27,7 @@ public class MonstruoTest {
 	}
 	
 	@Test
-	public void test03CrearCartaMontruoYVerificarQueNoEstaEnElCementero(){
+	public void test03CrearCartaMontruoYVerificarQueNoEstaEnElCementerio(){
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
@@ -44,26 +44,26 @@ public class MonstruoTest {
 
 	@Test
 	public void test05AtacarConMonstruoConMayorAtaqueYMatarYVerificarQueEstaEnElCementerio() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900); //Monstruo Atacado
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);	  //Monstruo Atacante
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
 		
-		monoAcrobata.atacar(huevoMonstruoso);
+		int diferenciaDePuntos = monoAcrobata.atacar(huevoMonstruoso);
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
 	
 	@Test
 	public void test06AtacarConMonstruoConMenorAtaqueSeDestruyeAtacanteYVerificarQueEstaEnElCementerio() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900); //Monstruo Atacante
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);     //Monstruo Atacado
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
 
-		huevoMonstruoso.atacar(monoAcrobata);
+		int diferenciaDePuntos = huevoMonstruoso.atacar(monoAcrobata);
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 		
@@ -71,13 +71,13 @@ public class MonstruoTest {
 	
 	@Test
 	public void test07AtacarAMonstruoEnModoDefensaConMayorAtaqueYSeDestruyeAtacado() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900); //Monstruo Atacado
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);	  //Monstruo Atacante
 		
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		monoAcrobata.colocarEnPosicionAtaque();
 
-		monoAcrobata.atacar(huevoMonstruoso);
+		int diferenciaDePuntos = monoAcrobata.atacar(huevoMonstruoso);
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}

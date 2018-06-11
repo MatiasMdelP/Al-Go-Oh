@@ -22,7 +22,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test03AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelAtacado() {
+	public void test03AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelJugadorAtacado() {
 		Jugador unJugador = new Jugador();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
@@ -35,5 +35,21 @@ public class JugadorTest {
 		unJugador.atacar(0, monoAcrobata);
 		
 		assertEquals(7600, unJugador.obtenerPuntosDeVida());
+	}
+	
+	@Test
+	public void test04AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYNoSufroDanio() {
+		Jugador unJugador = new Jugador();
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		
+		huevoMonstruoso.colocarEnPosicionAtaque();
+		monoAcrobata.colocarEnPosicionAtaque();
+	
+		unJugador.agregarMounstro(monoAcrobata);
+		
+		unJugador.atacar(0, huevoMonstruoso);
+		
+		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 	}
 }

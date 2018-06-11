@@ -24,8 +24,10 @@ public class Jugador {
 	}
 
 	public void atacar(int nroDeMonstruo, Monstruo monstruoAtacante) {
-		monstruoAtacante.atacar(monstruos.get(nroDeMonstruo));
+		int diferenciaDePuntos = monstruoAtacante.atacar(monstruos.get(nroDeMonstruo));
 		
-		puntosDeVida -= monstruoAtacante.diferenciaDeAtaque(monstruos.get(nroDeMonstruo));
+		if (diferenciaDePuntos > 0) {
+			puntosDeVida -= diferenciaDePuntos;
+		}
 	}
 }
