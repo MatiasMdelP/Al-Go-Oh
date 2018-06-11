@@ -7,7 +7,6 @@ public class Monstruo extends Carta {
 	private int puntosDeDefensa;
 	private String nombre;
 	private boolean posicionAtaque;
-	private int vida;
 	
 	
 	public Monstruo(String unNombre, int cantidadDeEstrellas, int ataque, int defensa) {
@@ -21,7 +20,6 @@ public class Monstruo extends Carta {
 
 	public void colocarEnPosicionAtaque() {
 		posicionAtaque = true;
-		vida = puntosDeAtaque;
 	}
 	
 	public boolean estaEnPosicionDeAtaque() {
@@ -30,45 +28,21 @@ public class Monstruo extends Carta {
 
 	public void colocarEnPosicionDefensa() {
 		posicionAtaque = false;
-		vida = puntosDeDefensa;
 	}
 
 	public void atacar(Monstruo atacado) {
-		if (posicionAtaque) {
-			atacado.esAtacadoEnPosicionDeAtaque(this, puntosDeAtaque);
-		} else {
-			atacado.esAtacadoEnPosicionDeDefensa(this, puntosDeAtaque);
-		}
-	}
-
-	public void reducirVidaJugador(Jugador jugador) {
-		jugador.descontarPuntosDeVida(vida);
-	}
-	
-	public int getVida() {
-		return vida;
-	}
-	
-	private void reducirVida(int puntosRecibidos) {
-		vida -= puntosRecibidos;
-		if(vida <= 0) {
+		if(!atacado.loMato(puntosDeAtaque))
 			this.mandarAlCementerio();
-		}
+			
 	}
 	
-	
-	private void esAtacadoEnPosicionDeAtaque(Monstruo atacante, int puntosDelAtacante) {
-		if (puntosDelAtacante > puntosDeAtaque) {
-			this.reducirVida(puntosDelAtacante);
-		} else {
-			atacante.reducirVida(puntosDeAtaque);
+	public boolean loMato(int puntosAtacante) {
+		if (puntosAtacante > puntosDeAtaque) {
+			this.mandarAlCementerio();
+			return true;
 		}
-	}
-	
-	private void esAtacadoEnPosicionDeDefensa(Monstruo atacante, int puntosDelAtacante) {
-		if (puntosDelAtacante > puntosDeDefensa) {
-			this.reducirVida(puntosDelAtacante);
-		}
+		else
+			return false;
 	}
 
 	public int diferenciaDeAtaque(Monstruo monstruo) {
