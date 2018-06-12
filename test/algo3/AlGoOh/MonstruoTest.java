@@ -50,7 +50,7 @@ public class MonstruoTest {
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
 		
-		int diferenciaDePuntos = monoAcrobata.atacar(huevoMonstruoso);
+		assertEquals(400, monoAcrobata.atacar(huevoMonstruoso));
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
@@ -63,7 +63,7 @@ public class MonstruoTest {
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
 
-		int diferenciaDePuntos = huevoMonstruoso.atacar(monoAcrobata);
+		assertEquals(600, huevoMonstruoso.atacar(monoAcrobata));
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 		
@@ -77,7 +77,7 @@ public class MonstruoTest {
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		monoAcrobata.colocarEnPosicionAtaque();
 
-		int diferenciaDePuntos = monoAcrobata.atacar(huevoMonstruoso);
+		assertEquals(600, monoAcrobata.atacar(huevoMonstruoso));
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}

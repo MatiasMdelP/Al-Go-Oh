@@ -69,12 +69,18 @@ public class Monstruo extends Carta {
 	}
 	
 	public boolean loMato(int puntosAtacante) {
-		if (puntosAtacante > puntosDeAtaque) {
-			this.mandarAlCementerio();
-			return true;
-		}
+		if (modoAtaque)
+			if (puntosAtacante > puntosDeAtaque) {
+				this.mandarAlCementerio();
+				return true;
+			} else
+				return false;
 		else
-			return false;
+			if (puntosAtacante > puntosDeDefensa) {
+				this.mandarAlCementerio();
+				return true;
+			} else
+				return false;
 	}
 
 	public int diferenciaDeAtaque(Monstruo monstruo) {
