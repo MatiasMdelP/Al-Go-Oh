@@ -4,12 +4,15 @@ public abstract class Carta {
 	
 	protected boolean bocaAbajo;
 	protected boolean estaEnElCementerio;
+	protected Efecto efecto;
 	protected Campo campo;
+	protected Campo campoOponente;
 
 	public Carta() {
 		bocaAbajo = false;
 		estaEnElCementerio = false;
 	}
+		
 	public void mandarAlCementerio() {
 		estaEnElCementerio = true;
 	}
@@ -25,8 +28,15 @@ public abstract class Carta {
 	public void darVuelta() {
 		bocaAbajo = !bocaAbajo;
 	}
-
-	public void colocarEnCampo(Campo campo) {
-		this.campo = campo;
+	
+	public boolean realizarEfecto() {
+		efecto.realizarse(campo, campoOponente);
+		this.mandarAlCementerio();
+		return !bocaAbajo;
+	}
+	
+	public void agregarAlCampo(Campo unCampo, Campo unCampoOponente) {
+		campo = unCampo;
+		campoOponente = unCampoOponente;
 	}
 }

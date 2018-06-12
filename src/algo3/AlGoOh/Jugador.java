@@ -1,19 +1,15 @@
 package algo3.AlGoOh;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Jugador {
 	
 	private int puntosDeVida;
 	private Campo campo;
-	private List<Monstruo> monstruos = new ArrayList<Monstruo>();
 	int VIDA = 8000;
 	
 	
-	public Jugador(Campo campo) {
+	public Jugador(Campo unCampo) {
+		campo = unCampo;
 		puntosDeVida = VIDA;
-		this.campo = campo;
 	}
 
 	public int obtenerPuntosDeVida() {
@@ -21,29 +17,25 @@ public class Jugador {
 	}
 
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) {
-		campo.agregarMonstruoEnAtaque(monstruo);
-		monstruos.add(monstruo);
+		monstruo.colocarEnPosicionAtaque();
+		campo.agregarMonstruo(monstruo);
 	}
 
 	public void agregarMonstruoEnDefensa(Monstruo monstruo) {
-		campo.agregarMonstruoEnDefensa(monstruo);
-		monstruos.add(monstruo);
+		monstruo.colocarEnPosicionDefensa();
+		campo.agregarMonstruo(monstruo);
 	}
 	
-	public void agregarMagicaBocaArriba(Carta carta) {
-		campo.agregarMagicaBocaArriba(carta);
-	}
-	
-	public void atacar(Jugador oponente, int nroMonstruoAtacante, int nroMonstruoAtacado) {
-		int diferenciaDePuntos = oponente.atacarse(nroMonstruoAtacante, nroMonstruoAtacado);
+	public void atacarA(Jugador oponente, int nroMonstruoAtacante, int nroMonstruoAtacado) {
+		int diferenciaDePuntos = oponente.atacarse(campo.obtenerMonstruo(nroMonstruoAtacante), nroMonstruoAtacado);
 		
 		if (diferenciaDePuntos > 0) {
 			puntosDeVida -= diferenciaDePuntos;
 		}
 	}
 	
-	public int atacarse(int nroMonstruoAtacante, int nroMonstruoAtacado) {
-		int diferenciaDePuntos = campo.combatir(nroMonstruoAtacante,nroMonstruoAtacado);
+	public int atacarse(Monstruo atacante, int nroMonstruoAtacado) {
+		int diferenciaDePuntos = atacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado));
 		
 		if (diferenciaDePuntos < 0) {
 			puntosDeVida += diferenciaDePuntos;
@@ -51,23 +43,12 @@ public class Jugador {
 		}
 		return diferenciaDePuntos;
 	}
-	
-}	
-//	public int atacar(int nroDeMonstruo, Monstruo monstruoAtacante) {
-//		int diferenciaDePuntos = monstruoAtacante.atacar(monstruos.get(nroDeMonstruo));
-//		
-//		if (diferenciaDePuntos > 0) {
-//			puntosDeVida -= diferenciaDePuntos;
-//			return 0;
-//		}
-//		return -1*diferenciaDePuntos;
-//	}
-//
-//	public void atacar(Jugador atacante, int nroDeMonstruoAtacante, int nroDeMonstruoAtacado) {
-//		int diferenciaDePuntos = atacante.atacar(nroDeMonstruoAtacado, monstruos.get(nroDeMonstruoAtacante));
-//		
-//		if (diferenciaDePuntos > 0) {
-///			puntosDeVida -= diferenciaDePuntos;
-//		}
-//	}
-//}
+
+	public void agregarCartaMagicaOTrampa(Magica agujeroOscuro) {
+		campo.agregarMagicaOTrampa(agujeroOscuro);
+	}
+
+	public void activarMagicaOTrampa(int nroDeCarta) {
+		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto();
+	}
+}

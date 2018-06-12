@@ -1,7 +1,6 @@
 package algo3.AlGoOh;
 
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -13,7 +12,6 @@ public class TrampaTest {
 		
 		assertFalse(cartaTrampa.estaBocaAbajo());
 	}
-	
 	@Test
 	public void test02PonerCartaTrampaBocaAbajo() {
 		Trampa cartaTrampa = new Trampa();
@@ -22,5 +20,4 @@ public class TrampaTest {
 		
 		assertTrue(cartaTrampa.estaBocaAbajo());
 	}
-
 }
