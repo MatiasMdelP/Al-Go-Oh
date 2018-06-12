@@ -7,12 +7,13 @@ public class Jugador {
 	
 	private int puntosDeVida;
 	private Campo campo;
-	//private List<Monstruo> monstruos = new ArrayList<Monstruo>();
+	private List<Monstruo> monstruos = new ArrayList<Monstruo>();
+	int VIDA = 8000;
 	
 	
-	
-	public Jugador() {
-		puntosDeVida = 8000;
+	public Jugador(Campo campo) {
+		puntosDeVida = VIDA;
+		this.campo = campo;
 	}
 
 	public int obtenerPuntosDeVida() {
@@ -20,32 +21,31 @@ public class Jugador {
 	}
 
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) {
-		campo.agregarMonstruoEnAtaque(monstruo);;
+		campo.agregarMonstruoEnAtaque(monstruo);
+		monstruos.add(monstruo);
 	}
 
 	public void agregarMonstruoEnDefensa(Monstruo monstruo) {
 		campo.agregarMonstruoEnDefensa(monstruo);
+		monstruos.add(monstruo);
 	}
 	
 	public void atacar(Jugador oponente, int nroMonstruoAtacante, int nroMonstruoAtacado) {
-		Monstruo atacante = campo.getMonstruo(nroMonstruoAtacante);
-		int diferenciaDePuntos = oponente.atacarse(atacante, nroMonstruoAtacado);
+		int diferenciaDePuntos = oponente.atacarse(nroMonstruoAtacante, nroMonstruoAtacado);
+		
 		if (diferenciaDePuntos > 0) {
-			campo.enviarAlCementerio(nroMonstruoAtacante);
 			puntosDeVida -= diferenciaDePuntos;
 		}
 	}
 	
-	public int atacarse(Monstruo atacante, int nroMonstruoAtacado) {
+	public int atacarse(int nroMonstruoAtacante, int nroMonstruoAtacado) {
+		int diferenciaDePuntos = campo.combatir(nroMonstruoAtacante,nroMonstruoAtacado);
 		
-		int diferenciaDePuntos = campo.atacarMonstruo(nroMonstruoAtacado, atacante);
-		
-		if (diferenciaDePuntos > 0) {
-			puntosDeVida -= diferenciaDePuntos;
+		if (diferenciaDePuntos < 0) {
+			puntosDeVida += diferenciaDePuntos;
 			return 0;
 		}
-		
-		return -1*diferenciaDePuntos;
+		return diferenciaDePuntos;
 	}
 	
 }	

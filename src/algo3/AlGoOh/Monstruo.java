@@ -1,11 +1,5 @@
 package algo3.AlGoOh;
 
-import javax.xml.stream.events.ProcessingInstruction;
-
-import org.junit.validator.PublicClassValidator;
-
-import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
-
 public class Monstruo extends Carta {
 	
 	private int estrellas;
@@ -14,6 +8,7 @@ public class Monstruo extends Carta {
 	private String nombre;
 	private boolean posicionAtaque;
 	private Posicion posicion;
+	private int puntosRecibirAtaque;
 	
 	
 	public Monstruo(String unNombre, int cantidadDeEstrellas, int ataque, int defensa) {
@@ -23,16 +18,19 @@ public class Monstruo extends Carta {
 		puntosDeAtaque = ataque;
 		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
+		campo = new Campo(); //para las pruebas
 	}
 
 	public void colocarEnPosicionAtaque() {
 		posicion = new PosicionAtaque();
 		posicionAtaque = true;
+		puntosRecibirAtaque = puntosDeAtaque;
 	}
 	
 	public void colocarEnPosicionDefensa() {
 		posicion = new PosicionDefensa();
 		posicionAtaque = false;
+		puntosRecibirAtaque = puntosDeDefensa;
 	}
 
 	public boolean estaEnPosicionDeAtaque() {
@@ -40,26 +38,25 @@ public class Monstruo extends Carta {
 	}
 	
 	public int atacar(Monstruo atacado) {
-		int diferenciaDelEnfrentamiento = atacado.posicion.esAtacado(atacado, puntosDeAtaque);
-		if (diferenciaDelEnfrentamiento > 0) {
+		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque);
+		if (diferenciaDelEnfrentamiento >= 0) {
 			this.mandarAlCementerio();
-		} else if (diferenciaDelEnfrentamiento < 0) {
-			atacado.mandarAlCementerio();
-			return Math.abs(diferenciaDelEnfrentamiento);
-		} else {
-			this.mandarAlCementerio();
-			atacado.mandarAlCementerio();
 		}
-		return 0;
-	}
-		
-	public int esAtacadoEnPosicionDeDefensa(int puntosDelAtacante) {
-		return (puntosDeDefensa - puntosDelAtacante);
+		return atacado.posicion.devolverDaño(diferenciaDelEnfrentamiento);
+		//Cero si ambos mueren
+		//Negativo si el atacado muere
+		//positivo si el atacante muere
 	}
 	
-	public int esAtacadoEnPosicionDeAtaque(int puntosDelAtacante){
-		return (puntosDeAtaque - puntosDelAtacante);
+	
+	private int recibirAtaque(int puntosDelAtacante) {
+		int dif = puntosRecibirAtaque - puntosDelAtacante;
+		if(dif<=0) {
+			this.mandarAlCementerio();
+		}
+		return dif;
 	}
+
 	
 	//De aca para abajo es una posible "solucion" sin Posicion.
 	/*

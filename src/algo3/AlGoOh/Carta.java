@@ -4,12 +4,14 @@ public abstract class Carta {
 	
 	protected boolean bocaAbajo;
 	protected boolean estaEnElCementerio;
+	protected Campo campo;
 
 	public Carta() {
 		bocaAbajo = false;
 		estaEnElCementerio = false;
 	}
 	public void mandarAlCementerio() {
+		this.campo.enviarAlCementerio(this);
 		estaEnElCementerio = true;
 	}
 
@@ -25,4 +27,7 @@ public abstract class Carta {
 		bocaAbajo = !bocaAbajo;
 	}
 
+	public void colocarEnCampo(Campo campo) {
+		this.campo = campo;
+	}
 }

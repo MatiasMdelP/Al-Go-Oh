@@ -13,6 +13,7 @@ public class Campo {
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) {
 		//Excepcion si la cantidad de cartas supera 5
 		monstruo.colocarEnPosicionAtaque();
+		monstruo.colocarEnCampo(this);
 		monstruos.add(monstruo);
 	}
 	
@@ -22,22 +23,19 @@ public class Campo {
 		monstruos.add(monstruo);
 	}
 
-	public int atacarMonstruo(int i, Monstruo atacante) {
-		Monstruo atacado = monstruos.get(i);
-		int diferenciaDePuntos = atacante.atacar(atacado);
-		if (diferenciaDePuntos > 0) {
-			monstruos.remove(i);
-			cementerio.add(atacado);
-		}
-		return diferenciaDePuntos;
-	}
-
 	public Monstruo getMonstruo(int i) {
 		return monstruos.get(i);
 	}
 
-	public void enviarAlCementerio(int i) {
+	public void enviarAlCementerio(Carta carta) {
 		//Monstruo sigue teniendo el atributo de "cementerio"? Como lo mando ahi?
-		cementerio.add(monstruos.remove(i));
+		cementerio.add(carta);
+	}
+
+	public int combatir(int nroMonstruoAtacante, int nroMonstruoAtacado) {
+		Monstruo atacado = monstruos.get(nroMonstruoAtacado);
+		Monstruo atacante = monstruos.get(nroMonstruoAtacante);
+		int dif = atacante.atacar(atacado);
+		return dif;
 	}
 }
