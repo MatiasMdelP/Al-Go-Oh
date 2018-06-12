@@ -6,13 +6,10 @@ public class EfectoMatarATodos implements Efecto {
 	public EfectoMatarATodos(Campo campo) {
 		this.campo = campo;
 	}
-	@Override
-	public void realizarse() {
-		
-		for(Monstruo m : campo.getMonstruos()) {
-			m.mandarAlCementerio();
-		}
 
+	public void realizarse(Campo campo, Campo campoOponente) {
+		campo.MatarATodos();
+		campoOponente.MatarATodos();
 	}
 
 }
