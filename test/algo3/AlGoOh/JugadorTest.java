@@ -137,4 +137,32 @@ public class JugadorTest {
 		assertTrue(huevoMonstruoso1.estaEnElCementerio());
 		assertFalse(huevoMonstruoso2.estaEnElCementerio());
 	}
+
+	@Test void test08InvocacionDeMonstruoDe5Estrellas() {
+		Campo unCampo = new Campo();
+		Jugador unJugador= new Jugador(unCampo);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", 5, 1800, 1800);
+		
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
+		
+		assertTrue(huevoMonstruoso.estaEnElCementerio());
+	
+	}
+
+	@Test void test09InvocacionDeMonstruoDe7Estrellas() {
+		Campo unCampo = new Campo();
+		Jugador unJugador= new Jugador(unCampo);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", 8, 3000, 2500);
+		
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		unJugador.agregarMonstruoEnAtaque(dragonBlanco);
+		
+		assertTrue(huevoMonstruoso.estaEnElCementerio());
+		assertTrue(monoAcrobata.estaEnElCementerio());
+	}
 }
