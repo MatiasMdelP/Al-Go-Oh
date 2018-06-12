@@ -11,7 +11,6 @@ public abstract class Carta {
 		estaEnElCementerio = false;
 	}
 	public void mandarAlCementerio() {
-		this.campo.enviarAlCementerio(this);
 		estaEnElCementerio = true;
 	}
 

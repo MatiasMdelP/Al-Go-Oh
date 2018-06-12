@@ -110,4 +110,29 @@ public class JugadorTest {
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
+	
+	@Test
+	public void test07OponenteUsaCartaMagicaMAtarATodosYLasCArtasMuerenYNadieSeDanio() {
+		Campo campo = new Campo();
+		Jugador unJugador = new Jugador(campo);
+		Jugador oponente = new Jugador(campo);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		Efecto efecto = new EfectoMatarATodos(campo);
+		Carta agujeroNegro = new Magica(efecto);
+		
+		huevoMonstruoso.colocarEnPosicionAtaque();
+		monoAcrobata.colocarEnPosicionDefensa();
+
+
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
+		oponente.agregarMagicaBocaArriba(agujeroNegro);
+
+		assertEquals(8000, oponente.obtenerPuntosDeVida());
+		assertEquals(8000, unJugador.obtenerPuntosDeVida());
+		assertTrue(huevoMonstruoso.estaEnElCementerio());
+		assertTrue(monoAcrobata.estaEnElCementerio());
+		assertTrue(agujeroNegro.estaEnElCementerio());
+	}
 }

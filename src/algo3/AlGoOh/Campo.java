@@ -30,6 +30,7 @@ public class Campo {
 	public void enviarAlCementerio(Carta carta) {
 		//Monstruo sigue teniendo el atributo de "cementerio"? Como lo mando ahi?
 		cementerio.add(carta);
+		carta.mandarAlCementerio();
 	}
 
 	public int combatir(int nroMonstruoAtacante, int nroMonstruoAtacado) {
@@ -37,5 +38,20 @@ public class Campo {
 		Monstruo atacante = monstruos.get(nroMonstruoAtacante);
 		int dif = atacante.atacar(atacado);
 		return dif;
+	}
+
+	public void agregarMagica(Carta agujeroNegro) {
+			
+	}
+
+	public void agregarMagicaBocaArriba(Carta agujeroNegro) {
+		magicaYTrampas.add(agujeroNegro);
+		agujeroNegro.darVuelta();
+		enviarAlCementerio(agujeroNegro);
+		
+	}
+
+	public List<Monstruo> getMonstruos() {
+		return monstruos;
 	}
 }

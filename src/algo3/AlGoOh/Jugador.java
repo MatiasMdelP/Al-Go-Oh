@@ -30,6 +30,10 @@ public class Jugador {
 		monstruos.add(monstruo);
 	}
 	
+	public void agregarMagicaBocaArriba(Carta carta) {
+		campo.agregarMagicaBocaArriba(carta);
+	}
+	
 	public void atacar(Jugador oponente, int nroMonstruoAtacante, int nroMonstruoAtacado) {
 		int diferenciaDePuntos = oponente.atacarse(nroMonstruoAtacante, nroMonstruoAtacado);
 		
