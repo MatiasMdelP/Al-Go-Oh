@@ -30,8 +30,10 @@ public class Jugador {
 	public void atacar(Jugador oponente, int nroMonstruoAtacante, int nroMonstruoAtacado) {
 		Monstruo atacante = campo.getMonstruo(nroMonstruoAtacante);
 		int diferenciaDePuntos = oponente.atacarse(atacante, nroMonstruoAtacado);
-		puntosDeVida -= diferenciaDePuntos;
-	
+		if (diferenciaDePuntos > 0) {
+			campo.enviarAlCementerio(nroMonstruoAtacante);
+			puntosDeVida -= diferenciaDePuntos;
+		}
 	}
 	
 	public int atacarse(Monstruo atacante, int nroMonstruoAtacado) {

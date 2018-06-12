@@ -29,10 +29,20 @@ public class Campo {
 
 	public int atacarMonstruo(int i, Monstruo atacante) {
 		Monstruo atacado = monstruos.get(i);
-		return atacante.atacar(atacado);
+		int diferenciaDePuntos = atacante.atacar(atacado);
+		if (diferenciaDePuntos > 0) {
+			monstruos.remove(i);
+			cementerio.add(atacado);
+		}
+		return diferenciaDePuntos;
 	}
 
 	public Monstruo getMonstruo(int i) {
 		return monstruos.get(i);
+	}
+
+	public void enviarAlCementerio(int i) {
+		//Monstruo sigue teniendo el atributo de "cementerio"? Como lo mando ahi?
+		cementerio.add(monstruos.remove(i));
 	}
 }
