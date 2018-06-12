@@ -4,17 +4,17 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-class MagicaTest {
+public class MagicaTest {
 
 	@Test
-	void test01CrearCartaMagicaYVerificarQueEstaBocaAbajo() {
+	public void test01CrearCartaMagicaYVerificarQueEstaBocaAbajo() {
 		Magica cartaMagica = new Magica();
 		
 		assertFalse(cartaMagica.estaBocaAbajo());
 	}
 	
 	@Test
-	void test02PonerCartaMagicaBocaArriba() {
+	public void test02PonerCartaMagicaBocaArriba() {
 		Magica cartaMagica = new Magica();
 		
 		cartaMagica.darVuelta();
@@ -23,7 +23,7 @@ class MagicaTest {
 	}
 	
 	@Test
-	void test03CartaMagicaBocaAbajoNoRealizaEfecto() {
+	public void test03CartaMagicaBocaAbajoNoRealizaEfecto() {
 		Magica cartaMagica = new Magica();
 		
 		cartaMagica.darVuelta();
