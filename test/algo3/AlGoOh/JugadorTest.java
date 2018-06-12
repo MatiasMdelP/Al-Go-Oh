@@ -138,7 +138,8 @@ public class JugadorTest {
 		assertFalse(huevoMonstruoso2.estaEnElCementerio());
 	}
 
-	@Test void test08InvocacionDeMonstruoDe5Estrellas() {
+	@Test 
+	public void test08InvocacionDeMonstruoDe5Estrellas() {
 		Campo unCampo = new Campo();
 		Jugador unJugador= new Jugador(unCampo);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
@@ -151,7 +152,8 @@ public class JugadorTest {
 	
 	}
 
-	@Test void test09InvocacionDeMonstruoDe7Estrellas() {
+	@Test 
+	public void test09InvocacionDeMonstruoDe7Estrellas() {
 		Campo unCampo = new Campo();
 		Jugador unJugador= new Jugador(unCampo);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);

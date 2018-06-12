@@ -1,8 +1,10 @@
 package algo3.AlGoOh;
 
+import java.util.List;
+
 public class Monstruo extends Carta {
 	
-	private int estrellas;
+	private Estrellas estrellas;
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
 	private String nombre;
@@ -10,16 +12,19 @@ public class Monstruo extends Carta {
 	private Posicion posicion;
 	private int puntosRecibirAtaque;
 	
-	
 	public Monstruo(String unNombre, int cantidadDeEstrellas, int ataque, int defensa) {
 		super();
 		nombre = unNombre;
-		estrellas = cantidadDeEstrellas;
+		estrellas = new Estrellas(cantidadDeEstrellas);
 		puntosDeAtaque = ataque;
 		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
 	}
 
+	public void efectuarSacrificios(List<Monstruo> monstruos) {
+		estrellas.efectuarSacrificios(monstruos);
+	}
+	
 	public void colocarEnPosicionAtaque() {
 		posicion = new PosicionAtaque();
 		posicionAtaque = true;
