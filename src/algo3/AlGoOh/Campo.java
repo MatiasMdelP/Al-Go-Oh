@@ -1,19 +1,14 @@
 package algo3.AlGoOh;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Campo {
 
-	private List<Monstruo> monstruos;
-	private List<Carta> magicaYTrampas;//Habria que poner un tipo que abarque a ambas pero no a Monstruo
-	private List<Carta> cementerio;
+	private List<Monstruo> monstruos = new ArrayList<Monstruo>();
+	private List<Carta> magicaYTrampas = new ArrayList<Carta>();//Habria que poner un tipo que abarque a ambas pero no a Monstruo
+	private List<Carta> cementerio = new ArrayList<Carta>();
 	
-	
-	public Campo() {
-		monstruos = new ArrayList<Monstruo>();
-		magicaYTrampas = new ArrayList<Carta>();
-		cementerio = new ArrayList<Carta>();
-	}
 	
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) {
 		//Excepcion si la cantidad de cartas supera 5

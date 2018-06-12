@@ -17,18 +17,17 @@ public class JugadorTest {
 	
 	@Test
 	public void test02AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelJugadorAtacado() {
-		Jugador unJugador= new Jugador();
+		Jugador jugadorUno= new Jugador();
+		Jugador jugadorDos = new Jugador();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
 		
-		huevoMonstruoso.colocarEnPosicionAtaque();
-		monoAcrobata.colocarEnPosicionAtaque();
-	
-		unJugador.agregarMounstro(huevoMonstruoso);
+		jugadorUno.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugadorDos.agregarMonstruoEnAtaque(monoAcrobata);
 		
-		unJugador.atacar(0, monoAcrobata);
+		jugadorUno.atacar(jugadorDos, 0, 0);
 		
-		assertEquals(7600, unJugador.obtenerPuntosDeVida());
+		assertEquals(7600, jugadorUno.obtenerPuntosDeVida());
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
@@ -40,11 +39,8 @@ public class JugadorTest {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
 		
-		huevoMonstruoso.colocarEnPosicionAtaque();
-		monoAcrobata.colocarEnPosicionAtaque();
-	
-		unJugador.agregarMounstro(monoAcrobata);
-		oponente.agregarMounstro(huevoMonstruoso);
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
 		oponente.atacar(unJugador, 0, 0);
 		
@@ -65,8 +61,8 @@ public class JugadorTest {
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		monoAcrobata.colocarEnPosicionAtaque();
 		
-		unJugador.agregarMounstro(huevoMonstruoso);
-		oponente.agregarMounstro(monoAcrobata);
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		oponente.agregarMonstruoEnAtaque(monoAcrobata);
 	
 		oponente.atacar(unJugador, 0, 0);
 	
@@ -85,8 +81,8 @@ public class JugadorTest {
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionDefensa();
 
-		unJugador.agregarMounstro(monoAcrobata);
-		oponente.agregarMounstro(huevoMonstruoso);
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
 		oponente.atacar(unJugador, 0,0);
 		

@@ -48,7 +48,7 @@ public class Jugador {
 		return -1*diferenciaDePuntos;
 	}
 	
-	
+}	
 //	public int atacar(int nroDeMonstruo, Monstruo monstruoAtacante) {
 //		int diferenciaDePuntos = monstruoAtacante.atacar(monstruos.get(nroDeMonstruo));
 //		
