@@ -46,7 +46,7 @@ public class Monstruo extends Carta {
 		if (diferenciaDelEnfrentamiento >= 0) {
 			this.mandarAlCementerio();
 		}
-		return atacado.posicion.devolverDaño(diferenciaDelEnfrentamiento);
+		return atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento);
 		//Cero si ambos mueren o si el atacado esta en posicion de defensa
 		//Negativo si el atacado muere
 		//positivo si el atacante muere
