@@ -18,6 +18,7 @@ public class Campo {
 	}
 	
 	public void agregarMonstruo(Monstruo monstruo) {
+		monstruo.efectuarSacrificios(monstruos);
 		monstruos.add(monstruo);
 	}
 	
