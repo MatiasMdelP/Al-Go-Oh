@@ -7,8 +7,7 @@ public class Jugador {
 	
 	private int puntosDeVida;
 	private Campo campo;
-	int VIDA = 8000;
-	private List<Carta> cartasEnMano = new ArrayList<Carta>();	
+	int VIDA = 8000;	
 	
 	public Jugador(Campo unCampo) {
 		campo = unCampo;
@@ -22,13 +21,11 @@ public class Jugador {
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) {
 		monstruo.colocarEnPosicionAtaque();
 		campo.agregarMonstruo(monstruo);
-		cartasEnMano.remove(monstruo);
 	}
 
 	public void agregarMonstruoEnDefensa(Monstruo monstruo) {
 		monstruo.colocarEnPosicionDefensa();
 		campo.agregarMonstruo(monstruo);
-		cartasEnMano.remove(monstruo);
 	}
 	
 	public void atacarA(Jugador oponente, int nroMonstruoAtacante, int nroMonstruoAtacado) {
@@ -57,9 +54,6 @@ public class Jugador {
 		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto();
 	}
 
-	public void tomarUnaCartaDelMazo() {
-		cartasEnMano.add(campo.tomarUnaCartaDelMazo());
-	}
 }
 
 

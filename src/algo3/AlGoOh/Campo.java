@@ -7,6 +7,7 @@ public class Campo {
 	
 	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();
 	private List<Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
+	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Mazo mazo = new Mazo();
 	
 	public Campo() {

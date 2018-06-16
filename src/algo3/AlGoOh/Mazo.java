@@ -11,9 +11,8 @@ public class Mazo {
 		if (seQuedoSinCartas()) {
 			throw new ElMazoNoTieneCartasException();
 		}
-		Carta unaCarta = baraja.get(0);
-		baraja.remove(0);
-		return unaCarta;
+		
+		return (baraja.remove(0));
 	}
 	
 	public void agregarUnaCartaAlMazo(Carta unaCarta) {
