@@ -31,13 +31,38 @@ public class Campo {
 		zonaMagicasYTrampas.add(carta);
 	}
 	
-	public Carta tomarUnaCartaDelMazo() {
-		return mazo.tomarUnaCarta();
+	public void tomarUnaCartaDelMazo() {
+		cartasEnMano.add(mazo.tomarUnaCarta());
 	}
 
-	public void MatarATodos() {
-		for(Monstruo m: zonaMonstruos) {
-			m.mandarAlCementerio();
+	public void mandarMonstruoAlCementerio(int nroDeCarta) {
+		zonaMonstruos.remove(nroDeCarta).mandarAlCementerio();
+	}
+	
+	public void mandarMagicaOTrampaAlCementerio(int nroDeCarta) {
+		zonaMagicasYTrampas.remove(nroDeCarta).mandarAlCementerio();
+	}
+	
+	public void mandarTodosLosMonstruosAlCementerio() {
+		while (! zonaMonstruos.isEmpty()){
+			mandarMonstruoAlCementerio(0);
 		}
 	}
+	
+	public void mandarTodosLasMagicasOTrampasAlCementerio() {
+		while (! zonaMagicasYTrampas.isEmpty()){
+			mandarMagicaOTrampaAlCementerio(0);
+		}
+	}
+	
+	public void mandarTodasLasCartasAlCementerio() {
+		mandarTodosLosMonstruosAlCementerio();
+		mandarTodosLasMagicasOTrampasAlCementerio();
+	}
+	
 }
+
+
+
+
+

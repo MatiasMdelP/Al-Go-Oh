@@ -36,7 +36,7 @@ public class MagicaTest {
 	}
 	
 	@Test
-	public void test03ActivarAgujeroOscuro() {
+	public void test04ActivarAgujeroOscuro() {
 		Campo unCampo = new Campo();
 		Campo campoOponente = new Campo();
 		Jugador unJugador= new Jugador(unCampo);
