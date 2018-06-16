@@ -1,10 +1,15 @@
 package algo3.AlGoOh;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Jugador {
 	
 	private int puntosDeVida;
 	private Campo campo;
 	int VIDA = 8000;
+	private List<Carta> cartasEnMano = new ArrayList<Carta>();
+	private Mazo mazo;
 	
 	
 	public Jugador(Campo unCampo) {
@@ -44,11 +49,12 @@ public class Jugador {
 		return diferenciaDePuntos;
 	}
 
-	public void agregarCartaMagicaOTrampa(Magica agujeroOscuro) {
-		campo.agregarMagicaOTrampa(agujeroOscuro);
+	public void agregarCartaMagicaOTrampa(Magica cartaMagica) {
+		campo.agregarMagicaOTrampa(cartaMagica);
 	}
 
 	public void activarMagicaOTrampa(int nroDeCarta) {
 		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto();
 	}
+
 }
