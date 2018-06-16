@@ -5,29 +5,37 @@ import java.util.List;
 
 public class Campo {
 	
-	private List<Monstruo> monstruos = new ArrayList<Monstruo>();
+	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();
+	private List<Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
+	private Mazo mazo = new Mazo();
 	
-	private List<Carta> magicasYTrampas = new ArrayList<Carta>();
+	public Campo() {
+		mazo.inicializarMazo();
+	}
 	
 	public Monstruo obtenerMonstruo(int nroDeMonstruo) {
-		return monstruos.get(nroDeMonstruo);
+		return zonaMonstruos.get(nroDeMonstruo);
 	}
 	
 	public Carta obtenerMagicaOTrampa(int nroDeCarta) {
-		return magicasYTrampas.get(nroDeCarta);
+		return zonaMagicasYTrampas.get(nroDeCarta);
 	}
 	
 	public void agregarMonstruo(Monstruo monstruo) {
-		monstruo.efectuarSacrificios(monstruos);
-		monstruos.add(monstruo);
+		monstruo.efectuarSacrificios(zonaMonstruos);
+		zonaMonstruos.add(monstruo);
 	}
 	
 	public void agregarMagicaOTrampa(Carta carta) {
-		magicasYTrampas.add(carta);
+		zonaMagicasYTrampas.add(carta);
+	}
+	
+	public Carta tomarUnaCartaDelMazo() {
+		return mazo.tomarUnaCarta();
 	}
 
 	public void MatarATodos() {
-		for(Monstruo m: monstruos) {
+		for(Monstruo m: zonaMonstruos) {
 			m.mandarAlCementerio();
 		}
 	}

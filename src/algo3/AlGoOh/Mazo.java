@@ -23,4 +23,8 @@ public class Mazo {
 	public boolean seQuedoSinCartas() {
 		return (baraja.isEmpty());
 	}
+
+	public void inicializarMazo() {
+		
+	}
 }
