@@ -71,7 +71,7 @@ public class Campo {
 		throw new Error();
 	}
 	
-	public int obtenereCantidadDeCartasEnLaMano() {
+	public int obtenerCantidadDeCartasEnLaMano() {
 		return (cartasEnMano.size());
 	}
 	

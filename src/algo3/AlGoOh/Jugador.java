@@ -55,7 +55,7 @@ public class Jugador {
 	}
 
 	public int cantidadDeCartasEnMano() {
-		return campo.obtenereCantidadDeCartasEnLaMano();
+		return campo.obtenerCantidadDeCartasEnLaMano();
 	}
 }
 
