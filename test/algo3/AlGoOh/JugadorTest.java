@@ -10,7 +10,8 @@ public class JugadorTest {
 	
 	@Test
 	public void test01JugadorRecienCreadoTiene8000PuntosDeVida() {
-		Campo unCampo = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
 		Jugador unJugador = new Jugador(unCampo);
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
@@ -18,8 +19,10 @@ public class JugadorTest {
 	
 	@Test
 	public void test02AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelJugadorAtacado() {
-		Campo unCampo = new Campo();
-		Campo campoOponente = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
 		Jugador unJugador= new Jugador(unCampo);
 		Jugador oponente = new Jugador(campoOponente);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
@@ -38,8 +41,10 @@ public class JugadorTest {
 	
 	@Test
 	public void test03AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYSufroDanio() {
-		Campo unCampo = new Campo();
-		Campo campoOponente = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
 		Jugador unJugador= new Jugador(unCampo);
 		Jugador oponente = new Jugador(campoOponente);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
@@ -59,8 +64,10 @@ public class JugadorTest {
 	
 	@Test
 	public void test04AtacoAMonstruoEnPosicionAtaqueConIgualAtaqueYNaDieSufreDanioYAmbosMontruosVanAlCementerio() {
-		Campo unCampo = new Campo();
-		Campo campoOponente = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
 		Jugador unJugador= new Jugador(unCampo);
 		Jugador oponente = new Jugador(campoOponente);
 		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", 3, 600, 900);
@@ -80,8 +87,10 @@ public class JugadorTest {
 	
 	@Test
 	public void test05AtacoAMonstruoEnPosicionDefensaConMenorAtaqueYOponenteNoSufreDanio() {
-		Campo unCampo = new Campo();
-		Campo campoOponente = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
 		Jugador unJugador= new Jugador(unCampo);
 		Jugador oponente = new Jugador(campoOponente);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
@@ -100,8 +109,10 @@ public class JugadorTest {
 	
 	@Test
 	public void test06AtacoAMonstruoEnPosicionDefensaConMayorAtaqueYSufroDanioIgualALaDiferenciaEntrePuntosDeAtaqueYDefensa() {
-		Campo unCampo = new Campo();
-		Campo campoOponente = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
 		Jugador unJugador= new Jugador(unCampo);
 		Jugador oponente = new Jugador(campoOponente);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
@@ -120,8 +131,10 @@ public class JugadorTest {
 	
 	@Test
 	public void test07AtacoAMonstruoEnPosicionDefensaConIgualAtaqueYNadieSufreDanio() {
-		Campo unCampo = new Campo();
-		Campo campoOponente = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
 		Jugador unJugador= new Jugador(unCampo);
 		Jugador oponente = new Jugador(campoOponente);
 		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", 3, 600, 900);
@@ -140,7 +153,9 @@ public class JugadorTest {
 
 	@Test 
 	public void test08InvocacionDeMonstruoDe5Estrellas() {
-		Campo unCampo = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		
 		Jugador unJugador= new Jugador(unCampo);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", 5, 1800, 1800);
@@ -154,7 +169,9 @@ public class JugadorTest {
 
 	@Test 
 	public void test09InvocacionDeMonstruoDe7Estrellas() {
-		Campo unCampo = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		
 		Jugador unJugador= new Jugador(unCampo);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);

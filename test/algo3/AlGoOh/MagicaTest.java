@@ -36,16 +36,21 @@ public class MagicaTest {
 	public void test04CartaMagicaBocaAbajoNoRealizaEfecto() {
 		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
+		Mazo unMazo = new Mazo();
+		Mazo mazoOponente = new Mazo();
+		
 		agujeroOscuro.darVuelta();
-		agujeroOscuro.agregarAlCampo(new Campo(), new Campo());
+		agujeroOscuro.agregarAlCampo(new Campo(unMazo), new Campo(mazoOponente));
 		
 		assertFalse(agujeroOscuro.realizarEfecto());
 	}
 	
 	@Test
 	public void test05ActivarAgujeroOscuro() {
-		Campo unCampo = new Campo();
-		Campo campoOponente = new Campo();
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
 		Jugador unJugador= new Jugador(unCampo);
 		Jugador oponente = new Jugador(campoOponente);
 		
