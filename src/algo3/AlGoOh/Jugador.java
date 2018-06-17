@@ -1,8 +1,5 @@
 package algo3.AlGoOh;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Jugador {
 	
 	private int puntosDeVida;
