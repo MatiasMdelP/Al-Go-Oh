@@ -4,11 +4,13 @@ public abstract class Carta {
 	
 	protected boolean bocaAbajo;
 	protected boolean estaEnElCementerio;
+	protected String nombre;
 	protected Efecto efecto;
 	protected Campo campo;
 	protected Campo campoOponente;
 
-	public Carta() {
+	public Carta(String nombreDeLaCarta) {
+		nombre = nombreDeLaCarta;
 		bocaAbajo = false;
 		estaEnElCementerio = false;
 	}
@@ -33,6 +35,10 @@ public abstract class Carta {
 		efecto.realizarse(campo, campoOponente);
 		this.mandarAlCementerio();
 		return !bocaAbajo;
+	}
+	
+	public boolean seLlama(String nombreDeUnaCarta) {
+		return (nombreDeUnaCarta == nombre);
 	}
 	
 	public void agregarAlCampo(Campo unCampo, Campo unCampoOponente) {

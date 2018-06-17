@@ -4,14 +4,13 @@ public class Jugador {
 	
 	private int puntosDeVida;
 	private Campo campo;
-	int VIDA = 8000;
-	
+	int VIDA = 8000;	
 	
 	public Jugador(Campo unCampo) {
 		campo = unCampo;
 		puntosDeVida = VIDA;
 	}
-
+	
 	public int obtenerPuntosDeVida() {
 		return puntosDeVida;
 	}
@@ -43,12 +42,25 @@ public class Jugador {
 		}
 		return diferenciaDePuntos;
 	}
-
-	public void agregarCartaMagicaOTrampa(Magica agujeroOscuro) {
-		campo.agregarMagicaOTrampa(agujeroOscuro);
+	
+	public void agregarCartaMagicaOTrampa(Magica cartaMagica) {
+		campo.agregarMagicaOTrampa(cartaMagica);
 	}
 
 	public void activarMagicaOTrampa(int nroDeCarta) {
 		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto();
 	}
+
+	public int cantidadDeCartasEnMano() {
+		return campo.obtenerCantidadDeCartasEnLaMano();
+	}
 }
+
+
+
+
+
+
+
+
+

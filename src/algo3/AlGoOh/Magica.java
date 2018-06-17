@@ -2,7 +2,8 @@ package algo3.AlGoOh;
 
 public class Magica extends Carta {
 	
-	public Magica(Efecto unEfecto) {
+	public Magica(String unNombre, Efecto unEfecto) {
+		super(unNombre);
 		efecto = unEfecto;
 	}
 }

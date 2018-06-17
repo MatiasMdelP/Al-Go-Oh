@@ -8,37 +8,49 @@ public class MagicaTest {
 
 	@Test
 	public void test01CrearCartaMagicaYVerificarQueEstaBocaArriba() {
-		Efecto efecto = new EfectoAgujeroOscuro();
-		Magica cartaMagica = new Magica(efecto);
+		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
-		assertFalse(cartaMagica.estaBocaAbajo());
+		assertFalse(agujeroOscuro.estaBocaAbajo());
 	}
 	
 	@Test
 	public void test02PonerCartaMagicaBocaAbajo() {
-		Efecto efecto = new EfectoAgujeroOscuro();
-		Magica cartaMagica = new Magica(efecto);
+		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
-		cartaMagica.darVuelta();
+		agujeroOscuro.darVuelta();
 		
-		assertTrue(cartaMagica.estaBocaAbajo());
+		assertTrue(agujeroOscuro.estaBocaAbajo());
 	}
 	
 	@Test
-	public void test03CartaMagicaBocaAbajoNoRealizaEfecto() {
-		Efecto efecto = new EfectoAgujeroOscuro();
-		Magica cartaMagica = new Magica(efecto);
+	public void test03PonerCartaMagicaBocaAbajoLaVolvemosADarVueltaYQuedaBocaArriba() {
+		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
-		cartaMagica.darVuelta();
-		cartaMagica.agregarAlCampo(new Campo(), new Campo());
+		agujeroOscuro.darVuelta();
+		agujeroOscuro.darVuelta();
 		
-		assertFalse(cartaMagica.realizarEfecto());
+		assertFalse(agujeroOscuro.estaBocaAbajo());
 	}
 	
 	@Test
-	public void test03ActivarAgujeroOscuro() {
-		Campo unCampo = new Campo();
-		Campo campoOponente = new Campo();
+	public void test04CartaMagicaBocaAbajoNoRealizaEfecto() {
+		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
+		
+		Mazo unMazo = new Mazo();
+		Mazo mazoOponente = new Mazo();
+		
+		agujeroOscuro.darVuelta();
+		agujeroOscuro.agregarAlCampo(new Campo(unMazo), new Campo(mazoOponente));
+		
+		assertFalse(agujeroOscuro.realizarEfecto());
+	}
+	
+	@Test
+	public void test05ActivarAgujeroOscuro() {
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
 		Jugador unJugador= new Jugador(unCampo);
 		Jugador oponente = new Jugador(campoOponente);
 		
@@ -48,7 +60,7 @@ public class MagicaTest {
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		oponente.agregarMonstruoEnAtaque(monoAcrobata);
 		
-		Magica agujeroOscuro = new Magica(new EfectoAgujeroOscuro());
+		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
 		agujeroOscuro.agregarAlCampo(unCampo, campoOponente);
 		unJugador.agregarCartaMagicaOTrampa(agujeroOscuro);
 		
