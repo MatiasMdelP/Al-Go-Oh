@@ -7,14 +7,12 @@ public class Monstruo extends Carta {
 	private Estrellas estrellas;
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
-	private String nombre;
 	private boolean posicionAtaque;
 	private Posicion posicion;
 	private int puntosRecibirAtaque;
 	
 	public Monstruo(String unNombre, int cantidadDeEstrellas, int ataque, int defensa) {
-		super();
-		nombre = unNombre;
+		super(unNombre);
 		estrellas = new Estrellas(cantidadDeEstrellas);
 		puntosDeAtaque = ataque;
 		puntosDeDefensa = defensa;

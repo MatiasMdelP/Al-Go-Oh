@@ -6,4 +6,5 @@ public class PosicionAtaque implements Posicion{
 	public int devolverDanio(int diferenciaDelEnfrentamiento) {
 		return diferenciaDelEnfrentamiento;
 	}
+
 }

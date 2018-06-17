@@ -43,6 +43,9 @@ public class Campo {
 		zonaMagicasYTrampas.remove(nroDeCarta).mandarAlCementerio();
 	}
 	
+	public void mandarMagicaOTrampaAlCementerio(String nombreDeLaCarta) {
+		zonaMagicasYTrampas.remove(0).mandarAlCementerio();
+	}
 	public void mandarTodosLosMonstruosAlCementerio() {
 		while (! zonaMonstruos.isEmpty()){
 			mandarMonstruoAlCementerio(0);

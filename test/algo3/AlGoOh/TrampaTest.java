@@ -8,14 +8,14 @@ public class TrampaTest {
 
 	@Test
 	public void test01CrearCartaTrampaYVerificarQueEstaArriba() {
-		Trampa cartaTrampa = new Trampa();
+		Trampa cartaTrampa = new Trampa("Un nombre");
 		
 		assertFalse(cartaTrampa.estaBocaAbajo());
 	}
 
 	@Test
 	public void test02PonerCartaTrampaBocaAbajo() {
-		Trampa cartaTrampa = new Trampa();
+		Trampa cartaTrampa = new Trampa("Un nombre");
 		
 		cartaTrampa.darVuelta();
 		

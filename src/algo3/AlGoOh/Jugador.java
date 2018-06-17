@@ -45,7 +45,7 @@ public class Jugador {
 		}
 		return diferenciaDePuntos;
 	}
-
+	
 	public void agregarCartaMagicaOTrampa(Magica cartaMagica) {
 		campo.agregarMagicaOTrampa(cartaMagica);
 	}
