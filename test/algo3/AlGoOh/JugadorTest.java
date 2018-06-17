@@ -24,8 +24,10 @@ public class JugadorTest {
 		
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
 		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
 		
-		unJugador.atacarA(oponente, 0, 0);
+		unJugador.atacarA(0, 0);
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(7600, oponente.obtenerPuntosDeVida());
@@ -42,8 +44,10 @@ public class JugadorTest {
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		oponente.agregarMonstruoEnAtaque(monoAcrobata);
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
 		
-		unJugador.atacarA(oponente, 0, 0);
+		unJugador.atacarA( 0, 0);
 		
 		assertEquals(7600, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
@@ -61,8 +65,10 @@ public class JugadorTest {
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
 		oponente.agregarMonstruoEnAtaque(huevoMonstruoso2);
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
 		
-		unJugador.atacarA(oponente, 0, 0);
+		unJugador.atacarA(0, 0);
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
@@ -80,8 +86,10 @@ public class JugadorTest {
 		
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
 		oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
 	
-		unJugador.atacarA(oponente, 0, 0);
+		unJugador.atacarA(0, 0);
 	
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
@@ -98,8 +106,10 @@ public class JugadorTest {
 
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		oponente.agregarMonstruoEnDefensa(monoAcrobata);
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
 		
-		unJugador.atacarA(oponente, 0,0);
+		unJugador.atacarA(0,0);
 		
 		assertEquals(6800, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
@@ -116,8 +126,10 @@ public class JugadorTest {
 
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
 		oponente.agregarMonstruoEnDefensa(huevoMonstruoso2);
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
 		
-		unJugador.atacarA(oponente, 0,0);
+		unJugador.atacarA(0,0);
 		
 		assertEquals(7700, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());

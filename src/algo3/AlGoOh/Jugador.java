@@ -41,7 +41,7 @@ public class Jugador {
 		campo.agregarMagicaOTrampa(cartaCampo);
 	}
 	
-	public void atacarA(Jugador oponente, int nroMonstruoAtacante, int nroMonstruoAtacado) {
+	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) {
 		int diferenciaDePuntos = oponente.atacarse(campo.obtenerMonstruo(nroMonstruoAtacante), nroMonstruoAtacado);
 		
 		if (diferenciaDePuntos > 0) {

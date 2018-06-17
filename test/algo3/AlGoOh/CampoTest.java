@@ -40,7 +40,7 @@ public class CampoTest {
 		
 		DeCampo wasteland = new DeCampo("Wasteland", new EfectoWasteland());
 		unJugador.agregarCartaCampo(wasteland);
-		unJugador.atacarA(oponente, 0, 0);
+		unJugador.atacarA(0, 0);
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
