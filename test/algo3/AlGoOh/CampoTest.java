@@ -24,4 +24,31 @@ public class CampoTest {
 		
 		assertEquals(1, unCampo.obtenerCantidadDeCartasEnLaMano());
 	}
+	
+	@Test
+	public void test03ActivarWasteland() {
+		Mazo unMazo = new Mazo();
+		Campo unCampo = new Campo(unMazo);
+		Mazo mazoOponente = new Mazo();
+		Campo campoOponente = new Campo(mazoOponente);
+		Jugador unJugador= new Jugador(unCampo);
+		Jugador oponente = new Jugador(campoOponente);
+		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
+		
+		DeCampo wasteland = new DeCampo("Wasteland", new EfectoWasteland());
+		wasteland.agregarAlCampo(unCampo, campoOponente);
+		wasteland.realizarEfecto();
+		
+		unJugador.atacarA(oponente, 0, 0);
+		
+		assertEquals(8000, unJugador.obtenerPuntosDeVida());
+		assertEquals(8000, oponente.obtenerPuntosDeVida());
+		assertTrue(huevoMonstruoso.estaEnElCementerio());
+		assertTrue(monoAcrobata.estaEnElCementerio());
+	}
 }

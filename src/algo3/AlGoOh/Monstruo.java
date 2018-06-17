@@ -58,4 +58,12 @@ public class Monstruo extends Carta {
 		}
 		return dif;
 	}
+
+	public void agregarPuntosDeAtaque(int puntos) {
+		puntosDeAtaque += puntos;
+	}
+	
+	public void agregarPuntosDeDefensa(int puntos) {
+		puntosDeDefensa += puntos;
+	}
 }

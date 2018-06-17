@@ -1,14 +1,14 @@
 package algo3.AlGoOh;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-
-import org.junit.vintage.engine.discovery.VintageDiscoverer;
 
 public class Campo {
 	
 	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();
 	private List<Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
+	private DeCampo zonaDeCampo;
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Mazo mazo;
 	
@@ -80,6 +80,15 @@ public class Campo {
 		mandarTodosLasMagicasOTrampasAlCementerio();
 	}
 	
+	public Iterator<Monstruo> iterarMonstruos() 
+	{
+		return zonaMonstruos.iterator();
+	}
+	
+	public Iterator<Carta> iterarMagicasYTrampas() 
+	{
+		return zonaMagicasYTrampas.iterator();
+	}
 }
 
 
