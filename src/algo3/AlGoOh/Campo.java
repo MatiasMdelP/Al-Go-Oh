@@ -49,18 +49,6 @@ public class Campo {
 		mandarMagicaOTrampaAlCementerio(buscarUnaCartaPorNombre(zonaMagicasYTrampas, nombreDeLaCarta));
 	}
 	
-	public void mandarTodosLosMonstruosAlCementerio() {
-		while (! zonaMonstruos.isEmpty()){
-			mandarMonstruoAlCementerio(0);
-		}
-	}
-	
-	public void mandarTodosLasMagicasOTrampasAlCementerio() {
-		while (! zonaMagicasYTrampas.isEmpty()){
-			mandarMagicaOTrampaAlCementerio(0);
-		}
-	}
-	
 	private int buscarUnaCartaPorNombre(List<Carta> zonaARecorrer, String nombreDeLaCarta) {
 		for (int i = 0; i < zonaARecorrer.size(); i++) {
 			if (zonaARecorrer.get(i).seLlama(nombreDeLaCarta)) {
@@ -75,11 +63,6 @@ public class Campo {
 		return (cartasEnMano.size());
 	}
 	
-	public void mandarTodasLasCartasAlCementerio() {
-		mandarTodosLosMonstruosAlCementerio();
-		mandarTodosLasMagicasOTrampasAlCementerio();
-	}
-	
 	public Iterator<Monstruo> iterarMonstruos() 
 	{
 		return zonaMonstruos.iterator();
@@ -88,6 +71,10 @@ public class Campo {
 	public Iterator<Carta> iterarMagicasYTrampas() 
 	{
 		return zonaMagicasYTrampas.iterator();
+	}
+
+	public void agregarDeCampo(DeCampo cartaCampo) {
+		zonaDeCampo = cartaCampo;
 	}
 }
 

@@ -45,7 +45,7 @@ public class CampoTest {
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
-		//assertTrue(monoAcrobata.estaEnElCementerio());
+		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
 	
 	@Test
