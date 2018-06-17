@@ -8,9 +8,9 @@ public class Campo {
 	
 	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();
 	private List<Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
-	private DeCampo zonaDeCampo;
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Mazo mazo;
+	private DeCampo zonaDeCampo;
 	
 	public Campo(Mazo unMazoDeCartas) {
 		mazo = unMazoDeCartas;
