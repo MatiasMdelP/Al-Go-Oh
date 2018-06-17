@@ -54,6 +54,9 @@ public class Jugador {
 		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto();
 	}
 
+	public int cantidadDeCartasEnMano() {
+		return campo.obtenereCantidadDeCartasEnLaMano();
+	}
 }
 
 

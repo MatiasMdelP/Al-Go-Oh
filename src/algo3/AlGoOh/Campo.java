@@ -3,6 +3,8 @@ package algo3.AlGoOh;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.vintage.engine.discovery.VintageDiscoverer;
+
 public class Campo {
 	
 	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();
@@ -67,6 +69,10 @@ public class Campo {
 		}
 		
 		throw new Error();
+	}
+	
+	public int obtenereCantidadDeCartasEnLaMano() {
+		return (cartasEnMano.size());
 	}
 	
 	public void mandarTodasLasCartasAlCementerio() {
