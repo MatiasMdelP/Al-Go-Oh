@@ -39,22 +39,22 @@ public class Monstruo extends Carta {
 		return posicionAtaque;
 	}
 	
-	public int atacarA(Monstruo atacado) {
-		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque);
+	public int atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) {
+		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque,jugadorAtacado);
+		
 		if (diferenciaDelEnfrentamiento >= 0) {
 			this.mandarAlCementerio();
+			jugadorAtacante.reducirVida(atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento));
 		}
 		return atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento);
-		//Cero si ambos mueren o si el atacado esta en posicion de defensa
-		//Negativo si el atacado muere
-		//positivo si el atacante muere
 	}
 	
 	
-	private int recibirAtaque(int puntosDelAtacante) {
+	private int recibirAtaque(int puntosDelAtacante, Jugador jugadorAtacado) {
 		int dif = puntosRecibirAtaque - puntosDelAtacante;
 		if(dif <= 0) {
 			this.mandarAlCementerio();
+			jugadorAtacado.reducirVida(this.posicion.devolverDanio(dif));
 		}
 		return dif;
 	}

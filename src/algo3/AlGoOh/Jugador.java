@@ -42,21 +42,11 @@ public class Jugador {
 	}
 	
 	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) {
-		int diferenciaDePuntos = oponente.atacarse(campo.obtenerMonstruo(nroMonstruoAtacante), nroMonstruoAtacado);
-		
-		if (diferenciaDePuntos > 0) {
-			puntosDeVida -= diferenciaDePuntos;
-		}
+		 oponente.recibirAtaque(campo.obtenerMonstruo(nroMonstruoAtacante), nroMonstruoAtacado, this);
 	}
 	
-	public int atacarse(Monstruo atacante, int nroMonstruoAtacado) {
-		int diferenciaDePuntos = atacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado));
-		
-		if (diferenciaDePuntos < 0) {
-			puntosDeVida += diferenciaDePuntos;
-			return 0;
-		}
-		return diferenciaDePuntos;
+	private void recibirAtaque(Monstruo atacante, int nroMonstruoAtacado, Jugador jugadorAtacante) {
+		atacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado),jugadorAtacante, this);
 	}
 	
 	public int cantidadDeCartasEnMano() {
@@ -65,6 +55,11 @@ public class Jugador {
 
 	public void fijarOponente(Jugador oponente) {
 		this.oponente = oponente;
+		
+	}
+
+	public void reducirVida(int daño) {
+		puntosDeVida -= daño;
 		
 	}
 

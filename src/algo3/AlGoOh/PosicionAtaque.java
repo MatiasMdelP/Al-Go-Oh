@@ -4,7 +4,7 @@ public class PosicionAtaque implements Posicion{
 	
 	@Override
 	public int devolverDanio(int diferenciaDelEnfrentamiento) {
-		return diferenciaDelEnfrentamiento;
+		return Math.abs(diferenciaDelEnfrentamiento);
 	}
 
 }

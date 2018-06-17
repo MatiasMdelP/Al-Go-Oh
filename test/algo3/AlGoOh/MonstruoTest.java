@@ -49,8 +49,9 @@ public class MonstruoTest {
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
-		
-		assertEquals(-400, monoAcrobata.atacarA(huevoMonstruoso));
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+		assertEquals(400, monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente));
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
@@ -63,7 +64,9 @@ public class MonstruoTest {
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
 
-		assertEquals(400, huevoMonstruoso.atacarA(monoAcrobata));
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+		assertEquals(400, huevoMonstruoso.atacarA(monoAcrobata,unJugador,oponente));
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 		
@@ -77,7 +80,9 @@ public class MonstruoTest {
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		monoAcrobata.colocarEnPosicionAtaque();
 		
-		assertEquals(0, monoAcrobata.atacarA(huevoMonstruoso));
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+		assertEquals(0, monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente));
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
