@@ -12,6 +12,7 @@ public class TrampaTest {
 		
 		assertFalse(cartaTrampa.estaBocaAbajo());
 	}
+
 	@Test
 	public void test02PonerCartaTrampaBocaAbajo() {
 		Trampa cartaTrampa = new Trampa();
