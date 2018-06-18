@@ -234,4 +234,122 @@ public class JugadorTest {
 		}
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 	}
+	
+	@Test 
+	public void test11NoPuedoInvocarAlDragonDefinitivoSoloConUnDragonBlancoEnCampo() {
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
+
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null, 12, 
+									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
+		
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+			unJugador.agregarMonstruoEnAtaque(dragonBlanco);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
+		
+		try {
+			unJugador.agregarMonstruoEnDefensa(dragonDefinitivo);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(true);
+		}
+		
+		assertFalse(dragonBlanco.estaEnElCementerio());
+	}
+	
+	@Test 
+	public void test12NoPuedoInvocarAlDragonDefinitivoSoloConDosDragonBlancoEnCampo() {
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
+
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		
+		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		
+		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null, 12, 
+									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
+		
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata1);
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso2);
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata2);
+			unJugador.agregarMonstruoEnAtaque(dragonBlanco1);
+			unJugador.agregarMonstruoEnAtaque(dragonBlanco2);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
+		
+		try {
+			unJugador.agregarMonstruoEnDefensa(dragonDefinitivo);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(true);
+		}
+		
+		assertFalse(dragonBlanco1.estaEnElCementerio());
+		assertFalse(dragonBlanco2.estaEnElCementerio());
+	}
+
+	@Test 
+	public void test13InvocarAlDragonDefinitivoSacrificandoLosTresDragonesBlancosEnCampo() {
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
+
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso3 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata3 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		
+		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco3 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		
+		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null, 12, 
+									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
+		
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata1);
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso2);
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata2);
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso3);
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata3);
+			unJugador.agregarMonstruoEnAtaque(dragonBlanco1);
+			unJugador.agregarMonstruoEnAtaque(dragonBlanco2);
+			unJugador.agregarMonstruoEnAtaque(dragonBlanco3);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
+		
+		try {
+			unJugador.agregarMonstruoEnDefensa(dragonDefinitivo);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
+
+		assertTrue(dragonBlanco1.estaEnElCementerio());
+		assertTrue(dragonBlanco2.estaEnElCementerio());
+		assertTrue(dragonBlanco3.estaEnElCementerio());
+	}
 }
