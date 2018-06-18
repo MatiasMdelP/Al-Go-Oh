@@ -30,15 +30,15 @@ public class Jugador {
 		cartaMagica.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMagicaOTrampa(cartaMagica);
 	}
-
-	public void activarMagicaOTrampa(int nroDeCarta) {
-		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto();
-	}
 	
 	public void agregarCartaCampo(DeCampo cartaCampo) {
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
 		cartaCampo.realizarEfecto();
 		campo.agregarMagicaOTrampa(cartaCampo);
+	}
+
+	public void activarMagicaOTrampa(int nroDeCarta) {
+		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto();
 	}
 	
 	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) {
@@ -62,7 +62,6 @@ public class Jugador {
 		puntosDeVida -= daño;
 		
 	}
-
 
 }
 

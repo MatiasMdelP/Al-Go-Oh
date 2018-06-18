@@ -8,5 +8,9 @@ public class PosicionDefensa implements Posicion {
 			return 0;
 		return diferenciaDelEnfrentamiento;
 	}
-
+	public void efectuarDanio(int diferenciaDelEnfrentamiento, Jugador jugador, Monstruo monstruo ) {
+		monstruo.mandarAlCementerio();
+		jugador.reducirVida(0);
+		
+	}
 }

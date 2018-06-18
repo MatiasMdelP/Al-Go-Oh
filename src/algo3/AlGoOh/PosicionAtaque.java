@@ -7,4 +7,10 @@ public class PosicionAtaque implements Posicion{
 		return Math.abs(diferenciaDelEnfrentamiento);
 	}
 
+	@Override
+	public void efectuarDanio(int diferenciaDelEnfrentamiento, Jugador jugador, Monstruo monstruo ) {
+		monstruo.mandarAlCementerio();
+		jugador.reducirVida(Math.abs(diferenciaDelEnfrentamiento));
+	}
+
 }

@@ -41,20 +41,17 @@ public class Monstruo extends Carta {
 	
 	public int atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) {
 		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque,jugadorAtacado);
-		
 		if (diferenciaDelEnfrentamiento >= 0) {
-			this.mandarAlCementerio();
-			jugadorAtacante.reducirVida(atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento));
+			this.posicion.efectuarDanio(diferenciaDelEnfrentamiento,jugadorAtacante,this);
 		}
-		return atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento);
+		return atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento); //deberia sacarse pero los deje para que pase por el momento las pruebas de monstruo
 	}
 	
 	
 	private int recibirAtaque(int puntosDelAtacante, Jugador jugadorAtacado) {
 		int dif = puntosRecibirAtaque - puntosDelAtacante;
 		if(dif <= 0) {
-			this.mandarAlCementerio();
-			jugadorAtacado.reducirVida(this.posicion.devolverDanio(dif));
+			this.posicion.efectuarDanio(dif,jugadorAtacado,this);
 		}
 		return dif;
 	}
