@@ -10,7 +10,7 @@ public class MonstruoTest {
 	
 	@Test
 	public void test01ColocarMonstruoEnAtaque() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		
@@ -19,7 +19,7 @@ public class MonstruoTest {
 	
 	@Test
 	public void test02ColocarMonstruoEnDefensa() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
 		
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		
@@ -28,14 +28,14 @@ public class MonstruoTest {
 	
 	@Test
 	public void test03CrearCartaMontruoYVerificarQueNoEstaEnElCementerio(){
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
 		
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 	}
 	
 	@Test
 	public void test04MandarCartaMontruoAlCementerioYVerificarQueEstaAhi(){
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
 		
 		huevoMonstruoso.mandarAlCementerio();
 		
@@ -44,8 +44,8 @@ public class MonstruoTest {
 
 	@Test
 	public void test05AtacarConMonstruoConMayorAtaqueYMatarYVerificarQueEstaEnElCementerio() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900); //Monstruo Atacado
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);	  //Monstruo Atacante
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
@@ -57,8 +57,8 @@ public class MonstruoTest {
 	
 	@Test
 	public void test06AtacarConMonstruoConMenorAtaqueSeDestruyeAtacanteYVerificarQueEstaEnElCementerio() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900); //Monstruo Atacante
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);     //Monstruo Atacado
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900); //Monstruo Atacante
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal() ,1000, 1800);     //Monstruo Atacado
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
@@ -71,8 +71,8 @@ public class MonstruoTest {
 	
 	@Test
 	public void test07AtacarAMonstruoEnModoDefensaConMayorAtaqueYSeDestruyeAtacado() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900); //Monstruo Atacado
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);	  //Monstruo Atacante
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
 		
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		monoAcrobata.colocarEnPosicionAtaque();

@@ -4,23 +4,23 @@ import java.util.List;
 
 public class Monstruo extends Carta {
 	
-	private Estrellas estrellas;
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
 	private boolean posicionAtaque;
 	private Posicion posicion;
 	private int puntosRecibirAtaque;
+	private Invocacion invocacion;
 	
-	public Monstruo(String unNombre, int cantidadDeEstrellas, int ataque, int defensa) {
+	public Monstruo(String unNombre, int cantidadDeEstrellas,Invocacion invocacionIngresada, int ataque, int defensa) {
 		super(unNombre);
-		estrellas = new Estrellas(cantidadDeEstrellas);
+		invocacion = invocacionIngresada;
 		puntosDeAtaque = ataque;
 		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
 	}
 
-	public void efectuarSacrificios(List<Monstruo> monstruos) {
-		estrellas.efectuarSacrificios(monstruos);
+	public void efectuarSacrificios(List<Monstruo> monstruos) throws MonstruosInsuficientesParaSacrificioException {
+		invocacion.efectuarSacrificios(monstruos);
 	}
 	
 	public void colocarEnPosicionAtaque() {

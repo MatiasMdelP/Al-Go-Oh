@@ -50,11 +50,14 @@ public class MagicaTest {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
-
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		oponente.agregarMonstruoEnAtaque(monoAcrobata);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800);
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			oponente.agregarMonstruoEnAtaque(monoAcrobata);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		

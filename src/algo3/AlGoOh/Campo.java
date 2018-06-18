@@ -24,7 +24,7 @@ public class Campo {
 		return zonaMagicasYTrampas.get(nroDeCarta);
 	}
 	
-	public void agregarMonstruo(Monstruo monstruo) {
+	public void agregarMonstruo(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException {
 		monstruo.efectuarSacrificios(zonaMonstruos);
 		zonaMonstruos.add(monstruo);
 	}

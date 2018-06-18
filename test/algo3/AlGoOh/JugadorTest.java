@@ -19,12 +19,14 @@ public class JugadorTest {
 	public void test02AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelJugadorAtacado() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
-		
-		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
-		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal() ,1000, 1800);
+		try {
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		unJugador.atacarA(oponente, 0, 0);
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
@@ -37,12 +39,14 @@ public class JugadorTest {
 	public void test03AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYSufroDanio() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
-		
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		oponente.agregarMonstruoEnAtaque(monoAcrobata);
-		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800);
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			oponente.agregarMonstruoEnAtaque(monoAcrobata);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		unJugador.atacarA(oponente, 0, 0);
 		
 		assertEquals(7600, unJugador.obtenerPuntosDeVida());
@@ -56,12 +60,14 @@ public class JugadorTest {
 	public void test04AtacoAMonstruoEnPosicionAtaqueConIgualAtaqueYNaDieSufreDanioYAmbosMontruosVanAlCementerio() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
-		oponente.agregarMonstruoEnAtaque(huevoMonstruoso2);
-		
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
+			oponente.agregarMonstruoEnAtaque(huevoMonstruoso2);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		unJugador.atacarA(oponente, 0, 0);
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
@@ -75,12 +81,14 @@ public class JugadorTest {
 	public void test05AtacoAMonstruoEnPosicionDefensaConMenorAtaqueYOponenteNoSufreDanio() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
-		
-		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-		oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
-	
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal() ,1000, 1800);
+		try {
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+			oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		unJugador.atacarA(oponente, 0, 0);
 	
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
@@ -93,12 +101,14 @@ public class JugadorTest {
 	public void test06AtacoAMonstruoEnPosicionDefensaConMayorAtaqueYSufroDanioIgualALaDiferenciaEntrePuntosDeAtaqueYDefensa() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
-
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		oponente.agregarMonstruoEnDefensa(monoAcrobata);
-		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal() ,1000, 1800);
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			oponente.agregarMonstruoEnDefensa(monoAcrobata);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		unJugador.atacarA(oponente, 0,0);
 		
 		assertEquals(6800, unJugador.obtenerPuntosDeVida());
@@ -111,12 +121,14 @@ public class JugadorTest {
 	public void test07AtacoAMonstruoEnPosicionDefensaConIgualAtaqueYNadieSufreDanio() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
-		oponente.agregarMonstruoEnDefensa(huevoMonstruoso2);
-		
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", 3, new InvocacionNormal(),600, 900);
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
+			oponente.agregarMonstruoEnDefensa(huevoMonstruoso2);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		unJugador.atacarA(oponente, 0,0);
 		
 		assertEquals(7700, unJugador.obtenerPuntosDeVida());
@@ -128,12 +140,14 @@ public class JugadorTest {
 	@Test 
 	public void test08InvocacionDeMonstruoDe5Estrellas() {
 		Jugador unJugador= new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", 5, 1800, 1800);
-		
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		unJugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
-		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", 5,new Invocacion1Sacrificio() ,1800, 1800);
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			unJugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 	
 	}
@@ -141,14 +155,16 @@ public class JugadorTest {
 	@Test 
 	public void test09InvocacionDeMonstruoDe7Estrellas() {
 		Jugador unJugador= new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
-		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", 8, 3000, 2500);
-		
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-		unJugador.agregarMonstruoEnAtaque(dragonBlanco);
-		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal() ,1000, 1800);
+		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", 8,new Invocacion2Sacrificios() ,3000, 2500);
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+			unJugador.agregarMonstruoEnAtaque(dragonBlanco);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}

@@ -16,12 +16,12 @@ public class Jugador {
 		return puntosDeVida;
 	}
 
-	public void agregarMonstruoEnAtaque(Monstruo monstruo) {
+	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException{
 		monstruo.colocarEnPosicionAtaque();
 		campo.agregarMonstruo(monstruo);
 	}
 
-	public void agregarMonstruoEnDefensa(Monstruo monstruo) {
+	public void agregarMonstruoEnDefensa(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException{
 		monstruo.colocarEnPosicionDefensa();
 		campo.agregarMonstruo(monstruo);
 	}

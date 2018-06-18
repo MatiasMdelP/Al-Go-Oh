@@ -15,7 +15,7 @@ public abstract class Carta {
 		estaEnElCementerio = false;
 	}
 		
-	public void mandarAlCementerio() {
+	public void mandarAlCementerio(){
 		estaEnElCementerio = true;
 	}
 

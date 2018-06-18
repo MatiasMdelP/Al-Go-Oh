@@ -20,18 +20,18 @@ public class Estrellas {
 		}
 	}
 	
-	public void efectuarSacrificios(List<Monstruo> monstruos) {
-		int cantidadDeSacrificios = sacrificios;
-		for (Monstruo monstruo : monstruos) {
-			if (! monstruo.estaEnElCementerio) {
-				monstruo.mandarAlCementerio();
-				cantidadDeSacrificios -= 1;
-			}
-			if (cantidadDeSacrificios == 0) {
-				break;
-			}
-		}
-	}
+//	public void efectuarSacrificios(List<Monstruo> monstruos) {
+//		int cantidadDeSacrificios = sacrificios;
+//		for (Monstruo monstruo : monstruos) {
+//			if (! monstruo.estaEnElCementerio) {
+//				monstruo.mandarAlCementerio();
+//				cantidadDeSacrificios -= 1;
+//			}
+//			if (cantidadDeSacrificios == 0) {
+//				break;
+//			}
+//		}
+//	}
 	
 
 

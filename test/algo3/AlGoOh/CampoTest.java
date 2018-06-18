@@ -29,14 +29,17 @@ public class CampoTest {
 	public void test03ActivarWasteland() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, new InvocacionNormal(),1000, 1800);
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
-		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-		oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
-		
+		try {
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+			oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(false);
+		}
 		
 		DeCampo wasteland = new DeCampo("Wasteland", new EfectoWasteland());
 		unJugador.agregarCartaCampo(wasteland);
