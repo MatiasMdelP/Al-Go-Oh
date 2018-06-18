@@ -29,8 +29,8 @@ public class CampoTest {
 	public void test03ActivarWasteland() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, new InvocacionNormal(),1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800);	//1000+200 = 1200
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
@@ -43,11 +43,37 @@ public class CampoTest {
 		
 		DeCampo wasteland = new DeCampo("Wasteland", new EfectoWasteland());
 		unJugador.agregarCartaCampo(wasteland);
-		unJugador.atacarA(oponente, 0, 0);
+		unJugador.atacarA(0, 0);
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
+		assertTrue(monoAcrobata.estaEnElCementerio());
+	}
+	
+	@Test
+	public void test04ActivarSogen() {
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800); 	  // 1000 + 200 = 1200
+		
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		try {
+			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+			oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
+		}catch (MonstruosInsuficientesParaSacrificioException excepcion) {
+			assertTrue(false);
+		}
+		
+		DeCampo sogen = new DeCampo("Sogen", new EfectoSogen());
+		oponente.agregarCartaCampo(sogen);
+		unJugador.atacarA(0, 0);
+		
+		assertEquals(7800, unJugador.obtenerPuntosDeVida());
+		assertEquals(8000, oponente.obtenerPuntosDeVida());
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
 }
