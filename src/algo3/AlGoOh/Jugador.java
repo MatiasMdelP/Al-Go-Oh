@@ -16,6 +16,12 @@ public class Jugador {
 		return puntosDeVida;
 	}
 
+	public void inicializarMazo() {
+		campo.inicializarMazo();
+	}
+	public void agregarCartaEnMano(Carta unaCarta) {
+		campo.agregarCartaEnMano(unaCarta);
+	}
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException{
 		monstruo.colocarEnPosicionAtaque();
 		campo.agregarMonstruo(monstruo);
@@ -45,8 +51,8 @@ public class Jugador {
 		 oponente.recibirAtaque(campo.obtenerMonstruo(nroMonstruoAtacante), nroMonstruoAtacado, this);
 	}
 	
-	private void recibirAtaque(Monstruo atacante, int nroMonstruoAtacado, Jugador jugadorAtacante) {
-		atacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado),jugadorAtacante, this);
+	private void recibirAtaque(Monstruo monstruoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) {
+		monstruoAtacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado),jugadorAtacante, this);
 	}
 	
 	public int cantidadDeCartasEnMano() {
@@ -55,11 +61,10 @@ public class Jugador {
 
 	public void fijarOponente(Jugador oponente) {
 		this.oponente = oponente;
-		
 	}
 
-	public void reducirVida(int daño) {
-		puntosDeVida -= daño;
+	public void reducirVida(int danio) {
+		puntosDeVida -= danio;
 		
 	}
 

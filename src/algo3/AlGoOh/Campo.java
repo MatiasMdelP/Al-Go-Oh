@@ -16,6 +16,9 @@ public class Campo {
 		mazo = unMazoDeCartas;
 	}
 	
+	public void inicializarMazo() {
+		mazo.inicializarMazo();
+	}
 	public Monstruo obtenerMonstruo(int nroDeMonstruo) {
 		return zonaMonstruos.get(nroDeMonstruo);
 	}
@@ -75,6 +78,10 @@ public class Campo {
 
 	public void agregarDeCampo(DeCampo cartaCampo) {
 		zonaDeCampo = cartaCampo;
+	}
+
+	public void agregarCartaEnMano(Carta unaCarta) {
+		cartasEnMano.add(unaCarta);
 	}
 }
 
