@@ -34,7 +34,7 @@ public class Jugador {
 	public void agregarCartaCampo(DeCampo cartaCampo) {
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
 		cartaCampo.realizarEfecto();
-		campo.agregarMagicaOTrampa(cartaCampo);
+		campo.agregarDeCampo(cartaCampo);
 	}
 
 	public void activarMagicaOTrampa(int nroDeCarta) {
