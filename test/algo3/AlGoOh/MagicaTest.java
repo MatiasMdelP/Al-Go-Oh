@@ -42,7 +42,7 @@ public class MagicaTest {
 		agujeroOscuro.darVuelta();
 		agujeroOscuro.agregarAlCampo(new Campo(unMazo), new Campo(mazoOponente));
 		
-		assertFalse(agujeroOscuro.realizarEfecto());
+		assertFalse(agujeroOscuro.realizarEfecto(null, null));
 	}
 	
 	@Test
@@ -50,16 +50,17 @@ public class MagicaTest {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800);
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 			oponente.agregarMonstruoEnAtaque(monoAcrobata);
 		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
 			assertTrue(false);
 		}
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
 		
 		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
@@ -76,14 +77,17 @@ public class MagicaTest {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
+
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
+		
 		try {
 			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
 		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
 			assertTrue(false);
 		}
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		
@@ -99,16 +103,17 @@ public class MagicaTest {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800);
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);
 		try {
 			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
 			oponente.agregarMonstruoEnAtaque(monoAcrobata);
 		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
 			assertTrue(false);
 		}
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		
@@ -125,9 +130,13 @@ public class MagicaTest {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800);
-		Monstruo brazoIzquierdoDelProhibido = new Monstruo ("Brazo Izquierdo Del Prohibido", 1, new InvocacionNormal(), 200, 300);
+
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);
+		Monstruo brazoIzquierdoDelProhibido = new Monstruo ("Brazo Izquierdo Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
 				
 		try {
 			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
@@ -136,8 +145,6 @@ public class MagicaTest {
 		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
 			assertTrue(false);
 		}
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		

@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class EfectoWasteland implements Efecto {
 
 	@Override
-	public void realizarse(Campo campo, Campo campoOponente) {
+	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		Iterator<Monstruo> iterador = campo.iterarMonstruos();
 		
 		while(iterador.hasNext())

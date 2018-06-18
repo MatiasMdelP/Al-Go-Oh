@@ -24,8 +24,8 @@ public class Mazo {
 	}
 
 	public void inicializarMazo() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);
 		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
 		agregarUnaCartaAlMazo(huevoMonstruoso);

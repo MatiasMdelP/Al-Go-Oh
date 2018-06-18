@@ -9,8 +9,9 @@ public abstract class Carta {
 	protected Campo campo;
 	protected Campo campoOponente;
 
-	public Carta(String nombreDeLaCarta) {
+	public Carta(String nombreDeLaCarta, Efecto unEfecto) {
 		nombre = nombreDeLaCarta;
+		efecto = unEfecto;
 		bocaAbajo = false;
 		estaEnElCementerio = false;
 	}
@@ -31,8 +32,8 @@ public abstract class Carta {
 		bocaAbajo = !bocaAbajo;
 	}
 	
-	public boolean realizarEfecto() {
-		efecto.realizarse(campo, campoOponente);
+	public boolean realizarEfecto(Jugador unJugador, Jugador oponente) {
+		efecto.realizarse(campo, campoOponente, unJugador, oponente);
 		this.mandarAlCementerio();
 		return !bocaAbajo;
 	}

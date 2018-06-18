@@ -52,9 +52,9 @@ public class Campo {
 		zonaMagicasYTrampas.remove(nroDeCarta).mandarAlCementerio();
 	}
 	
-	public void mandarMagicaOTrampaAlCementerio(String nombreDeLaCarta) {
-		mandarMagicaOTrampaAlCementerio(buscarUnaCartaPorNombre(zonaMagicasYTrampas, nombreDeLaCarta));
-	}
+	//public void mandarMagicaOTrampaAlCementerio(String nombreDeLaCarta) {
+	//	mandarMagicaOTrampaAlCementerio(buscarUnaCartaPorNombre(zonaMagicasYTrampas, nombreDeLaCarta));
+	//}
 	
 	private int buscarUnaCartaPorNombre(List zonaARecorrer, String nombreDeLaCarta) {
 		for (int i = 0; i < zonaARecorrer.size(); i++) {

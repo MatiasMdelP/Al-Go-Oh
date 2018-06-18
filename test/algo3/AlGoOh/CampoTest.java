@@ -29,8 +29,8 @@ public class CampoTest {
 	public void test03ActivarWasteland() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800);	//1000+200 = 1200
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);	//1000+200 = 1200
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
@@ -55,8 +55,8 @@ public class CampoTest {
 	public void test04ActivarSogen() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3,new InvocacionNormal(), 1000, 1800); 	  // 1000 + 200 = 1200
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800); 	  // 1000 + 200 = 1200
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);

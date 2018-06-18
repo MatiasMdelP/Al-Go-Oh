@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class EfectoFisura implements Efecto{
 
 	@Override
-	public void realizarse(Campo campo, Campo campoOponente) {
+	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		Iterator<Monstruo> iterador1 = campoOponente.iterarMonstruos();
 		
 		Monstruo monstruoConMenorAtaque = null;

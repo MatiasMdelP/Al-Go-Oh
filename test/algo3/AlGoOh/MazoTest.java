@@ -16,7 +16,7 @@ public class MazoTest {
 	@Test
 	public void test02AlPonerUnaCartaLuegoPuedoSacarla() {
 		Mazo unMazo = new Mazo();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
 		unMazo.agregarUnaCartaAlMazo(huevoMonstruoso);
 		
 		assertEquals(huevoMonstruoso, unMazo.tomarUnaCarta());
@@ -25,7 +25,7 @@ public class MazoTest {
 	@Test(expected=ElMazoNoTieneCartasException.class)
 	public void test03AlPonerUnaCartaPuedoSacarUnaPeroNoDos() {
 		Mazo unMazo = new Mazo();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal() ,600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900);
 		unMazo.agregarUnaCartaAlMazo(huevoMonstruoso);
 		Carta primeraCarta = unMazo.tomarUnaCarta();
 		

@@ -24,6 +24,7 @@ public class Jugador {
 	}
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException{
 		monstruo.colocarEnPosicionAtaque();
+		monstruo.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMonstruo(monstruo);
 	}
 
@@ -39,12 +40,16 @@ public class Jugador {
 	
 	public void agregarCartaCampo(DeCampo cartaCampo) {
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
-		cartaCampo.realizarEfecto();
+		cartaCampo.realizarEfecto(this, oponente);
 		campo.agregarDeCampo(cartaCampo);
 	}
 
 	public void activarMagicaOTrampa(int nroDeCarta) {
-		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto();
+		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
+	}
+	
+	public void activarMonstruo(int nroDeCarta) {
+		campo.obtenerMonstruo(nroDeCarta).realizarEfecto(this, oponente);
 	}
 	
 	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) {
