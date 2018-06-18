@@ -13,4 +13,8 @@ public class PosicionDefensa implements Posicion {
 		jugador.reducirVida(0);
 		
 	}
+	@Override
+	public int obtenerResistencia(int puntosDeAtaque, int puntosDeDefensa) {
+		return puntosDeDefensa;
+	}
 }

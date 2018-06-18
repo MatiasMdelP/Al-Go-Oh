@@ -44,6 +44,8 @@ public class Monstruo extends Carta {
 		if (diferenciaDelEnfrentamiento >= 0) {
 			this.posicion.efectuarDanio(diferenciaDelEnfrentamiento,jugadorAtacante,this);
 		}
+		System.out.println(this.puntosDeAtaque);
+		System.out.println(atacado.puntosDeDefensa);
 		return atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento); //deberia sacarse pero los deje para que pase por el momento las pruebas de monstruo
 	}
 	
@@ -58,9 +60,11 @@ public class Monstruo extends Carta {
 
 	public void agregarPuntosDeAtaque(int puntos) {
 		puntosDeAtaque += puntos;
+		puntosRecibirAtaque = posicion.obtenerResistencia(puntosDeAtaque, puntosDeDefensa);
 	}
 	
 	public void agregarPuntosDeDefensa(int puntos) {
 		puntosDeDefensa += puntos;
+		puntosRecibirAtaque = posicion.obtenerResistencia(puntosDeAtaque, puntosDeDefensa);
 	}
 }

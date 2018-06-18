@@ -29,8 +29,8 @@ public class CampoTest {
 	public void test03ActivarWasteland() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);// 900 + 300 = 1200
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);	//1000+200 = 1200
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
@@ -52,8 +52,8 @@ public class CampoTest {
 	public void test04ActivarSogen() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3, 600, 900); // 900 + 500 = 1400
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", 3, 1000, 1800); 	  // 1000 + 200 = 1200
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
@@ -63,11 +63,11 @@ public class CampoTest {
 		
 		DeCampo sogen = new DeCampo("Sogen", new EfectoSogen());
 		oponente.agregarCartaCampo(sogen);
-		unJugador.atacarA(oponente, 0, 0);
+		unJugador.atacarA(0, 0);
 		
 		assertEquals(7800, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
-		assertTrue(huevoMonstruoso.estaEnElCementerio());
-		assertFalse(monoAcrobata.estaEnElCementerio());
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
+		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
 }
