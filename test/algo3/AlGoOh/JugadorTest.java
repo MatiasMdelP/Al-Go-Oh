@@ -199,4 +199,18 @@ public class JugadorTest {
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
+	
+	@Test 
+	public void test10InvocacionDeMonstruoDe7EstrellasConMonstruosInsuficientesYElMonstruoExistenteSigueVivo() {
+		Jugador unJugador= new Jugador();
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", 3,new InvocacionNormal(), 600, 900);
+		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", 8,new Invocacion2Sacrificios() ,3000, 2500);
+		try {
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			unJugador.agregarMonstruoEnAtaque(dragonBlanco);
+		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
+			assertTrue(true);
+		}
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
+	}
 }
