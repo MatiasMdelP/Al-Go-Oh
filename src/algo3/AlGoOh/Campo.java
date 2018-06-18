@@ -44,6 +44,10 @@ public class Campo {
 		zonaMonstruos.remove(nroDeCarta).mandarAlCementerio();
 	}
 	
+	public void mandarMonstruoAlCementerio(String nombreDeLaCarta) {
+		mandarMonstruoAlCementerio(buscarUnaCartaPorNombre(zonaMonstruos, nombreDeLaCarta));
+	}
+	
 	public void mandarMagicaOTrampaAlCementerio(int nroDeCarta) {
 		zonaMagicasYTrampas.remove(nroDeCarta).mandarAlCementerio();
 	}
@@ -52,9 +56,9 @@ public class Campo {
 		mandarMagicaOTrampaAlCementerio(buscarUnaCartaPorNombre(zonaMagicasYTrampas, nombreDeLaCarta));
 	}
 	
-	private int buscarUnaCartaPorNombre(List<Carta> zonaARecorrer, String nombreDeLaCarta) {
+	private int buscarUnaCartaPorNombre(List zonaARecorrer, String nombreDeLaCarta) {
 		for (int i = 0; i < zonaARecorrer.size(); i++) {
-			if (zonaARecorrer.get(i).seLlama(nombreDeLaCarta)) {
+			if (((Carta) zonaARecorrer.get(i)).seLlama(nombreDeLaCarta)) {
 				return i;
 			}
 		}

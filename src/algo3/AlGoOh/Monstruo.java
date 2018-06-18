@@ -18,6 +18,10 @@ public class Monstruo extends Carta {
 		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
 	}
+	
+	public String obtenerNombre() {
+		return nombre;
+	}
 
 	public void efectuarSacrificios(List<Monstruo> monstruos) throws MonstruosInsuficientesParaSacrificioException {
 		invocacion.efectuarSacrificios(monstruos);
@@ -66,5 +70,13 @@ public class Monstruo extends Carta {
 	public void agregarPuntosDeDefensa(int puntos) {
 		puntosDeDefensa += puntos;
 		puntosRecibirAtaque = posicion.obtenerResistencia(puntosDeAtaque, puntosDeDefensa);
+	}
+	
+	public boolean tieneMenorAtaqueQue(Monstruo otroMonstruo) {
+		return  (otroMonstruo.tieneMayorAtaqueQue(puntosDeAtaque));
+	}
+	
+	private boolean tieneMayorAtaqueQue(int puntosDelMonstruoRival) {
+		return (puntosDeAtaque > puntosDelMonstruoRival);
 	}
 }
