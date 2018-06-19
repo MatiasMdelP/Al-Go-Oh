@@ -32,7 +32,11 @@ public class JugadorTest {
 			assertTrue(false);
 		}
 		
-		unJugador.atacarA(0, 0);
+		try {
+			unJugador.atacarA(0, 0);
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(7600, oponente.obtenerPuntosDeVida());
@@ -57,7 +61,11 @@ public class JugadorTest {
 			assertTrue(false);
 		}
 		
-		unJugador.atacarA( 0, 0);
+		try {
+			unJugador.atacarA( 0, 0);
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 
 		
 		assertEquals(7600, unJugador.obtenerPuntosDeVida());
@@ -84,7 +92,11 @@ public class JugadorTest {
 			assertTrue(false);
 		}
 		
-		unJugador.atacarA(0, 0);
+		try {
+			unJugador.atacarA(0, 0);
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
@@ -111,7 +123,11 @@ public class JugadorTest {
 			assertTrue(false);
 		}
 	
-		unJugador.atacarA(0, 0);
+		try {
+			unJugador.atacarA(0, 0);
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 
 	
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
@@ -138,7 +154,11 @@ public class JugadorTest {
 			assertTrue(false);
 		}
 		
-		unJugador.atacarA(0,0);
+		try {
+			unJugador.atacarA(0,0);
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 
 		
 		assertEquals(6800, unJugador.obtenerPuntosDeVida());
@@ -165,7 +185,11 @@ public class JugadorTest {
 			assertTrue(false);
 		}
 		
-		unJugador.atacarA(0,0);
+		try {
+			unJugador.atacarA(0,0);
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 
 		
 		assertEquals(7700, unJugador.obtenerPuntosDeVida());

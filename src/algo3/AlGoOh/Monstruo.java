@@ -8,6 +8,7 @@ public class Monstruo extends Carta {
 	private int puntosDeDefensa;
 	private boolean posicionAtaque;
 	private Posicion posicion;
+	private boolean bocaArriba;
 	private int puntosRecibirAtaque;
 	private Invocacion invocacion;
 	
@@ -17,6 +18,7 @@ public class Monstruo extends Carta {
 		puntosDeAtaque = ataque;
 		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
+		bocaArriba = true;
 	}
 	
 	public String obtenerNombre() {
@@ -25,6 +27,14 @@ public class Monstruo extends Carta {
 
 	public void efectuarSacrificios(List<Monstruo> monstruos) throws MonstruosInsuficientesParaSacrificioException {
 		invocacion.efectuarSacrificios(monstruos);
+	}
+	
+	public void darVuelta() {
+		bocaArriba = !bocaArriba;
+	}
+	
+	public boolean estaBocaArriba() {
+		return bocaArriba;
 	}
 	
 	public void colocarEnPosicionAtaque() {
@@ -43,13 +53,12 @@ public class Monstruo extends Carta {
 		return posicionAtaque;
 	}
 	
-	public int atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) {
+	public int atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
+		if (!bocaArriba && !posicionAtaque) throw new MonstruoNoPuedeAtacarException();
 		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque,jugadorAtacado);
 		if (diferenciaDelEnfrentamiento >= 0) {
 			this.posicion.efectuarDanio(diferenciaDelEnfrentamiento,jugadorAtacante,this);
 		}
-		System.out.println(this.puntosDeAtaque);
-		System.out.println(atacado.puntosDeDefensa);
 		return atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento); //deberia sacarse pero los deje para que pase por el momento las pruebas de monstruo
 	}
 	

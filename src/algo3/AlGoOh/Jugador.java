@@ -52,11 +52,11 @@ public class Jugador {
 		campo.obtenerMonstruo(nroDeCarta).realizarEfecto(this, oponente);
 	}
 	
-	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) {
+	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) throws MonstruoNoPuedeAtacarException {
 		 oponente.recibirAtaque(campo.obtenerMonstruo(nroMonstruoAtacante), nroMonstruoAtacado, this);
 	}
 	
-	private void recibirAtaque(Monstruo monstruoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) {
+	private void recibirAtaque(Monstruo monstruoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
 		monstruoAtacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado),jugadorAtacante, this);
 	}
 	
@@ -74,12 +74,3 @@ public class Jugador {
 	}
 
 }
-
-
-
-
-
-
-
-
-

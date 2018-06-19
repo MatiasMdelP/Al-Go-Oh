@@ -43,7 +43,11 @@ public class CampoTest {
 		
 		DeCampo wasteland = new DeCampo("Wasteland", new EfectoWasteland());
 		unJugador.agregarCartaCampo(wasteland);
-		unJugador.atacarA(0, 0);
+		try {
+			unJugador.atacarA(0, 0);
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
@@ -69,7 +73,11 @@ public class CampoTest {
 		
 		DeCampo sogen = new DeCampo("Sogen", new EfectoSogen());
 		oponente.agregarCartaCampo(sogen);
-		unJugador.atacarA(0, 0);
+		try {
+			unJugador.atacarA(0, 0);
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 		
 		assertEquals(7800, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());

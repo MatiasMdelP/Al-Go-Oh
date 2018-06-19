@@ -51,7 +51,11 @@ public class MonstruoTest {
 		monoAcrobata.colocarEnPosicionAtaque();
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		assertEquals(400, monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente));
+		try {
+			assertEquals(400, monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente));
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
@@ -66,7 +70,11 @@ public class MonstruoTest {
 
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		assertEquals(400, huevoMonstruoso.atacarA(monoAcrobata,unJugador,oponente));
+		try {
+			assertEquals(400, huevoMonstruoso.atacarA(monoAcrobata,unJugador,oponente));
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 		
@@ -82,7 +90,11 @@ public class MonstruoTest {
 		
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		assertEquals(0, monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente));
+		try {
+			assertEquals(0, monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente));
+		} catch (MonstruoNoPuedeAtacarException e) {
+			assertTrue(false);
+		}
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
@@ -111,5 +123,33 @@ public class MonstruoTest {
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(7500, oponente.obtenerPuntosDeVida());
 		assertFalse(huevoMonstruoso.estaEnElCementerio);
+	}
+	
+	@Test
+	public void test09VoltearInsectoComeHombres() {
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo insectoComeHombres = new Monstruo("Insecto come hombres", new EfectoInsectoComeHombres(), 2, new InvocacionNormal(), 450, 600);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900);
+		
+		insectoComeHombres.darVuelta();
+		
+		try {
+			oponente.agregarMonstruoEnDefensa(insectoComeHombres);
+			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		} catch (MonstruosInsuficientesParaSacrificioException e) {
+			assertTrue(false);
+		}
+		
+		unJugador.atacarA(0, 0);
+		
+		assertTrue(huevoMonstruoso.estaEnElCementerio());
+		assertFalse(insectoComeHombres.estaEnElCementerio());
+		assertEquals(8000, unJugador.obtenerPuntosDeVida());
+		assertEquals(8000, oponente.obtenerPuntosDeVida());
 	}
 }
