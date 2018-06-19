@@ -86,7 +86,14 @@ public class Jugador {
 
 	public void reducirVida(int danio) {
 		puntosDeVida -= danio;
-		
+	}
+	
+	public void tomarUnaCartaDelMazo() throws ElJugadorSeQuedoSinCartasException {
+		try {
+			campo.tomarUnaCartaDelMazo();
+		} catch (ElMazoNoTieneCartasException exception) {
+			throw new ElJugadorSeQuedoSinCartasException();
+		}
 	}
 
 }

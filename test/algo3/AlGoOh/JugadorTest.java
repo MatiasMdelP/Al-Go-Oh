@@ -376,4 +376,34 @@ public class JugadorTest {
 		assertTrue(dragonBlanco2.estaEnElCementerio());
 		assertTrue(dragonBlanco3.estaEnElCementerio());
 	}
+	
+	@Test
+	public void test14Habiendo5CartasEnElMazoPuedoSacarTodasYNoPierdo() {
+		Jugador unJugador = new Jugador();
+		unJugador.inicializarMazo();
+		
+		try {
+			for (int i = 0; i < 5; i++) {
+				unJugador.tomarUnaCartaDelMazo();
+			}
+		}catch(ElJugadorSeQuedoSinCartasException excepcion){
+			assertTrue(false);
+		}
+	}
+
+	@Test
+	public void test15Habiendo5CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
+		Jugador unJugador = new Jugador();
+		unJugador.inicializarMazo();
+		
+		try {
+			for (int i = 0; i < 5; i++) {
+				unJugador.tomarUnaCartaDelMazo();
+			}
+			unJugador.tomarUnaCartaDelMazo();
+		}catch(ElJugadorSeQuedoSinCartasException excepcion){
+			assertTrue(true);
+		}
+	}
+	
 }
