@@ -11,6 +11,7 @@ public class Campo {
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Mazo mazo;
 	private DeCampo zonaDeCampo;
+	private Monstruo monstruo;
 	
 	public Campo(Mazo unMazoDeCartas) {
 		mazo = unMazoDeCartas;
@@ -87,6 +88,19 @@ public class Campo {
 	public void agregarCartaEnMano(Carta unaCarta) {
 		cartasEnMano.add(unaCarta);
 	}
+
+	public int obtenerNroCartaTrampa() {
+		return zonaMagicasYTrampas.size()-1;
+	}
+
+	public void definirMonstruo(int nroMonstruoAtacante) {
+		monstruo = this.obtenerMonstruo(nroMonstruoAtacante);
+	}
+
+	public int calcularDanio() {
+		return monstruo.getDaño();
+	}
+
 }
 
 

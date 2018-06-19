@@ -4,8 +4,8 @@ public class EfectoCilindroMAgico implements Efecto {
 
 	@Override
 	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
-		// TODO Auto-generated method stub
-
+		int danio = campoOponente.calcularDanio();
+		oponente.reducirVida(danio);
 	}
 
 

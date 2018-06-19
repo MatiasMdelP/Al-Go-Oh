@@ -62,7 +62,6 @@ public class Monstruo extends Carta {
 		return atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento); //deberia sacarse pero los deje para que pase por el momento las pruebas de monstruo
 	}
 	
-	
 	private int recibirAtaque(int puntosDelAtacante, Jugador jugadorAtacado) {
 		int dif = puntosRecibirAtaque - puntosDelAtacante;
 		if(dif <= 0) {
@@ -88,4 +87,9 @@ public class Monstruo extends Carta {
 	private boolean tieneMayorAtaqueQue(int puntosDelMonstruoRival) {
 		return (puntosDeAtaque > puntosDelMonstruoRival);
 	}
+
+	public int getDaño() {
+		return puntosDeAtaque;
+	}
+
 }

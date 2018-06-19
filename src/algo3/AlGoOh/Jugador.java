@@ -48,8 +48,15 @@ public class Jugador {
 		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
 	}
 	
-	public void activarTrampa() {
-		//campo.obtenerMagicaOTrampa(0).realizarEfecto(this, oponente);
+	public boolean activarTrampa() {
+		int nroDeCarta = campo.obtenerNroCartaTrampa();
+		if (nroDeCarta >= 0) {
+			
+			campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
+			return false;
+		}
+		return true;
+		
 	}
 	
 	public void activarMonstruo(int nroDeCarta) {
@@ -57,13 +64,16 @@ public class Jugador {
 	}
 	
 	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) throws MonstruoNoPuedeAtacarException {
-
+		campo.definirMonstruo(nroMonstruoAtacante);
 		oponente.recibirAtaque(campo.obtenerMonstruo(nroMonstruoAtacante), nroMonstruoAtacado, this);
 	}
 	
 	private void recibirAtaque(Monstruo monstruoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
-		activarTrampa();
-		monstruoAtacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado),jugadorAtacante, this);
+		campo.definirMonstruo(nroMonstruoAtacado);
+		if(activarTrampa()) {
+			monstruoAtacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado),jugadorAtacante, this);
+		}
+		
 	}
 	
 	public int cantidadDeCartasEnMano() {
