@@ -20,8 +20,8 @@ public class Campo {
 	public void inicializarMazo() {
 		mazo.inicializarMazo();
 	}
-	public Monstruo obtenerMonstruo(int nroDeMonstruo) {
-		return zonaMonstruos.get(nroDeMonstruo);
+	public Monstruo obtenerMonstruo() {
+		return monstruo;
 	}
 	
 	public Carta obtenerMagicaOTrampa(int nroDeCarta) {
@@ -93,14 +93,21 @@ public class Campo {
 		return zonaMagicasYTrampas.size()-1;
 	}
 
-	public void definirMonstruo(int nroMonstruoAtacante) {
-		monstruo = this.obtenerMonstruo(nroMonstruoAtacante);
+	public void definirMonstruo(int nroDeMonstruo) {
+		monstruo = zonaMonstruos.get(nroDeMonstruo);
 	}
 
 	public int calcularDanio() {
 		return monstruo.getDaño();
 	}
 
+	public void atacarA(Campo campoAtacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
+		campoAtacado.recibirAtaque(monstruo,jugadorAtacante,jugadorAtacado);
+	}
+
+	private void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
+		monstruoAtacante.atacarA(monstruo, jugadorAtacante, jugadorAtacado);
+	}
 }
 
 

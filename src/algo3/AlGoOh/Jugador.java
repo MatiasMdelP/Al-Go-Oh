@@ -60,20 +60,20 @@ public class Jugador {
 	}
 	
 	public void activarMonstruo(int nroDeCarta) {
-		campo.obtenerMonstruo(nroDeCarta).realizarEfecto(this, oponente);
+		campo.definirMonstruo(nroDeCarta);
+		campo.obtenerMonstruo().realizarEfecto(this, oponente);
 	}
 	
 	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) throws MonstruoNoPuedeAtacarException {
 		campo.definirMonstruo(nroMonstruoAtacante);
-		oponente.recibirAtaque(campo.obtenerMonstruo(nroMonstruoAtacante), nroMonstruoAtacado, this);
+		oponente.recibirAtaque(campo, nroMonstruoAtacado, this);
 	}
 	
-	private void recibirAtaque(Monstruo monstruoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
+	private void recibirAtaque(Campo campoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
 		campo.definirMonstruo(nroMonstruoAtacado);
 		if(activarTrampa()) {
-			monstruoAtacante.atacarA(campo.obtenerMonstruo(nroMonstruoAtacado),jugadorAtacante, this);
+			campoAtacante.atacarA(campo,jugadorAtacante, this);
 		}
-		
 	}
 	
 	public int cantidadDeCartasEnMano() {
