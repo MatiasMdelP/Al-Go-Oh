@@ -126,7 +126,7 @@ public class MonstruoTest {
 	}
 	
 	@Test
-	public void test09VoltearInsectoComeHombres() {
+	public void test09VoltearInsectoComeHombres() throws MonstruoNoPuedeAtacarException {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -152,4 +152,7 @@ public class MonstruoTest {
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
 	}
+	
+
+	
 }

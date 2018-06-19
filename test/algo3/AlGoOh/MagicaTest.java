@@ -64,8 +64,8 @@ public class MagicaTest {
 		
 		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
-		unJugador.agregarCartaMagicaOTrampa(agujeroOscuro);
-		unJugador.activarMagicaOTrampa(0);
+		unJugador.agregarCartaMagica(agujeroOscuro);
+		unJugador.activarMagica(0);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
@@ -91,8 +91,8 @@ public class MagicaTest {
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		
-		unJugador.agregarCartaMagicaOTrampa(fisura);
-		unJugador.activarMagicaOTrampa(0);
+		unJugador.agregarCartaMagica(fisura);
+		unJugador.activarMagica(0);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(fisura.estaEnElCementerio());
@@ -117,8 +117,8 @@ public class MagicaTest {
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		
-		unJugador.agregarCartaMagicaOTrampa(fisura);
-		unJugador.activarMagicaOTrampa(0);
+		unJugador.agregarCartaMagica(fisura);
+		unJugador.activarMagica(0);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
@@ -148,8 +148,8 @@ public class MagicaTest {
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		
-		unJugador.agregarCartaMagicaOTrampa(fisura);
-		unJugador.activarMagicaOTrampa(0);
+		unJugador.agregarCartaMagica(fisura);
+		unJugador.activarMagica(0);
 		
 		assertTrue(brazoIzquierdoDelProhibido.estaEnElCementerio);
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
