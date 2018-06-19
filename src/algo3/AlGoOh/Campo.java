@@ -98,7 +98,7 @@ public class Campo {
 	}
 
 	public int calcularDanio() {
-		return monstruo.getDaño();
+		return monstruo.getDanio();
 	}
 
 }

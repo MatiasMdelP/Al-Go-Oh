@@ -39,7 +39,7 @@ public class TrampaTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal() ,1000, 1800);	
-		Trampa cilindroMagico = new Trampa("Cilindro Magico", new EfectoCilindroMAgico());
+		Trampa cilindroMagico = new Trampa("Cilindro Magico", new EfectoCilindroMagico());
 		
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
 		unJugador.agregarCartaMagica(cilindroMagico);
