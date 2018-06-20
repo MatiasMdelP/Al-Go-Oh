@@ -3,6 +3,7 @@ package algo3.AlGoOh;
 import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Mazo {
 
@@ -13,7 +14,9 @@ public class Mazo {
 			throw new ElMazoNoTieneCartasException();
 		}
 		
-		return (baraja.remove(0));
+		Random eleccionDeCarta = new Random();
+		
+		return (baraja.remove(eleccionDeCarta.nextInt(baraja.size())));
 	}
 	
 	public void agregarUnaCartaAlMazo(Carta unaCarta) {

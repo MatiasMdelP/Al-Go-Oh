@@ -419,6 +419,7 @@ public class JugadorTest {
 		unJugador.agregarCartaEnMano(brazoDerechoDelProhibido);
 		unJugador.agregarCartaEnMano(piernaDerechaDelProhibido);
 		
+		//assertTrue(unJugador.ganoElJuego());
 	}
 	
 }
