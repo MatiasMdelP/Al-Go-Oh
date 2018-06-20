@@ -76,6 +76,16 @@ public class Campo {
 		return monstruo.getDanio();
 	}
 
+	public void activarTrampa(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException{
+		for (Carta carta : zonaMagicasYTrampas) {
+			if(carta.esTrampa()) {
+				carta.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+				break;
+			}
+		}
+	
+	}
+	
 	public void atacarA(Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
 		jugadorAtacado.recibirAtaque(monstruo,jugadorAtacante);
 	}

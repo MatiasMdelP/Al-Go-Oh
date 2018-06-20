@@ -46,17 +46,17 @@ public class Jugador {
 		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
 	}
 	
-	public boolean activarTrampa() {
-		int nroDeCarta = campo.obtenerNroCartaTrampa();
-		
-		if (nroDeCarta >= 0) {
-			campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
-			return false;
-		}
-		
-		return true;
-		
-	}
+//	public boolean activarTrampa() {
+//		int nroDeCarta = campo.obtenerNroCartaTrampa();
+//		
+//		if (nroDeCarta >= 0) {
+//			campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
+//			return false;
+//		}
+//		
+//		return true;
+//		
+//	}
 	
 	public void activarMonstruo(int nroDeCarta) {
 		campo.definirMonstruo(nroDeCarta);
@@ -71,11 +71,10 @@ public class Jugador {
 	private void recibirAtaque(Campo campoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
 		campo.definirMonstruo(nroMonstruoAtacado);
 		try {
-			if(activarTrampa()) {
-				campo.activarEfectoDeVolteoMonstruoDefinido(campo, campoAtacante, this, jugadorAtacante);
-				campoAtacante.atacarA(jugadorAtacante,this);
-			}
-			}catch(InterrumpirAtaqueException excepcion){
+			campo.activarTrampa(campo, campoAtacante, this, jugadorAtacante);
+			campo.activarEfectoDeVolteoMonstruoDefinido(campo, campoAtacante, this, jugadorAtacante);
+			campoAtacante.atacarA(jugadorAtacante,this);
+		}catch(InterrumpirAtaqueException excepcion){
 		}
 	}
 	

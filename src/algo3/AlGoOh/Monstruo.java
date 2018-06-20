@@ -90,11 +90,16 @@ public class Monstruo extends Carta {
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
 		if (! this.estaBocaArriba()) 
+			this.darVuelta();
 			efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
 	}
 	
 	public int getDanio() {
 		return puntosDeAtaque;
 	}
-
+	
+	public boolean esTrampa() {
+		return false;
+	}
+	
 }

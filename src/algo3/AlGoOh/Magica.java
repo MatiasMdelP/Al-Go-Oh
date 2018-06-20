@@ -5,4 +5,8 @@ public class Magica extends Carta {
 	public Magica(String unNombre, Efecto unEfecto) {
 		super(unNombre, unEfecto);
 	}
+
+	public boolean esTrampa() {
+		return false;
+	}
 }

@@ -50,5 +50,28 @@ public class TrampaTest {
 		assertEquals(7400,oponente.obtenerPuntosDeVida());
 		assertEquals(8000,unJugador.obtenerPuntosDeVida());
 	}
+	@Test
+	public void test04ActivarCartaReinforcements() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException{
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);	
+		Trampa reinforcements = new Trampa("Reinforcements", new EfectoAumentar500Ataque());
+		
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.agregarCartaMagica(reinforcements);
+		oponente.agregarMonstruoEnAtaque(monoAcrobata);
+		
+		oponente.atacarA(0, 0);
+		
+		assertEquals(7900,oponente.obtenerPuntosDeVida());
+		assertEquals(8000,unJugador.obtenerPuntosDeVida());
+		assertTrue(monoAcrobata.estaEnElCementerio());
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
+	}
 	
 }

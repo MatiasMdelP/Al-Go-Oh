@@ -38,6 +38,8 @@ public abstract class Carta {
 		darVuelta();
 	}
 	
+	public abstract void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException;
+	
 	public boolean seLlama(String nombreDeUnaCarta) {
 		return (nombreDeUnaCarta == nombre);
 	}
@@ -46,4 +48,6 @@ public abstract class Carta {
 		campo = unCampo;
 		campoOponente = unCampoOponente;
 	}
+
+	public abstract boolean esTrampa();
 }
