@@ -10,7 +10,7 @@ public class MonstruoTest {
 	
 	@Test
 	public void test01ColocarMonstruoEnAtaque() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		
@@ -19,7 +19,7 @@ public class MonstruoTest {
 	
 	@Test
 	public void test02ColocarMonstruoEnDefensa() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
 		
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		
@@ -28,14 +28,14 @@ public class MonstruoTest {
 	
 	@Test
 	public void test03CrearCartaMontruoYVerificarQueNoEstaEnElCementerio(){
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
 		
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 	}
 	
 	@Test
 	public void test04MandarCartaMontruoAlCementerioYVerificarQueEstaAhi(){
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal() ,600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal() ,600, 900);
 		
 		huevoMonstruoso.mandarAlCementerio();
 		
@@ -44,8 +44,8 @@ public class MonstruoTest {
 
 	@Test
 	public void test05AtacarConMonstruoConMayorAtaqueYMatarYVerificarQueEstaEnElCementerio() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
@@ -62,8 +62,8 @@ public class MonstruoTest {
 	
 	@Test
 	public void test06AtacarConMonstruoConMenorAtaqueSeDestruyeAtacanteYVerificarQueEstaEnElCementerio() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900); //Monstruo Atacante
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal() ,1000, 1800);     //Monstruo Atacado
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900); //Monstruo Atacante
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);     //Monstruo Atacado
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
@@ -82,8 +82,8 @@ public class MonstruoTest {
 	
 	@Test
 	public void test07AtacarAMonstruoEnModoDefensaConMayorAtaqueYSeDestruyeAtacado() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
 		
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		monoAcrobata.colocarEnPosicionAtaque();
@@ -108,7 +108,7 @@ public class MonstruoTest {
 		oponente.fijarOponente(unJugador);
 		
 		Monstruo jinzo7 = new Monstruo("Jinzo #7", new EfectoJinzo7(), 2, new InvocacionNormal(), 500, 400);
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
 		
 		try {
 			unJugador.agregarMonstruoEnAtaque(jinzo7);
@@ -134,7 +134,7 @@ public class MonstruoTest {
 		oponente.fijarOponente(unJugador);
 		
 		Monstruo insectoComeHombres = new Monstruo("Insecto come hombres", new EfectoInsectoComeHombres(), 2, new InvocacionNormal(), 450, 600);
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
 		
 		insectoComeHombres.darVuelta();
 		

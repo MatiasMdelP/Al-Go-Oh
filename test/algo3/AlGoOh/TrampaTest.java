@@ -9,14 +9,14 @@ public class TrampaTest {
 
 	@Test
 	public void test01CrearCartaTrampaYVerificarQueEstaArriba() {
-		Trampa cartaTrampa = new Trampa("Un nombre", null);
+		Trampa cartaTrampa = new Trampa("Un nombre", new EfectoVacio());
 		
 		assertFalse(cartaTrampa.estaBocaAbajo());
 	}
 
 	@Test
 	public void test02PonerCartaTrampaBocaAbajo() {
-		Trampa cartaTrampa = new Trampa("Un nombre", null);
+		Trampa cartaTrampa = new Trampa("Un nombre", new EfectoVacio());
 		
 		cartaTrampa.darVuelta();
 		
@@ -37,8 +37,8 @@ public class TrampaTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal() ,1000, 1800);	
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);	
 		Trampa cilindroMagico = new Trampa("Cilindro Magico", new EfectoCilindroMagico());
 		
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);

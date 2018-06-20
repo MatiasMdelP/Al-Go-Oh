@@ -42,7 +42,7 @@ public class MagicaTest {
 		agujeroOscuro.darVuelta();
 		agujeroOscuro.agregarAlCampo(new Campo(unMazo), new Campo(mazoOponente));
 		
-		assertFalse(agujeroOscuro.realizarEfecto(null, null));
+		assertFalse(agujeroOscuro.realizarEfecto(null,null));
 	}
 	
 	@Test
@@ -53,8 +53,8 @@ public class MagicaTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal(), 1000, 1800);
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 			oponente.agregarMonstruoEnAtaque(monoAcrobata);
@@ -81,7 +81,7 @@ public class MagicaTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
 		
 		try {
 			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
@@ -106,8 +106,8 @@ public class MagicaTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal(), 1000, 1800);
 		try {
 			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
 			oponente.agregarMonstruoEnAtaque(monoAcrobata);
@@ -134,9 +134,9 @@ public class MagicaTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);
-		Monstruo brazoIzquierdoDelProhibido = new Monstruo ("Brazo Izquierdo Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal(), 1000, 1800);
+		Monstruo brazoIzquierdoDelProhibido = new Monstruo ("Brazo Izquierdo Del Prohibido", new EfectoVacio(), 1, new InvocacionNormal(), 200, 300);
 				
 		try {
 			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);

@@ -23,8 +23,8 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
 		try {
 			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
 			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
@@ -52,8 +52,8 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal() ,1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 			oponente.agregarMonstruoEnAtaque(monoAcrobata);
@@ -83,8 +83,8 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
-		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
 			oponente.agregarMonstruoEnAtaque(huevoMonstruoso2);
@@ -113,8 +113,8 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 	
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3,new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal(), 1000, 1800);
 		
 		try {
 			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
@@ -144,8 +144,8 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(),1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(),1000, 1800);
 
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
@@ -175,8 +175,8 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
-		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);
 
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
@@ -206,8 +206,8 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900);
-		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", null, 5,new Invocacion1Sacrificio() ,1800, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
+		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", new EfectoVacio(), 5,new Invocacion1Sacrificio() ,1800, 1800);
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 			unJugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
@@ -226,9 +226,9 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
-		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
@@ -248,8 +248,8 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
 		try {
 			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 			unJugador.agregarMonstruoEnAtaque(dragonBlanco);
@@ -267,10 +267,10 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
-		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null, 12, 
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", new EfectoVacio(), 12, 
 									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		
 		try {
@@ -298,15 +298,15 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
-		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
 		
-		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
 		
-		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null, 12, 
+		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", new EfectoVacio(), 12, 
 									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		
 		try {
@@ -338,18 +338,18 @@ public class JugadorTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
-		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
-		Monstruo huevoMonstruoso3 = new Monstruo("Huevo Monstruoso", null, 3, new InvocacionNormal(), 600, 900);
-		Monstruo monoAcrobata3 = new Monstruo("Mono Acrobata", null, 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso3 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata3 = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
 		
-		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonBlanco3 = new Monstruo("Dragon Blanco De Ojos Azules", null, 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco3 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
 		
-		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null, 12, 
+		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", new EfectoVacio(), 12, 
 									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		
 		try {
@@ -407,11 +407,11 @@ public class JugadorTest {
 	public void test16ElJugadorGanaCuandoTieneLas5PartesDeExodiaEnLaMano() {
 		Jugador unJugador = new Jugador();
 		
-		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", null, 3, new InvocacionNormal(), 1000, 1000);
-		Monstruo brazoIzquierdoDelProhibido = new Monstruo("Brazo Izquierdo Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
-		Monstruo piernaIzquierdaDelProhibido = new Monstruo("Pierna Izquierda Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
-		Monstruo brazoDerechoDelProhibido = new Monstruo("Brazo Derecho Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
-		Monstruo piernaDerechaDelProhibido = new Monstruo("Pierna Derecha Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
+		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1000);
+		Monstruo brazoIzquierdoDelProhibido = new Monstruo("Brazo Izquierdo Del Prohibido", new EfectoVacio(), 1, new InvocacionNormal(), 200, 300);
+		Monstruo piernaIzquierdaDelProhibido = new Monstruo("Pierna Izquierda Del Prohibido", new EfectoVacio(), 1, new InvocacionNormal(), 200, 300);
+		Monstruo brazoDerechoDelProhibido = new Monstruo("Brazo Derecho Del Prohibido", new EfectoVacio(), 1, new InvocacionNormal(), 200, 300);
+		Monstruo piernaDerechaDelProhibido = new Monstruo("Pierna Derecha Del Prohibido", new EfectoVacio(), 1, new InvocacionNormal(), 200, 300);
 	
 		unJugador.agregarCartaEnMano(exodiaElProhibido);
 		unJugador.agregarCartaEnMano(brazoIzquierdoDelProhibido);
