@@ -2,6 +2,12 @@ package algo3.AlGoOh;
 
 public class PosicionDefensa implements Posicion {
 
+	private int puntosRecibirAtaque;
+	
+	public PosicionDefensa(int puntosDeDefensa) {
+		puntosRecibirAtaque = puntosDeDefensa;
+	}
+	
 	@Override
 	public int devolverDanio(int diferenciaDelEnfrentamiento) {
 		if (diferenciaDelEnfrentamiento < 0)
@@ -16,5 +22,10 @@ public class PosicionDefensa implements Posicion {
 	@Override
 	public int obtenerResistencia(int puntosDeAtaque, int puntosDeDefensa) {
 		return puntosDeDefensa;
+	}
+
+	@Override
+	public boolean estaEnAtaque() {
+		return false;
 	}
 }

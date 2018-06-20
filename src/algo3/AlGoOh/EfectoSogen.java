@@ -8,15 +8,20 @@ public class EfectoSogen implements Efecto {
 	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		Iterator<Monstruo> iterador = campo.iterarMonstruos();
 		
-		while(iterador.hasNext()) {
+		iterador.forEachRemaining(e -> e.agregarPuntosDeDefensa(500));
+		iterador = campoOponente.iterarMonstruos();
+		iterador.forEachRemaining(e -> e.agregarPuntosDeAtaque(200));
+		
+		/*while(iterador.hasNext()) {
 			iterador.next().agregarPuntosDeDefensa(500);
 		}
-		
-		iterador = campoOponente.iterarMonstruos();
-		
 		while(iterador.hasNext()) {
 			iterador.next().agregarPuntosDeAtaque(200);
 		}
+		*/
+		
+		
+
 	}
 
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente){}

@@ -8,9 +8,8 @@ public class InvocacionDragonDefinitivoDeOjosAzules implements Invocacion{
 		int cantidadDeDragonesDeOjosAzules = 0;
 		
 		for (int i = 0; i < monstruos.size(); i++) {
-			if (monstruos.get(i).seLlama("Dragon Blanco De Ojos Azules")) {
+			if (monstruos.get(i).seLlama("Dragon Blanco De Ojos Azules")) 
 				cantidadDeDragonesDeOjosAzules++;
-			}
 		}
 
 		if (cantidadDeDragonesDeOjosAzules >= 3) {

@@ -8,17 +8,10 @@ public class EfectoWasteland implements Efecto {
 	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		Iterator<Monstruo> iterador = campo.iterarMonstruos();
 		
-		while(iterador.hasNext())
-		{
-			iterador.next().agregarPuntosDeAtaque(200);
-		}
-		
+		iterador.forEachRemaining(e -> e.agregarPuntosDeAtaque(200));
 		iterador = campoOponente.iterarMonstruos();
-		
-		while(iterador.hasNext())
-		{
-			iterador.next().agregarPuntosDeDefensa(300);
-		}
+		iterador.forEachRemaining(e -> e.agregarPuntosDeDefensa(300));
+
 	}
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente){}

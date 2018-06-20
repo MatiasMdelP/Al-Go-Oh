@@ -2,9 +2,9 @@ package algo3.AlGoOh;
 
 public class Jugador {
 	
+	int VIDA = 8000;
 	private int puntosDeVida;
 	private Campo campo;
-	int VIDA = 8000;
 	private Jugador oponente;	
 	private boolean perdioElJuego = false;
 	
@@ -39,7 +39,7 @@ public class Jugador {
 	public void agregarCartaCampo(DeCampo cartaCampo) {
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
 		cartaCampo.realizarEfecto(this, oponente);
-		campo.agregarDeCampo(cartaCampo);
+		//no la agrego al campo ya que en cuanto se agregan son realizadas
 	}
 
 	public void activarMagica(int nroDeCarta) {
@@ -48,11 +48,12 @@ public class Jugador {
 	
 	public boolean activarTrampa() {
 		int nroDeCarta = campo.obtenerNroCartaTrampa();
+		
 		if (nroDeCarta >= 0) {
-			
 			campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
 			return false;
 		}
+		
 		return true;
 		
 	}

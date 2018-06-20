@@ -6,7 +6,6 @@ public class Monstruo extends Carta {
 	
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
-	private boolean posicionAtaque;
 	private Posicion posicion;
 	private boolean bocaArriba;
 	private int puntosRecibirAtaque;
@@ -38,23 +37,21 @@ public class Monstruo extends Carta {
 	}
 	
 	public void colocarEnPosicionAtaque() {
-		posicion = new PosicionAtaque();
-		posicionAtaque = true;
+		posicion = new PosicionAtaque(puntosDeAtaque);
 		puntosRecibirAtaque = puntosDeAtaque;
 	}
 	
 	public void colocarEnPosicionDefensa() {
-		posicion = new PosicionDefensa();
-		posicionAtaque = false;
+		posicion = new PosicionDefensa(puntosDeDefensa);
 		puntosRecibirAtaque = puntosDeDefensa;
 	}
 
 	public boolean estaEnPosicionDeAtaque() {
-		return posicionAtaque;
+		return posicion.estaEnAtaque();
 	}
 	
 	public int atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
-		if (!bocaArriba && !posicionAtaque) throw new MonstruoNoPuedeAtacarException();
+		if (!bocaArriba && !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
 		
 		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque,jugadorAtacado);
 		

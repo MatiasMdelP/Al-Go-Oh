@@ -8,4 +8,6 @@ public interface Posicion {
 
 	int obtenerResistencia(int puntosDeAtaque, int puntosDeDefensa);
 
+	boolean estaEnAtaque();
+
 }

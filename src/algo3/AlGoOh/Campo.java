@@ -10,7 +10,6 @@ public class Campo {
 	private List<Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Mazo mazo;
-	private DeCampo zonaDeCampo;
 	private Monstruo monstruo;
 	private int nroMonstruoDefinido;
 	
@@ -43,10 +42,6 @@ public class Campo {
 	
 	public void agregarMagicaOTrampa(Carta carta) {
 		zonaMagicasYTrampas.add(carta);
-	}
-	
-	public void agregarDeCampo(DeCampo cartaCampo) {
-		zonaDeCampo = cartaCampo;
 	}
 
 	public void agregarCartaEnMano(Carta unaCarta) {
