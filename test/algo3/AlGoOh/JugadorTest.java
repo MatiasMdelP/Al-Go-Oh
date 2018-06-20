@@ -382,13 +382,11 @@ public class JugadorTest {
 		Jugador unJugador = new Jugador();
 		unJugador.inicializarMazo();
 		
-		try {
-			for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) {
 				unJugador.tomarUnaCartaDelMazo();
-			}
-		}catch(ElJugadorSeQuedoSinCartasException excepcion){
-			assertTrue(false);
 		}
+
+		assertFalse(unJugador.perdioElJuego());
 	}
 
 	@Test
@@ -396,14 +394,24 @@ public class JugadorTest {
 		Jugador unJugador = new Jugador();
 		unJugador.inicializarMazo();
 		
-		try {
-			for (int i = 0; i < 5; i++) {
-				unJugador.tomarUnaCartaDelMazo();
-			}
+		for (int i = 0; i < 5; i++) {
 			unJugador.tomarUnaCartaDelMazo();
-		}catch(ElJugadorSeQuedoSinCartasException excepcion){
-			assertTrue(true);
 		}
+		
+		unJugador.tomarUnaCartaDelMazo();
+		
+		assertTrue(unJugador.perdioElJuego());
+	}
+	
+	@Test
+	public void test16ElJugadorGanaCuandoTieneLas5PartesDeExodiaEnLaMano() {
+		Jugador unJugador = new Jugador();
+		
+		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", null, 3, new InvocacionNormal(), 1000, 1000);
+		Monstruo brazoIzquierdoDelProhibido = new Monstruo("Brazo Izquierdo Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
+		Monstruo piernaIzquierdaDelProhibido = new Monstruo("Pierna Izquierda Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
+		Monstruo brazoDerechoDelProhibido = new Monstruo("Brazo Derecho Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
+		Monstruo piernaDerechaDelProhibido = new Monstruo("Pierna Derecha Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
 	}
 	
 }

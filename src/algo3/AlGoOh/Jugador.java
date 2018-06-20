@@ -6,6 +6,7 @@ public class Jugador {
 	private Campo campo;
 	int VIDA = 8000;
 	private Jugador oponente;	
+	private boolean perdioElJuego = false;
 	
 	public Jugador() {
 		campo = new Campo(new Mazo());
@@ -88,12 +89,16 @@ public class Jugador {
 		puntosDeVida -= danio;
 	}
 	
-	public void tomarUnaCartaDelMazo() throws ElJugadorSeQuedoSinCartasException {
+	public void tomarUnaCartaDelMazo(){
 		try {
 			campo.tomarUnaCartaDelMazo();
 		} catch (ElMazoNoTieneCartasException exception) {
-			throw new ElJugadorSeQuedoSinCartasException();
+			perdioElJuego = true;
 		}
+	}
+	
+	public boolean perdioElJuego(){
+		return perdioElJuego;
 	}
 
 }
