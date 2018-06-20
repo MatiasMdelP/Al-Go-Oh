@@ -6,5 +6,10 @@ public class EfectoInsectoComeHombres implements Efecto {
 	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 
 	}
+	
+	@Override
+	public void realizarEfectoDeVolteo (Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException{
+		
+	}
 
 }
