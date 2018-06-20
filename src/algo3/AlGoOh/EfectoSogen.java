@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class EfectoSogen implements Efecto {
 
 	@Override
-	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente, int nroMonstruoAtacante) {
+	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		Iterator<Monstruo> iterador = campo.iterarMonstruos();
 		
 		while(iterador.hasNext()) {
@@ -19,5 +19,5 @@ public class EfectoSogen implements Efecto {
 		}
 	}
 
-	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente, int nroMonstruoAtacante) throws InterrumpirAtaqueException{}
+	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente){}
 }

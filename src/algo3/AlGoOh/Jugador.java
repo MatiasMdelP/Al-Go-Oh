@@ -72,8 +72,12 @@ public class Jugador {
 	
 	private void recibirAtaque(Campo campoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
 		campo.definirMonstruo(nroMonstruoAtacado);
-		if(activarTrampa()) {
-			campoAtacante.atacarA(jugadorAtacante,this);
+		try {
+			if(activarTrampa()) {
+				campo.activarEfectoDeVolteoMonstruoDefinido(campo, campoAtacante, this, jugadorAtacante);
+				campoAtacante.atacarA(jugadorAtacante,this);
+			}
+			}catch(InterrumpirAtaqueException excepcion){
 		}
 	}
 	

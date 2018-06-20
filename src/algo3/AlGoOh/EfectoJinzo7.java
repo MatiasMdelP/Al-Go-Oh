@@ -6,4 +6,7 @@ public class EfectoJinzo7 implements Efecto {
 	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		oponente.reducirVida(500);
 	}
+
+	public void realizarEfectoDeVolteo (Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {}
+	
 }

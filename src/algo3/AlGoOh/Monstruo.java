@@ -92,7 +92,14 @@ public class Monstruo extends Carta {
 	private boolean tieneMayorAtaqueQue(int puntosDelMonstruoRival) {
 		return (puntosDeAtaque > puntosDelMonstruoRival);
 	}
-
+	
+	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
+		if (! this.estaBocaArriba()) {
+			efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+		}
+		
+	}
+	
 	public int getDanio() {
 		return puntosDeAtaque;
 	}

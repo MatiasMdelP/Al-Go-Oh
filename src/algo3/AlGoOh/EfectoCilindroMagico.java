@@ -8,5 +8,6 @@ public class EfectoCilindroMagico implements Efecto {
 		oponente.reducirVida(danio);
 	}
 
+	public void realizarEfectoDeVolteo (Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente){}
 
 }

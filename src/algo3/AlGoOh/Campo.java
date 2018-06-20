@@ -12,6 +12,7 @@ public class Campo {
 	private Mazo mazo;
 	private DeCampo zonaDeCampo;
 	private Monstruo monstruo;
+	private int nroMonstruoDefinido;
 	
 	public Campo(Mazo unMazoDeCartas) {
 		mazo = unMazoDeCartas;
@@ -94,6 +95,7 @@ public class Campo {
 	}
 
 	public void definirMonstruo(int nroDeMonstruo) {
+		nroMonstruoDefinido = nroDeMonstruo;
 		monstruo = zonaMonstruos.get(nroDeMonstruo);
 	}
 
@@ -107,6 +109,15 @@ public class Campo {
 
 	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
 		monstruoAtacante.atacarA(monstruo, jugadorAtacante, jugadorAtacado);
+	}
+	
+	public void activarEfectoDeVolteoMonstruoDefinido(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
+		monstruo.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+	}
+
+	public void mandarMonstruoDefinidoAlCementerio() {
+		zonaMonstruos.remove(nroMonstruoDefinido);
+		monstruo.mandarAlCementerio();
 	}
 }
 

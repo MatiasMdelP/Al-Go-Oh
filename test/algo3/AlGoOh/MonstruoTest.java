@@ -133,7 +133,7 @@ public class MonstruoTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo insectoComeHombres = new Monstruo("Insecto come hombres", new EfectoInsectoComeHombres(), 2, new InvocacionNormal(), 450, 600);
+		Monstruo insectoComeHombres = new Monstruo("Insecto come hombres", new EfectoDestruirMonstruoAtacante(), 2, new InvocacionNormal(), 450, 600);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
 		
 		insectoComeHombres.darVuelta();
