@@ -2,11 +2,6 @@ package algo3.AlGoOh;
 
 public class PosicionAtaque implements Posicion{
 	
-	private int puntosRecibirAtaque;
-
-	public PosicionAtaque(int puntosDeAtaque) {
-		puntosRecibirAtaque = puntosDeAtaque;
-	}
 
 	@Override
 	public int devolverDanio(int diferenciaDelEnfrentamiento) {

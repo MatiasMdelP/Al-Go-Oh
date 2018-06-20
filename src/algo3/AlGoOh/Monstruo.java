@@ -37,12 +37,12 @@ public class Monstruo extends Carta {
 	}
 	
 	public void colocarEnPosicionAtaque() {
-		posicion = new PosicionAtaque(puntosDeAtaque);
+		posicion = new PosicionAtaque();
 		puntosRecibirAtaque = puntosDeAtaque;
 	}
 	
 	public void colocarEnPosicionDefensa() {
-		posicion = new PosicionDefensa(puntosDeDefensa);
+		posicion = new PosicionDefensa();
 		puntosRecibirAtaque = puntosDeDefensa;
 	}
 
@@ -50,7 +50,7 @@ public class Monstruo extends Carta {
 		return posicion.estaEnAtaque();
 	}
 	
-	public int atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
+	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
 		if (!bocaArriba && !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
 		
 		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque,jugadorAtacado);
@@ -58,8 +58,6 @@ public class Monstruo extends Carta {
 		if (diferenciaDelEnfrentamiento >= 0) {
 			this.posicion.efectuarDanio(diferenciaDelEnfrentamiento,jugadorAtacante,this);
 		}
-		
-		return atacado.posicion.devolverDanio(diferenciaDelEnfrentamiento); //deberia sacarse pero los deje para que pase por el momento las pruebas de monstruo
 	}
 	
 	private int recibirAtaque(int puntosDelAtacante, Jugador jugadorAtacado) {
@@ -91,10 +89,8 @@ public class Monstruo extends Carta {
 	}
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
-		if (! this.estaBocaArriba()) {
+		if (! this.estaBocaArriba()) 
 			efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
-		}
-		
 	}
 	
 	public int getDanio() {

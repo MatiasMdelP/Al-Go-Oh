@@ -51,7 +51,8 @@ public class MonstruoTest {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		try {
-			assertEquals(400, monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente));
+			monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente);
+			assertEquals(7600,oponente.obtenerPuntosDeVida());
 		} catch (MonstruoNoPuedeAtacarException e) {
 			assertTrue(false);
 		}
@@ -70,7 +71,8 @@ public class MonstruoTest {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		try {
-			assertEquals(400, huevoMonstruoso.atacarA(monoAcrobata,unJugador,oponente));
+			huevoMonstruoso.atacarA(monoAcrobata,unJugador,oponente);
+			assertEquals(7600,unJugador.obtenerPuntosDeVida());
 		} catch (MonstruoNoPuedeAtacarException e) {
 			assertTrue(false);
 		}
@@ -90,7 +92,9 @@ public class MonstruoTest {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		try {
-			assertEquals(0, monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente));
+			monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente);
+			assertEquals(8000,unJugador.obtenerPuntosDeVida());
+			assertEquals(8000,oponente.obtenerPuntosDeVida());
 		} catch (MonstruoNoPuedeAtacarException e) {
 			assertTrue(false);
 		}
