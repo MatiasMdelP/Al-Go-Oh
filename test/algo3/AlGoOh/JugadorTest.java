@@ -412,6 +412,13 @@ public class JugadorTest {
 		Monstruo piernaIzquierdaDelProhibido = new Monstruo("Pierna Izquierda Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
 		Monstruo brazoDerechoDelProhibido = new Monstruo("Brazo Derecho Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
 		Monstruo piernaDerechaDelProhibido = new Monstruo("Pierna Derecha Del Prohibido", null, 1, new InvocacionNormal(), 200, 300);
+	
+		unJugador.agregarCartaEnMano(exodiaElProhibido);
+		unJugador.agregarCartaEnMano(brazoIzquierdoDelProhibido);
+		unJugador.agregarCartaEnMano(piernaIzquierdaDelProhibido);
+		unJugador.agregarCartaEnMano(brazoDerechoDelProhibido);
+		unJugador.agregarCartaEnMano(piernaDerechaDelProhibido);
+		
 	}
 	
 }
