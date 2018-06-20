@@ -98,7 +98,7 @@ public class Campo {
 	}
 
 	public int calcularDanio() {
-		return monstruo.getDaño();
+		return monstruo.getDanio();
 	}
 
 	public void atacarA(Campo campoAtacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {

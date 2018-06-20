@@ -88,7 +88,7 @@ public class Monstruo extends Carta {
 		return (puntosDeAtaque > puntosDelMonstruoRival);
 	}
 
-	public int getDaño() {
+	public int getDanio() {
 		return puntosDeAtaque;
 	}
 
