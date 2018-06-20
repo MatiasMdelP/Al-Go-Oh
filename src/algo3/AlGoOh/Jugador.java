@@ -17,9 +17,6 @@ public class Jugador {
 		return puntosDeVida;
 	}
 
-	public void inicializarMazo() {
-		campo.inicializarMazo();
-	}
 	public void agregarCartaEnMano(Carta unaCarta) {
 		campo.agregarCartaEnMano(unaCarta);
 	}

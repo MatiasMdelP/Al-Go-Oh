@@ -27,8 +27,7 @@ public class MazoTest {
 		Mazo unMazo = new Mazo();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null, 3,new InvocacionNormal() ,600, 900);
 		unMazo.agregarUnaCartaAlMazo(huevoMonstruoso);
-		Carta primeraCarta = unMazo.tomarUnaCarta();
-		
+		unMazo.tomarUnaCarta();
 		unMazo.tomarUnaCarta();
 	}
 }

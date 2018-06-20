@@ -1,6 +1,5 @@
 package algo3.AlGoOh;
 
-import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -24,7 +23,7 @@ public class Mazo {
 	}
 	
 	public boolean seQuedoSinCartas() {
-		return (baraja.isEmpty());
+		return baraja.isEmpty();
 	}
 
 	public void inicializarMazo() {

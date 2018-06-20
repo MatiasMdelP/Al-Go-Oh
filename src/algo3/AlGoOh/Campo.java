@@ -16,17 +16,24 @@ public class Campo {
 	
 	public Campo(Mazo unMazoDeCartas) {
 		mazo = unMazoDeCartas;
-	}
-	
-	public void inicializarMazo() {
 		mazo.inicializarMazo();
 	}
+	
 	public Monstruo obtenerMonstruo() {
 		return monstruo;
 	}
 	
 	public Carta obtenerMagicaOTrampa(int nroDeCarta) {
 		return zonaMagicasYTrampas.get(nroDeCarta);
+	}
+	
+	
+	public int obtenerCantidadDeCartasEnLaMano() {
+		return (cartasEnMano.size());
+	}
+	
+	public int obtenerNroCartaTrampa() {
+		return zonaMagicasYTrampas.size()-1;
 	}
 	
 	public void agregarMonstruo(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException {
@@ -36,6 +43,14 @@ public class Campo {
 	
 	public void agregarMagicaOTrampa(Carta carta) {
 		zonaMagicasYTrampas.add(carta);
+	}
+	
+	public void agregarDeCampo(DeCampo cartaCampo) {
+		zonaDeCampo = cartaCampo;
+	}
+
+	public void agregarCartaEnMano(Carta unaCarta) {
+		cartasEnMano.add(unaCarta);
 	}
 	
 	public void tomarUnaCartaDelMazo() {
@@ -54,49 +69,12 @@ public class Campo {
 		zonaMagicasYTrampas.remove(nroDeCarta).mandarAlCementerio();
 	}
 	
-	//public void mandarMagicaOTrampaAlCementerio(String nombreDeLaCarta) {
-	//	mandarMagicaOTrampaAlCementerio(buscarUnaCartaPorNombre(zonaMagicasYTrampas, nombreDeLaCarta));
-	//}
-	
 	private int buscarUnaCartaPorNombre(List zonaARecorrer, String nombreDeLaCarta) {
 		for (int i = 0; i < zonaARecorrer.size(); i++) {
-			if (((Carta) zonaARecorrer.get(i)).seLlama(nombreDeLaCarta)) {
+			if (((Carta) zonaARecorrer.get(i)).seLlama(nombreDeLaCarta))
 				return i;
-			}
 		}
-		
 		throw new Error();
-	}
-	
-	public int obtenerCantidadDeCartasEnLaMano() {
-		return (cartasEnMano.size());
-	}
-	
-	public Iterator<Monstruo> iterarMonstruos() 
-	{
-		return zonaMonstruos.iterator();
-	}
-	
-	public Iterator<Carta> iterarMagicasYTrampas() 
-	{
-		return zonaMagicasYTrampas.iterator();
-	}
-
-	public void agregarDeCampo(DeCampo cartaCampo) {
-		zonaDeCampo = cartaCampo;
-	}
-
-	public void agregarCartaEnMano(Carta unaCarta) {
-		cartasEnMano.add(unaCarta);
-	}
-
-	public int obtenerNroCartaTrampa() {
-		return zonaMagicasYTrampas.size()-1;
-	}
-
-	public void definirMonstruo(int nroDeMonstruo) {
-		nroMonstruoDefinido = nroDeMonstruo;
-		monstruo = zonaMonstruos.get(nroDeMonstruo);
 	}
 
 	public int calcularDanio() {
@@ -111,6 +89,11 @@ public class Campo {
 		monstruoAtacante.atacarA(monstruo, jugadorAtacante, jugadorAtacado);
 	}
 	
+	public void definirMonstruo(int nroDeMonstruo) {
+		nroMonstruoDefinido = nroDeMonstruo;
+		monstruo = zonaMonstruos.get(nroDeMonstruo);
+	}
+	
 	public void activarEfectoDeVolteoMonstruoDefinido(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
 		monstruo.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
 	}
@@ -118,6 +101,14 @@ public class Campo {
 	public void mandarMonstruoDefinidoAlCementerio() {
 		zonaMonstruos.remove(nroMonstruoDefinido);
 		monstruo.mandarAlCementerio();
+	}
+	
+	public Iterator<Monstruo> iterarMonstruos() {
+		return zonaMonstruos.iterator();
+	}
+	
+	public Iterator<Carta> iterarMagicasYTrampas() {
+		return zonaMagicasYTrampas.iterator();
 	}
 }
 

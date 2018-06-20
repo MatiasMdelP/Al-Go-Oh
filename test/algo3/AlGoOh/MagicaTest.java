@@ -41,8 +41,8 @@ public class MagicaTest {
 		
 		agujeroOscuro.darVuelta();
 		agujeroOscuro.agregarAlCampo(new Campo(unMazo), new Campo(mazoOponente));
-		
-		assertFalse(agujeroOscuro.realizarEfecto(null,null));
+		agujeroOscuro.realizarEfecto(null,null);
+		assertFalse(agujeroOscuro.estaBocaAbajo());
 	}
 	
 	@Test

@@ -1,9 +1,8 @@
 package algo3.AlGoOh;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
 public class JugadorTest {
@@ -380,7 +379,6 @@ public class JugadorTest {
 	@Test
 	public void test14Habiendo5CartasEnElMazoPuedoSacarTodasYNoPierdo() {
 		Jugador unJugador = new Jugador();
-		unJugador.inicializarMazo();
 		
 		for (int i = 0; i < 5; i++) {
 				unJugador.tomarUnaCartaDelMazo();
@@ -392,7 +390,6 @@ public class JugadorTest {
 	@Test
 	public void test15Habiendo5CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
 		Jugador unJugador = new Jugador();
-		unJugador.inicializarMazo();
 		
 		for (int i = 0; i < 5; i++) {
 			unJugador.tomarUnaCartaDelMazo();

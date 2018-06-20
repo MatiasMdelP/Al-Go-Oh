@@ -32,10 +32,10 @@ public abstract class Carta {
 		bocaAbajo = !bocaAbajo;
 	}
 	
-	public boolean realizarEfecto(Jugador unJugador, Jugador oponente){
+	public void realizarEfecto(Jugador unJugador, Jugador oponente){
 		efecto.realizarse(campo, campoOponente, unJugador, oponente);
 		this.mandarAlCementerio();
-		return !bocaAbajo;
+		darVuelta();
 	}
 	
 	public boolean seLlama(String nombreDeUnaCarta) {
