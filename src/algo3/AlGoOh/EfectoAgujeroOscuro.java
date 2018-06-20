@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class EfectoAgujeroOscuro implements Efecto{
 	
 	@Override
-	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
+	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente, int nroMonstruoAtacante) {
 		Iterator<Carta> iterador1 = campo.iterarMagicasYTrampas();
 		Iterator<Monstruo> iterador2 = campo.iterarMonstruos();
 		
@@ -28,4 +28,8 @@ public class EfectoAgujeroOscuro implements Efecto{
 			iterador2.next().mandarAlCementerio();
 		}
 	}
+
+	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente, int nroMonstruoAtacante) throws InterrumpirAtaqueException{}
+
+
 }
