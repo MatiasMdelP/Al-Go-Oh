@@ -73,7 +73,7 @@ public class Jugador {
 	private void recibirAtaque(Campo campoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
 		campo.definirMonstruo(nroMonstruoAtacado);
 		if(activarTrampa()) {
-			campoAtacante.atacarA(campo,jugadorAtacante, this);
+			campoAtacante.atacarA(jugadorAtacante,this);
 		}
 	}
 	
@@ -99,6 +99,11 @@ public class Jugador {
 	
 	public boolean perdioElJuego(){
 		return perdioElJuego;
+	}
+
+	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
+		this.campo.recibirAtaque(monstruoAtacante, jugadorAtacante, this);
+		
 	}
 
 }

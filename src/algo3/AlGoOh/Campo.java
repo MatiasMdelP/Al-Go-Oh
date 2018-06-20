@@ -101,11 +101,11 @@ public class Campo {
 		return monstruo.getDanio();
 	}
 
-	public void atacarA(Campo campoAtacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
-		campoAtacado.recibirAtaque(monstruo,jugadorAtacante,jugadorAtacado);
+	public void atacarA(Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
+		jugadorAtacado.recibirAtaque(monstruo,jugadorAtacante);
 	}
 
-	private void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
+	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
 		monstruoAtacante.atacarA(monstruo, jugadorAtacante, jugadorAtacado);
 	}
 }
