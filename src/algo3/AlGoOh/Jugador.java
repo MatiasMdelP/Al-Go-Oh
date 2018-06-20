@@ -1,12 +1,16 @@
 package algo3.AlGoOh;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Jugador {
 	
 	int VIDA = 8000;
 	private int puntosDeVida;
 	private Campo campo;
 	private Jugador oponente;	
-	private boolean perdioElJuego = false;
+	private boolean ganoElJuego = false;
+	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	
 	public Jugador() {
 		campo = new Campo(new Mazo());
@@ -18,7 +22,7 @@ public class Jugador {
 	}
 
 	public void agregarCartaEnMano(Carta unaCarta) {
-		campo.agregarCartaEnMano(unaCarta);
+		cartasEnMano.add(unaCarta);
 	}
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException{
 		monstruo.colocarEnPosicionAtaque();
@@ -79,7 +83,7 @@ public class Jugador {
 	}
 	
 	public int cantidadDeCartasEnMano() {
-		return campo.obtenerCantidadDeCartasEnLaMano();
+		return (cartasEnMano.size());
 	}
 
 	public void fijarOponente(Jugador oponente) {
@@ -92,14 +96,18 @@ public class Jugador {
 	
 	public void tomarUnaCartaDelMazo(){
 		try {
-			campo.tomarUnaCartaDelMazo();
+			cartasEnMano.add(campo.tomarUnaCartaDelMazo());
 		} catch (ElMazoNoTieneCartasException exception) {
-			perdioElJuego = true;
+			oponente.declararComoGanador();
 		}
 	}
 	
-	public boolean perdioElJuego(){
-		return perdioElJuego;
+	public boolean ganoElJuego(){
+		return ganoElJuego;
+	}
+	
+	public void declararComoGanador() {
+		ganoElJuego = true;
 	}
 
 	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {

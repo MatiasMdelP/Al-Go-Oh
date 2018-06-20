@@ -8,7 +8,6 @@ public class Campo {
 	
 	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();
 	private List<Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
-	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Mazo mazo;
 	private Monstruo monstruo;
 	private int nroMonstruoDefinido;
@@ -26,11 +25,6 @@ public class Campo {
 		return zonaMagicasYTrampas.get(nroDeCarta);
 	}
 	
-	
-	public int obtenerCantidadDeCartasEnLaMano() {
-		return (cartasEnMano.size());
-	}
-	
 	public int obtenerNroCartaTrampa() {
 		return zonaMagicasYTrampas.size()-1;
 	}
@@ -43,13 +37,9 @@ public class Campo {
 	public void agregarMagicaOTrampa(Carta carta) {
 		zonaMagicasYTrampas.add(carta);
 	}
-
-	public void agregarCartaEnMano(Carta unaCarta) {
-		cartasEnMano.add(unaCarta);
-	}
 	
-	public void tomarUnaCartaDelMazo() {
-		cartasEnMano.add(mazo.tomarUnaCarta());
+	public Carta tomarUnaCartaDelMazo() {
+		return mazo.tomarUnaCarta();
 	}
 
 	public void mandarMonstruoAlCementerio(int nroDeCarta) {

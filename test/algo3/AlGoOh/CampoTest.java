@@ -7,27 +7,9 @@ import org.junit.Test;
 
 public class CampoTest {
 
-	@Test
-	public void test01AlIniciarNoTengoCartasEnMano() {
-		Mazo unMazo = new Mazo();
-		unMazo.inicializarMazo();
-		Campo unCampo = new Campo(unMazo);
 		
-		assertEquals(0, unCampo.obtenerCantidadDeCartasEnLaMano());
-	}
-	
 	@Test
-	public void test02AlTomarUnaCartaTengoUnaEnMano() {
-		Mazo unMazo = new Mazo();
-		unMazo.inicializarMazo();
-		Campo unCampo = new Campo(unMazo);
-		unCampo.tomarUnaCartaDelMazo();
-		
-		assertEquals(1, unCampo.obtenerCantidadDeCartasEnLaMano());
-	}
-	
-	@Test
-	public void test03ActivarWasteland() {
+	public void test01ActivarWasteland() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
@@ -57,7 +39,7 @@ public class CampoTest {
 	}
 	
 	@Test
-	public void test04ActivarSogen() {
+	public void test02ActivarSogen() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
