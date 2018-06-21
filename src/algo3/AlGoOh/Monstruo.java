@@ -10,6 +10,7 @@ public class Monstruo extends Carta {
 	private boolean bocaArriba;
 	private int puntosRecibirAtaque;
 	private Invocacion invocacion;
+	private boolean esParteDelExodia;
 	
 	public Monstruo(String unNombre, Efecto unEfecto, int cantidadDeEstrellas,Invocacion invocacionIngresada, int ataque, int defensa) {
 		super(unNombre, unEfecto);
@@ -18,6 +19,7 @@ public class Monstruo extends Carta {
 		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
 		bocaArriba = true;
+		esParteDelExodia = verificarSiEsParteDelExodia();
 	}
 	
 	public String obtenerNombre() {
@@ -102,4 +104,12 @@ public class Monstruo extends Carta {
 		return false;
 	}
 	
+	public boolean esParteDelExodia() {
+		return esParteDelExodia;
+	}
+	
+	private boolean verificarSiEsParteDelExodia() {
+		return ((nombre == "Exodia El Prohibido") || (nombre == "Brazo Izquierdo Del Prohibido") || (nombre == "Pierna Izquierda Del Prohibido") || 
+				(nombre == "Brazo Derecho Del Prohibido") || (nombre == "Pierna Derecha Del Prohibido"));
+	}
 }

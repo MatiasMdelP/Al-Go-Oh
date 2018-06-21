@@ -38,6 +38,8 @@ public abstract class Carta {
 		darVuelta();
 	}
 	
+	public abstract boolean esParteDelExodia();
+	
 	public abstract void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException;
 	
 	public boolean seLlama(String nombreDeUnaCarta) {

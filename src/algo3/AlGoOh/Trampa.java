@@ -14,4 +14,8 @@ public class Trampa extends Carta{
 		this.darVuelta();
 		efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
 	}
+	
+	public boolean esParteDelExodia() {
+		return false;
+	}
 }

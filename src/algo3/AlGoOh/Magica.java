@@ -13,4 +13,8 @@ public class Magica extends Carta {
 	public boolean esTrampa() {
 		return false;
 	}
+	
+	public boolean esParteDelExodia() {
+		return false;
+	}
 }

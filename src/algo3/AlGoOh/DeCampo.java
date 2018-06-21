@@ -10,8 +10,11 @@ public class DeCampo extends Carta {
 		
 	}
 	
-	
 	public boolean esTrampa() {
+		return false;
+	}
+	
+	public boolean esParteDelExodia() {
 		return false;
 	}
 }

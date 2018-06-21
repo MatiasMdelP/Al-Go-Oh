@@ -426,7 +426,24 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test18ElJugadorGanaCuandoTieneLas5PartesDeExodiaEnLaMano() {
+	public void test18Con4PartesDelExodiaEnManoElJugadorNoGana() {
+		Jugador unJugador = new Jugador();
+		
+		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1000);
+		Monstruo brazoIzquierdoDelProhibido = new Monstruo("Brazo Izquierdo Del Prohibido", new EfectoVacio(), 1, new InvocacionNormal(), 200, 300);
+		Monstruo piernaIzquierdaDelProhibido = new Monstruo("Pierna Izquierda Del Prohibido", new EfectoVacio(), 1, new InvocacionNormal(), 200, 300);
+		Monstruo brazoDerechoDelProhibido = new Monstruo("Brazo Derecho Del Prohibido", new EfectoVacio(), 1, new InvocacionNormal(), 200, 300);
+		
+		unJugador.agregarCartaEnMano(exodiaElProhibido);
+		unJugador.agregarCartaEnMano(brazoIzquierdoDelProhibido);
+		unJugador.agregarCartaEnMano(piernaIzquierdaDelProhibido);
+		unJugador.agregarCartaEnMano(brazoDerechoDelProhibido);
+		
+		assertFalse(unJugador.ganoElJuego());
+	}
+	
+	@Test
+	public void test19ElJugadorGanaCuandoTieneLas5PartesDeExodiaEnLaMano() {
 		Jugador unJugador = new Jugador();
 		
 		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1000);
@@ -441,7 +458,7 @@ public class JugadorTest {
 		unJugador.agregarCartaEnMano(brazoDerechoDelProhibido);
 		unJugador.agregarCartaEnMano(piernaDerechaDelProhibido);
 		
-		//assertTrue(unJugador.ganoElJuego());
+		assertTrue(unJugador.ganoElJuego());
 	}
 	
 }

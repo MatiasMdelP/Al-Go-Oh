@@ -10,6 +10,7 @@ public class Jugador {
 	private Campo campo;
 	private Jugador oponente;	
 	private boolean ganoElJuego = false;
+	private int partesDelExodiaEnMano = 0;
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	
 	public Jugador() {
@@ -23,6 +24,9 @@ public class Jugador {
 
 	public void agregarCartaEnMano(Carta unaCarta) {
 		cartasEnMano.add(unaCarta);
+		if (cartasEnMano.get(cartasEnMano.size()-1).esParteDelExodia()) {
+			partesDelExodiaEnMano++;
+		}
 	}
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException{
 		monstruo.colocarEnPosicionAtaque();
@@ -102,7 +106,14 @@ public class Jugador {
 		}
 	}
 	
+	private void tieneTodasLasPartesDelExodia() {
+		if (partesDelExodiaEnMano == 5) {
+			declararComoGanador();
+		}
+	}
+	
 	public boolean ganoElJuego(){
+		tieneTodasLasPartesDelExodia();
 		return ganoElJuego;
 	}
 	
