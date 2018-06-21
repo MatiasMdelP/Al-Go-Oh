@@ -59,7 +59,7 @@ public class Campo {
 			if (((Carta) zonaARecorrer.get(i)).seLlama(nombreDeLaCarta))
 				return i;
 		}
-		throw new Error();
+		throw new CartaNoEncontradaException();
 	}
 
 	public int calcularDanio() {

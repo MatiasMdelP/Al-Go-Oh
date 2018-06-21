@@ -8,17 +8,15 @@ import static org.junit.Assert.assertEquals;
 public class TrampaTest {
 
 	@Test
-	public void test01CrearCartaTrampaYVerificarQueEstaArriba() {
+	public void test01CrearCartaTrampaYVerificarQueEstaAbajo() {
 		Trampa cartaTrampa = new Trampa("Un nombre", new EfectoVacio());
 		
-		assertFalse(cartaTrampa.estaBocaAbajo());
+		assertTrue(cartaTrampa.estaBocaAbajo());
 	}
 
 	@Test
 	public void test02PonerCartaTrampaBocaAbajo() {
 		Trampa cartaTrampa = new Trampa("Un nombre", new EfectoVacio());
-		
-		cartaTrampa.darVuelta();
 		
 		assertTrue(cartaTrampa.estaBocaAbajo());
 	}

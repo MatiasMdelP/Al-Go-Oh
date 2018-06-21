@@ -30,7 +30,21 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test04AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelJugadorAtacado() {
+	public void test04ActivarMonstruo() throws MonstruosInsuficientesParaSacrificioException {
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.activarMonstruo(0);
+		
+		assertTrue(huevoMonstruoso.estaEnElCementerio());
+	}
+	
+	@Test
+	public void test05AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelJugadorAtacado() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -59,7 +73,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test05AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYSufroDanio() {
+	public void test06AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYSufroDanio() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -90,7 +104,7 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test06AtacoAMonstruoEnPosicionAtaqueConIgualAtaqueYNaDieSufreDanioYAmbosMontruosVanAlCementerio() {
+	public void test07AtacoAMonstruoEnPosicionAtaqueConIgualAtaqueYNaDieSufreDanioYAmbosMontruosVanAlCementerio() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -120,7 +134,7 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test07AtacoAMonstruoEnPosicionDefensaConMenorAtaqueYOponenteNoSufreDanio() {
+	public void test08AtacoAMonstruoEnPosicionDefensaConMenorAtaqueYOponenteNoSufreDanio() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -151,7 +165,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test08AtacoAMonstruoEnPosicionDefensaConMayorAtaqueYSufroDanioIgualALaDiferenciaEntrePuntosDeAtaqueYDefensa() {
+	public void test09AtacoAMonstruoEnPosicionDefensaConMayorAtaqueYSufroDanioIgualALaDiferenciaEntrePuntosDeAtaqueYDefensa() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -213,7 +227,7 @@ public class JugadorTest {
 	}
 
 	@Test 
-	public void test10InvocacionDeMonstruoDe5Estrellas() {
+	public void test11InvocacionDeMonstruoDe5Estrellas() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -233,7 +247,7 @@ public class JugadorTest {
 	}
 
 	@Test 
-	public void test11InvocacionDeMonstruoDe7Estrellas() {
+	public void test12InvocacionDeMonstruoDe7Estrellas() {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -255,7 +269,7 @@ public class JugadorTest {
 	}
 	
 	@Test 
-	public void test12InvocacionDeMonstruoDe7EstrellasConMonstruosInsuficientesYElMonstruoExistenteSigueVivo() {
+	public void test13InvocacionDeMonstruoDe7EstrellasConMonstruosInsuficientesYElMonstruoExistenteSigueVivo() {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -274,7 +288,7 @@ public class JugadorTest {
 	}
 	
 	@Test 
-	public void test13NoPuedoInvocarAlDragonDefinitivoSoloConUnDragonBlancoEnCampo() {
+	public void test14NoPuedoInvocarAlDragonDefinitivoSoloConUnDragonBlancoEnCampo() {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -305,7 +319,7 @@ public class JugadorTest {
 	}
 	
 	@Test 
-	public void test14NoPuedoInvocarAlDragonDefinitivoSoloConDosDragonBlancoEnCampo() {
+	public void test15NoPuedoInvocarAlDragonDefinitivoSoloConDosDragonBlancoEnCampo() {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -345,7 +359,7 @@ public class JugadorTest {
 	}
 
 	@Test 
-	public void test15InvocarAlDragonDefinitivoSacrificandoLosTresDragonesBlancosEnCampo() {
+	public void test16InvocarAlDragonDefinitivoSacrificandoLosTresDragonesBlancosEnCampo() {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -392,7 +406,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test16Habiendo5CartasEnElMazoPuedoSacarTodasYNoPierdo() {
+	public void test17Habiendo5CartasEnElMazoPuedoSacarTodasYNoPierdo() {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -408,7 +422,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test17Habiendo5CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
+	public void test18Habiendo5CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -426,7 +440,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test18Con4PartesDelExodiaEnManoElJugadorNoGana() {
+	public void test19Con4PartesDelExodiaEnManoElJugadorNoGana() {
 		Jugador unJugador = new Jugador();
 		
 		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1000);
@@ -443,7 +457,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test19ElJugadorGanaCuandoTieneLas5PartesDeExodiaEnLaMano() {
+	public void test20ElJugadorGanaCuandoTieneLas5PartesDeExodiaEnLaMano() {
 		Jugador unJugador = new Jugador();
 		
 		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1000);

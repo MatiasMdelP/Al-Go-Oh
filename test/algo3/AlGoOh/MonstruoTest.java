@@ -8,6 +8,17 @@ import org.junit.Test;
 public class MonstruoTest {
 	
 	@Test
+	public void test01CrecarMonstruoYVerificarQueEstaBocaArriba() {
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
+		
+		huevoMonstruoso.colocarEnPosicionAtaque();
+		
+		assertTrue(huevoMonstruoso.estaBocaArriba());
+		huevoMonstruoso.darVuelta();
+		assertFalse(huevoMonstruoso.estaBocaArriba());
+	}
+	
+	@Test
 	public void test01ColocarMonstruoEnAtaque() {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
 		
@@ -125,7 +136,7 @@ public class MonstruoTest {
 		
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(7500, oponente.obtenerPuntosDeVida());
-		assertFalse(huevoMonstruoso.estaEnElCementerio);
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
 	}
 	
 	@Test
