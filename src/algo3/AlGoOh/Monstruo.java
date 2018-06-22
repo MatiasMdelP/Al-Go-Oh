@@ -19,6 +19,7 @@ public class Monstruo extends Carta {
 		estaEnElCementerio = false;
 		bocaArriba = true;
 		esParteDelExodia = verificarSiEsParteDelExodia();
+		posicion = new PosicionAtaque();
 	}
 	
 	public String obtenerNombre() {
@@ -34,12 +35,12 @@ public class Monstruo extends Carta {
 	}
 	
 	public void colocarEnPosicionAtaque() {
-		posicion = new PosicionAtaque();
+		posicion = posicion.ponerEnPosicionAtaque();
 		puntosRecibirAtaque = puntosDeAtaque;
 	}
 	
 	public void colocarEnPosicionDefensa() {
-		posicion = new PosicionDefensa();
+		posicion = posicion.ponerEnPosicionDefensa();
 		puntosRecibirAtaque = puntosDeDefensa;
 	}
 
