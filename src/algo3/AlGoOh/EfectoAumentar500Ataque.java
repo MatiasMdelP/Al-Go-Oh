@@ -9,6 +9,4 @@ public class EfectoAumentar500Ataque implements Efecto{
 	public void realizarEfectoDeVolteo (Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		this.realizarse(campo, campoOponente, unJugador, oponente);
 	}
-
-
 }

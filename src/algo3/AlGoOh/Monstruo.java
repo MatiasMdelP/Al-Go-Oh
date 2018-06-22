@@ -11,7 +11,7 @@ public class Monstruo extends Carta {
 	private Invocacion invocacion;
 	private boolean esParteDelExodia;
 	
-	public Monstruo(String unNombre, Efecto unEfecto, int cantidadDeEstrellas,Invocacion invocacionIngresada, int ataque, int defensa) {
+	public Monstruo(String unNombre, Efecto unEfecto, Invocacion invocacionIngresada, int ataque, int defensa) {
 		super(unNombre, unEfecto);
 		invocacion = invocacionIngresada;
 		puntosDeAtaque = ataque;

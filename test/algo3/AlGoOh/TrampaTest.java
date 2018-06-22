@@ -35,8 +35,8 @@ public class TrampaTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);	
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	
 		Trampa cilindroMagico = new Trampa("Cilindro Magico", new EfectoCilindroMagico());
 		
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
@@ -56,8 +56,8 @@ public class TrampaTest {
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
 		
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);	
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	
 		Trampa reinforcements = new Trampa("Reinforcements", new EfectoAumentar500Ataque());
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
