@@ -167,6 +167,58 @@ public class MonstruoTest {
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
 	}
 	
-
+	@Test
+	public void test10MonstruoEnPosicionDefensaNoPuedeAtacarYNadieSufroDanio() {
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900); //Monstruo Atacado
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
+		
+		huevoMonstruoso.colocarEnPosicionDefensa();
+		monoAcrobata.colocarEnPosicionAtaque();
+		
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+		
+		boolean seLanzoLaExcepcion = false; 
+		
+		try {
+			huevoMonstruoso.atacarA(monoAcrobata,unJugador,oponente);
+			assertEquals(8000,unJugador.obtenerPuntosDeVida());
+			assertEquals(8000,oponente.obtenerPuntosDeVida());
+		} catch (MonstruoNoPuedeAtacarException e) {
+			seLanzoLaExcepcion = true;
+		}
+		
+		assertTrue(seLanzoLaExcepcion);
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
+		assertFalse(monoAcrobata.estaEnElCementerio());
+	}
+	
+	@Test
+	public void test11MonstruoBocaAbajoNoPuedeAtacarYNadieSufroDanio() {
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900); //Monstruo Atacado
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
+		
+		huevoMonstruoso.colocarEnPosicionAtaque();
+		monoAcrobata.colocarEnPosicionAtaque();
+		
+		huevoMonstruoso.darVuelta();
+		
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+		
+		boolean seLanzoLaExcepcion = false; 
+		
+		try {
+			huevoMonstruoso.atacarA(monoAcrobata,unJugador,oponente);
+			assertEquals(8000,unJugador.obtenerPuntosDeVida());
+			assertEquals(8000,oponente.obtenerPuntosDeVida());
+		} catch (MonstruoNoPuedeAtacarException e) {
+			seLanzoLaExcepcion = true;
+		}
+		
+		assertTrue(seLanzoLaExcepcion);
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
+		assertFalse(monoAcrobata.estaEnElCementerio());
+	}
 	
 }

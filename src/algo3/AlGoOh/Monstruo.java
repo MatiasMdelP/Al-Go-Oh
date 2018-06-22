@@ -49,7 +49,7 @@ public class Monstruo extends Carta {
 	}
 	
 	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
-		if (!bocaArriba && !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
+		if (!bocaArriba || !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
 		
 		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque,jugadorAtacado);
 		
