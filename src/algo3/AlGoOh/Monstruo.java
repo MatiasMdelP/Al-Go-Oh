@@ -111,10 +111,4 @@ public class Monstruo extends Carta {
 	public boolean esDragonBlancoDeOjosAzules() {
 		return nombre == "Dragon Blanco De Ojos Azules";
 	}
-
-	@Override
-	public boolean activarTrampa(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente)
-			throws InterrumpirAtaqueException {
-		return false;
-	}
 }

@@ -63,11 +63,15 @@ public class Campo {
 	}
 
 	public void activarTrampa(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException{
-		Iterator<Carta> iterador = zonaMagicasYTrampas.iterator();
 		
-		while(iterador.hasNext()) {
-			if(iterador.next().activarTrampa(campo, campoOponente, unJugador, oponente))
+		Iterator <Carta> iterador = zonaMagicasYTrampas.iterator();
+		while (iterador.hasNext()) {
+			try {
+				iterador.next().realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
 				break;
+			}catch(NoPuedeRealizarseEfectoDeVolteoException excepcion) {
+				continue;
+			}
 		}
 	}
 	

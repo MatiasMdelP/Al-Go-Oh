@@ -40,13 +40,10 @@ public abstract class Carta {
 	
 	public abstract boolean esParteDelExodia();
 	
-	public abstract void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException;
+	public abstract void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException;
 	
 	public void agregarAlCampo(Campo unCampo, Campo unCampoOponente) {
 		campo = unCampo;
 		campoOponente = unCampoOponente;
 	}
-
-	public abstract boolean activarTrampa(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente)  throws InterrumpirAtaqueException;
-
 }
