@@ -30,7 +30,7 @@ public class Campo {
 	}
 	
 	public void agregarMonstruo(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException {
-		monstruo.efectuarSacrificios(zonaMonstruos);
+		monstruo.efectuarSacrificios(this);
 		zonaMonstruos.add(monstruo);
 	}
 	
@@ -46,20 +46,16 @@ public class Campo {
 		zonaMonstruos.remove(nroDeCarta).mandarAlCementerio();
 	}
 	
-	public void mandarMonstruoAlCementerio(String nombreDeLaCarta) {
-		mandarMonstruoAlCementerio(buscarUnaCartaPorNombre(zonaMonstruos, nombreDeLaCarta));
+	public void mandarMonstruoAlCementerio(Monstruo monstruo) {
+		if(!zonaMonstruos.contains(monstruo)) {
+			throw new CartaNoEncontradaException();
+		}
+		zonaMonstruos.remove(monstruo);
+		monstruo.mandarAlCementerio();
 	}
 	
 	public void mandarMagicaOTrampaAlCementerio(int nroDeCarta) {
 		zonaMagicasYTrampas.remove(nroDeCarta).mandarAlCementerio();
-	}
-	
-	private int buscarUnaCartaPorNombre(List zonaARecorrer, String nombreDeLaCarta) {
-		for (int i = 0; i < zonaARecorrer.size(); i++) {
-			if (((Carta) zonaARecorrer.get(i)).seLlama(nombreDeLaCarta))
-				return i;
-		}
-		throw new CartaNoEncontradaException();
 	}
 
 	public int calcularDanio() {
@@ -104,6 +100,45 @@ public class Campo {
 	
 	public Iterator<Carta> iterarMagicasYTrampas() {
 		return zonaMagicasYTrampas.iterator();
+	}
+
+	public void sacrificarMonstruos(int cantidad) throws MonstruosInsuficientesParaSacrificioException {
+		
+		try {
+			Iterator<Monstruo> monstruosASacrificar = zonaMonstruos.subList(0, cantidad).iterator();
+			while(monstruosASacrificar.hasNext()) {
+				monstruosASacrificar.next().mandarAlCementerio();
+				monstruosASacrificar.remove();
+			}
+		} catch (Exception e){
+			throw new MonstruosInsuficientesParaSacrificioException();
+		}
+	}
+	
+	public void sacrificarTresDragonesBlancosDeOjosAzules() throws MonstruosInsuficientesParaSacrificioException{
+		Iterator<Monstruo> iterador = zonaMonstruos.iterator();
+		
+		int cantDragones = 0;
+		
+		while(iterador.hasNext()) {
+			if(iterador.next().esDragonBlancoDeOjosAzules()) {
+				cantDragones++;
+			}
+		}
+		
+		if(cantDragones < 3) {
+			throw new MonstruosInsuficientesParaSacrificioException();
+		} else {
+			iterador = zonaMonstruos.iterator();
+			
+			while(iterador.hasNext()) {
+				Monstruo monstruo = iterador.next();
+				if(monstruo.esDragonBlancoDeOjosAzules()) {
+					monstruo.mandarAlCementerio();
+					iterador.remove();
+				}
+			}
+		}
 	}
 }
 

@@ -44,8 +44,8 @@ public class CampoTest {
 		campo.agregarMonstruo(huevoMonstruoso);
 		campo.agregarMonstruo(monoAcrobata);
 		
-		campo.mandarMonstruoAlCementerio("Huevo Monstruoso");
-		campo.mandarMonstruoAlCementerio("Mono Acrobata");
+		campo.mandarMonstruoAlCementerio(1);
+		campo.mandarMonstruoAlCementerio(0);
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
@@ -83,19 +83,13 @@ public class CampoTest {
 	}
 
 	
-	@Test
+	@Test(expected = CartaNoEncontradaException.class)
 	public void test07MandarMonstruoNoAgregadoAlCementerioYobtenerExcepcion() {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
 		Campo campo = new Campo(new Mazo());
-		boolean pass = false;
 		huevoMonstruoso.colocarEnPosicionAtaque();
-		try {
-			campo.mandarMonstruoAlCementerio("Huevo Monstruoso");
-		}catch(CartaNoEncontradaException excepcion){
-			pass = true;
-		}
-		
-		assertTrue(pass);
+			
+		campo.mandarMonstruoAlCementerio(huevoMonstruoso);
 	}
 	
 	@Test
@@ -165,7 +159,7 @@ public class CampoTest {
 	}
 	
 	@Test
-	public void test12ActivarWasteland() {
+	public void test12ActivarWasteland() throws MonstruosInsuficientesParaSacrificioException {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
@@ -173,12 +167,9 @@ public class CampoTest {
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
-		try {
-			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-			oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
-		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
-			assertTrue(false);
-		}
+		
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
 		
 		DeCampo wasteland = new DeCampo("Wasteland", new EfectoWasteland());
 		unJugador.agregarCartaCampo(wasteland);

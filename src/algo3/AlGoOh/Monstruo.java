@@ -1,6 +1,5 @@
 package algo3.AlGoOh;
 
-import java.util.List;
 
 public class Monstruo extends Carta {
 	
@@ -24,10 +23,6 @@ public class Monstruo extends Carta {
 	
 	public String obtenerNombre() {
 		return nombre;
-	}
-
-	public void efectuarSacrificios(List<Monstruo> monstruos) throws MonstruosInsuficientesParaSacrificioException {
-		invocacion.efectuarSacrificios(monstruos);
 	}
 	
 	public void darVuelta() {
@@ -111,5 +106,13 @@ public class Monstruo extends Carta {
 	private boolean verificarSiEsParteDelExodia() {
 		return ((nombre == "Exodia El Prohibido") || (nombre == "Brazo Izquierdo Del Prohibido") || (nombre == "Pierna Izquierda Del Prohibido") || 
 				(nombre == "Brazo Derecho Del Prohibido") || (nombre == "Pierna Derecha Del Prohibido"));
+	}
+
+	public void efectuarSacrificios(Campo campo) throws MonstruosInsuficientesParaSacrificioException {
+		invocacion.efectuarSacrificios(campo);
+	}
+
+	public boolean esDragonBlancoDeOjosAzules() {
+		return nombre == "Dragon Blanco De Ojos Azules";
 	}
 }

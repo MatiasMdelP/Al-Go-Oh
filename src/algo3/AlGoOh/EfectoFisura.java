@@ -22,7 +22,7 @@ public class EfectoFisura implements Efecto{
 			}
 		}
 		
-		campoOponente.mandarMonstruoAlCementerio(monstruoConMenorAtaque.obtenerNombre());
+		campoOponente.mandarMonstruoAlCementerio(monstruoConMenorAtaque);
 	}
 
 	public void realizarEfectoDeVolteo (Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente){}

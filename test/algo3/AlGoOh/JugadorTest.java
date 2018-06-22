@@ -227,7 +227,7 @@ public class JugadorTest {
 	}
 
 	@Test 
-	public void test11InvocacionDeMonstruoDe5Estrellas() {
+	public void test11InvocacionDeMonstruoDe5Estrellas() throws MonstruosInsuficientesParaSacrificioException {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -236,18 +236,16 @@ public class JugadorTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
 		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", new EfectoVacio(), 5,new Invocacion1Sacrificio() ,1800, 1800);
-		try {
-			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-			unJugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
-		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
-			assertTrue(false);
-		}
+		
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
+		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 	
 	}
 
 	@Test 
-	public void test12InvocacionDeMonstruoDe7Estrellas() {
+	public void test12InvocacionDeMonstruoDe7Estrellas() throws MonstruosInsuficientesParaSacrificioException {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -257,13 +255,11 @@ public class JugadorTest {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800);
 		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), 8, new Invocacion2Sacrificios(), 3000, 2500);
-		try {
-			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-			unJugador.agregarMonstruoEnAtaque(dragonBlanco);
-		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
-			assertTrue(false);
-		}
+		
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		unJugador.agregarMonstruoEnAtaque(dragonBlanco);
+		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
@@ -358,8 +354,8 @@ public class JugadorTest {
 		assertFalse(dragonBlanco2.estaEnElCementerio());
 	}
 
-	@Test 
-	public void test16InvocarAlDragonDefinitivoSacrificandoLosTresDragonesBlancosEnCampo() {
+	@Test
+	public void test16InvocarAlDragonDefinitivoSacrificandoLosTresDragonesBlancosEnCampo() throws MonstruosInsuficientesParaSacrificioException {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 
@@ -380,25 +376,17 @@ public class JugadorTest {
 		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", new EfectoVacio(), 12, 
 									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		
-		try {
-			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
-			unJugador.agregarMonstruoEnAtaque(monoAcrobata1);
-			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso2);
-			unJugador.agregarMonstruoEnAtaque(monoAcrobata2);
-			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso3);
-			unJugador.agregarMonstruoEnAtaque(monoAcrobata3);
-			unJugador.agregarMonstruoEnAtaque(dragonBlanco1);
-			unJugador.agregarMonstruoEnAtaque(dragonBlanco2);
-			unJugador.agregarMonstruoEnAtaque(dragonBlanco3);
-		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
-			assertTrue(false);
-		}
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata1);
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso2);
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata2);
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso3);
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata3);
+		unJugador.agregarMonstruoEnAtaque(dragonBlanco1);
+		unJugador.agregarMonstruoEnAtaque(dragonBlanco2);
+		unJugador.agregarMonstruoEnAtaque(dragonBlanco3);
 		
-		try {
-			unJugador.agregarMonstruoEnDefensa(dragonDefinitivo);
-		}catch(MonstruosInsuficientesParaSacrificioException excepcion){
-			assertTrue(false);
-		}
+		unJugador.agregarMonstruoEnDefensa(dragonDefinitivo);
 
 		assertTrue(dragonBlanco1.estaEnElCementerio());
 		assertTrue(dragonBlanco2.estaEnElCementerio());
