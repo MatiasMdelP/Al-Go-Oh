@@ -71,5 +71,26 @@ public class TrampaTest {
 		assertTrue(monoAcrobata.estaEnElCementerio());
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 	}
+	@Test
+	public void test05RealizarEfectoDeVolteoNoDevuelveNoSePuedeRealizarException() {
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
+		Mazo mazo = new Mazo();
+		Campo campo = new Campo(mazo);
+		Campo campoOponente = new Campo(mazo);
+		
+		Carta trampaCualquiera = new Trampa("Trampa cualquiera", new EfectoVacio());
+		
+		try {
+			trampaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+			assertTrue(true);
+		}catch(NoPuedeRealizarseEfectoDeVolteoException excepcion) {
+			assertTrue(false);
+		}catch(InterrumpirAtaqueException excepcion) {
+			assertTrue(false);
+		}
+		
+	}
+	
 	
 }

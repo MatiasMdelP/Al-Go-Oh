@@ -156,4 +156,25 @@ public class MagicaTest {
 		assertFalse(monoAcrobata.estaEnElCementerio());
 		assertTrue(fisura.estaEnElCementerio());
 	}
+	
+	@Test
+	public void test08RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() {
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
+		Mazo mazo = new Mazo();
+		Campo campo = new Campo(mazo);
+		Campo campoOponente = new Campo(mazo);
+
+		Carta magicaCualquiera = new Magica("Magica cualquiera", new EfectoVacio());
+		
+		try {
+			magicaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+			assertTrue(false);
+		} catch(NoPuedeRealizarseEfectoDeVolteoException e) {
+			assertTrue(true);
+		}catch(InterrumpirAtaqueException e) {
+			assertTrue(false);
+		}
+	
+	}
 }
