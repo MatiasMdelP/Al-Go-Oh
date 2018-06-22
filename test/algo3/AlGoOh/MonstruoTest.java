@@ -13,9 +13,9 @@ public class MonstruoTest {
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		
-		assertTrue(huevoMonstruoso.estaBocaArriba());
+		assertFalse(huevoMonstruoso.estaBocaAbajo());
 		huevoMonstruoso.darVuelta();
-		assertFalse(huevoMonstruoso.estaBocaArriba());
+		assertTrue(huevoMonstruoso.estaBocaAbajo());
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ public class MonstruoTest {
 	}
 
 	@Test
-	public void test05AtacarConMonstruoConMayorAtaqueYMatarYVerificarQueEstaEnElCementerio() {
+	public void test05AtacarConMonstruoConMayorAtaqueYMatarYVerificarQueEstaEnElCementerio() throws MonstruoNoPuedeAtacarException {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
 		
@@ -61,18 +61,16 @@ public class MonstruoTest {
 		monoAcrobata.colocarEnPosicionAtaque();
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		try {
-			monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente);
-			assertEquals(7600,oponente.obtenerPuntosDeVida());
-		} catch (MonstruoNoPuedeAtacarException e) {
-			assertTrue(false);
-		}
+		
+		monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente);
+		assertEquals(7600,oponente.obtenerPuntosDeVida());
+		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
 	
 	@Test
-	public void test06AtacarConMonstruoConMenorAtaqueSeDestruyeAtacanteYVerificarQueEstaEnElCementerio() {
+	public void test06AtacarConMonstruoConMenorAtaqueSeDestruyeAtacanteYVerificarQueEstaEnElCementerio() throws MonstruoNoPuedeAtacarException {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900); //Monstruo Atacante
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);     //Monstruo Atacado
 		
@@ -81,19 +79,17 @@ public class MonstruoTest {
 
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		try {
-			huevoMonstruoso.atacarA(monoAcrobata,unJugador,oponente);
-			assertEquals(7600,unJugador.obtenerPuntosDeVida());
-		} catch (MonstruoNoPuedeAtacarException e) {
-			assertTrue(false);
-		}
+		
+		huevoMonstruoso.atacarA(monoAcrobata, unJugador, oponente);
+		
+		assertEquals(7600,unJugador.obtenerPuntosDeVida());
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 		
 	}
 	
 	@Test
-	public void test07AtacarAMonstruoEnModoDefensaConMayorAtaqueYSeDestruyeAtacado() {
+	public void test07AtacarAMonstruoEnModoDefensaConMayorAtaqueYSeDestruyeAtacado() throws MonstruoNoPuedeAtacarException {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
 		
@@ -102,19 +98,17 @@ public class MonstruoTest {
 		
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		try {
-			monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente);
-			assertEquals(8000,unJugador.obtenerPuntosDeVida());
-			assertEquals(8000,oponente.obtenerPuntosDeVida());
-		} catch (MonstruoNoPuedeAtacarException e) {
-			assertTrue(false);
-		}
+		
+		monoAcrobata.atacarA(huevoMonstruoso,unJugador,oponente);
+		assertEquals(8000,unJugador.obtenerPuntosDeVida());
+		assertEquals(8000,oponente.obtenerPuntosDeVida());
+		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 	}
 	
 	@Test
-	public void test08ActivarJinzo7() {
+	public void test08ActivarJinzo7() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -124,13 +118,8 @@ public class MonstruoTest {
 		Monstruo jinzo7 = new Monstruo("Jinzo #7", new EfectoJinzo7(), 2, new InvocacionNormal(), 500, 400);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900); //Monstruo Atacado
 		
-		try {
-			unJugador.agregarMonstruoEnAtaque(jinzo7);
-			oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
-		} catch (MonstruosInsuficientesParaSacrificioException e) {
-			assertTrue(false);
-		}
-		
+		unJugador.agregarMonstruoEnAtaque(jinzo7);
+		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
 		unJugador.activarMonstruo(0);
 		
@@ -140,7 +129,7 @@ public class MonstruoTest {
 	}
 	
 	@Test
-	public void test09VoltearInsectoComeHombres() throws MonstruoNoPuedeAtacarException {
+	public void test09VoltearInsectoComeHombres() throws MonstruoNoPuedeAtacarException, MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -152,12 +141,8 @@ public class MonstruoTest {
 		
 		insectoComeHombres.darVuelta();
 		
-		try {
-			oponente.agregarMonstruoEnDefensa(insectoComeHombres);
-			unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		} catch (MonstruosInsuficientesParaSacrificioException e) {
-			assertTrue(false);
-		}
+		oponente.agregarMonstruoEnDefensa(insectoComeHombres);
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
 		unJugador.atacarA(0, 0);
 		
@@ -165,8 +150,5 @@ public class MonstruoTest {
 		assertFalse(insectoComeHombres.estaEnElCementerio());
 		assertEquals(8000, unJugador.obtenerPuntosDeVida());
 		assertEquals(8000, oponente.obtenerPuntosDeVida());
-	}
-	
-
-	
+	}	
 }

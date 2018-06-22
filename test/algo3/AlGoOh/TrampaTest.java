@@ -15,20 +15,7 @@ public class TrampaTest {
 	}
 
 	@Test
-	public void test02PonerCartaTrampaBocaAbajo() {
-		Trampa cartaTrampa = new Trampa("Un nombre", new EfectoVacio());
-		
-		assertTrue(cartaTrampa.estaBocaAbajo());
-	}
-
-	/*Colocar un monstruo del lado enemigo, luego coloco la carta trampa Cilindro mágico
-	de mi lado del campo. Atacar con el monstruo y verificar que se activa la carta
-	trampa, se niega el ataque y el oponente recibe el daño directamente en sus puntos
-	de vida.
-	*/
-
-	@Test
-	public void test03ActivarCartaCilindroMagico() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException {
+	public void test02ActivarCartaCilindroMagico() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -40,16 +27,18 @@ public class TrampaTest {
 		Trampa cilindroMagico = new Trampa("Cilindro Magico", new EfectoCilindroMagico());
 		
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-		unJugador.agregarCartaMagica(cilindroMagico);
+		unJugador.agregarCartaTrampa(cilindroMagico);
 		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
 		oponente.atacarA(0, 0);
 		
 		assertEquals(7400,oponente.obtenerPuntosDeVida());
 		assertEquals(8000,unJugador.obtenerPuntosDeVida());
+		assertTrue(cilindroMagico.estaEnElCementerio());
 	}
+
 	@Test
-	public void test04ActivarCartaReinforcements() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException{
+	public void test03ActivarCartaReinforcements() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException{
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -61,7 +50,7 @@ public class TrampaTest {
 		Trampa reinforcements = new Trampa("Reinforcements", new EfectoAumentar500Ataque());
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		unJugador.agregarCartaMagica(reinforcements);
+		unJugador.agregarCartaTrampa(reinforcements);
 		oponente.agregarMonstruoEnAtaque(monoAcrobata);
 		
 		oponente.atacarA(0, 0);
@@ -71,26 +60,4 @@ public class TrampaTest {
 		assertTrue(monoAcrobata.estaEnElCementerio());
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 	}
-	@Test
-	public void test05RealizarEfectoDeVolteoNoDevuelveNoSePuedeRealizarException() {
-		Jugador unJugador = new Jugador();
-		Jugador oponente = new Jugador();
-		Mazo mazo = new Mazo();
-		Campo campo = new Campo(mazo);
-		Campo campoOponente = new Campo(mazo);
-		
-		Carta trampaCualquiera = new Trampa("Trampa cualquiera", new EfectoVacio());
-		
-		try {
-			trampaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
-			assertTrue(true);
-		}catch(NoPuedeRealizarseEfectoDeVolteoException excepcion) {
-			assertTrue(false);
-		}catch(InterrumpirAtaqueException excepcion) {
-			assertTrue(false);
-		}
-		
-	}
-	
-	
 }

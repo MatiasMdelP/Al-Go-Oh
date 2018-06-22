@@ -28,43 +28,35 @@ public class Jugador {
 			partesDelExodiaEnMano++;
 		}
 	}
-	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException{
+	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException{
 		monstruo.colocarEnPosicionAtaque();
 		monstruo.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMonstruo(monstruo);
 	}
 
-	public void agregarMonstruoEnDefensa(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException{
+	public void agregarMonstruoEnDefensa(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException{
 		monstruo.colocarEnPosicionDefensa();
 		campo.agregarMonstruo(monstruo);
 	}
 	
-	public void agregarCartaMagica(Carta cartaMagica) {
-		cartaMagica.agregarAlCampo(campo, oponente.campo);
-		campo.agregarMagicaOTrampa(cartaMagica);
+	public void agregarCartaMagica(Magica magica) throws ZonaNoTieneMasEspacioException {
+		magica.agregarAlCampo(campo, oponente.campo);
+		campo.agregarMagica(magica);
+	}
+	
+	public void agregarCartaTrampa(Trampa trampa) throws ZonaNoTieneMasEspacioException {
+		trampa.agregarAlCampo(campo,  oponente.campo);
+		campo.agregarTrampa(trampa);
 	}
 	
 	public void agregarCartaCampo(DeCampo cartaCampo) {
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
 		cartaCampo.realizarEfecto(this, oponente);
-		//no la agrego al campo ya que en cuanto se agregan son realizadas
 	}
 
 	public void activarMagica(int nroDeCarta) {
 		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
 	}
-	
-//	public boolean activarTrampa() {
-//		int nroDeCarta = campo.obtenerNroCartaTrampa();
-//		
-//		if (nroDeCarta >= 0) {
-//			campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
-//			return false;
-//		}
-//		
-//		return true;
-//		
-//	}
 	
 	public void activarMonstruo(int nroDeCarta) {
 		campo.definirMonstruo(nroDeCarta);
@@ -83,6 +75,7 @@ public class Jugador {
 			campo.activarEfectoDeVolteoMonstruoDefinido(campo, campoAtacante, this, jugadorAtacante);
 			campoAtacante.atacarA(jugadorAtacante,this);
 		}catch(InterrumpirAtaqueException excepcion){
+			
 		}
 	}
 	
@@ -125,5 +118,4 @@ public class Jugador {
 		this.campo.recibirAtaque(monstruoAtacante, jugadorAtacante, this);
 		
 	}
-
 }

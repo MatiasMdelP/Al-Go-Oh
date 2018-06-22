@@ -7,7 +7,9 @@ import java.util.List;
 public class Campo {
 	
 	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();
-	private List<Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
+	private List <Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
+	private List<Magica> zonaMagicas = new ArrayList<Magica>();
+	private List<Trampa> zonaTrampas = new ArrayList<Trampa>();
 	private Mazo mazo;
 	private Monstruo monstruo;
 	private int nroMonstruoDefinido;
@@ -25,17 +27,22 @@ public class Campo {
 		return zonaMagicasYTrampas.get(nroDeCarta);
 	}
 	
-	public int obtenerNroCartaTrampa() {
-		return zonaMagicasYTrampas.size()-1;
-	}
-	
-	public void agregarMonstruo(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException {
+	public void agregarMonstruo(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+		if (zonaMonstruos.size() == 5) throw new ZonaNoTieneMasEspacioException();
 		monstruo.efectuarSacrificios(this);
 		zonaMonstruos.add(monstruo);
 	}
 	
-	public void agregarMagicaOTrampa(Carta carta) {
-		zonaMagicasYTrampas.add(carta);
+	public void agregarMagica(Magica magica) throws ZonaNoTieneMasEspacioException {
+		if (zonaMagicasYTrampas.size() == 5) throw new ZonaNoTieneMasEspacioException();
+		zonaMagicasYTrampas.add(magica);
+		zonaMagicas.add(magica);
+	}
+	
+	public void agregarTrampa(Trampa trampa) throws ZonaNoTieneMasEspacioException {
+		if (zonaMagicasYTrampas.size() == 5) throw new ZonaNoTieneMasEspacioException();
+		zonaMagicasYTrampas.add(trampa);
+		zonaTrampas.add(trampa);
 	}
 	
 	public Carta tomarUnaCartaDelMazo() {
@@ -55,7 +62,10 @@ public class Campo {
 	}
 	
 	public void mandarMagicaOTrampaAlCementerio(int nroDeCarta) {
-		zonaMagicasYTrampas.remove(nroDeCarta).mandarAlCementerio();
+		Carta carta = zonaMagicasYTrampas.remove(nroDeCarta);
+		zonaMagicas.remove(carta);
+		zonaTrampas.remove(carta);
+		carta.mandarAlCementerio();
 	}
 
 	public int calcularDanio() {
@@ -63,15 +73,13 @@ public class Campo {
 	}
 
 	public void activarTrampa(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException{
-		
-		Iterator <Carta> iterador = zonaMagicasYTrampas.iterator();
-		while (iterador.hasNext()) {
-			try {
-				iterador.next().realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
-				break;
-			}catch(NoPuedeRealizarseEfectoDeVolteoException excepcion) {
-				continue;
-			}
+		try {
+			Trampa trampa = zonaTrampas.remove(0);
+			zonaMagicasYTrampas.remove(trampa);
+			trampa.mandarAlCementerio();
+			trampa.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+		} catch (IndexOutOfBoundsException e) {
+			
 		}
 	}
 	
@@ -144,8 +152,3 @@ public class Campo {
 		}
 	}
 }
-
-
-
-
-

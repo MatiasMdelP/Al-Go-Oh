@@ -6,7 +6,6 @@ public class Monstruo extends Carta {
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
 	private Posicion posicion;
-	private boolean bocaArriba;
 	private int puntosRecibirAtaque;
 	private Invocacion invocacion;
 	private boolean esParteDelExodia;
@@ -17,20 +16,11 @@ public class Monstruo extends Carta {
 		puntosDeAtaque = ataque;
 		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
-		bocaArriba = true;
 		esParteDelExodia = verificarSiEsParteDelExodia();
 	}
 	
 	public String obtenerNombre() {
 		return nombre;
-	}
-	
-	public void darVuelta() {
-		bocaArriba = !bocaArriba;
-	}
-	
-	public boolean estaBocaArriba() {
-		return bocaArriba;
 	}
 	
 	public void colocarEnPosicionAtaque() {
@@ -48,9 +38,9 @@ public class Monstruo extends Carta {
 	}
 	
 	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
-		if (!bocaArriba && !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
+		if (bocaAbajo && !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
 		
-		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque,jugadorAtacado);
+		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque, jugadorAtacado);
 		
 		if (diferenciaDelEnfrentamiento >= 0) {
 			this.posicion.efectuarDanio(diferenciaDelEnfrentamiento,jugadorAtacante,this);
@@ -78,7 +68,7 @@ public class Monstruo extends Carta {
 	}
 	
 	public boolean tieneMenorAtaqueQue(Monstruo otroMonstruo) {
-		return  (otroMonstruo.tieneMayorAtaqueQue(puntosDeAtaque));
+		return (otroMonstruo.tieneMayorAtaqueQue(puntosDeAtaque));
 	}
 	
 	private boolean tieneMayorAtaqueQue(int puntosDelMonstruoRival) {
@@ -86,7 +76,7 @@ public class Monstruo extends Carta {
 	}
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
-		if (! this.estaBocaArriba()) 
+		if (bocaAbajo) 
 			this.darVuelta();
 			efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
 	}

@@ -6,7 +6,7 @@ public class EfectoAumentar500Ataque implements Efecto{
 		campo.obtenerMonstruo().agregarPuntosDeAtaque(500);
 	}
 	
-	public void realizarEfectoDeVolteo (Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
+	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		this.realizarse(campo, campoOponente, unJugador, oponente);
 	}
 
