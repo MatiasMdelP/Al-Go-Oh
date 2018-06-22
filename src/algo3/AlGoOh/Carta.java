@@ -42,14 +42,11 @@ public abstract class Carta {
 	
 	public abstract void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException;
 	
-	public boolean seLlama(String nombreDeUnaCarta) {
-		return (nombreDeUnaCarta == nombre);
-	}
-	
 	public void agregarAlCampo(Campo unCampo, Campo unCampoOponente) {
 		campo = unCampo;
 		campoOponente = unCampoOponente;
 	}
 
-	public abstract boolean esTrampa();
+	public abstract boolean activarTrampa(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente)  throws InterrumpirAtaqueException;
+
 }

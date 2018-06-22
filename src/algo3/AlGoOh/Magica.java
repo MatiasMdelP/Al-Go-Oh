@@ -17,4 +17,10 @@ public class Magica extends Carta {
 	public boolean esParteDelExodia() {
 		return false;
 	}
+
+	@Override
+	public boolean activarTrampa(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente)
+			throws InterrumpirAtaqueException {
+		return false;
+	}
 }
