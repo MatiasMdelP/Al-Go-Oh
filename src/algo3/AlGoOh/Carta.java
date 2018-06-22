@@ -40,7 +40,7 @@ public abstract class Carta {
 	
 	public abstract boolean esParteDelExodia();
 	
-	public abstract void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException;
+	public abstract void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException;
 	
 	public boolean seLlama(String nombreDeUnaCarta) {
 		return (nombreDeUnaCarta == nombre);
@@ -51,5 +51,4 @@ public abstract class Carta {
 		campoOponente = unCampoOponente;
 	}
 
-	public abstract boolean esTrampa();
 }

@@ -7,9 +7,6 @@ public class Trampa extends Carta{
 		bocaAbajo = true;
 	}
 	
-	public boolean esTrampa() {
-		return true;
-	}
 
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
 		this.darVuelta();

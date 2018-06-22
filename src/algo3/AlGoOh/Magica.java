@@ -6,13 +6,10 @@ public class Magica extends Carta {
 		super(unNombre, unEfecto);
 	}
 
-	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException{
-		
+	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException, NoPuedeRealizarseEfectoDeVolteoException{
+		throw new NoPuedeRealizarseEfectoDeVolteoException();
 	}
 	
-	public boolean esTrampa() {
-		return false;
-	}
 	
 	public boolean esParteDelExodia() {
 		return false;

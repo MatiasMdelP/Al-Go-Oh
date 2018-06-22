@@ -95,9 +95,6 @@ public class Monstruo extends Carta {
 		return puntosDeAtaque;
 	}
 	
-	public boolean esTrampa() {
-		return false;
-	}
 	
 	public boolean esParteDelExodia() {
 		return esParteDelExodia;
