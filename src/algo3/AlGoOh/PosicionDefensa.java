@@ -3,6 +3,16 @@ package algo3.AlGoOh;
 public class PosicionDefensa implements Posicion {
 	
 	@Override
+	public Posicion ponerEnPosicionAtaque() {
+		return new PosicionAtaque();
+	}
+	
+	@Override
+	public Posicion ponerEnPosicionDefensa() {
+		return this;
+	}
+	
+	@Override
 	public int devolverDanio(int diferenciaDelEnfrentamiento) {
 		if (diferenciaDelEnfrentamiento < 0)
 			return 0;

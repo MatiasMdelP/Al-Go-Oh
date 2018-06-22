@@ -10,13 +10,14 @@ public class Monstruo extends Carta {
 	private Invocacion invocacion;
 	private boolean esParteDelExodia;
 	
-	public Monstruo(String unNombre, Efecto unEfecto, int cantidadDeEstrellas,Invocacion invocacionIngresada, int ataque, int defensa) {
+	public Monstruo(String unNombre, Efecto unEfecto, Invocacion invocacionIngresada, int ataque, int defensa) {
 		super(unNombre, unEfecto);
 		invocacion = invocacionIngresada;
 		puntosDeAtaque = ataque;
 		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
 		esParteDelExodia = verificarSiEsParteDelExodia();
+		posicion = new PosicionAtaque();
 	}
 	
 	public String obtenerNombre() {
@@ -24,12 +25,12 @@ public class Monstruo extends Carta {
 	}
 	
 	public void colocarEnPosicionAtaque() {
-		posicion = new PosicionAtaque();
+		posicion = posicion.ponerEnPosicionAtaque();
 		puntosRecibirAtaque = puntosDeAtaque;
 	}
 	
 	public void colocarEnPosicionDefensa() {
-		posicion = new PosicionDefensa();
+		posicion = posicion.ponerEnPosicionDefensa();
 		puntosRecibirAtaque = puntosDeDefensa;
 	}
 
@@ -38,7 +39,8 @@ public class Monstruo extends Carta {
 	}
 	
 	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
-		if (bocaAbajo && !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
+
+		if (bocaAbajo || !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
 		
 		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque, jugadorAtacado);
 		

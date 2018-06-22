@@ -9,7 +9,7 @@ public class CampoTest {
 
 	@Test
 	public void test01AgregarMonstruoYDefinirloYObtenerlo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Campo campo = new Campo(new Mazo());
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
@@ -22,7 +22,7 @@ public class CampoTest {
 	
 	@Test
 	public void test02AgregarMonstruoYDefinirloYMandarloAlCemneterio() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Campo campo = new Campo(new Mazo());
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
@@ -35,8 +35,8 @@ public class CampoTest {
 	
 	@Test
 	public void test03AgregarMonstruosYMandarlosAlCementerio() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal(), 1000, 1800);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
 		Campo campo = new Campo(new Mazo());
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
@@ -64,7 +64,7 @@ public class CampoTest {
 	
 	@Test(expected = CartaNoEncontradaException.class)
 	public void test05MandarMonstruoNoAgregadoAlCementerioYobtenerExcepcion() {
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal() ,600, 900);
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Campo campo = new Campo(new Mazo());
 		huevoMonstruoso.colocarEnPosicionAtaque();
 			
@@ -119,8 +119,8 @@ public class CampoTest {
 	public void test09ActivarWasteland() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3,new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3,new InvocacionNormal(), 1000, 1800);	//1000+200 = 1200
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);	//1000+200 = 1200
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);
@@ -146,8 +146,8 @@ public class CampoTest {
 	public void test10ActivarSogen() throws ZonaNoTieneMasEspacioException {
 		Jugador unJugador= new Jugador();
 		Jugador oponente = new Jugador();
-		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), 3, new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
-		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), 3, new InvocacionNormal(), 1000, 1800); 	  // 1000 + 200 = 1200
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800); 	  // 1000 + 200 = 1200
 		
 		unJugador.fijarOponente(oponente);
 		oponente.fijarOponente(unJugador);

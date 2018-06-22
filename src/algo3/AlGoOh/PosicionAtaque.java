@@ -4,6 +4,16 @@ public class PosicionAtaque implements Posicion{
 	
 
 	@Override
+	public Posicion ponerEnPosicionAtaque() {
+		return this;
+	}
+	
+	@Override
+	public Posicion ponerEnPosicionDefensa() {
+		return new PosicionDefensa();
+	}
+	
+	@Override
 	public int devolverDanio(int diferenciaDelEnfrentamiento) {
 		return Math.abs(diferenciaDelEnfrentamiento);
 	}
