@@ -22,7 +22,11 @@ public class EfectoFisura implements Efecto{
 			}
 		}
 		
-		campoOponente.mandarMonstruoAlCementerio(monstruoConMenorAtaque);
+		try {
+			campoOponente.mandarMonstruoAlCementerio(monstruoConMenorAtaque);
+		} catch (CartaNoEncontradaException e) {
+			
+		}
 	}
 
 	public void realizarEfectoDeVolteo (Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente){}

@@ -153,4 +153,16 @@ public class MagicaTest {
 		
 		magicaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, jugador, jugador.pasarTurno());
 	}
+	
+	@Test
+	public void test09ActivarFisuraYOponenteSinMonstruos() throws ZonaNoTieneMasEspacioException {
+		Jugador jugador = new Jugador();
+		
+		Magica fisura = new Magica("Fisura", new EfectoFisura());
+		
+		jugador.agregarCartaMagica(fisura);
+		jugador.activarMagica(0);
+		
+		assertTrue(fisura.estaEnElCementerio());
+	}
 }
