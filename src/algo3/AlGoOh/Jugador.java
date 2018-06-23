@@ -21,6 +21,10 @@ public class Jugador {
 	public int obtenerPuntosDeVida() {
 		return puntosDeVida;
 	}
+	
+	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
+		campo.agregarMonstruoASacrificar(posicionDelMonstruo);
+	}
 
 	public void agregarCartaEnMano(Carta unaCarta) {
 		cartasEnMano.add(unaCarta);

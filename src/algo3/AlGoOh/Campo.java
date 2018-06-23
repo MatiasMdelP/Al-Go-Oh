@@ -13,6 +13,7 @@ public class Campo {
 	private Mazo mazo;
 	private Monstruo monstruo;
 	private int nroMonstruoDefinido;
+	private List<Monstruo> monstruosASacrificar = new ArrayList<Monstruo>();
 	
 	public Campo(Mazo unMazoDeCartas) {
 		mazo = unMazoDeCartas;
@@ -23,10 +24,14 @@ public class Campo {
 		return monstruo;
 	}
 	
+	public void agregarMonstruoASacrificar(int posicionASacrificar) {
+		monstruosASacrificar.add(zonaMonstruos.get(posicionASacrificar));
+	}
+	
 	public Carta obtenerMagicaOTrampa(int nroDeCarta) {
 		return zonaMagicasYTrampas.get(nroDeCarta);
 	}
-	
+
 	public void agregarMonstruo(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
 		if (zonaMonstruos.size() == 5) throw new ZonaNoTieneMasEspacioException();
 		monstruo.efectuarSacrificios(this);
@@ -114,16 +119,21 @@ public class Campo {
 	}
 
 	public void sacrificarMonstruos(int cantidad) throws MonstruosInsuficientesParaSacrificioException {
+		Monstruo monstruoASacrificar;
 		
 		try {
-			Iterator<Monstruo> monstruosASacrificar = zonaMonstruos.subList(0, cantidad).iterator();
-			while(monstruosASacrificar.hasNext()) {
-				monstruosASacrificar.next().mandarAlCementerio();
-				monstruosASacrificar.remove();
+			Iterator<Monstruo> iteradorSacrificios = monstruosASacrificar.subList(0, cantidad).iterator();
+			while(iteradorSacrificios.hasNext()) {
+				monstruoASacrificar = iteradorSacrificios.next();
+				monstruoASacrificar.mandarAlCementerio();
+				zonaMonstruos.remove(monstruoASacrificar);
+				iteradorSacrificios.remove();
+				
 			}
 		} catch (Exception e){
 			throw new MonstruosInsuficientesParaSacrificioException();
 		}
+		monstruosASacrificar.clear();
 	}
 	
 	public void sacrificarTresDragonesBlancosDeOjosAzules() throws MonstruosInsuficientesParaSacrificioException{

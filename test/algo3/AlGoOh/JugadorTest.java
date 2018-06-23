@@ -191,6 +191,7 @@ public class JugadorTest {
 		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", new EfectoVacio(), new Invocacion1Sacrificio() ,1800, 1800);
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.agregarMonstruoASacrificar(0);
 		unJugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
@@ -211,6 +212,8 @@ public class JugadorTest {
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		unJugador.agregarMonstruoASacrificar(1);
+		unJugador.agregarMonstruoASacrificar(0);
 		unJugador.agregarMonstruoEnAtaque(dragonBlanco);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
@@ -229,6 +232,7 @@ public class JugadorTest {
 		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), new Invocacion2Sacrificios(), 3000, 2500);
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.agregarMonstruoASacrificar(0);
 		unJugador.agregarMonstruoEnAtaque(dragonBlanco);
 
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
@@ -314,12 +318,20 @@ public class JugadorTest {
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata1);
+		unJugador.agregarMonstruoASacrificar(0);
+		unJugador.agregarMonstruoASacrificar(1);
+		unJugador.agregarMonstruoEnAtaque(dragonBlanco1);
+		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso2);
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata2);
+		unJugador.agregarMonstruoASacrificar(1);
+		unJugador.agregarMonstruoASacrificar(2);
+		unJugador.agregarMonstruoEnAtaque(dragonBlanco2);
+		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso3);
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata3);
-		unJugador.agregarMonstruoEnAtaque(dragonBlanco1);
-		unJugador.agregarMonstruoEnAtaque(dragonBlanco2);
+		unJugador.agregarMonstruoASacrificar(2);
+		unJugador.agregarMonstruoASacrificar(3);
 		unJugador.agregarMonstruoEnAtaque(dragonBlanco3);
 		
 		unJugador.agregarMonstruoEnDefensa(dragonDefinitivo);
@@ -327,6 +339,7 @@ public class JugadorTest {
 		assertTrue(dragonBlanco1.estaEnElCementerio());
 		assertTrue(dragonBlanco2.estaEnElCementerio());
 		assertTrue(dragonBlanco3.estaEnElCementerio());
+		assertFalse(dragonDefinitivo.estaEnElCementerio());
 	}
 	
 	@Test
@@ -399,4 +412,26 @@ public class JugadorTest {
 		assertTrue(unJugador.ganoElJuego());
 	}
 	
+	@Test 
+	public void test21InvocacionDeMonstruoDe5EstrellasSacrificoSegundoMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
+		
+		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", new EfectoVacio(), new Invocacion1Sacrificio() ,1800, 1800);
+		
+		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
+		unJugador.agregarMonstruoASacrificar(1);
+		unJugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
+		
+		assertFalse(huevoMonstruoso.estaEnElCementerio());
+		assertTrue(monoAcrobata.estaEnElCementerio);
+	
+	}
 }
