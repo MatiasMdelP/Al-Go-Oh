@@ -40,12 +40,12 @@ public class PosicionDefensa implements Posicion {
 	}
 	
 	@Override
-	public int calcularDiferenciaDeDaño(Posicion posicion){
-		return posicion.calcularDaño(puntosDeDefensa);
+	public int calcularDiferenciaDeDanio(Posicion posicion){
+		return posicion.calcularDanio(puntosDeDefensa);
 	}
 	
 	@Override
-	public int calcularDaño(int puntos) {
+	public int calcularDanio(int puntos) {
 		return puntosDeDefensa - puntos;
 	}
 
@@ -56,7 +56,7 @@ public class PosicionDefensa implements Posicion {
 	}
 
 	@Override
-	public int dañoAtaque() {
+	public int danioAtaque() {
 		return puntosDeAtaque;
 	}
 

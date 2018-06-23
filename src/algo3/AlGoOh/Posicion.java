@@ -12,12 +12,12 @@ public interface Posicion {
 
 	boolean estaEnAtaque();
 
-	int calcularDiferenciaDeDaño(Posicion posicion);
+	int calcularDiferenciaDeDanio(Posicion posicion);
 
 	void agregarPuntos(int puntos);
 
-	int calcularDaño(int puntosDeDefensa);
+	int calcularDanio(int puntosDeDefensa);
 
-	int dañoAtaque();
+	int danioAtaque();
 
 }

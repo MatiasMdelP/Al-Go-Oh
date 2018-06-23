@@ -16,47 +16,45 @@ public class TrampaTest {
 
 	@Test
 	public void test02ActivarCartaCilindroMagico() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException {
-		Jugador unJugador = new Jugador();
-		Jugador oponente = new Jugador();
-		
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
+		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	
 		Carta cilindroMagico = new Carta("Cilindro Magico", new EfectoCilindroMagico());
 		
-		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-		unJugador.agregarCartaTrampa(cilindroMagico);
-		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador.agregarMonstruoEnAtaque(monoAcrobata);
+		jugador.agregarCartaTrampa(cilindroMagico);
 		
-		oponente.atacarA(0, 0);
+		jugador = jugador.pasarTurno();
 		
-		assertEquals(7400,oponente.obtenerPuntosDeVida());
-		assertEquals(8000,unJugador.obtenerPuntosDeVida());
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		
+		jugador.atacarA(0, 0);
+		
+		assertEquals(7400,jugador.obtenerPuntosDeVida());
+		assertEquals(8000,jugador.pasarTurno().obtenerPuntosDeVida());
 		assertTrue(cilindroMagico.estaEnElCementerio());
 	}
 
 	@Test
 	public void test03ActivarCartaReinforcements() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException{
-		Jugador unJugador = new Jugador();
-		Jugador oponente = new Jugador();
-		
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
+		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	
 		Carta reinforcements = new Carta("Reinforcements", new EfectoAumentar500Ataque());
 		
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		unJugador.agregarCartaTrampa(reinforcements);
-		oponente.agregarMonstruoEnAtaque(monoAcrobata);
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador.agregarCartaTrampa(reinforcements);
 		
-		oponente.atacarA(0, 0);
+		jugador = jugador.pasarTurno();
 		
-		assertEquals(7900,oponente.obtenerPuntosDeVida());
-		assertEquals(8000,unJugador.obtenerPuntosDeVida());
+		jugador.agregarMonstruoEnAtaque(monoAcrobata);
+		
+		jugador.atacarA(0, 0);
+		
+		assertEquals(7900,jugador.obtenerPuntosDeVida());
+		assertEquals(8000,jugador.pasarTurno().obtenerPuntosDeVida());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 	}

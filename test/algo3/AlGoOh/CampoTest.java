@@ -119,58 +119,54 @@ public class CampoTest {
 	}
 	
 	@Test
-	public void test09ActivarWasteland() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Jugador unJugador= new Jugador();
-		Jugador oponente = new Jugador();
+	public void test09ActivarWasteland() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException {
+		Jugador jugador = new Jugador();
+		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);	//1000+200 = 1200
 		
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
+		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		
-		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-		oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarMonstruoEnDefensa(huevoMonstruoso);
 		
 		Carta wasteland = new Carta("Wasteland", new EfectoWasteland());
-		unJugador.agregarCartaCampo(wasteland);
-		try {
-			unJugador.atacarA(0, 0);
-		} catch (MonstruoNoPuedeAtacarException e) {
-			assertTrue(false);
-		}
 		
-		assertEquals(8000, unJugador.obtenerPuntosDeVida());
-		assertEquals(8000, oponente.obtenerPuntosDeVida());
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarCartaCampo(wasteland);
+		
+		jugador.atacarA(0, 0);
+		
+		assertEquals(8000, jugador.obtenerPuntosDeVida());
+		assertEquals(8000, jugador.pasarTurno().obtenerPuntosDeVida());
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
 	
 	@Test
-	public void test10ActivarSogen() throws ZonaNoTieneMasEspacioException {
-		Jugador unJugador= new Jugador();
-		Jugador oponente = new Jugador();
+	public void test10ActivarSogen() throws ZonaNoTieneMasEspacioException, MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException {
+		Jugador jugador = new Jugador();
+		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800); 	  // 1000 + 200 = 1200
 		
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
-		try {
-			unJugador.agregarMonstruoEnAtaque(monoAcrobata);
-			oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
-		}catch (MonstruosInsuficientesParaSacrificioException excepcion) {
-			assertTrue(false);
-		}
+		jugador.agregarMonstruoEnAtaque(monoAcrobata);
+		
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarMonstruoEnDefensa(huevoMonstruoso);
 		
 		Carta sogen = new Carta("Sogen", new EfectoSogen());
-		oponente.agregarCartaCampo(sogen);
-		try {
-			unJugador.atacarA(0, 0);
-		} catch (MonstruoNoPuedeAtacarException e) {
-			assertTrue(false);
-		}
+		jugador.agregarCartaCampo(sogen);
 		
-		assertEquals(7800, unJugador.obtenerPuntosDeVida());
-		assertEquals(8000, oponente.obtenerPuntosDeVida());
+		jugador = jugador.pasarTurno();
+		
+		jugador.atacarA(0, 0);
+		
+		assertEquals(7800, jugador.obtenerPuntosDeVida());
+		assertEquals(8000, jugador.pasarTurno().obtenerPuntosDeVida());
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}

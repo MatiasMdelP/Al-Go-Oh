@@ -16,6 +16,13 @@ public class Jugador {
 	public Jugador() {
 		campo = new Campo(new Mazo());
 		puntosDeVida = VIDA;
+		oponente = new Jugador(this);
+	}
+	
+	public Jugador(Jugador jugador) {
+		campo = new Campo(new Mazo());
+		puntosDeVida = VIDA;
+		oponente = jugador;
 	}
 	
 	public int obtenerPuntosDeVida() {
@@ -87,10 +94,6 @@ public class Jugador {
 		return (cartasEnMano.size());
 	}
 
-	public void fijarOponente(Jugador oponente) {
-		this.oponente = oponente;
-	}
-
 	public void reducirVida(int danio) {
 		puntosDeVida -= danio;
 	}
@@ -121,5 +124,9 @@ public class Jugador {
 	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
 		this.campo.recibirAtaque(monstruoAtacante, jugadorAtacante, this);
 		
+	}
+	
+	public Jugador pasarTurno() {
+		return oponente;
 	}
 }
