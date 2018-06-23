@@ -161,6 +161,23 @@ public class MagicaTest {
 		}catch(InterrumpirAtaqueException e) {
 			assertTrue(false);
 		}
+	}
 	
+	@Test
+	public void test09ActivarFisuraYOponenteSinMonstruos() throws ZonaNoTieneMasEspacioException {
+		Jugador unJugador= new Jugador();
+		Jugador oponente = new Jugador();
+		
+
+		unJugador.fijarOponente(oponente);
+		oponente.fijarOponente(unJugador);
+		
+		
+		Magica fisura = new Magica("Fisura", new EfectoFisura());
+		
+		unJugador.agregarCartaMagica(fisura);
+		unJugador.activarMagica(0);
+		
+		assertTrue(fisura.estaEnElCementerio());
 	}
 }
