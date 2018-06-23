@@ -8,14 +8,14 @@ public class MagicaTest {
 
 	@Test
 	public void test01CrearCartaMagicaYVerificarQueEstaBocaArriba() {
-		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
 		assertFalse(agujeroOscuro.estaBocaAbajo());
 	}
 	
 	@Test
 	public void test02PonerCartaMagicaBocaAbajo() {
-		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
 		agujeroOscuro.darVuelta();
 		
@@ -24,7 +24,7 @@ public class MagicaTest {
 	
 	@Test
 	public void test03PonerCartaMagicaBocaAbajoLaVolvemosADarVueltaYQuedaBocaArriba() {
-		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
 		agujeroOscuro.darVuelta();
 		agujeroOscuro.darVuelta();
@@ -34,7 +34,7 @@ public class MagicaTest {
 	
 	@Test
 	public void test04CartaMagicaBocaAbajoNoRealizaEfecto() {
-		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
 		Mazo unMazo = new Mazo();
 		Mazo mazoOponente = new Mazo();
@@ -80,7 +80,7 @@ public class MagicaTest {
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
-		Magica fisura = new Magica("Fisura", new EfectoFisura());
+		Carta fisura = new Carta("Fisura", new EfectoFisura());
 		
 		jugador = jugador.pasarTurno();
 		
@@ -103,7 +103,7 @@ public class MagicaTest {
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		
-		Magica fisura = new Magica("Fisura", new EfectoFisura());
+		Carta fisura = new Carta("Fisura", new EfectoFisura());
 		
 		jugador = jugador.pasarTurno();
 
@@ -129,7 +129,7 @@ public class MagicaTest {
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		jugador.agregarMonstruoEnDefensa(brazoIzquierdoDelProhibido);
 		
-		Magica fisura = new Magica("Fisura", new EfectoFisura());
+		Carta fisura = new Carta("Fisura", new EfectoFisura());
 		
 		jugador = jugador.pasarTurno();
 
@@ -143,13 +143,13 @@ public class MagicaTest {
 	}
 	
 	@Test(expected=NoPuedeRealizarseEfectoDeVolteoException.class)
-	public void test08RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException {
+	public void test08RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws InterrumpirAtaqueException, NoPuedeRealizarseEfectoDeVolteoException {
 		Jugador jugador = new Jugador();
 		Mazo mazo = new Mazo();
 		Campo campo = new Campo(mazo);
 		Campo campoOponente = new Campo(mazo);
 
-		Carta magicaCualquiera = new Magica("Magica cualquiera", new EfectoVacio());
+		Magica magicaCualquiera = new Magica("Magica cualquiera", new EfectoVacio());
 		
 		magicaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, jugador, jugador.pasarTurno());
 	}
@@ -158,7 +158,7 @@ public class MagicaTest {
 	public void test09ActivarFisuraYOponenteSinMonstruos() throws ZonaNoTieneMasEspacioException {
 		Jugador jugador = new Jugador();
 		
-		Magica fisura = new Magica("Fisura", new EfectoFisura());
+		Carta fisura = new Carta("Fisura", new EfectoFisura());
 		
 		jugador.agregarCartaMagica(fisura);
 		jugador.activarMagica(0);
