@@ -2,9 +2,17 @@ package algo3.AlGoOh;
 
 public class PosicionDefensa implements Posicion {
 	
+	private int puntosDeAtaque;
+	private int puntosDeDefensa;
+
+	public PosicionDefensa(int puntosDeAtaque, int puntosDeDefensa) {
+		this.puntosDeAtaque = puntosDeAtaque;
+		this.puntosDeDefensa = puntosDeDefensa;
+	}
+		
 	@Override
 	public Posicion ponerEnPosicionAtaque() {
-		return new PosicionAtaque();
+		return new PosicionAtaque(puntosDeAtaque,puntosDeDefensa);
 	}
 	
 	@Override
@@ -32,4 +40,27 @@ public class PosicionDefensa implements Posicion {
 	public boolean estaEnAtaque() {
 		return false;
 	}
+	
+	@Override
+	public int calcularDiferenciaDeDaño(Posicion posicion){
+		return posicion.calcularDaño(puntosDeDefensa);
+	}
+	
+	@Override
+	public int calcularDaño(int puntos) {
+		return puntosDeDefensa - puntos;
+	}
+
+	@Override
+	public void agregarPuntos(int puntos) {
+		puntosDeDefensa += puntos;
+		
+	}
+
+	@Override
+	public int dañoAtaque() {
+		return puntosDeAtaque;
+	}
+
+
 }

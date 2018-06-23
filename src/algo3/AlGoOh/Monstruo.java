@@ -3,21 +3,16 @@ package algo3.AlGoOh;
 
 public class Monstruo extends Carta {
 	
-	private int puntosDeAtaque;
-	private int puntosDeDefensa;
 	private Posicion posicion;
-	private int puntosRecibirAtaque;
 	private Invocacion invocacion;
 	private boolean esParteDelExodia;
 	
 	public Monstruo(String unNombre, Efecto unEfecto, Invocacion invocacionIngresada, int ataque, int defensa) {
 		super(unNombre, unEfecto);
 		invocacion = invocacionIngresada;
-		puntosDeAtaque = ataque;
-		puntosDeDefensa = defensa;
 		estaEnElCementerio = false;
 		esParteDelExodia = verificarSiEsParteDelExodia();
-		posicion = new PosicionAtaque();
+		posicion = new PosicionAtaque(ataque,defensa);
 	}
 	
 	public String obtenerNombre() {
@@ -26,12 +21,10 @@ public class Monstruo extends Carta {
 	
 	public void colocarEnPosicionAtaque() {
 		posicion = posicion.ponerEnPosicionAtaque();
-		puntosRecibirAtaque = puntosDeAtaque;
 	}
 	
 	public void colocarEnPosicionDefensa() {
 		posicion = posicion.ponerEnPosicionDefensa();
-		puntosRecibirAtaque = puntosDeDefensa;
 	}
 
 	public boolean estaEnPosicionDeAtaque() {
@@ -42,39 +35,35 @@ public class Monstruo extends Carta {
 
 		if (bocaAbajo || !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
 		
-		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(puntosDeAtaque, jugadorAtacado);
+		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(posicion, jugadorAtacado);
 		
-		if (diferenciaDelEnfrentamiento >= 0) {
+		if (diferenciaDelEnfrentamiento >= 0) 
 			this.posicion.efectuarDanio(diferenciaDelEnfrentamiento,jugadorAtacante,this);
-		}
 	}
 	
-	private int recibirAtaque(int puntosDelAtacante, Jugador jugadorAtacado) {
-		int dif = puntosRecibirAtaque - puntosDelAtacante;
+	private int recibirAtaque(Posicion posicionAtacante, Jugador jugadorAtacado) {
+		int dif = posicionAtacante.calcularDiferenciaDeDaño(posicion);
 		
-		if(dif <= 0) {
+		if(dif <= 0)
 			this.posicion.efectuarDanio(dif,jugadorAtacado,this);
-		}
 		
 		return dif;
 	}
 
 	public void agregarPuntosDeAtaque(int puntos) {
-		puntosDeAtaque += puntos;
-		puntosRecibirAtaque = posicion.obtenerResistencia(puntosDeAtaque, puntosDeDefensa);
+		posicion.agregarPuntos(puntos);
 	}
 	
 	public void agregarPuntosDeDefensa(int puntos) {
-		puntosDeDefensa += puntos;
-		puntosRecibirAtaque = posicion.obtenerResistencia(puntosDeAtaque, puntosDeDefensa);
+		posicion.agregarPuntos(puntos);
 	}
 	
 	public boolean tieneMenorAtaqueQue(Monstruo otroMonstruo) {
-		return (otroMonstruo.tieneMayorAtaqueQue(puntosDeAtaque));
+		return (otroMonstruo.tieneMayorAtaqueQue(getDanio()));
 	}
 	
 	private boolean tieneMayorAtaqueQue(int puntosDelMonstruoRival) {
-		return (puntosDeAtaque > puntosDelMonstruoRival);
+		return (getDanio() > puntosDelMonstruoRival);
 	}
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
@@ -84,7 +73,7 @@ public class Monstruo extends Carta {
 	}
 	
 	public int getDanio() {
-		return puntosDeAtaque;
+		return posicion.dañoAtaque();
 	}
 	
 	public boolean esParteDelExodia() {
