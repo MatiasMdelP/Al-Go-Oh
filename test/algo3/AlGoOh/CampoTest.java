@@ -128,7 +128,7 @@ public class CampoTest {
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
 		oponente.agregarMonstruoEnDefensa(huevoMonstruoso);
 		
-		DeCampo wasteland = new DeCampo("Wasteland", new EfectoWasteland());
+		Carta wasteland = new Carta("Wasteland", new EfectoWasteland());
 		unJugador.agregarCartaCampo(wasteland);
 		try {
 			unJugador.atacarA(0, 0);
@@ -158,7 +158,7 @@ public class CampoTest {
 			assertTrue(false);
 		}
 		
-		DeCampo sogen = new DeCampo("Sogen", new EfectoSogen());
+		Carta sogen = new Carta("Sogen", new EfectoSogen());
 		oponente.agregarCartaCampo(sogen);
 		try {
 			unJugador.atacarA(0, 0);

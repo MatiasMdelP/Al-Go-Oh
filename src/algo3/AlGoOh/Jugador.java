@@ -53,7 +53,7 @@ public class Jugador {
 		campo.agregarTrampa(trampa);
 	}
 	
-	public void agregarCartaCampo(DeCampo cartaCampo) {
+	public void agregarCartaCampo(Carta cartaCampo) {
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
 		cartaCampo.realizarEfecto(this, oponente);
 	}

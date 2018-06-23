@@ -10,8 +10,4 @@ public class Magica extends Carta {
 		throw new NoPuedeRealizarseEfectoDeVolteoException();
 	}
 	
-	
-	public boolean esParteDelExodia() {
-		return false;
-	}
 }

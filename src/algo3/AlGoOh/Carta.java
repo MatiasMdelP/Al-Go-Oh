@@ -1,6 +1,6 @@
 package algo3.AlGoOh;
 
-public abstract class Carta {
+public class Carta {
 	
 	protected boolean bocaAbajo;
 	protected boolean estaEnElCementerio;
@@ -38,9 +38,13 @@ public abstract class Carta {
 		darVuelta();
 	}
 	
-	public abstract boolean esParteDelExodia();
+	public boolean esParteDelExodia() {
+		return false;
+	}
 	
-	public abstract void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException;
+	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException{
+	
+	}
 	
 	public void agregarAlCampo(Campo unCampo, Campo unCampoOponente) {
 		campo = unCampo;
