@@ -42,7 +42,7 @@ public class Monstruo extends Carta {
 	}
 	
 	private int recibirAtaque(Posicion posicionAtacante, Jugador jugadorAtacado) {
-		int dif = posicionAtacante.calcularDiferenciaDeDaño(posicion);
+		int dif = posicionAtacante.calcularDiferenciaDeDanio(posicion);
 		
 		if(dif <= 0)
 			this.posicion.efectuarDanio(dif,jugadorAtacado,this);
@@ -73,7 +73,7 @@ public class Monstruo extends Carta {
 	}
 	
 	public int getDanio() {
-		return posicion.dañoAtaque();
+		return posicion.danioAtaque();
 	}
 	
 	public boolean esParteDelExodia() {
