@@ -47,22 +47,23 @@ public class MagicaTest {
 	
 	@Test
 	public void test05ActivarAgujeroOscuro() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Jugador unJugador= new Jugador();
-		Jugador oponente = new Jugador();
-		
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
+		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
 		
-		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		oponente.agregarMonstruoEnAtaque(monoAcrobata);
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		
 		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
-		unJugador.agregarCartaMagica(agujeroOscuro);
-		unJugador.activarMagica(0);
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarCartaMagica(agujeroOscuro);
+		jugador.activarMagica(0);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
@@ -71,21 +72,20 @@ public class MagicaTest {
 	
 	@Test
 	public void test06ActivarFisuraYOponenteSoloUnMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Jugador unJugador= new Jugador();
-		Jugador oponente = new Jugador();
-		
-
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
+		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		
-		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		
-		unJugador.agregarCartaMagica(fisura);
-		unJugador.activarMagica(0);
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarCartaMagica(fisura);
+		jugador.activarMagica(0);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(fisura.estaEnElCementerio());
@@ -93,22 +93,22 @@ public class MagicaTest {
 	
 	@Test
 	public void test07ActivarFisuraYOponenteCon2MonstruosYSeDestruyeElDeMenorAtaque() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Jugador unJugador= new Jugador();
-		Jugador oponente = new Jugador();
-		
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
+		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
 	
-		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
-		oponente.agregarMonstruoEnAtaque(monoAcrobata);
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		
-		unJugador.agregarCartaMagica(fisura);
-		unJugador.activarMagica(0);
+		jugador = jugador.pasarTurno();
+
+		jugador.agregarCartaMagica(fisura);
+		jugador.activarMagica(0);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
@@ -117,25 +117,24 @@ public class MagicaTest {
 	
 	@Test
 	public void test07ActivarFisuraYOponenteConVariosMonstruosYSeDestruyeElDeMenorAtaque() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Jugador unJugador= new Jugador();
-		Jugador oponente = new Jugador();
-		
-
-		unJugador.fijarOponente(oponente);
-		oponente.fijarOponente(unJugador);
+		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
 		Monstruo brazoIzquierdoDelProhibido = new Monstruo ("Brazo Izquierdo Del Prohibido", new EfectoVacio(), new InvocacionNormal(), 200, 300);
 		
-		oponente.agregarMonstruoEnAtaque(huevoMonstruoso);
-		oponente.agregarMonstruoEnAtaque(monoAcrobata);
-		oponente.agregarMonstruoEnDefensa(brazoIzquierdoDelProhibido);
+		jugador = jugador.pasarTurno();
+		
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador.agregarMonstruoEnAtaque(monoAcrobata);
+		jugador.agregarMonstruoEnDefensa(brazoIzquierdoDelProhibido);
 		
 		Magica fisura = new Magica("Fisura", new EfectoFisura());
 		
-		unJugador.agregarCartaMagica(fisura);
-		unJugador.activarMagica(0);
+		jugador = jugador.pasarTurno();
+
+		jugador.agregarCartaMagica(fisura);
+		jugador.activarMagica(0);
 		
 		assertTrue(brazoIzquierdoDelProhibido.estaEnElCementerio);
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
@@ -143,24 +142,15 @@ public class MagicaTest {
 		assertTrue(fisura.estaEnElCementerio());
 	}
 	
-	@Test
-	public void test08RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() {
-		Jugador unJugador = new Jugador();
-		Jugador oponente = new Jugador();
+	@Test(expected=NoPuedeRealizarseEfectoDeVolteoException.class)
+	public void test08RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException {
+		Jugador jugador = new Jugador();
 		Mazo mazo = new Mazo();
 		Campo campo = new Campo(mazo);
 		Campo campoOponente = new Campo(mazo);
 
 		Carta magicaCualquiera = new Magica("Magica cualquiera", new EfectoVacio());
 		
-		try {
-			magicaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
-			assertTrue(false);
-		} catch(NoPuedeRealizarseEfectoDeVolteoException e) {
-			assertTrue(true);
-		}catch(InterrumpirAtaqueException e) {
-			assertTrue(false);
-		}
-	
+		magicaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, jugador, jugador.pasarTurno());
 	}
 }
