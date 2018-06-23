@@ -10,8 +10,6 @@ public interface Posicion {
 
 	void efectuarDanio(int dif, Jugador jugadorAtacado, Monstruo monstruo);
 
-	int obtenerResistencia(int puntosDeAtaque, int puntosDeDefensa);
-
 	boolean estaEnAtaque();
 
 	int calcularDiferenciaDeDaño(Posicion posicion);

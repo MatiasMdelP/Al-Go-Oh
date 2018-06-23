@@ -42,12 +42,12 @@ public class Monstruo extends Carta {
 	}
 	
 	private int recibirAtaque(Posicion posicionAtacante, Jugador jugadorAtacado) {
-		int dif = posicionAtacante.calcularDiferenciaDeDaño(posicion);
+		int diferenciaDelEnfrentamiento = posicionAtacante.calcularDiferenciaDeDaño(posicion);
 		
-		if(dif <= 0)
-			this.posicion.efectuarDanio(dif,jugadorAtacado,this);
+		if(diferenciaDelEnfrentamiento <= 0)
+			this.posicion.efectuarDanio(diferenciaDelEnfrentamiento,jugadorAtacado,this);
 		
-		return dif;
+		return diferenciaDelEnfrentamiento;
 	}
 
 	public void agregarPuntosDeAtaque(int puntos) {

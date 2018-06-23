@@ -33,11 +33,6 @@ public class PosicionAtaque implements Posicion{
 	}
 
 	@Override
-	public int obtenerResistencia(int puntosDeAtaque, int puntosDeDefensa) {
-		return puntosDeAtaque;
-	}
-
-	@Override
 	public boolean estaEnAtaque() {
 
 		return true;

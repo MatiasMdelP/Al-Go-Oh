@@ -26,14 +26,12 @@ public class PosicionDefensa implements Posicion {
 			return 0;
 		return diferenciaDelEnfrentamiento;
 	}
+	
+	@Override
 	public void efectuarDanio(int diferenciaDelEnfrentamiento, Jugador jugador, Monstruo monstruo ) {
 		monstruo.mandarAlCementerio();
 		jugador.reducirVida(0);
 		
-	}
-	@Override
-	public int obtenerResistencia(int puntosDeAtaque, int puntosDeDefensa) {
-		return puntosDeDefensa;
 	}
 
 	@Override
