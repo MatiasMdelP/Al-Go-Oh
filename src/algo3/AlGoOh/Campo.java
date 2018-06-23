@@ -33,21 +33,25 @@ public class Campo {
 	}
 
 	public void agregarMonstruo(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		if (zonaMonstruos.size() == 5) throw new ZonaNoTieneMasEspacioException();
+		verificarCapacidadDeZonas(zonaMonstruos);
 		monstruo.efectuarSacrificios(this);
 		zonaMonstruos.add(monstruo);
 	}
 	
 	public void agregarMagica(Magica magica) throws ZonaNoTieneMasEspacioException {
-		if (zonaMagicasYTrampas.size() == 5) throw new ZonaNoTieneMasEspacioException();
+		verificarCapacidadDeZonas(zonaMagicasYTrampas);
 		zonaMagicasYTrampas.add(magica);
 		zonaMagicas.add(magica);
 	}
 	
 	public void agregarTrampa(Trampa trampa) throws ZonaNoTieneMasEspacioException {
-		if (zonaMagicasYTrampas.size() == 5) throw new ZonaNoTieneMasEspacioException();
+		verificarCapacidadDeZonas(zonaMagicasYTrampas);
 		zonaMagicasYTrampas.add(trampa);
 		zonaTrampas.add(trampa);
+	}
+	
+	private void verificarCapacidadDeZonas(List unaZona) throws ZonaNoTieneMasEspacioException{
+		if (unaZona.size() == 5) throw new ZonaNoTieneMasEspacioException();
 	}
 	
 	public Carta tomarUnaCartaDelMazo() {
