@@ -8,8 +8,8 @@ public class Campo {
 	
 	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();
 	private List <Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
-	private List<Magica> zonaMagicas = new ArrayList<Magica>();
-	private List<Trampa> zonaTrampas = new ArrayList<Trampa>();
+	private List<Carta> zonaMagicas = new ArrayList<Carta>();
+	private List<Carta> zonaTrampas = new ArrayList<Carta>();
 	private Mazo mazo;
 	private Monstruo monstruo;
 	private int nroMonstruoDefinido;
@@ -38,15 +38,16 @@ public class Campo {
 		zonaMonstruos.add(monstruo);
 	}
 	
-	public void agregarMagica(Magica magica) throws ZonaNoTieneMasEspacioException {
+	public void agregarMagica(Carta magica) throws ZonaNoTieneMasEspacioException {
 		verificarCapacidadDeZonas(zonaMagicasYTrampas);
 		zonaMagicasYTrampas.add(magica);
 		zonaMagicas.add(magica);
 	}
 	
-	public void agregarTrampa(Trampa trampa) throws ZonaNoTieneMasEspacioException {
+	public void agregarTrampa(Carta trampa) throws ZonaNoTieneMasEspacioException {
 		verificarCapacidadDeZonas(zonaMagicasYTrampas);
 		zonaMagicasYTrampas.add(trampa);
+		trampa.darVuelta();
 		zonaTrampas.add(trampa);
 	}
 	
@@ -83,12 +84,15 @@ public class Campo {
 
 	public void activarTrampa(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException{
 		try {
-			Trampa trampa = zonaTrampas.remove(0);
+			Carta trampa = zonaTrampas.remove(0);
 			zonaMagicasYTrampas.remove(trampa);
 			trampa.mandarAlCementerio();
 			trampa.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
 		} catch (IndexOutOfBoundsException e) {
 			
+		} catch (NoPuedeRealizarseEfectoDeVolteoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

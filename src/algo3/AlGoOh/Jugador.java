@@ -43,14 +43,14 @@ public class Jugador {
 		campo.agregarMonstruo(monstruo);
 	}
 	
-	public void agregarCartaMagica(Magica magica) throws ZonaNoTieneMasEspacioException {
+	public void agregarCartaMagica(Carta magica) throws ZonaNoTieneMasEspacioException {
 		magica.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMagica(magica);
 	}
 	
-	public void agregarCartaTrampa(Trampa trampa) throws ZonaNoTieneMasEspacioException {
-		trampa.agregarAlCampo(campo,  oponente.campo);
-		campo.agregarTrampa(trampa);
+	public void agregarCartaTrampa(Carta tramoa) throws ZonaNoTieneMasEspacioException {
+		tramoa.agregarAlCampo(campo,  oponente.campo);
+		campo.agregarTrampa(tramoa);
 	}
 	
 	public void agregarCartaCampo(Carta cartaCampo) {

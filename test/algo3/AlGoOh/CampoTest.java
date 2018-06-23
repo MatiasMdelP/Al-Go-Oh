@@ -88,8 +88,9 @@ public class CampoTest {
 		Campo campoOponente = new Campo(new Mazo());
 		
 		assertFalse(vacio.estaEnElCementerio());
-		assertTrue(vacio.estaBocaAbajo());
+		assertFalse(vacio.estaBocaAbajo());
 		campo.agregarTrampa(vacio);
+		assertTrue(vacio.estaBocaAbajo());
 		campo.activarTrampa(campo, campoOponente, unJugador, oponente);
 		assertTrue(vacio.estaEnElCementerio());
 	}
@@ -104,11 +105,13 @@ public class CampoTest {
 		Campo campoOponente = new Campo(new Mazo());
 		
 		assertFalse(vacio1.estaEnElCementerio());
-		assertTrue(vacio1.estaBocaAbajo());
+		assertFalse(vacio1.estaBocaAbajo());
 		assertFalse(vacio2.estaEnElCementerio());
-		assertTrue(vacio2.estaBocaAbajo());
+		assertFalse(vacio2.estaBocaAbajo());
 		campo.agregarTrampa(vacio1);
 		campo.agregarTrampa(vacio2);
+		assertTrue(vacio1.estaBocaAbajo());
+		assertTrue(vacio2.estaBocaAbajo());
 		campo.activarTrampa(campo, campoOponente, unJugador, oponente);
 		assertTrue(vacio1.estaEnElCementerio());
 		assertFalse(vacio2.estaEnElCementerio());

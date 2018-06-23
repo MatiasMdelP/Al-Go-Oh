@@ -59,7 +59,7 @@ public class MagicaTest {
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		oponente.agregarMonstruoEnAtaque(monoAcrobata);
 		
-		Magica agujeroOscuro = new Magica("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
 		unJugador.agregarCartaMagica(agujeroOscuro);
 		unJugador.activarMagica(0);

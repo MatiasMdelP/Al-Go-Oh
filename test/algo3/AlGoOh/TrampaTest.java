@@ -8,10 +8,10 @@ import static org.junit.Assert.assertEquals;
 public class TrampaTest {
 
 	@Test
-	public void test01CrearCartaTrampaYVerificarQueEstaAbajo() {
-		Trampa cartaTrampa = new Trampa("Un nombre", new EfectoVacio());
+	public void test01CrearCartaTrampaYVerificarQueEstaArriba() {
+		Carta cartaTrampa = new Carta("Un nombre", new EfectoVacio());
 		
-		assertTrue(cartaTrampa.estaBocaAbajo());
+		assertFalse(cartaTrampa.estaBocaAbajo());
 	}
 
 	@Test
@@ -24,7 +24,7 @@ public class TrampaTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	
-		Trampa cilindroMagico = new Trampa("Cilindro Magico", new EfectoCilindroMagico());
+		Carta cilindroMagico = new Carta("Cilindro Magico", new EfectoCilindroMagico());
 		
 		unJugador.agregarMonstruoEnAtaque(monoAcrobata);
 		unJugador.agregarCartaTrampa(cilindroMagico);
@@ -47,7 +47,7 @@ public class TrampaTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	
-		Trampa reinforcements = new Trampa("Reinforcements", new EfectoAumentar500Ataque());
+		Carta reinforcements = new Carta("Reinforcements", new EfectoAumentar500Ataque());
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		unJugador.agregarCartaTrampa(reinforcements);

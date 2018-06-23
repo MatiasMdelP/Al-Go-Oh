@@ -43,7 +43,8 @@ public class Carta {
 	}
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException{
-	
+		efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+		this.darVuelta();
 	}
 	
 	public void agregarAlCampo(Campo unCampo, Campo unCampoOponente) {
