@@ -12,6 +12,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -22,8 +23,8 @@ public class ContenedorPrincipal extends BorderPane {
 
     BarraDeMenu menuBar;
     //VistaRobot vistaRobot;
-    Canvas canvasCentral;
-    VBox contenedorCentral;
+    Tablero tablero;
+    //VBox contenedorCentral;
 
     public ContenedorPrincipal(Stage stage/*, Robot robot*/) {
         this.setMenu(stage);
@@ -59,19 +60,19 @@ public class ContenedorPrincipal extends BorderPane {
 
     private void setCentro(/*Robot robot*/) {
 
-        canvasCentral = new Canvas(460, 220);
+        tablero = new Tablero();
         //vistaRobot = new VistaRobot(robot, canvasCentral);
         //vistaRobot.dibujar();
-
-        contenedorCentral = new VBox(canvasCentral);
-        contenedorCentral.setAlignment(Pos.CENTER);
-        contenedorCentral.setSpacing(20);
-        contenedorCentral.setPadding(new Insets(25));
+        
+        //contenedorCentral = new VBox(canvasCentral);
+        //contenedorCentral.setAlignment(Pos.CENTER);
+        //contenedorCentral.setSpacing(20);
+        //contenedorCentral.setPadding(new Insets(25));
         Image imagen = new Image("file:src/algo3/AlGoOh/vista/tablero.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        contenedorCentral.setBackground(new Background(imagenDeFondo));
+        tablero.setBackground(new Background(imagenDeFondo));
 
-        this.setCenter(contenedorCentral);
+        this.setCenter(tablero);
     }
 
     /*private void setConsola() {
