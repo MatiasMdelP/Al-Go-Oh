@@ -31,7 +31,7 @@ public class ContenedorPrincipal extends BorderPane {
     VBox contenedorCentral;
 
     public ContenedorPrincipal(Stage stage/*, Robot robot*/) {
-    	this.setMinSize(1100, 700);
+    	this.setMinSize(1100, 5000);
         this.setMenu(stage);
         this.setCentro(/*robot*/);
         //this.setConsola();

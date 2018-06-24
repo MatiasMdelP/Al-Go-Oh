@@ -11,8 +11,8 @@ import javafx.scene.text.Text;
 
 public class Tablero extends GridPane{
 
-	private int anchoCarta = 150;
-	private int altoCarta = 220;
+	private int anchoCarta = 100;
+	private int altoCarta = 150;
 	
 	
 	public Tablero() {
