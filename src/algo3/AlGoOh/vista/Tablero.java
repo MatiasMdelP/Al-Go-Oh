@@ -31,6 +31,7 @@ public class Tablero extends GridPane{
 		StackPane pilaADibujar = new StackPane();
 		
 		Rectangle rectangulo = new Rectangle();
+		rectangulo.setStroke(Color.BLACK);
 		rectangulo.setWidth(150);
 		rectangulo.setHeight(220);
 		rectangulo.setFill(Color.BROWN);
@@ -47,6 +48,7 @@ public class Tablero extends GridPane{
 		StackPane pilaADibujar = new StackPane();
 		
 		Rectangle rectangulo = new Rectangle();
+		rectangulo.setStroke(Color.BLACK);
 		rectangulo.setWidth(150);
 		rectangulo.setHeight(220);
 		rectangulo.setFill(Color.DARKCYAN);
@@ -62,6 +64,7 @@ public class Tablero extends GridPane{
 		StackPane pilaADibujar = new StackPane();
 		
 		Rectangle rectangulo = new Rectangle();
+		rectangulo.setStroke(Color.BLACK);
 		rectangulo.setWidth(150);
 		rectangulo.setHeight(220);
 		rectangulo.setFill(Color.GREEN);
