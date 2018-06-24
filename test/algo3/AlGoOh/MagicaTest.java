@@ -142,16 +142,17 @@ public class MagicaTest {
 		assertTrue(fisura.estaEnElCementerio());
 	}
 	
-	@Test(expected=NoPuedeRealizarseEfectoDeVolteoException.class)
+	@Test
 	public void test08RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws InterrumpirAtaqueException, NoPuedeRealizarseEfectoDeVolteoException {
 		Jugador jugador = new Jugador();
 		Mazo mazo = new Mazo();
 		Campo campo = new Campo(mazo);
 		Campo campoOponente = new Campo(mazo);
 
-		Magica magicaCualquiera = new Magica("Magica cualquiera", new EfectoVacio());
+		Carta magicaCualquiera = new Carta("Magica cualquiera", new EfectoVacio());
 		
 		magicaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, jugador, jugador.pasarTurno());
+		//realizarEfectoDeVolteo solo las ejecutan las de trampa
 	}
 	
 	@Test
