@@ -65,9 +65,17 @@ public class Tablero extends GridPane{
 		rectangulo.setFill(Color.BROWN);
 		rectangulo.fillProperty();
 
+		Rectangle rectanguloDefensa = new Rectangle();
+		rectanguloDefensa.setFill(Color.TRANSPARENT);
+		rectanguloDefensa.setStroke(Color.BLACK);
+		rectanguloDefensa.setStrokeWidth(3); 	
+		rectanguloDefensa.setWidth(220);
+		rectanguloDefensa.setHeight(150);
+		rectanguloDefensa.getStrokeDashArray().addAll(25d, 10d);
+		
 		Text m = new Text("Monstruo");
 		
-		pilaADibujar.getChildren().addAll(rectangulo, m);
+		pilaADibujar.getChildren().addAll(rectangulo,rectanguloDefensa, m);
 		return pilaADibujar;
 	}
 
