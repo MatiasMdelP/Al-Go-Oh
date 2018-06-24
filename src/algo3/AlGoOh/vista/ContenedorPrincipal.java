@@ -1,7 +1,11 @@
 package algo3.AlGoOh.vista;
 
+import javax.swing.JButton;
+
+import algo3.AlGoOh.Jugador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,31 +30,37 @@ public class ContenedorPrincipal extends BorderPane {
     VBox contenedorCentral;
 
     public ContenedorPrincipal(Stage stage/*, Robot robot*/) {
+    	this.setMinSize(1100, 700);
         this.setMenu(stage);
         this.setCentro(/*robot*/);
         //this.setConsola();
-        //this.setBotonera(robot);
+        this.setBotonera(new Jugador(), new Jugador());
     }
 
-    /*private void setBotonera(Robot robot) {
+    private void setBotonera(Jugador jugador1, Jugador jugador2) {
+    
+    	Label etiqJugador1 = new Label();
+    	etiqJugador1.setText("JUGADOR 1: \n"
+    			+ jugador1.obtenerPuntosDeVida());
+    	etiqJugador1.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
 
-        Button botonMover = new Button();
-        botonMover.setText("Mover");
-        BotonMoverHandler moveButtonHandler = new BotonMoverHandler(vistaRobot, robot);
-        botonMover.setOnAction(moveButtonHandler);
-
-        Button botonDireccion = new Button();
-        botonDireccion.setText("Cambiar direccion");
-        BotonDireccionHandler directionButtonHandler = new BotonDireccionHandler(robot);
-        botonDireccion.setOnAction(directionButtonHandler);
-
-        VBox contenedorVertical = new VBox(botonMover, botonDireccion);
-        contenedorVertical.setSpacing(10);
+        etiqJugador1.setTextFill(Color.web("#000000"));
+    	
+    	Label etiqJugador2 = new Label();
+    	etiqJugador2.setText("JUGADOR 2: \n"
+    			+ jugador2.obtenerPuntosDeVida());
+    	etiqJugador2.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
+    	etiqJugador2.setTextFill(Color.web("#000000"));
+    	
+        VBox contenedorVertical = new VBox(etiqJugador1, etiqJugador2);
+        contenedorVertical.setSpacing(400);
         contenedorVertical.setPadding(new Insets(15));
-
+        //Image imagen = new Image("file:src/algo3/AlGoOh/vista/tablero.png");
+        //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        
+        //contenedorVertical.setBackground(new Background(imagenDeFondo));
         this.setLeft(contenedorVertical);
-
-    }*/
+    }
 
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
@@ -75,18 +85,15 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     /*private void setConsola() {
-
-        // TODO cambiar por el modelo de Consola...
+        //  cambiar por el modelo de Consola...
         Label etiqueta = new Label();
         etiqueta.setText("consola...");
         etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
         etiqueta.setTextFill(Color.WHITE);
-
         VBox contenedorConsola = new VBox(etiqueta);
         contenedorConsola.setSpacing(10);
         contenedorConsola.setPadding(new Insets(15));
         contenedorConsola.setStyle("-fx-background-color: black;");
-
         this.setBottom(contenedorConsola);
     }*/
 
