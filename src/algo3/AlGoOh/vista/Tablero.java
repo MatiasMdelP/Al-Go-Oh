@@ -1,5 +1,6 @@
 package algo3.AlGoOh.vista;
 
+import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -11,16 +12,43 @@ import javafx.scene.text.Text;
 public class Tablero extends GridPane{
 
 	public Tablero() {
-
-		super.add(this.crearPosicionMazo(), 1, 1);
-		super.add(this.crearPosicionCampoVacio(), 7, 2);
+		
+		
+		Insets espacioEntrePosiciones = new Insets(10,10,10,10);
+		
+		StackPane mazoOponente = this.crearPosicionMazo();
+		super.add(mazoOponente, 1, 1);
+		super.setMargin(mazoOponente,espacioEntrePosiciones);
+		
+		StackPane campoOponente = this.crearPosicionCampoVacio();
+		super.add(campoOponente, 7, 2);
+		super.setMargin(campoOponente, espacioEntrePosiciones);
+	
+		StackPane campoJugador = this.crearPosicionCampoVacio();
 		super.add(this.crearPosicionCampoVacio(), 1, 3);
-		super.add(this.crearPosicionMazo(), 7, 4);
+		super.setMargin(campoJugador, espacioEntrePosiciones);
+		
+		StackPane mazoJugador = this.crearPosicionMazo();
+		super.add(mazoJugador, 7, 4);
+		super.setMargin(campoJugador, espacioEntrePosiciones);
+		
 		for(int i=2; i<7; i++) {
-			super.add(this.crearPosicionMagicaYTrampaVacia(), i, 1);			
-			super.add(this.crearPosicionMonstruoVacia(), i, 2);
-			super.add(this.crearPosicionMonstruoVacia(), i, 3);
-			super.add(this.crearPosicionMagicaYTrampaVacia(), i, 4);
+			
+			StackPane magicaYTrampaOponente = this.crearPosicionMagicaYTrampaVacia();
+			super.add(magicaYTrampaOponente, i, 1);
+			super.setMargin(magicaYTrampaOponente, espacioEntrePosiciones);
+			
+			StackPane monstruoOponente = this.crearPosicionMonstruoVacia();
+			super.add(monstruoOponente, i, 2);
+			super.setMargin(monstruoOponente,espacioEntrePosiciones);
+			
+			StackPane monstruoJugador = this.crearPosicionMonstruoVacia();
+			super.add(monstruoJugador, i, 3);
+			super.setMargin(monstruoJugador, espacioEntrePosiciones);
+			
+			StackPane magicaYTrampaJugador = this.crearPosicionMagicaYTrampaVacia();
+			super.add(magicaYTrampaJugador, i, 4);
+			super.setMargin(magicaYTrampaJugador, espacioEntrePosiciones);
 		}
 	
 	}
@@ -71,7 +99,6 @@ public class Tablero extends GridPane{
 		rectangulo.fillProperty();
 
 		Text m = new Text("Campo");
-		
 		pilaADibujar.getChildren().addAll(rectangulo, m);
 		return pilaADibujar;
 	}
@@ -86,6 +113,8 @@ public class Tablero extends GridPane{
 		mazo.setFitHeight(220);
 
 		Text m = new Text("Mazo");
+		m.setFill(Color.WHITE);
+		m.fillProperty();
 		pilaADibujar.getChildren().addAll(mazo, m);
 		return pilaADibujar;
 	}
