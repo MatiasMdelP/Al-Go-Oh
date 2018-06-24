@@ -11,6 +11,10 @@ import javafx.scene.text.Text;
 
 public class Tablero extends GridPane{
 
+	private int anchoCarta = 150;
+	private int altoCarta = 220;
+	
+	
 	public Tablero() {
 		
 		
@@ -60,8 +64,8 @@ public class Tablero extends GridPane{
 		
 		Rectangle rectangulo = new Rectangle();
 		rectangulo.setStroke(Color.BLACK);
-		rectangulo.setWidth(150);
-		rectangulo.setHeight(220);
+		rectangulo.setWidth(anchoCarta);
+		rectangulo.setHeight(altoCarta);
 		rectangulo.setFill(Color.BROWN);
 		rectangulo.fillProperty();
 
@@ -69,8 +73,8 @@ public class Tablero extends GridPane{
 		rectanguloDefensa.setFill(Color.TRANSPARENT);
 		rectanguloDefensa.setStroke(Color.BLACK);
 		rectanguloDefensa.setStrokeWidth(3); 	
-		rectanguloDefensa.setWidth(220);
-		rectanguloDefensa.setHeight(150);
+		rectanguloDefensa.setWidth(altoCarta);
+		rectanguloDefensa.setHeight(anchoCarta);
 		rectanguloDefensa.getStrokeDashArray().addAll(25d, 10d);
 		
 		Text m = new Text("Monstruo");
@@ -85,8 +89,8 @@ public class Tablero extends GridPane{
 		
 		Rectangle rectangulo = new Rectangle();
 		rectangulo.setStroke(Color.BLACK);
-		rectangulo.setWidth(150);
-		rectangulo.setHeight(220);
+		rectangulo.setWidth(anchoCarta);
+		rectangulo.setHeight(altoCarta);
 		rectangulo.setFill(Color.DARKCYAN);
 		rectangulo.fillProperty();
 
@@ -101,8 +105,8 @@ public class Tablero extends GridPane{
 		
 		Rectangle rectangulo = new Rectangle();
 		rectangulo.setStroke(Color.BLACK);
-		rectangulo.setWidth(150);
-		rectangulo.setHeight(220);
+		rectangulo.setWidth(anchoCarta);
+		rectangulo.setHeight(altoCarta);
 		rectangulo.setFill(Color.GREEN);
 		rectangulo.fillProperty();
 
@@ -117,8 +121,8 @@ public class Tablero extends GridPane{
 		ImageView mazo = new ImageView();
 		Image imagenDeCarta = new Image("file:src/algo3/AlGoOh/vista/cartaBocaAbajo.png");
 		mazo.setImage(imagenDeCarta);
-		mazo.setFitWidth(150);
-		mazo.setFitHeight(220);
+		mazo.setFitWidth(anchoCarta);
+		mazo.setFitHeight(altoCarta);
 
 		Text m = new Text("Mazo");
 		m.setFill(Color.WHITE);
