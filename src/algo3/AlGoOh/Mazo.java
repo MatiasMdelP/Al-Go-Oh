@@ -28,16 +28,18 @@ public class Mazo {
 
 	public void inicializarMazo() {
 	
-			Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", null,new InvocacionNormal(), 600, 900);
+			Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null,new InvocacionNormal(), 600, 900);
 			Monstruo monoAcrobata = new Monstruo("Mono Acrobata", null, new InvocacionNormal(), 1000, 1800);
 			Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", null, new Invocacion2Sacrificios(), 3000, 2500);
+			Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", null,new InvocacionNormal(), 600, 900);
 			Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 			Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null,
 					new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		
-			agregarUnaCartaAlMazo(huevoMonstruoso);
+			agregarUnaCartaAlMazo(huevoMonstruoso1);
 			agregarUnaCartaAlMazo(monoAcrobata);
 			agregarUnaCartaAlMazo(agujeroOscuro);
+			agregarUnaCartaAlMazo(huevoMonstruoso2);
 			agregarUnaCartaAlMazo(dragonBlanco);
 			agregarUnaCartaAlMazo(dragonDefinitivo);
 	}

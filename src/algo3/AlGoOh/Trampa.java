@@ -6,9 +6,7 @@ public class Trampa extends Carta{
 		super(unNombre, unEfecto);
 	}
 	
-
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
-		
 		
 	}
 }

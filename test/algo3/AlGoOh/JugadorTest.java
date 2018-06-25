@@ -15,33 +15,28 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test02AlIniciarNoTengoCartasEnMano() {
+	public void test02AlIniciarTengoUnaCartaEnLaMano() {
 		Jugador unJugador = new Jugador();
-		
-		assertEquals(0, unJugador.cantidadDeCartasEnMano());
-	}
-	
-	@Test
-	public void test03AlTomarUnaCartaTengoUnaEnMano() {
-		Jugador unJugador = new Jugador();
-		unJugador.tomarUnaCartaDelMazo();
 		
 		assertEquals(1, unJugador.cantidadDeCartasEnMano());
 	}
 	
 	@Test
-	public void test04ActivarMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
-		Jugador unJugador= new Jugador();
+	public void test04ActivarMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
+		Jugador unJugador = new Jugador();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		
 		unJugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		
+		unJugador.pasarFase();
+		
 		unJugador.activarMonstruo(0);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 	}
 	
 	@Test
-	public void test05AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelJugadorAtacado() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException {
+	public void test05AtacoAMonstruoEnPosicionAtaqueConMenorAtaqueYSeReduceLaVidaDelJugadorAtacado() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -54,6 +49,7 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
 		jugador = jugador.pasarTurno();
+		jugador.pasarFase();
 		
 		jugador.atacarA(0, 0);
 		
@@ -65,7 +61,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test06AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYSufroDanio() throws ZonaNoTieneMasEspacioException, MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException {
+	public void test06AtacoAMonstruoEnPosicionAtaqueConMayorAtaqueYSufroDanio() throws ZonaNoTieneMasEspacioException, MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -79,8 +75,9 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		
 		jugador = jugador.pasarTurno();
+		jugador.pasarFase();
 		
-		jugador.atacarA( 0, 0);
+		jugador.atacarA(0, 0);
 		
 		assertEquals(7600, jugador.obtenerPuntosDeVida());
 		jugador = jugador.pasarTurno();
@@ -91,7 +88,7 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test07AtacoAMonstruoEnPosicionAtaqueConIgualAtaqueYNaDieSufreDanioYAmbosMontruosVanAlCementerio() throws MonstruoNoPuedeAtacarException, MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test07AtacoAMonstruoEnPosicionAtaqueConIgualAtaqueYNaDieSufreDanioYAmbosMontruosVanAlCementerio() throws MonstruoNoPuedeAtacarException, MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -104,6 +101,7 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso2);
 		
 		jugador = jugador.pasarTurno();
+		jugador.pasarFase();
 		
 		jugador.atacarA(0, 0);
 		
@@ -116,7 +114,7 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test08AtacoAMonstruoEnPosicionDefensaConMenorAtaqueYOponenteNoSufreDanio() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException {
+	public void test08AtacoAMonstruoEnPosicionDefensaConMenorAtaqueYOponenteNoSufreDanio() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador= new Jugador();
 	
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -129,6 +127,7 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnDefensa(huevoMonstruoso);
 		
 		jugador = jugador.pasarTurno();
+		jugador.pasarFase();
 
 		jugador.atacarA(0, 0);
 
@@ -140,7 +139,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test09AtacoAMonstruoEnPosicionDefensaConMayorAtaqueYSufroDanioIgualALaDiferenciaEntrePuntosDeAtaqueYDefensa() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException {
+	public void test09AtacoAMonstruoEnPosicionDefensaConMayorAtaqueYSufroDanioIgualALaDiferenciaEntrePuntosDeAtaqueYDefensa() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -153,8 +152,9 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnDefensa(monoAcrobata);
 		
 		jugador = jugador.pasarTurno();
+		jugador.pasarFase();
 		
-		jugador.atacarA(0,0);
+		jugador.atacarA(0, 0);
 		
 		assertEquals(6800, jugador.obtenerPuntosDeVida());
 		jugador = jugador.pasarTurno();
@@ -164,7 +164,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test09AtacoAMonstruoEnPosicionDefensaConIgualAtaqueYNadieSufreDanio() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException {
+	public void test09AtacoAMonstruoEnPosicionDefensaConIgualAtaqueYNadieSufreDanio() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -178,20 +178,19 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnDefensa(huevoMonstruoso2);
 		
 		jugador = jugador.pasarTurno();
+		jugador.pasarFase();
 
-		jugador.atacarA(0,0);
+		jugador.atacarA(0, 0);
 		
 		assertEquals(7700, jugador.obtenerPuntosDeVida());
-		
 		jugador = jugador.pasarTurno();
-		
 		assertEquals(8000, jugador.obtenerPuntosDeVida());
 		assertTrue(huevoMonstruoso1.estaEnElCementerio());
 		assertFalse(huevoMonstruoso2.estaEnElCementerio());
 	}
 
 	@Test 
-	public void test11InvocacionDeMonstruoDe5Estrellas() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test11InvocacionDeMonstruoDe5Estrellas() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
@@ -199,13 +198,15 @@ public class JugadorTest {
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		jugador.agregarMonstruoASacrificar(0);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 	}
 
 	@Test 
-	public void test12InvocacionDeMonstruoDe7Estrellas() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test12InvocacionDeMonstruoDe7Estrellas() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -213,9 +214,13 @@ public class JugadorTest {
 		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), new Invocacion2Sacrificios(), 3000, 2500);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
-		jugador.agregarMonstruoASacrificar(1);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoASacrificar(0);
+		jugador.agregarMonstruoASacrificar(1);
 		jugador.agregarMonstruoEnAtaque(dragonBlanco);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
@@ -223,13 +228,15 @@ public class JugadorTest {
 	}
 	
 	@Test(expected=MonstruosInsuficientesParaSacrificioException.class)
-	public void test13InvocacionDeMonstruoDe7EstrellasConMonstruosInsuficientesYElMonstruoExistenteSigueVivo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test13InvocacionDeMonstruoDe7EstrellasConMonstruosInsuficientesYElMonstruoExistenteSigueVivo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo dragonBlanco = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), new Invocacion2Sacrificios(), 3000, 2500);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoASacrificar(0);
 		jugador.agregarMonstruoEnAtaque(dragonBlanco);
 
@@ -237,7 +244,7 @@ public class JugadorTest {
 	}
 	
 	@Test(expected=MonstruosInsuficientesParaSacrificioException.class)
-	public void test14NoPuedoInvocarAlDragonDefinitivoSoloConUnDragonBlancoEnCampo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test14NoPuedoInvocarAlDragonDefinitivoSoloConUnDragonBlancoEnCampo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -247,16 +254,21 @@ public class JugadorTest {
 									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(dragonBlanco);
-		
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnDefensa(dragonDefinitivo);
 		
 		assertFalse(dragonBlanco.estaEnElCementerio());
 	}
 	
 	@Test(expected=MonstruosInsuficientesParaSacrificioException.class)
-	public void test15NoPuedoInvocarAlDragonDefinitivoSoloConDosDragonBlancoEnCampo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test15NoPuedoInvocarAlDragonDefinitivoSoloConDosDragonBlancoEnCampo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -271,12 +283,23 @@ public class JugadorTest {
 									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata1);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso2);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata2);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(dragonBlanco1);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(dragonBlanco2);
-		
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnDefensa(dragonDefinitivo);
 		
 		
@@ -285,7 +308,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test16InvocarAlDragonDefinitivoSacrificandoLosTresDragonesBlancosEnCampo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test16InvocarAlDragonDefinitivoSacrificandoLosTresDragonesBlancosEnCampo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -303,23 +326,38 @@ public class JugadorTest {
 									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata1);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoASacrificar(0);
 		jugador.agregarMonstruoASacrificar(1);
 		jugador.agregarMonstruoEnAtaque(dragonBlanco1);
-		
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso2);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata2);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoASacrificar(1);
 		jugador.agregarMonstruoASacrificar(2);
 		jugador.agregarMonstruoEnAtaque(dragonBlanco2);
-		
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso3);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata3);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoASacrificar(2);
 		jugador.agregarMonstruoASacrificar(3);
 		jugador.agregarMonstruoEnAtaque(dragonBlanco3);
-		
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnDefensa(dragonDefinitivo);
 
 		assertTrue(dragonBlanco1.estaEnElCementerio());
@@ -395,7 +433,7 @@ public class JugadorTest {
 	}
 	
 	@Test 
-	public void test21InvocacionDeMonstruoDe5EstrellasSacrificoSegundoMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test21InvocacionDeMonstruoDe5EstrellasSacrificoSegundoMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
@@ -404,12 +442,15 @@ public class JugadorTest {
 		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", new EfectoVacio(), new Invocacion1Sacrificio() ,1800, 1800);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoASacrificar(1);
 		jugador.agregarMonstruoEnAtaque(unMonstruoDe5Estrellas);
 		
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
-		assertTrue(monoAcrobata.estaEnElCementerio);
-	
+		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
 }

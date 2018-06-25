@@ -46,7 +46,7 @@ public class MagicaTest {
 	}
 	
 	@Test
-	public void test05ActivarAgujeroOscuro() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test05ActivarAgujeroOscuro() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -62,8 +62,7 @@ public class MagicaTest {
 		
 		jugador = jugador.pasarTurno();
 		
-		jugador.agregarCartaMagica(agujeroOscuro);
-		jugador.activarMagica(0);
+		jugador.agregarCartaMagicaBocaArriba(agujeroOscuro);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
@@ -71,7 +70,7 @@ public class MagicaTest {
 	}
 	
 	@Test
-	public void test06ActivarFisuraYOponenteSoloUnMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test06ActivarFisuraYOponenteSoloUnMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -84,15 +83,14 @@ public class MagicaTest {
 		
 		jugador = jugador.pasarTurno();
 		
-		jugador.agregarCartaMagica(fisura);
-		jugador.activarMagica(0);
+		jugador.agregarCartaMagicaBocaArriba(fisura);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(fisura.estaEnElCementerio());
 	}
 	
 	@Test
-	public void test07ActivarFisuraYOponenteCon2MonstruosYSeDestruyeElDeMenorAtaque() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test07ActivarFisuraYOponenteCon2MonstruosYSeDestruyeElDeMenorAtaque() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -101,14 +99,15 @@ public class MagicaTest {
 		jugador = jugador.pasarTurno();
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		
 		Carta fisura = new Carta("Fisura", new EfectoFisura());
 		
 		jugador = jugador.pasarTurno();
 
-		jugador.agregarCartaMagica(fisura);
-		jugador.activarMagica(0);
+		jugador.agregarCartaMagicaBocaArriba(fisura);
 		
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
@@ -116,7 +115,7 @@ public class MagicaTest {
 	}
 	
 	@Test
-	public void test07ActivarFisuraYOponenteConVariosMonstruosYSeDestruyeElDeMenorAtaque() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	public void test08ActivarFisuraYOponenteConVariosMonstruosYSeDestruyeElDeMenorAtaque() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
@@ -126,15 +125,18 @@ public class MagicaTest {
 		jugador = jugador.pasarTurno();
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
+		jugador = jugador.pasarTurno();
+		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnDefensa(brazoIzquierdoDelProhibido);
 		
 		Carta fisura = new Carta("Fisura", new EfectoFisura());
 		
 		jugador = jugador.pasarTurno();
 
-		jugador.agregarCartaMagica(fisura);
-		jugador.activarMagica(0);
+		jugador.agregarCartaMagicaBocaArriba(fisura);
 		
 		assertTrue(brazoIzquierdoDelProhibido.estaEnElCementerio);
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
@@ -143,7 +145,7 @@ public class MagicaTest {
 	}
 	
 	@Test
-	public void test08RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws InterrumpirAtaqueException, NoPuedeRealizarseEfectoDeVolteoException {
+	public void test09RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws InterrumpirAtaqueException, NoPuedeRealizarseEfectoDeVolteoException {
 		Jugador jugador = new Jugador();
 		Mazo mazo = new Mazo();
 		Campo campo = new Campo(mazo);
@@ -152,17 +154,15 @@ public class MagicaTest {
 		Carta magicaCualquiera = new Carta("Magica cualquiera", new EfectoVacio());
 		
 		magicaCualquiera.realizarEfectoDeVolteo(campo, campoOponente, jugador, jugador.pasarTurno());
-		//realizarEfectoDeVolteo solo las ejecutan las de trampa
 	}
 	
 	@Test
-	public void test09ActivarFisuraYOponenteSinMonstruos() throws ZonaNoTieneMasEspacioException {
+	public void test10ActivarFisuraYOponenteSinMonstruos() throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador = new Jugador();
 		
 		Carta fisura = new Carta("Fisura", new EfectoFisura());
 		
-		jugador.agregarCartaMagica(fisura);
-		jugador.activarMagica(0);
+		jugador.agregarCartaMagicaBocaArriba(fisura);
 		
 		assertTrue(fisura.estaEnElCementerio());
 	}

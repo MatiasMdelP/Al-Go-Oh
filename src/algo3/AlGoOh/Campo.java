@@ -91,8 +91,7 @@ public class Campo {
 		} catch (IndexOutOfBoundsException e) {
 			
 		} catch (NoPuedeRealizarseEfectoDeVolteoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 	}
 	
@@ -168,5 +167,12 @@ public class Campo {
 				}
 			}
 		}
+	}
+
+	public void mandarMagicaOTrampaAlCementerio(Carta carta) {
+		zonaMagicasYTrampas.remove(carta);
+		zonaMagicas.remove(carta);
+		zonaTrampas.remove(carta);
+		carta.mandarAlCementerio();
 	}
 }

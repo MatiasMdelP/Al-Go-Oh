@@ -32,10 +32,10 @@ public class Carta {
 		bocaAbajo = !bocaAbajo;
 	}
 	
-	public void realizarEfecto(Jugador unJugador, Jugador oponente){
+	public void realizarEfecto(Jugador unJugador, Jugador oponente) {
+		if(bocaAbajo) darVuelta();
 		efecto.realizarse(campo, campoOponente, unJugador, oponente);
-		this.mandarAlCementerio();
-		darVuelta();
+		campo.mandarMagicaOTrampaAlCementerio(this);
 	}
 	
 	public boolean esParteDelExodia() {
