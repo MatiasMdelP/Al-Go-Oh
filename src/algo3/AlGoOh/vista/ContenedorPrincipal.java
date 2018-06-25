@@ -1,13 +1,7 @@
 package algo3.AlGoOh.vista;
 
-import javax.swing.JButton;
-
 import algo3.AlGoOh.Jugador;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -29,26 +23,33 @@ public class ContenedorPrincipal extends BorderPane {
     //Canvas canvasCentral;
     Tablero tablero;
     VBox contenedorCentral;
+    String nombreJugador1;
+    String nombreJugador2;
 
     public ContenedorPrincipal(Stage stage/*, Robot robot*/) {
     	this.setMinSize(1100, 5000);
         this.setMenu(stage);
         this.setCentro(/*robot*/);
         //this.setConsola();
-        this.setBotonera(new Jugador(), new Jugador());
     }
 
+    public void setNombresDeJugadores(String unNombre, String otroNombre) {
+    	nombreJugador1 = unNombre;
+    	nombreJugador2 = otroNombre;
+        this.setBotonera(new Jugador(), new Jugador());
+    }
+    
     private void setBotonera(Jugador jugador1, Jugador jugador2) {
     
     	Label etiqJugador1 = new Label();
-    	etiqJugador1.setText("JUGADOR 1: \n"
+    	etiqJugador1.setText(nombreJugador1 + ": \n"
     			+ jugador1.obtenerPuntosDeVida());
     	etiqJugador1.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
 
         etiqJugador1.setTextFill(Color.web("#000000"));
     	
     	Label etiqJugador2 = new Label();
-    	etiqJugador2.setText("JUGADOR 2: \n"
+    	etiqJugador2.setText(nombreJugador2 + ": \n"
     			+ jugador2.obtenerPuntosDeVida());
     	etiqJugador2.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
     	etiqJugador2.setTextFill(Color.web("#000000"));
@@ -87,7 +88,7 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     /*private void setConsola() {
-        //  cambiar por el modelo de Consola...
+        // cambiar por el modelo de Consola...
         Label etiqueta = new Label();
         etiqueta.setText("consola...");
         etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
