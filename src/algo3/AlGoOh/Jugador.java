@@ -160,4 +160,8 @@ public class Jugador {
 	public void pasarFase() throws NoHayMasFasesException {
 		fase = fase.pasarFase();
 	}
+
+	public List<Carta> getListaDeCartasEnMano() {
+		return cartasEnMano;
+	}
 }

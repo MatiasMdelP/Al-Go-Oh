@@ -17,12 +17,13 @@ import javafx.scene.text.Text;
 
 public class Tablero extends GridPane{
 
-	private int anchoCarta = 100;
-	private int altoCarta = 150;
+	private int anchoCarta;
+	private int altoCarta;
 	
 	
-	public Tablero() {
-		
+	public Tablero(int anchoCartaIngresado, int altoCartaIngresado) {
+		anchoCarta = anchoCartaIngresado;
+		altoCarta = altoCartaIngresado;
 		
 		Insets espacioEntrePosiciones = new Insets(10,10,10,10);
 		
@@ -47,7 +48,6 @@ public class Tablero extends GridPane{
 			//StackPane magicaYTrampaOponente = this.crearPosicionMagicaYTrampaVacia();
 			//super.add(magicaYTrampaOponente, i, 1);
 			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
-			
 			super.add(botonMyTOponente, i, 1);
 			//super.setMargin(nuevoBoton, espacioEntrePosiciones);
 			super.setMargin(/*magicaYTrampaOponente,*/ botonMyTOponente, espacioEntrePosiciones);
@@ -75,8 +75,7 @@ public class Tablero extends GridPane{
 	}
 
 
-
-	public StackPane crearPosicionMonstruoVacia() {
+	private StackPane crearPosicionMonstruoVacia() {
 		StackPane pilaADibujar = new StackPane();
 		
 		Rectangle rectangulo = new Rectangle();
@@ -100,7 +99,7 @@ public class Tablero extends GridPane{
 		return pilaADibujar;
 	}
 
-	public StackPane crearPosicionMagicaYTrampaVacia() {
+	private StackPane crearPosicionMagicaYTrampaVacia() {
 		
 		StackPane pilaADibujar = new StackPane();
 		
@@ -117,7 +116,7 @@ public class Tablero extends GridPane{
 		return pilaADibujar;		
 	}
 
-	public StackPane crearPosicionCampoVacio() {
+	private StackPane crearPosicionCampoVacio() {
 		StackPane pilaADibujar = new StackPane();
 		
 		Rectangle rectangulo = new Rectangle();
@@ -132,7 +131,7 @@ public class Tablero extends GridPane{
 		return pilaADibujar;
 	}
 
-	public StackPane crearPosicionMazo() {
+	private StackPane crearPosicionMazo() {
 		StackPane pilaADibujar = new StackPane();
 		
 		ImageView mazo = new ImageView();

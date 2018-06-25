@@ -23,6 +23,8 @@ public class ContenedorPrincipal extends BorderPane {
     //VistaRobot vistaRobot;
     //Canvas canvasCentral;
     private Tablero tablero;
+    private int anchoCarta = 100;
+    private int altoCarta = 150;
     VBox contenedorCentral;
     String nombreJugador1;
     String nombreJugador2;
@@ -84,7 +86,7 @@ public class ContenedorPrincipal extends BorderPane {
 
     private void setCentro(/*Robot robot*/) {
 
-    	tablero = new Tablero();
+    	tablero = new Tablero(anchoCarta, altoCarta);
         //canvasCentral = new Canvas(460, 220);
         //vistaRobot = new VistaRobot(robot, canvasCentral);
         //vistaRobot.dibujar();
