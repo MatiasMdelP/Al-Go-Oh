@@ -47,7 +47,7 @@ public class Tablero extends GridPane{
 			//StackPane magicaYTrampaOponente = this.crearPosicionMagicaYTrampaVacia();
 			//super.add(magicaYTrampaOponente, i, 1);
 			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
-						
+			
 			super.add(botonMyTOponente, i, 1);
 			//super.setMargin(nuevoBoton, espacioEntrePosiciones);
 			super.setMargin(/*magicaYTrampaOponente,*/ botonMyTOponente, espacioEntrePosiciones);

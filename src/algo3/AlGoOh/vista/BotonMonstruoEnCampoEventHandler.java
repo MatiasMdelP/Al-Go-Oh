@@ -19,8 +19,8 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 		JOptionPane cuadro = new JOptionPane();
 		cuadro.setMessageType(1);
 
-		String[] options = {"Atacar", "Poner en Ataque", "Poner en Defensa", "Dar vuelta", "Cancelar"};
-		int seleccion = cuadro.showOptionDialog(null, "Que acción quiere realizar?", "Acción", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		String[] options = {"Atacar", "Poner en Ataque", "Poner en Defensa", "Dar vuelta", "Ofrecer como sacrificio", "Cancelar"};
+		int seleccion = JOptionPane.showOptionDialog(null, "Que acción quiere realizar?", "Acción", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		if (seleccion == 0) {
 			
 		} else if (seleccion == 1) {

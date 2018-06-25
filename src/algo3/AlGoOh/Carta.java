@@ -15,6 +15,10 @@ public class Carta {
 		bocaAbajo = false;
 		estaEnElCementerio = false;
 	}
+	
+	public String obtenerNombre() {
+		return nombre;
+	}
 		
 	public void mandarAlCementerio(){
 		estaEnElCementerio = true;

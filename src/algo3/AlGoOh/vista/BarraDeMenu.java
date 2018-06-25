@@ -17,7 +17,7 @@ public class BarraDeMenu extends MenuBar {
         Menu menuAyuda = new Menu("Ayuda");
 
         MenuItem opcionSalir = new MenuItem("Salir");
-        MenuItem opcionAbrir = new MenuItem("Abrir");
+        //MenuItem opcionAbrir = new MenuItem("Abrir");
         MenuItem opcionFasesJuego = new MenuItem("Sobre las Fases del Juego...");
         MenuItem opcionAcercaDe = new MenuItem("Acerca de...");
 
@@ -32,7 +32,7 @@ public class BarraDeMenu extends MenuBar {
 
         //opcionPantallaCompleta.setDisable(true);
 
-        menuArchivo.getItems().addAll(opcionAbrir, new SeparatorMenuItem(), opcionSalir);
+        menuArchivo.getItems().addAll(/*opcionAbrir, new SeparatorMenuItem(),*/ opcionSalir);
         menuAyuda.getItems().addAll(opcionFasesJuego, new SeparatorMenuItem(), opcionAcercaDe);
         //menuVer.getItems().addAll(opcionPantallaCompleta);
 

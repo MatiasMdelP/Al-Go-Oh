@@ -1,6 +1,12 @@
 package algo3.AlGoOh.vista;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 
 public class BotonMagicaTrampaEnMano extends Button {
 
@@ -11,6 +17,7 @@ public class BotonMagicaTrampaEnMano extends Button {
 		this.setPrefSize(anchoCarta, altoCarta);
 		BotonMagicaTrampaEnManoEventHandler botonMagicaTrampaEnManoEventHandleroEventHandler = new BotonMagicaTrampaEnManoEventHandler();
 		this.setOnAction(botonMagicaTrampaEnManoEventHandleroEventHandler);
+		
 	}
 
 }
