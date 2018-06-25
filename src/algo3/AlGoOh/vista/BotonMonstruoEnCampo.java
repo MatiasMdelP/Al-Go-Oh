@@ -22,6 +22,7 @@ public class BotonMonstruoEnCampo extends Button {
 		this.setPrefSize(anchoCarta, altoCarta);
 		BotonMonstruoEnCampoEventHandler botonMonstruoEnCampoEventHandler = new BotonMonstruoEnCampoEventHandler(unMonstruo);
 		this.setOnAction(botonMonstruoEnCampoEventHandler);
+		this.setStyle("-fx-base: #A52A2A");
 		unMonstruo = null;	
 	}
 	

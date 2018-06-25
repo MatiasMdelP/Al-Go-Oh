@@ -20,6 +20,7 @@ public class BotonMagicaTrampaEnCampo extends Button {
 		this.setPrefSize(anchoCarta, altoCarta);
 		BotonMagicaTrampaEnCampoEventHandler botonMagicaTrampaEnCampoEventHandler = new BotonMagicaTrampaEnCampoEventHandler();
 		this.setOnAction(botonMagicaTrampaEnCampoEventHandler);
+		this.setStyle("-fx-base: #25d19d");
 	}
 }
 /*if (unaCarta == null) {
