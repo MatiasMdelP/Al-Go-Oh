@@ -91,8 +91,7 @@ public class Campo {
 		} catch (IndexOutOfBoundsException e) {
 			
 		} catch (NoPuedeRealizarseEfectoDeVolteoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
 		}
 	}
 	
