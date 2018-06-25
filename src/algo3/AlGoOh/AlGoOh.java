@@ -20,7 +20,7 @@ public class AlGoOh {
 	    return INSTANCE;
 	}
 	
-	public void cargarJugadores(/*String nombreDeUnJugador, String nombreDeOtroJugador*/) {
+	public void cargarJugadores() {
 		
 		Random sorteo = new Random();
 		jugadorActual = new Jugador();
