@@ -31,11 +31,14 @@ public class ContenedorPrincipal extends BorderPane {
     VBox contenedorCentral;
 
     public ContenedorPrincipal(Stage stage/*, Robot robot*/) {
-    	this.setMinSize(1100, 5000);
+    	
         this.setMenu(stage);
         this.setCentro(/*robot*/);
         //this.setConsola();
         this.setBotonera(new Jugador(), new Jugador());
+        this.setMinSize(1100, 700);
+        stage.setFullScreen(false);
+        this.setPrefSize(1100, 7000);
     }
 
     private void setBotonera(Jugador jugador1, Jugador jugador2) {
