@@ -2,6 +2,7 @@ package algo3.AlGoOh.vista;
 
 import javax.swing.JButton;
 
+import algo3.AlGoOh.AlGoOh;
 import algo3.AlGoOh.Jugador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -24,11 +25,12 @@ import javafx.stage.Stage;
 
 public class ContenedorPrincipal extends BorderPane {
 
-    BarraDeMenu menuBar;
+    private BarraDeMenu menuBar;
     //VistaRobot vistaRobot;
     //Canvas canvasCentral;
-    Tablero tablero;
+    private Tablero tablero;
     VBox contenedorCentral;
+    private AlGoOh juegoAlGoOh;
 
     public ContenedorPrincipal(Stage stage/*, Robot robot*/) {
     	
@@ -56,8 +58,15 @@ public class ContenedorPrincipal extends BorderPane {
     	etiqJugador2.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
     	etiqJugador2.setTextFill(Color.web("#000000"));
     	
-        VBox contenedorVertical = new VBox(etiqJugador1, etiqJugador2);
-        contenedorVertical.setSpacing(400);
+    	BotonFinalizarTurno botonPasarTurno = new BotonFinalizarTurno(juegoAlGoOh);
+    	
+    	BotonCambiarFase botonCambiarFase = new BotonCambiarFase(juegoAlGoOh);
+    	
+    	VBox contenedorDeBotones = new VBox(botonPasarTurno, botonCambiarFase);
+    	contenedorDeBotones.setSpacing(20);
+    	
+        VBox contenedorVertical = new VBox(etiqJugador1, contenedorDeBotones, etiqJugador2);
+        contenedorVertical.setSpacing(200);
         contenedorVertical.setPadding(new Insets(15));
         //Image imagen = new Image("file:src/algo3/AlGoOh/vista/tablero.png");
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
