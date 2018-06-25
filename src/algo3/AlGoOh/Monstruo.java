@@ -15,10 +15,6 @@ public class Monstruo extends Carta {
 		posicion = new PosicionAtaque(ataque,defensa);
 	}
 	
-	public String obtenerNombre() {
-		return nombre;
-	}
-	
 	public void colocarEnPosicionAtaque() {
 		posicion = posicion.ponerEnPosicionAtaque();
 	}

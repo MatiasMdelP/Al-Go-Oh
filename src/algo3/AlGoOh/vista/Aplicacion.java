@@ -30,11 +30,13 @@ public class Aplicacion extends Application {
     @Override
     public void start(final Stage stage) throws Exception {
     	stage.setTitle("Al-Go-Oh !");
+    	stage.setFullScreen(false);
         
         configurarPantallaInicial(stage);
         
         stage.setScene(scene);
-    	stage.setMaximized(true);
+        stage.setFullScreen(false);
+        stage.setMaximized(true);
         stage.show();
     }
     
@@ -70,8 +72,8 @@ public class Aplicacion extends Application {
 
         GridPane gridPane = new GridPane();    
         
-        //Setting size for the pane
-        gridPane.setMinSize(1100, 5000); 
+        //Setting size for the pane 
+        gridPane.setMinSize(1100, 700); 
         
         //Setting the padding
         gridPane.setPadding(new Insets(10, 10, 10, 10)); 

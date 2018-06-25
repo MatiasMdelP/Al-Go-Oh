@@ -1,9 +1,15 @@
 package algo3.AlGoOh.vista;
 
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -38,23 +44,34 @@ public class Tablero extends GridPane{
 		
 		for(int i=2; i<7; i++) {
 			
-			StackPane magicaYTrampaOponente = this.crearPosicionMagicaYTrampaVacia();
-			super.add(magicaYTrampaOponente, i, 1);
-			super.setMargin(magicaYTrampaOponente, espacioEntrePosiciones);
+			//StackPane magicaYTrampaOponente = this.crearPosicionMagicaYTrampaVacia();
+			//super.add(magicaYTrampaOponente, i, 1);
+			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
 			
-			StackPane monstruoOponente = this.crearPosicionMonstruoVacia();
-			super.add(monstruoOponente, i, 2);
-			super.setMargin(monstruoOponente,espacioEntrePosiciones);
+			super.add(botonMyTOponente, i, 1);
+			//super.setMargin(nuevoBoton, espacioEntrePosiciones);
+			super.setMargin(/*magicaYTrampaOponente,*/ botonMyTOponente, espacioEntrePosiciones);
 			
-			StackPane monstruoJugador = this.crearPosicionMonstruoVacia();
-			super.add(monstruoJugador, i, 3);
-			super.setMargin(monstruoJugador, espacioEntrePosiciones);
+			//StackPane monstruoOponente = this.crearPosicionMonstruoVacia();
+			//super.add(monstruoOponente, i, 2);
+			BotonMonstruoEnCampo botonMonstruoOponente = new BotonMonstruoEnCampo(altoCarta, anchoCarta);
 			
-			StackPane magicaYTrampaJugador = this.crearPosicionMagicaYTrampaVacia();
-			super.add(magicaYTrampaJugador, i, 4);
-			super.setMargin(magicaYTrampaJugador, espacioEntrePosiciones);
+			super.add(botonMonstruoOponente, i, 2);
+			super.setMargin(/*monstruoOponente,*/ botonMonstruoOponente, espacioEntrePosiciones);
+			
+			//StackPane monstruoJugador = this.crearPosicionMonstruoVacia();
+			//super.add(monstruoJugador, i, 3);
+			BotonMonstruoEnCampo botonMonstruoJugador = new BotonMonstruoEnCampo(altoCarta, anchoCarta);
+			super.add(botonMonstruoJugador, i, 3);
+			super.setMargin(/*monstruoOponente,*/ botonMonstruoJugador, espacioEntrePosiciones);
+			
+			//StackPane magicaYTrampaJugador = this.crearPosicionMagicaYTrampaVacia();
+			//super.add(magicaYTrampaJugador, i, 4);
+			BotonMagicaTrampaEnCampo botonMyTJugador = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
+			super.add(botonMyTJugador, i, 4);
+			super.setMargin(/*monstruoJugador,*/botonMyTJugador,  espacioEntrePosiciones);
 		}
-	
+		
 	}
 
 
