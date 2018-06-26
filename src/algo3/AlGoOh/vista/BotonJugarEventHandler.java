@@ -11,14 +11,12 @@ import javafx.stage.Stage;
 public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
-    private Scene proximaEscena;
 
     private TextField textoJugador1;
     private TextField textoJugador2;
     
-    public BotonJugarEventHandler(Stage stage, Scene proximaEscena, TextField jugador1, TextField jugador2) {
+    public BotonJugarEventHandler(Stage stage, TextField jugador1, TextField jugador2) {
         this.stage = stage;
-        this.proximaEscena = proximaEscena;
         textoJugador1 = jugador1;
         textoJugador2 = jugador2;
     }
@@ -28,7 +26,10 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
     	if ((this.textoJugador1.getText().trim().equals("")) || (this.textoJugador2.getText().trim().equals(""))) {
     		debeIngresarLosNombresDeLosJugadores();
     	} else {
-    		stage.setScene(proximaEscena);
+    		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
+    		contenedorPrincipal.setNombresDeJugadores(textoJugador1.getText().trim(), textoJugador2.getText().trim());
+            Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
+    		stage.setScene(escenaJuego);
     		stage.setFullScreenExitHint("");
     		stage.setFullScreen(true);
     	}

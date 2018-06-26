@@ -51,6 +51,7 @@ public class Campo {
 		zonaTrampas.add(trampa);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	private void verificarCapacidadDeZonas(List unaZona) throws ZonaNoTieneMasEspacioException{
 		if (unaZona.size() == 5) throw new ZonaNoTieneMasEspacioException();
 	}

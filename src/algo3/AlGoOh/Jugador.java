@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Jugador {
 	
-	int VIDA = 8000;
 	private int puntosDeVida;
 	private Campo campo;
 	private Jugador oponente;	
@@ -16,7 +15,7 @@ public class Jugador {
 	
 	public Jugador() {
 		campo = new Campo(new Mazo());
-		puntosDeVida = VIDA;
+		puntosDeVida = 8000;
 		oponente = new Jugador(this);
 		tomarUnaCartaDelMazo();
 		fase = new FasePreparacion();
@@ -24,7 +23,7 @@ public class Jugador {
 	
 	public Jugador(Jugador jugador) {
 		campo = new Campo(new Mazo());
-		puntosDeVida = VIDA;
+		puntosDeVida = 8000;
 		oponente = jugador;
 		tomarUnaCartaDelMazo();
 		fase = new FasePreparacion();
@@ -41,10 +40,11 @@ public class Jugador {
 
 	public void agregarCartaEnMano(Carta unaCarta) {
 		cartasEnMano.add(unaCarta);
-		if (cartasEnMano.get(cartasEnMano.size()-1).esParteDelExodia()) {
+		if (unaCarta.esParteDelExodia()) {
 			partesDelExodiaEnMano++;
 		}
 	}
+	
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException{
 		fase.agregarMonstruo();
 		monstruo.colocarEnPosicionAtaque();
@@ -120,7 +120,7 @@ public class Jugador {
 		puntosDeVida -= danio;
 	}
 	
-	public void tomarUnaCartaDelMazo(){
+	public void tomarUnaCartaDelMazo() {
 		try {
 			cartasEnMano.add(campo.tomarUnaCartaDelMazo());
 		} catch (ElMazoNoTieneCartasException exception) {
@@ -142,7 +142,7 @@ public class Jugador {
 	public void declararComoGanador() {
 		ganoElJuego = true;
 	}
-
+	
 	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
 		this.campo.recibirAtaque(monstruoAtacante, jugadorAtacante, this);
 	}
@@ -159,5 +159,9 @@ public class Jugador {
 
 	public void pasarFase() throws NoHayMasFasesException {
 		fase = fase.pasarFase();
+	}
+
+	public List<Carta> getListaDeCartasEnMano() {
+		return cartasEnMano;
 	}
 }

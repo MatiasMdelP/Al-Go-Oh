@@ -1,13 +1,8 @@
 package algo3.AlGoOh.vista;
 
-import javax.swing.JButton;
-
+import algo3.AlGoOh.AlGoOh;
 import algo3.AlGoOh.Jugador;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -24,37 +19,58 @@ import javafx.stage.Stage;
 
 public class ContenedorPrincipal extends BorderPane {
 
-    BarraDeMenu menuBar;
+    private BarraDeMenu menuBar;
     //VistaRobot vistaRobot;
     //Canvas canvasCentral;
-    Tablero tablero;
+    private Tablero tablero;
+    private int anchoCarta = 100;
+    private int altoCarta = 150;
     VBox contenedorCentral;
+    String nombreJugador1;
+    String nombreJugador2;
+    private AlGoOh juegoAlGoOh;
 
     public ContenedorPrincipal(Stage stage/*, Robot robot*/) {
-    	this.setMinSize(1100, 5000);
+    	
         this.setMenu(stage);
         this.setCentro(/*robot*/);
         //this.setConsola();
         this.setBotonera(new Jugador(), new Jugador());
+        this.setMinSize(1100, 700);
+        stage.setFullScreen(false);
+        this.setPrefSize(1100, 7000);
     }
 
+    public void setNombresDeJugadores(String unNombre, String otroNombre) {
+    	nombreJugador1 = unNombre;
+    	nombreJugador2 = otroNombre;
+        this.setBotonera(new Jugador(), new Jugador());
+    }
+    
     private void setBotonera(Jugador jugador1, Jugador jugador2) {
     
     	Label etiqJugador1 = new Label();
-    	etiqJugador1.setText("JUGADOR 1: \n"
+    	etiqJugador1.setText(nombreJugador1 + ": \n"
     			+ jugador1.obtenerPuntosDeVida());
     	etiqJugador1.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
 
         etiqJugador1.setTextFill(Color.web("#000000"));
     	
     	Label etiqJugador2 = new Label();
-    	etiqJugador2.setText("JUGADOR 2: \n"
+    	etiqJugador2.setText(nombreJugador2 + ": \n"
     			+ jugador2.obtenerPuntosDeVida());
     	etiqJugador2.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
     	etiqJugador2.setTextFill(Color.web("#000000"));
     	
-        VBox contenedorVertical = new VBox(etiqJugador1, etiqJugador2);
-        contenedorVertical.setSpacing(400);
+    	BotonFinalizarTurno botonPasarTurno = new BotonFinalizarTurno(juegoAlGoOh);
+    	
+    	BotonCambiarFase botonCambiarFase = new BotonCambiarFase(juegoAlGoOh);
+    	
+    	VBox contenedorDeBotones = new VBox(botonPasarTurno, botonCambiarFase);
+    	contenedorDeBotones.setSpacing(20);
+    	
+        VBox contenedorVertical = new VBox(etiqJugador1, contenedorDeBotones, etiqJugador2);
+        contenedorVertical.setSpacing(200);
         contenedorVertical.setPadding(new Insets(15));
         //Image imagen = new Image("file:src/algo3/AlGoOh/vista/tablero.png");
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
@@ -70,7 +86,7 @@ public class ContenedorPrincipal extends BorderPane {
 
     private void setCentro(/*Robot robot*/) {
 
-    	tablero = new Tablero();
+    	tablero = new Tablero(anchoCarta, altoCarta);
         //canvasCentral = new Canvas(460, 220);
         //vistaRobot = new VistaRobot(robot, canvasCentral);
         //vistaRobot.dibujar();
@@ -87,7 +103,7 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     /*private void setConsola() {
-        //  cambiar por el modelo de Consola...
+        // cambiar por el modelo de Consola...
         Label etiqueta = new Label();
         etiqueta.setText("consola...");
         etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));

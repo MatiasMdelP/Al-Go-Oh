@@ -30,18 +30,17 @@ public class Aplicacion extends Application {
     @Override
     public void start(final Stage stage) throws Exception {
     	stage.setTitle("Al-Go-Oh !");
-    	
-    	ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage/*, robot*/);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
+    	stage.setFullScreen(false);
         
-        configurarPantallaInicial(stage, escenaJuego);
+        configurarPantallaInicial(stage);
         
         stage.setScene(scene);
-    	stage.setMaximized(true);
+        stage.setFullScreen(false);
+        stage.setMaximized(true);
         stage.show();
     }
     
-    public void configurarPantallaInicial(Stage stage, Scene proximaEscena) {
+    public void configurarPantallaInicial(Stage stage) {
     	Label etiquetaJugador1 = new Label();
     	etiquetaJugador1.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 
@@ -74,12 +73,12 @@ public class Aplicacion extends Application {
         GridPane gridPane = new GridPane();    
         
         //Setting size for the pane 
-        gridPane.setMinSize(1100, 5000); 
+        gridPane.setMinSize(1100, 700); 
         
-        //Setting the padding  
+        //Setting the padding
         gridPane.setPadding(new Insets(10, 10, 10, 10)); 
         
-        //Setting the vertical and horizontal gaps between the columns 
+        //Setting the vertical and horizontal gaps between the columns
         gridPane.setVgap(5); 
         gridPane.setHgap(5);       
         
@@ -101,7 +100,7 @@ public class Aplicacion extends Application {
         etiquetaJugador1.setStyle("-fx-font: normal bold 20px 'serif' "); 
         etiquetaJugador2.setStyle("-fx-font: normal bold 20px 'serif' ");  
        
-        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, proximaEscena, textoJugador1, textoJugador2);
+        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, textoJugador1, textoJugador2);
         botonJugar.setOnAction(botonJugarEventHandler);
         gridPane.setBackground(new Background(imagenDeFondo));
         

@@ -17,7 +17,7 @@ public class BarraDeMenu extends MenuBar {
         Menu menuAyuda = new Menu("Ayuda");
 
         MenuItem opcionSalir = new MenuItem("Salir");
-        MenuItem opcionAbrir = new MenuItem("Abrir");
+        MenuItem opcionComoAtacar = new MenuItem("Como atacar...");
         MenuItem opcionFasesJuego = new MenuItem("Sobre las Fases del Juego...");
         MenuItem opcionAcercaDe = new MenuItem("Acerca de...");
 
@@ -26,14 +26,17 @@ public class BarraDeMenu extends MenuBar {
 
         OpcionFasesJuegoEventHandler opcionFasesJuegoHandler = new OpcionFasesJuegoEventHandler();
         opcionFasesJuego.setOnAction(opcionFasesJuegoHandler);
+        
+        OpcionComoAtacarEventHandler opcionComoAtacarHandler = new OpcionComoAtacarEventHandler();
+        opcionComoAtacar.setOnAction(opcionComoAtacarHandler);
 
         //OpcionPantallaCompletaEventHandler opcionPantallaCompletaHandler = new OpcionPantallaCompletaEventHandler(stage, opcionPantallaCompleta);
         //opcionPantallaCompleta.setOnAction(opcionPantallaCompletaHandler);
 
         //opcionPantallaCompleta.setDisable(true);
 
-        menuArchivo.getItems().addAll(opcionAbrir, new SeparatorMenuItem(), opcionSalir);
-        menuAyuda.getItems().addAll(opcionFasesJuego, new SeparatorMenuItem(), opcionAcercaDe);
+        menuArchivo.getItems().addAll(/*opcionAbrir, new SeparatorMenuItem(),*/ opcionSalir);
+        menuAyuda.getItems().addAll(opcionComoAtacar, opcionFasesJuego, new SeparatorMenuItem(), opcionAcercaDe);
         //menuVer.getItems().addAll(opcionPantallaCompleta);
 
         this.getMenus().addAll(menuArchivo, /*menuVer,*/ menuAyuda);

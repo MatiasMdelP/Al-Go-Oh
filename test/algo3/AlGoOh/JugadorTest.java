@@ -194,7 +194,7 @@ public class JugadorTest {
 		Jugador jugador= new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
-		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", new EfectoVacio(), new Invocacion1Sacrificio() ,1800, 1800);
+		Monstruo unMonstruoDe5Estrellas = new Monstruo("Monstruo", new EfectoVacio(), new Invocacion1Sacrificio() ,1000, 1800);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		jugador.agregarMonstruoASacrificar(0);
