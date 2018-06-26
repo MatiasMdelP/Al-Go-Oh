@@ -10,10 +10,10 @@ import javafx.event.EventHandler;
 
 public class BotonMonstruoEnManoEventHandler implements EventHandler<ActionEvent>{
 
-	private Monstruo monstruo = new Monstruo("", new EfectoVacio(), new InvocacionNormal(), 500, 500);
+	private Monstruo monstruo;
 	
-	public BotonMonstruoEnManoEventHandler(/*Monstruo unMonstruo*/) {
-		//monstruo = unMonstruo;
+	public BotonMonstruoEnManoEventHandler(Monstruo unMonstruo) {
+		monstruo = unMonstruo;
 	}
 	
 	@Override
@@ -22,7 +22,7 @@ public class BotonMonstruoEnManoEventHandler implements EventHandler<ActionEvent
 		cuadro.setMessageType(1);
 
 		String[] options = {"Invocar en Ataque", "Invocar en Defensa", "Cancelar"};
-		int seleccion = JOptionPane.showOptionDialog(null, "Que acción quiere realizar?", "Acción", JOptionPane.DEFAULT_OPTION, 
+		int seleccion = JOptionPane.showOptionDialog(null, "Que acciï¿½n quiere realizar?", "Acciï¿½n", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (seleccion == 0) {
@@ -36,7 +36,7 @@ public class BotonMonstruoEnManoEventHandler implements EventHandler<ActionEvent
 	
 	public void formaDeColocarLaCarta() {
 		String[] options = {"Boca Abajo", "Boca Arriba"};
-		int eleccion = JOptionPane.showOptionDialog(null, "En que posición quiere colocar la carta?", "Acción", 
+		int eleccion = JOptionPane.showOptionDialog(null, "En que posiciï¿½n quiere colocar la carta?", "Acciï¿½n", 
 				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (eleccion == 0) {

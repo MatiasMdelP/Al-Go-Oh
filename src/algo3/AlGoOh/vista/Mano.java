@@ -40,9 +40,9 @@ public class Mano extends TilePane{
 		
 		//Estara bien hacer esto? Porque creo que no hay otra forma... A menos que creemos metodos para preguntarles que son...
 		if( carta.getClass() == Monstruo.class) {
-			return new BotonMonstruoEnMano(altoCarta, anchoCarta);
+			return new BotonMonstruoEnMano(altoCarta, anchoCarta, carta);
 		}
-		return new BotonMagicaTrampaEnMano(altoCarta, anchoCarta);
+		return new BotonMagicaTrampaEnMano(altoCarta, anchoCarta, carta);
 	}
 	
 }

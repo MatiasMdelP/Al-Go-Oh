@@ -2,18 +2,25 @@ package algo3.AlGoOh.vista;
 
 import javax.swing.JOptionPane;
 
+import algo3.AlGoOh.Carta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class BotonMagicaTrampaEnManoEventHandler implements EventHandler<ActionEvent>{
 
+	private Carta carta;
+	
+	public BotonMagicaTrampaEnManoEventHandler(Carta cartaPasada) {
+		carta = cartaPasada;
+	}
+	
 	@Override
     public void handle(ActionEvent actionEvent) {
 		JOptionPane cuadro = new JOptionPane();
 		cuadro.setMessageType(1);
 
 		String[] options = {"Agregar al campo", "Cancelar"};
-		int eleccion =JOptionPane.showOptionDialog(null, "Que acción quiere realizar?", "Acción", JOptionPane.DEFAULT_OPTION, 
+		int eleccion =JOptionPane.showOptionDialog(null, "Que acciï¿½n quiere realizar?", "Acciï¿½n", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (eleccion == 0) {
