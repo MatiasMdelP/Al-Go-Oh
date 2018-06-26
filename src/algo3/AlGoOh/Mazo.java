@@ -68,10 +68,8 @@ public class Mazo {
 		//Mono Acrobata
 		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", null, new InvocacionNormal(), 1000, 1800);
 		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", null, new InvocacionNormal(), 1000, 1800);
-		Monstruo monoAcrobata3 = new Monstruo("Mono Acrobata", null, new InvocacionNormal(), 1000, 1800);
 		agregarUnaCartaAlMazo(monoAcrobata1);
 		agregarUnaCartaAlMazo(monoAcrobata2);
-		agregarUnaCartaAlMazo(monoAcrobata3);
 		
 		//Dragon Blanco
 		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", null, new Invocacion2Sacrificios(), 3000, 2500);
@@ -85,6 +83,7 @@ public class Mazo {
 		
 		//Dragon Meteoro
 		Monstruo dragonMeteoro = new Monstruo("Dragon Meteoro", null, new Invocacion1Sacrificio(), 1800, 2000);
+		agregarUnaCartaAlMazo(dragonMeteoro);
 		
 		//Dragon Definitivo
 		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null,
