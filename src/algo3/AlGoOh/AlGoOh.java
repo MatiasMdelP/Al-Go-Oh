@@ -3,6 +3,7 @@ package algo3.AlGoOh;
 import java.util.Random;
 
 import algo3.AlGoOh.vista.Tablero;
+import algo3.AlGoOh.vista.VentanaDeCartasEnMano;
 import javafx.scene.layout.Background;
 
 public class AlGoOh {
@@ -10,6 +11,7 @@ public class AlGoOh {
 	private static AlGoOh INSTANCE = null;
 	private Jugador jugadorActual;
 	private Tablero tablero;
+	private VentanaDeCartasEnMano vistaCartasEnMano;
 	
 	public AlGoOh(){}
 	private synchronized static void createInstance() {
@@ -24,7 +26,7 @@ public class AlGoOh {
 	    return INSTANCE;
 	}
 	
-	public void cargarJugadores(Jugador jugador1, Jugador jugador2 ) {
+	public void cargarJugadores(Jugador jugador1, Jugador jugador2 ) throws Exception {
 		
 		Random sorteo = new Random();
 				
@@ -34,6 +36,7 @@ public class AlGoOh {
 			jugadorActual = jugador2;
 		}
 		jugadorActual.tomarUnaCartaDelMazo();
+		//vistaCartasEnMano = new VentanaDeCartasEnMano(jugadorActual);
 	}
 	
 	public void cargarElTablero(Tablero unTablero) {
@@ -44,6 +47,7 @@ public class AlGoOh {
 		jugadorActual = jugadorActual.pasarTurno();
 		jugadorActual.tomarUnaCartaDelMazo();
 		tablero.actualizarTablero();
+		//vistaCartasEnMano.actualizarCartasEnMano(jugadorActual);
 	}
 	
 	public void pasarALaSiguienteFase() {
@@ -61,6 +65,7 @@ public class AlGoOh {
 		} catch (Exception e) {
 			
 		}
+		vistaCartasEnMano.actualizarCartasEnMano(jugadorActual);
 	}
 	
 	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {

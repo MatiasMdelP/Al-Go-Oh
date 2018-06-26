@@ -35,7 +35,7 @@ public class ContenedorPrincipal extends BorderPane {
     public ContenedorPrincipal(Stage stage) {
     	
         this.setMenu(stage);
-        this.setCentro(/*robot*/);
+        this.setCentro();
         //this.setConsola();
         this.setBotonera();
         this.setMinSize(1100, 700);
@@ -92,6 +92,12 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     private void setCentro(/*Robot robot*/) {
+
+    	try {
+    		juegoAlGoOh.cargarJugadores(new Jugador(), new Jugador());
+		} catch (Exception e) {
+			
+		}
 
     	tablero = new Tablero(anchoCarta, altoCarta);
         //canvasCentral = new Canvas(460, 220);

@@ -15,7 +15,7 @@ public class BotonMagicaTrampaEnMano extends Button {
 	
 	public BotonMagicaTrampaEnMano(int altoCarta, int anchoCarta, Carta cartaPasada) {
 		carta = cartaPasada;
-		this.setText(carta.obtenerNombre());
+		//this.setText(carta.obtenerNombre());
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
 		this.setPrefSize(anchoCarta, altoCarta);
@@ -29,7 +29,7 @@ public class BotonMagicaTrampaEnMano extends Button {
 			this.setDisable(true);
 			return;
 		}
-		Image imagenCarta = new Image("file:src/algo3/AlGoOh/vista/cartas" + carta.obtenerNombre() + ".png");
+		Image imagenCarta = new Image("file:src/algo3/AlGoOh/vista/cartas/" + carta.obtenerNombre() + ".png");
 		BackgroundImage imagenDeLaCarta = new BackgroundImage(imagenCarta, BackgroundRepeat.REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		this.setBackground(new Background(imagenDeLaCarta));

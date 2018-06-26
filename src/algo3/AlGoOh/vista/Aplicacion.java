@@ -40,6 +40,7 @@ public class Aplicacion extends Application {
         stage.setMaximized(true);
         stage.show();
         
+        
     }
     
     public void configurarPantallaInicial(Stage stage) {

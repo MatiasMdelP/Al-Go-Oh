@@ -26,6 +26,7 @@ public class Tablero extends GridPane{
 
 	private int anchoCarta;
 	private int altoCarta;
+	private AlGoOh juegoAlGoOh;
 	
 	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorSuperior = new ArrayList<BotonMonstruoEnCampo>();
 	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorSuperior = new ArrayList<BotonMagicaTrampaEnCampo>();
@@ -80,6 +81,7 @@ public class Tablero extends GridPane{
 			super.setMargin(botonMyTJugador,  espacioEntrePosiciones);
 			this.botonesCartasJugadorInferior.add(botonMyTJugador);
 		}
+		
 	}
 
 
