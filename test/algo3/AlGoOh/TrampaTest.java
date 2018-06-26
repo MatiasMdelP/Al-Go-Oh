@@ -15,7 +15,7 @@ public class TrampaTest {
 	}
 
 	@Test
-	public void test02ActivarCartaCilindroMagico() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException {
+	public void test02ActivarCartaCilindroMagico() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
@@ -29,6 +29,8 @@ public class TrampaTest {
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
+		jugador.pasarFase();
+	
 		jugador.atacarA(0, 0);
 		
 		assertEquals(7400,jugador.obtenerPuntosDeVida());
@@ -37,7 +39,7 @@ public class TrampaTest {
 	}
 
 	@Test
-	public void test03ActivarCartaReinforcements() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException{
+	public void test03ActivarCartaReinforcements() throws MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException{
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
@@ -50,6 +52,8 @@ public class TrampaTest {
 		jugador = jugador.pasarTurno();
 		
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
+		
+		jugador.pasarFase();
 		
 		jugador.atacarA(0, 0);
 		

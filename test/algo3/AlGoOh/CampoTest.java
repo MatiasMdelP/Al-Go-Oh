@@ -79,47 +79,8 @@ public class CampoTest {
 		assertTrue(carta != null);
 	}
 	
-	@Test 
-	public void test07ActivarUnTrampa() throws InterrumpirAtaqueException, ZonaNoTieneMasEspacioException {
-		Trampa vacio = new Trampa("Vacio", new EfectoVacio());
-		Jugador unJugador= new Jugador();
-		Jugador oponente = new Jugador();
-		Campo campo = new Campo(new Mazo());
-		Campo campoOponente = new Campo(new Mazo());
-		
-		assertFalse(vacio.estaEnElCementerio());
-		assertFalse(vacio.estaBocaAbajo());
-		campo.agregarTrampa(vacio);
-		assertTrue(vacio.estaBocaAbajo());
-		campo.activarTrampa(campo, campoOponente, unJugador, oponente);
-		assertTrue(vacio.estaEnElCementerio());
-	}
-	
-	@Test 
-	public void test08ActivarUnTrampaHabiendoDosOmasCartasAgregadas() throws InterrumpirAtaqueException, ZonaNoTieneMasEspacioException {
-		Trampa vacio1 = new Trampa("Vacio", new EfectoVacio());
-		Trampa vacio2 = new Trampa("Vacio", new EfectoVacio());
-		Jugador unJugador= new Jugador();
-		Jugador oponente = new Jugador();
-		Campo campo = new Campo(new Mazo());
-		Campo campoOponente = new Campo(new Mazo());
-		
-		assertFalse(vacio1.estaEnElCementerio());
-		assertFalse(vacio1.estaBocaAbajo());
-		assertFalse(vacio2.estaEnElCementerio());
-		assertFalse(vacio2.estaBocaAbajo());
-		campo.agregarTrampa(vacio1);
-		campo.agregarTrampa(vacio2);
-		assertTrue(vacio1.estaBocaAbajo());
-		assertTrue(vacio2.estaBocaAbajo());
-		campo.activarTrampa(campo, campoOponente, unJugador, oponente);
-		assertTrue(vacio1.estaEnElCementerio());
-		assertFalse(vacio2.estaEnElCementerio());
-		assertTrue(vacio2.estaBocaAbajo());
-	}
-	
 	@Test
-	public void test09ActivarWasteland() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException {
+	public void test09ActivarWasteland() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, MonstruoNoPuedeAtacarException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
@@ -136,7 +97,7 @@ public class CampoTest {
 		jugador = jugador.pasarTurno();
 		
 		jugador.agregarCartaCampo(wasteland);
-		
+		jugador.pasarFase();
 		jugador.atacarA(0, 0);
 		
 		assertEquals(8000, jugador.obtenerPuntosDeVida());
@@ -146,7 +107,7 @@ public class CampoTest {
 	}
 	
 	@Test
-	public void test10ActivarSogen() throws ZonaNoTieneMasEspacioException, MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException {
+	public void test10ActivarSogen() throws ZonaNoTieneMasEspacioException, MonstruosInsuficientesParaSacrificioException, MonstruoNoPuedeAtacarException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador = new Jugador();
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
@@ -162,7 +123,7 @@ public class CampoTest {
 		jugador.agregarCartaCampo(sogen);
 		
 		jugador = jugador.pasarTurno();
-		
+		jugador.pasarFase();
 		jugador.atacarA(0, 0);
 		
 		assertEquals(7800, jugador.obtenerPuntosDeVida());

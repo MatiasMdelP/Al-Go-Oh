@@ -91,7 +91,7 @@ public class Campo {
 		} catch (IndexOutOfBoundsException e) {
 			
 		} catch (NoPuedeRealizarseEfectoDeVolteoException e) {
-		
+
 		}
 	}
 	
@@ -167,5 +167,12 @@ public class Campo {
 				}
 			}
 		}
+	}
+
+	public void mandarMagicaOTrampaAlCementerio(Carta carta) {
+		zonaMagicasYTrampas.remove(carta);
+		zonaMagicas.remove(carta);
+		zonaTrampas.remove(carta);
+		carta.mandarAlCementerio();
 	}
 }

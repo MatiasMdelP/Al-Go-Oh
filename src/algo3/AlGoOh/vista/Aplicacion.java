@@ -38,7 +38,6 @@ public class Aplicacion extends Application {
         
         stage.setScene(scene);
     	stage.setMaximized(true);
-    	
         stage.show();
     }
     
@@ -75,7 +74,7 @@ public class Aplicacion extends Application {
         GridPane gridPane = new GridPane();    
         
         //Setting size for the pane 
-        gridPane.setMinSize(1100, 70); 
+        gridPane.setMinSize(1100, 5000); 
         
         //Setting the padding  
         gridPane.setPadding(new Insets(10, 10, 10, 10)); 
