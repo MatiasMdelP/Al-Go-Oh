@@ -6,7 +6,11 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import algo3.AlGoOh.AlGoOh;
+import algo3.AlGoOh.Carta;
+import algo3.AlGoOh.EfectoAgujeroOscuro;
+import algo3.AlGoOh.Jugador;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,6 +20,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class Tablero extends GridPane{
 
@@ -51,9 +56,7 @@ public class Tablero extends GridPane{
 		super.setMargin(campoJugador, espacioEntrePosiciones);
 		
 		for(int i=2; i<7; i++) {
-			
-			int posicionDelBoton = i - 2;
-			
+						
 			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
 			super.add(botonMyTOponente, i, 1);
 			super.setMargin(botonMyTOponente, espacioEntrePosiciones);
@@ -77,7 +80,6 @@ public class Tablero extends GridPane{
 			super.setMargin(botonMyTJugador,  espacioEntrePosiciones);
 			this.botonesCartasJugadorInferior.add(botonMyTJugador);
 		}
-		
 	}
 
 

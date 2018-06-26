@@ -22,7 +22,7 @@ public class BotonMonstruoEnManoEventHandler implements EventHandler<ActionEvent
 		cuadro.setMessageType(1);
 
 		String[] options = {"Invocar en Ataque", "Invocar en Defensa", "Cancelar"};
-		int seleccion = JOptionPane.showOptionDialog(null, "Que acci�n quiere realizar?", "Acci�n", JOptionPane.DEFAULT_OPTION, 
+		int seleccion = JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (seleccion == 0) {
@@ -36,7 +36,7 @@ public class BotonMonstruoEnManoEventHandler implements EventHandler<ActionEvent
 	
 	public void formaDeColocarLaCarta() {
 		String[] options = {"Boca Abajo", "Boca Arriba"};
-		int eleccion = JOptionPane.showOptionDialog(null, "En que posici�n quiere colocar la carta?", "Acci�n", 
+		int eleccion = JOptionPane.showOptionDialog(null, "En que posicion quiere colocar la carta?", "Accion", 
 				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (eleccion == 0) {

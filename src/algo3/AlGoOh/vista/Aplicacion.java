@@ -39,6 +39,7 @@ public class Aplicacion extends Application {
         stage.setFullScreen(false);
         stage.setMaximized(true);
         stage.show();
+        
     }
     
     public void configurarPantallaInicial(Stage stage) {

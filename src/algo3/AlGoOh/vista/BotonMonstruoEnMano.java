@@ -14,12 +14,12 @@ public class BotonMonstruoEnMano extends Button {
 
 	private Monstruo unMonstruo;
 	
-	public BotonMonstruoEnMano(int altoCarta, int anchoCarta,Carta carta) {
-		this.setText(unMonstruo.obtenerNombre());
+	public BotonMonstruoEnMano(int altoCarta, int anchoCarta, Monstruo carta) {
+		//this.setText(unMonstruo.obtenerNombre());
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
 		this.setPrefSize(anchoCarta, altoCarta);
-		unMonstruo = (Monstruo) carta;//Este cast... Hace ruido...
+		unMonstruo = carta;//Este cast... Hace ruido...
 		BotonMonstruoEnManoEventHandler botonMonstruoEnManoEventHandler = new BotonMonstruoEnManoEventHandler(unMonstruo);
 		this.setOnAction(botonMonstruoEnManoEventHandler);
 	}
@@ -29,7 +29,7 @@ public class BotonMonstruoEnMano extends Button {
 			this.setDisable(true);
 			return;
 		}
-		Image imagenCarta = new Image("file:src/algo3/AlGoOh/vista/cartas" + unMonstruo.obtenerNombre() + ".png");
+		Image imagenCarta = new Image("file:src/algo3/AlGoOh/vista/cartas/" + unMonstruo.obtenerNombre() + ".png");
 		BackgroundImage imagenDeLaCarta = new BackgroundImage(imagenCarta, BackgroundRepeat.REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		this.setBackground(new Background(imagenDeLaCarta));

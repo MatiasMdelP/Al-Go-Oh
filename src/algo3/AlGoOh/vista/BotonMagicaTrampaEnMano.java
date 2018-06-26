@@ -24,4 +24,15 @@ public class BotonMagicaTrampaEnMano extends Button {
 		
 	}
 
+	public void cargarImagen() {
+		if (carta == null) {
+			this.setDisable(true);
+			return;
+		}
+		Image imagenCarta = new Image("file:src/algo3/AlGoOh/vista/cartas" + carta.obtenerNombre() + ".png");
+		BackgroundImage imagenDeLaCarta = new BackgroundImage(imagenCarta, BackgroundRepeat.REPEAT, 
+			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+		this.setBackground(new Background(imagenDeLaCarta));
+	}
+		
 }
