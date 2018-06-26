@@ -1,5 +1,6 @@
 package algo3.AlGoOh.vista;
 
+import algo3.AlGoOh.AlGoOh;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

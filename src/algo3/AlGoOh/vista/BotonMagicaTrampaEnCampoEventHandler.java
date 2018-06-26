@@ -2,6 +2,7 @@ package algo3.AlGoOh.vista;
 
 import javax.swing.JOptionPane;
 
+import algo3.AlGoOh.AlGoOh;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

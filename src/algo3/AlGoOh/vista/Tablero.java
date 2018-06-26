@@ -1,9 +1,11 @@
 package algo3.AlGoOh.vista;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
+import algo3.AlGoOh.AlGoOh;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -20,6 +22,11 @@ public class Tablero extends GridPane{
 	private int anchoCarta;
 	private int altoCarta;
 	
+	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorSuperior = new ArrayList<BotonMonstruoEnCampo>();
+	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorSuperior = new ArrayList<BotonMagicaTrampaEnCampo>();
+	
+	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorInferior = new ArrayList<BotonMonstruoEnCampo>();
+	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorInferior = new ArrayList<BotonMagicaTrampaEnCampo>();
 	
 	public Tablero(int anchoCartaIngresado, int altoCartaIngresado) {
 		anchoCarta = anchoCartaIngresado;
@@ -45,31 +52,30 @@ public class Tablero extends GridPane{
 		
 		for(int i=2; i<7; i++) {
 			
-			//StackPane magicaYTrampaOponente = this.crearPosicionMagicaYTrampaVacia();
-			//super.add(magicaYTrampaOponente, i, 1);
+			int posicionDelBoton = i - 2;
+			
 			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
 			super.add(botonMyTOponente, i, 1);
-			//super.setMargin(nuevoBoton, espacioEntrePosiciones);
-			super.setMargin(/*magicaYTrampaOponente,*/ botonMyTOponente, espacioEntrePosiciones);
+			super.setMargin(botonMyTOponente, espacioEntrePosiciones);
+			this.botonesCartasJugadorSuperior.add(botonMyTOponente);
 			
-			//StackPane monstruoOponente = this.crearPosicionMonstruoVacia();
-			//super.add(monstruoOponente, i, 2);
+			
 			BotonMonstruoEnCampo botonMonstruoOponente = new BotonMonstruoEnCampo(altoCarta, anchoCarta);
-			
 			super.add(botonMonstruoOponente, i, 2);
-			super.setMargin(/*monstruoOponente,*/ botonMonstruoOponente, espacioEntrePosiciones);
+			super.setMargin(botonMonstruoOponente, espacioEntrePosiciones);
+			this.botonesMonstruosJugadorSuperior.add(botonMonstruoOponente);
 			
-			//StackPane monstruoJugador = this.crearPosicionMonstruoVacia();
-			//super.add(monstruoJugador, i, 3);
+			
 			BotonMonstruoEnCampo botonMonstruoJugador = new BotonMonstruoEnCampo(altoCarta, anchoCarta);
 			super.add(botonMonstruoJugador, i, 3);
-			super.setMargin(/*monstruoOponente,*/ botonMonstruoJugador, espacioEntrePosiciones);
+			super.setMargin(botonMonstruoJugador, espacioEntrePosiciones);
+			this.botonesMonstruosJugadorInferior.add(botonMonstruoJugador);
 			
-			//StackPane magicaYTrampaJugador = this.crearPosicionMagicaYTrampaVacia();
-			//super.add(magicaYTrampaJugador, i, 4);
+			
 			BotonMagicaTrampaEnCampo botonMyTJugador = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
 			super.add(botonMyTJugador, i, 4);
-			super.setMargin(/*monstruoJugador,*/botonMyTJugador,  espacioEntrePosiciones);
+			super.setMargin(botonMyTJugador,  espacioEntrePosiciones);
+			this.botonesCartasJugadorInferior.add(botonMyTJugador);
 		}
 		
 	}
@@ -145,5 +151,9 @@ public class Tablero extends GridPane{
 		m.fillProperty();
 		pilaADibujar.getChildren().addAll(mazo, m);
 		return pilaADibujar;
+	}
+	
+	public void actualizarTablero() {
+		
 	}
 }

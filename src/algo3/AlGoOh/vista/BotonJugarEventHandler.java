@@ -1,5 +1,6 @@
 package algo3.AlGoOh.vista;
 
+import algo3.AlGoOh.AlGoOh;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -11,7 +12,7 @@ import javafx.stage.Stage;
 public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
-
+   
     private TextField textoJugador1;
     private TextField textoJugador2;
     

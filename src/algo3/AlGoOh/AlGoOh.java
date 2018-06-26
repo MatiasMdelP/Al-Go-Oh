@@ -2,12 +2,16 @@ package algo3.AlGoOh;
 
 import java.util.Random;
 
+import algo3.AlGoOh.vista.Tablero;
+import javafx.scene.layout.Background;
+
 public class AlGoOh {
 
 	private static AlGoOh INSTANCE = null;
 	private Jugador jugadorActual;
+	private Tablero tablero;
 	
-	private AlGoOh(){}
+	public AlGoOh(){}
 	private synchronized static void createInstance() {
 		if (INSTANCE == null) { 
 	       INSTANCE = new AlGoOh();
@@ -20,18 +24,26 @@ public class AlGoOh {
 	    return INSTANCE;
 	}
 	
-	public void cargarJugadores() {
+	public void cargarJugadores(Jugador jugador1, Jugador jugador2 ) {
 		
 		Random sorteo = new Random();
-		jugadorActual = new Jugador();
-		
-		if (sorteo.nextInt(2) == 1) {
-			jugadorActual = jugadorActual.pasarTurno();
+				
+		if (sorteo.nextInt(2) == 0) {
+			jugadorActual = jugador1;
+		} else {
+			jugadorActual = jugador2;
 		}
+		jugadorActual.tomarUnaCartaDelMazo();
+	}
+	
+	public void cargarElTablero(Tablero unTablero) {
+		tablero = unTablero;
 	}
 	
 	public void finalizarTurno() {
 		jugadorActual = jugadorActual.pasarTurno();
+		jugadorActual.tomarUnaCartaDelMazo();
+		tablero.actualizarTablero();
 	}
 	
 	public void pasarALaSiguienteFase() {
@@ -40,5 +52,26 @@ public class AlGoOh {
 		} catch (NoHayMasFasesException exception) {
 			this.finalizarTurno();
 		}
+		tablero.actualizarTablero();
+	}
+	
+	public void atacar(int numeroAtacante, int numeroAtacado) {
+		try {
+			jugadorActual.atacarA(numeroAtacante, numeroAtacado);
+		} catch (Exception e) {
+			
+		}
+	}
+	
+	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
+		try {
+			jugadorActual.agregarMonstruoASacrificar(posicionDelMonstruo);
+		} catch (AccionInvalidaEnEstaFaseException e) {
+			//e.printStackTrace();
+		}
+	}
+	
+	public boolean noHayGanador() {
+		return (! jugadorActual.ganoElJuego());
 	}
 }

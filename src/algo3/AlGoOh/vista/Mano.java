@@ -3,6 +3,7 @@ package algo3.AlGoOh.vista;
 import java.util.List;
 
 import algo3.AlGoOh.Carta;
+import algo3.AlGoOh.EfectoOllaDeLaCodicia;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
 import javafx.geometry.Insets;
@@ -30,19 +31,35 @@ public class Mano extends TilePane{
 			Button botonCarta = this.crearBotonCarta(carta);
 			super.getChildren().add(botonCarta);
 			super.setMargin(botonCarta, espacioEntreCartas);
-		
 		}	
 		
 	}
 
 
 	public Button crearBotonCarta(Carta carta) {
-		
 		//Estara bien hacer esto? Porque creo que no hay otra forma... A menos que creemos metodos para preguntarles que son...
 		if( carta.getClass() == Monstruo.class) {
-			return new BotonMonstruoEnMano(altoCarta, anchoCarta, carta);
-		}
-		return new BotonMagicaTrampaEnMano(altoCarta, anchoCarta, carta);
+			BotonMonstruoEnMano nuevoBoton = new BotonMonstruoEnMano(altoCarta, anchoCarta, carta);
+			nuevoBoton.cargarImagen();
+			return nuevoBoton;
+		} 
+		BotonCartaEnMano nuevoBotonCarta = new BotonCartaEnMano(altoCarta, anchoCarta, carta);
+		nuevoBotonCarta.cargarImagen();
+		return nuevoBotonCarta;
 	}
+
+	//Se me ocurrio hacer esto, pero no se si va a entrar alguna vez al mosntruo
+	/*
+	private BotonMonstruoEnMano crearBoton(Monstruo cartaMonstruo) {
+		BotonMonstruoEnMano nuevoBoton = new BotonMonstruoEnMano(altoCarta, anchoCarta, cartaMonstruo);
+		nuevoBoton.cargarImagen();
+		return nuevoBoton;
+	}
+	
+	private BotonCartaEnMano crearBoton(Carta unaCarta) {
+		BotonCartaEnMano nuevoBotonCarta = new BotonCartaEnMano(altoCarta, anchoCarta, unaCarta);
+		nuevoBotonCarta.cargarImagen();
+		return nuevoBotonCarta;
+	}*/
 	
 }

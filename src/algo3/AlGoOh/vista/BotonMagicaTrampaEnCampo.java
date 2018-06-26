@@ -1,5 +1,6 @@
 package algo3.AlGoOh.vista;
 
+import algo3.AlGoOh.AlGoOh;
 import algo3.AlGoOh.Carta;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -11,7 +12,10 @@ import javafx.scene.layout.BackgroundSize;
 
 public class BotonMagicaTrampaEnCampo extends Button {
 
-	private Carta unaCarta;
+	private Carta unaCarta = null;
+	private AlGoOh juegoDeAlGoOh;
+
+
 	public BotonMagicaTrampaEnCampo(int altoCarta, int anchoCarta) {
 		this.setText("Magica/ \n"
 				+ "Trampa");
@@ -21,14 +25,21 @@ public class BotonMagicaTrampaEnCampo extends Button {
 		BotonMagicaTrampaEnCampoEventHandler botonMagicaTrampaEnCampoEventHandler = new BotonMagicaTrampaEnCampoEventHandler();
 		this.setOnAction(botonMagicaTrampaEnCampoEventHandler);
 		this.setStyle("-fx-base: #25d19d");
+		
+	}
+
+	public void cargarCartaEnBoton(Carta cartaADepositar){
+		unaCarta = cartaADepositar;
+	}
+	
+	public void actualizarBoton() {
+		if (unaCarta == null) {
+			this.setDisable(true);
+		} else {
+			Image imagenMonstruo = new Image("file:src/algo3/AlGoOh/vista/cartas" + unaCarta.obtenerNombre() + ".png");
+			BackgroundImage imagenDelMonstruo = new BackgroundImage(imagenMonstruo, BackgroundRepeat.REPEAT, 
+				BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+			this.setBackground(new Background(imagenDelMonstruo));
+		}	    
 	}
 }
-/*if (unaCarta == null) {
-this.setDisable(true);
-} else {
-Image imagenMonstruo = new Image("file:src/algo3/AlGoOh/vista/" + unaCarta.obtenerNombre() + ".png");
-BackgroundImage imagenDelMonstruo = new BackgroundImage(imagenMonstruo, BackgroundRepeat.REPEAT, 
-	BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-    
-this.setBackground(new Background(imagenDelMonstruo));
-}*/
