@@ -4,6 +4,7 @@ import java.util.List;
 
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Jugador;
+import algo3.AlGoOh.Monstruo;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.TilePane;
@@ -35,9 +36,13 @@ public class Mano extends TilePane{
 	}
 
 
-	private Button crearBotonCarta(Carta carta) {
-		Button botonNuevo = new BotonCartaEnMano(carta, anchoCarta, altoCarta);
-		return botonNuevo;
+	public Button crearBotonCarta(Carta carta) {
+		
+		//Estara bien hacer esto? Porque creo que no hay otra forma... A menos que creemos metodos para preguntarles que son...
+		if( carta.getClass() == Monstruo.class) {
+			return new BotonMonstruoEnMano(altoCarta, anchoCarta);
+		}
+		return new BotonMagicaTrampaEnMano(altoCarta, anchoCarta);
 	}
 	
 }
