@@ -39,6 +39,7 @@ public class Aplicacion extends Application {
         stage.setScene(scene);
         stage.setFullScreen(false);
         stage.setMaximized(true);
+     
         stage.show();
         
         
@@ -107,7 +108,7 @@ public class Aplicacion extends Application {
         BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, textoJugador1, textoJugador2);
         botonJugar.setOnAction(botonJugarEventHandler);
         gridPane.setBackground(new Background(imagenDeFondo));
-        
+  
         //Creating a scene object 
         scene = new Scene(gridPane);
     }

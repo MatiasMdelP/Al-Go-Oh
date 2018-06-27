@@ -1,5 +1,6 @@
 package algo3.AlGoOh.vista;
 
+import algo3.AlgoOh.handlers.OpcionAcercaDeHandler;
 import algo3.AlgoOh.handlers.OpcionComoAtacarEventHandler;
 import algo3.AlgoOh.handlers.OpcionFasesJuegoEventHandler;
 import algo3.AlgoOh.handlers.OpcionSalirEventHandler;
@@ -32,6 +33,9 @@ public class BarraDeMenu extends MenuBar {
         
         OpcionComoAtacarEventHandler opcionComoAtacarHandler = new OpcionComoAtacarEventHandler();
         opcionComoAtacar.setOnAction(opcionComoAtacarHandler);
+        
+        OpcionAcercaDeHandler opcionAcercaDeHandler = new OpcionAcercaDeHandler();
+        opcionAcercaDe.setOnAction(opcionAcercaDeHandler);
 
         //OpcionPantallaCompletaEventHandler opcionPantallaCompletaHandler = new OpcionPantallaCompletaEventHandler(stage, opcionPantallaCompleta);
         //opcionPantallaCompleta.setOnAction(opcionPantallaCompletaHandler);
