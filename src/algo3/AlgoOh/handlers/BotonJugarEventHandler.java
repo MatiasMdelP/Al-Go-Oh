@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
-
+   
     private TextField textoJugador1;
     private TextField textoJugador2;
     

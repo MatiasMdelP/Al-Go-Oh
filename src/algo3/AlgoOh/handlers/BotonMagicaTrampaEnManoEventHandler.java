@@ -20,7 +20,7 @@ public class BotonMagicaTrampaEnManoEventHandler implements EventHandler<ActionE
 		cuadro.setMessageType(1);
 
 		String[] options = {"Agregar al campo", "Cancelar"};
-		int eleccion =JOptionPane.showOptionDialog(null, "Que acci�n quiere realizar?", "Acci�n", JOptionPane.DEFAULT_OPTION, 
+		int eleccion =JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (eleccion == 0) {

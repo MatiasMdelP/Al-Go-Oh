@@ -1,5 +1,6 @@
 package algo3.AlGoOh.vista;
 
+import algo3.AlGoOh.AlGoOh;
 import algo3.AlGoOh.EfectoVacio;
 import algo3.AlGoOh.InvocacionNormal;
 import algo3.AlGoOh.Monstruo;
@@ -24,7 +25,7 @@ public class BotonMonstruoEnCampo extends Button {
 		BotonMonstruoEnCampoEventHandler botonMonstruoEnCampoEventHandler = new BotonMonstruoEnCampoEventHandler(unMonstruo);
 		this.setOnAction(botonMonstruoEnCampoEventHandler);
 		this.setStyle("-fx-base: #A52A2A");
-		unMonstruo = null;	
+		unMonstruo = null;
 	}
 	
 	public void cargarMonstruo(Monstruo monstruoEnCampo) {

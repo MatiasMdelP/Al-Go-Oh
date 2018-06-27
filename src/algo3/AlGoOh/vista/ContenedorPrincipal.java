@@ -29,26 +29,33 @@ public class ContenedorPrincipal extends BorderPane {
     VBox contenedorCentral;
     String nombreJugador1;
     String nombreJugador2;
-    private AlGoOh juegoAlGoOh;
+    Jugador jugador1 = new Jugador();
+    Jugador jugador2 = new Jugador();
+    private AlGoOh juegoAlGoOh = new AlGoOh();
 
-    public ContenedorPrincipal(Stage stage/*, Robot robot*/) {
+    public ContenedorPrincipal(Stage stage) {
     	
         this.setMenu(stage);
-        this.setCentro(/*robot*/);
+        this.setCentro();
         //this.setConsola();
-        this.setBotonera(new Jugador(), new Jugador());
+        this.setBotonera();
         this.setMinSize(1100, 700);
         stage.setFullScreen(false);
         this.setPrefSize(1100, 7000);
+        this.jugar();
     }
 
+    private void jugar() {
+    	
+    }
+    
     public void setNombresDeJugadores(String unNombre, String otroNombre) {
     	nombreJugador1 = unNombre;
     	nombreJugador2 = otroNombre;
-        this.setBotonera(new Jugador(), new Jugador());
+        this.setBotonera();
     }
     
-    private void setBotonera(Jugador jugador1, Jugador jugador2) {
+    private void setBotonera() {
     
     	Label etiqJugador1 = new Label();
     	etiqJugador1.setText(nombreJugador1 + ": \n"
@@ -86,6 +93,12 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     private void setCentro(/*Robot robot*/) {
+
+    	try {
+    		juegoAlGoOh.cargarJugadores(new Jugador(), new Jugador());
+		} catch (Exception e) {
+			
+		}
 
     	tablero = new Tablero(anchoCarta, altoCarta);
         //canvasCentral = new Canvas(460, 220);
