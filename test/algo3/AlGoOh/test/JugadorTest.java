@@ -392,7 +392,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test18Habiendo5CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
+	public void test18HabiendoVariasCartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
 		Jugador jugador = new Jugador();
 		
 		for (int i = 0; i < 39; i++) {
