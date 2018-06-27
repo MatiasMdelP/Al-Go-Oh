@@ -1,4 +1,4 @@
-package algo3.AlGoOh.vista;
+package algo3.AlgoOh.handlers;
 
 import javax.swing.JOptionPane;
 
@@ -13,7 +13,7 @@ public class BotonMagicaTrampaEnCampoEventHandler implements EventHandler<Action
 		cuadro.setMessageType(1);
 
 		String[] options = {"Dar vuelta", "Cancelar"};
-		int eleccion = JOptionPane.showOptionDialog(null, "Que acción quiere realizar?", "Acción", JOptionPane.DEFAULT_OPTION, 
+		int eleccion = JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (eleccion == 0) {

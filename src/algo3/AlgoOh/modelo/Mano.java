@@ -1,10 +1,12 @@
-package algo3.AlGoOh.vista;
+package algo3.AlgoOh.modelo;
 
 import java.util.List;
 
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
+import algo3.AlGoOh.vista.BotonMagicaTrampaEnMano;
+import algo3.AlGoOh.vista.BotonMonstruoEnMano;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.TilePane;
@@ -40,9 +42,9 @@ public class Mano extends TilePane{
 		
 		//Estara bien hacer esto? Porque creo que no hay otra forma... A menos que creemos metodos para preguntarles que son...
 		if( carta.getClass() == Monstruo.class) {
-			return new BotonMonstruoEnMano(altoCarta, anchoCarta);
+			return new BotonMonstruoEnMano(altoCarta, anchoCarta, carta);
 		}
-		return new BotonMagicaTrampaEnMano(altoCarta, anchoCarta);
+		return new BotonMagicaTrampaEnMano(altoCarta, anchoCarta, carta);
 	}
 	
 }

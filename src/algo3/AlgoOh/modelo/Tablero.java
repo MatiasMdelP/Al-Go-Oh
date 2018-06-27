@@ -1,9 +1,11 @@
-package algo3.AlGoOh.vista;
+package algo3.AlgoOh.modelo;
 
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
+import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;

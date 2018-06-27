@@ -92,7 +92,7 @@ public class Campo {
 		} catch (IndexOutOfBoundsException e) {
 			
 		} catch (NoPuedeRealizarseEfectoDeVolteoException e) {
-
+			
 		}
 	}
 	

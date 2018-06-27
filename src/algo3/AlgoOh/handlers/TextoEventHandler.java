@@ -1,4 +1,4 @@
-package algo3.AlGoOh.vista;
+package algo3.AlgoOh.handlers;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;

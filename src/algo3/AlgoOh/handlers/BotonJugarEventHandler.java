@@ -1,5 +1,6 @@
-package algo3.AlGoOh.vista;
+package algo3.AlgoOh.handlers;
 
+import algo3.AlGoOh.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

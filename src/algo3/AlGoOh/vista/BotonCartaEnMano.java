@@ -1,6 +1,7 @@
 package algo3.AlGoOh.vista;
 
 import algo3.AlGoOh.Carta;
+import algo3.AlgoOh.handlers.BotonCartaEnManoEventHandler;
 import javafx.scene.control.Button;
 
 public class BotonCartaEnMano extends Button{

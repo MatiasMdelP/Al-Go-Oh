@@ -1,4 +1,4 @@
-package algo3.AlGoOh.vista;
+package algo3.AlgoOh.handlers;
 
 import javax.swing.JOptionPane;
 
@@ -20,7 +20,7 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 		cuadro.setMessageType(1);
 
 		String[] options = {"Atacar", "Poner en Ataque", "Poner en Defensa", "Dar vuelta", "Ofrecer como sacrificio", "Cancelar"};
-		int seleccion = JOptionPane.showOptionDialog(null, "Que acción quiere realizar?", "Acción", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		int seleccion = JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		if (seleccion == 0) {
 			opcionesParaAtacar();
 		} else if (seleccion == 1) {

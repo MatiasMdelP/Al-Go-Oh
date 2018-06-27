@@ -1,6 +1,7 @@
 package algo3.AlGoOh.vista;
 
 import algo3.AlGoOh.AlGoOh;
+import algo3.AlgoOh.handlers.BotonCambiarFaseEventHandler;
 import javafx.scene.control.Button;
 
 public class BotonCambiarFase extends Button {
