@@ -1,4 +1,4 @@
-package algo3.AlgoOh.Exceptions;
+package algo3.AlGoOh.Exceptions;
 
 public class ZonaNoTieneMasEspacioException extends Exception {
 

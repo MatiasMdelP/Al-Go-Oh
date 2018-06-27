@@ -1,6 +1,6 @@
-package algo3.AlgoOh.handlers;
+package algo3.AlGoOh.handlers;
 
-import algo3.AlgoOh.modelo.AlGoOh;
+import algo3.AlGoOh.modelo.AlGoOh;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

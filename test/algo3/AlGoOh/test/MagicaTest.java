@@ -11,11 +11,11 @@ import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
 import algo3.AlGoOh.Efectos.EfectoFisura;
 import algo3.AlGoOh.Efectos.EfectoVacio;
-import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlgoOh.Exceptions.InterrumpirAtaqueException;
-import algo3.AlgoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
-import algo3.AlgoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
-import algo3.AlgoOh.Exceptions.ZonaNoTieneMasEspacioException;
+import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
+import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
+import algo3.AlGoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
+import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;

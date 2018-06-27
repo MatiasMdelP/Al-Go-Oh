@@ -3,13 +3,13 @@ package algo3.AlGoOh;
 import java.util.ArrayList;
 import java.util.List;
 
-import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlgoOh.Exceptions.ElMazoNoTieneCartasException;
-import algo3.AlgoOh.Exceptions.InterrumpirAtaqueException;
-import algo3.AlgoOh.Exceptions.MonstruoNoPuedeAtacarException;
-import algo3.AlgoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
-import algo3.AlgoOh.Exceptions.NoHayMasFasesException;
-import algo3.AlgoOh.Exceptions.ZonaNoTieneMasEspacioException;
+import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.ElMazoNoTieneCartasException;
+import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
+import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
+import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
+import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
+import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 
 public class Jugador {
 	

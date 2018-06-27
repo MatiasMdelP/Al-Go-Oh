@@ -3,7 +3,7 @@ package algo3.AlGoOh.Efectos;
 import algo3.AlGoOh.Campo;
 import algo3.AlGoOh.Estado;
 import algo3.AlGoOh.Jugador;
-import algo3.AlgoOh.Exceptions.InterrumpirAtaqueException;
+import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 
 public interface Efecto {
 

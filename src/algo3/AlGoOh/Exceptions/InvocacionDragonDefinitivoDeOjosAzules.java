@@ -1,4 +1,4 @@
-package algo3.AlgoOh.Exceptions;
+package algo3.AlGoOh.Exceptions;
 
 import algo3.AlGoOh.Campo;
 import algo3.AlGoOh.Invocacion;

@@ -1,7 +1,7 @@
 package algo3.AlGoOh;
 
-import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlgoOh.Exceptions.NoHayMasFasesException;
+import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
 
 public interface Fase {
 

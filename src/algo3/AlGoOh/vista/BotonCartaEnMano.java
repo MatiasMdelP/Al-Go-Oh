@@ -1,7 +1,7 @@
 package algo3.AlGoOh.vista;
 
 import algo3.AlGoOh.Carta;
-import algo3.AlgoOh.handlers.BotonCartaEnManoEventHandler;
+import algo3.AlGoOh.handlers.BotonCartaEnManoEventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;

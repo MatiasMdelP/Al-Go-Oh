@@ -1,4 +1,4 @@
-package algo3.AlgoOh.handlers;
+package algo3.AlGoOh.handlers;
 
 import algo3.AlGoOh.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;

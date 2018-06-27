@@ -7,7 +7,7 @@ import org.junit.Test;
 import algo3.AlGoOh.InvocacionNormal;
 import algo3.AlGoOh.Mazo;
 import algo3.AlGoOh.Monstruo;
-import algo3.AlgoOh.Exceptions.ElMazoNoTieneCartasException;
+import algo3.AlGoOh.Exceptions.ElMazoNoTieneCartasException;
 
 
 public class MazoTest {

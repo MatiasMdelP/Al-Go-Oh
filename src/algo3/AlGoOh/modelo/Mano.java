@@ -1,4 +1,4 @@
-package algo3.AlgoOh.modelo;
+package algo3.AlGoOh.modelo;
 
 import java.util.List;
 

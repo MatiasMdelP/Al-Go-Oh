@@ -1,6 +1,6 @@
 package algo3.AlGoOh;
 
-import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 
 public class FaseAtaque implements Fase {
 

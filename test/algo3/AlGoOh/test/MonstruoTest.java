@@ -11,11 +11,11 @@ import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Efectos.EfectoDestruirMonstruoAtacante;
 import algo3.AlGoOh.Efectos.EfectoJinzo7;
 import algo3.AlGoOh.Efectos.EfectoVacio;
-import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlgoOh.Exceptions.MonstruoNoPuedeAtacarException;
-import algo3.AlgoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
-import algo3.AlgoOh.Exceptions.NoHayMasFasesException;
-import algo3.AlgoOh.Exceptions.ZonaNoTieneMasEspacioException;
+import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
+import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
+import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
+import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 
 public class MonstruoTest {
 	

@@ -6,7 +6,7 @@ import algo3.AlGoOh.Campo;
 import algo3.AlGoOh.Estado;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
-import algo3.AlgoOh.Exceptions.CartaNoEncontradaException;
+import algo3.AlGoOh.Exceptions.CartaNoEncontradaException;
 
 public class EfectoFisura implements Efecto{
 

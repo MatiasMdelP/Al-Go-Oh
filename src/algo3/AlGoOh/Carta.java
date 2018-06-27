@@ -1,8 +1,8 @@
 package algo3.AlGoOh;
 
 import algo3.AlGoOh.Efectos.Efecto;
-import algo3.AlgoOh.Exceptions.InterrumpirAtaqueException;
-import algo3.AlgoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
+import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
+import algo3.AlGoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
 
 public class Carta {
 	

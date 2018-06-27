@@ -1,8 +1,8 @@
 package algo3.AlGoOh.vista;
 
 import algo3.AlGoOh.Jugador;
-import algo3.AlgoOh.modelo.AlGoOh;
-import algo3.AlgoOh.modelo.Tablero;
+import algo3.AlGoOh.modelo.AlGoOh;
+import algo3.AlGoOh.modelo.Tablero;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

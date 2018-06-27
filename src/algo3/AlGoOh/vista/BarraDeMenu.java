@@ -1,9 +1,9 @@
 package algo3.AlGoOh.vista;
 
-import algo3.AlgoOh.handlers.OpcionAcercaDeHandler;
-import algo3.AlgoOh.handlers.OpcionComoAtacarEventHandler;
-import algo3.AlgoOh.handlers.OpcionFasesJuegoEventHandler;
-import algo3.AlgoOh.handlers.OpcionSalirEventHandler;
+import algo3.AlGoOh.handlers.OpcionAcercaDeHandler;
+import algo3.AlGoOh.handlers.OpcionComoAtacarEventHandler;
+import algo3.AlGoOh.handlers.OpcionFasesJuegoEventHandler;
+import algo3.AlGoOh.handlers.OpcionSalirEventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;

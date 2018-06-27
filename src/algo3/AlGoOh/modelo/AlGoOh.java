@@ -1,11 +1,11 @@
-package algo3.AlgoOh.modelo;
+package algo3.AlGoOh.modelo;
 
 import java.util.Random;
 
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.vista.VentanaDeCartasEnMano;
-import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlgoOh.Exceptions.NoHayMasFasesException;
+import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
 
 public class AlGoOh {
 

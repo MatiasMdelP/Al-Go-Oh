@@ -1,4 +1,4 @@
-package algo3.AlgoOh.handlers;
+package algo3.AlGoOh.handlers;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,11 +12,11 @@ public class OpcionAcercaDeHandler implements EventHandler<ActionEvent>  {
         Alert alert = new Alert(AlertType.INFORMATION,""
 				+ "DEL CARRIL, Manuel           manueldelcarril@gmail.com\n"
 				+ "ILLESCAS, Geronimo           gero17illescas@gmail.com\n"
-				+ "MARCÓ DEL PONT, Matías       matiasmdelp@gmail.com\n"
-				+ "ROMERO VÁZQUEZ, Maximiliano  maxi9614@gmail.com\n"
+				+ "MARCÃ“ DEL PONT, MatÃ­as       matiasmdelp@gmail.com\n"
+				+ "ROMERO VÃ�ZQUEZ, Maximiliano  maxi9614@gmail.com\n"
 				);
         alert.setTitle("Acerca de ");
-        alert.setHeaderText("Diseñado por:");
+        alert.setHeaderText("DiseÃ±ado por:");
 
         alert.showAndWait();
     }
