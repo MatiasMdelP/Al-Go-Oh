@@ -5,15 +5,10 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-<<<<<<< HEAD:src/algo3/AlgoOh/modelo/Tablero.java
+
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
-=======
 import algo3.AlGoOh.AlGoOh;
-import algo3.AlGoOh.Carta;
-import algo3.AlGoOh.EfectoAgujeroOscuro;
-import algo3.AlGoOh.Jugador;
->>>>>>> af04a548f75040730041d2079a6986f5a81a6188:src/algo3/AlGoOh/vista/Tablero.java
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

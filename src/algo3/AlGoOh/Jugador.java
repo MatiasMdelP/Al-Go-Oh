@@ -12,7 +12,7 @@ public class Jugador {
 	private int partesDelExodiaEnMano = 0;
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Fase fase;
-	
+	private Estado estadoGanador;
 	public Jugador() {
 		campo = new Campo(new Mazo());
 		puntosDeVida = 8000;

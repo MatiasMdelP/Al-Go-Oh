@@ -15,7 +15,7 @@ public class BotonMonstruoEnMano extends Button {
 
 	private Monstruo unMonstruo;
 	
-<<<<<<< HEAD
+
 	public BotonMonstruoEnMano(int altoCarta, int anchoCarta,Carta carta) {
 		this.setText(unMonstruo.obtenerNombre());
 		this.setMinHeight(altoCarta);
@@ -24,7 +24,8 @@ public class BotonMonstruoEnMano extends Button {
 		unMonstruo = (Monstruo) carta;//Este cast... Hace ruido...
 		BotonMonstruoEnManoEventHandler botonMonstruoEnManoEventHandler = new BotonMonstruoEnManoEventHandler(unMonstruo);
 		this.setOnAction(botonMonstruoEnManoEventHandler);
-=======
+	}
+
 	public BotonMonstruoEnMano(int altoCarta, int anchoCarta, Monstruo carta) {
 		//this.setText(unMonstruo.obtenerNombre());
 		this.setMinHeight(altoCarta);
@@ -44,7 +45,7 @@ public class BotonMonstruoEnMano extends Button {
 		BackgroundImage imagenDeLaCarta = new BackgroundImage(imagenCarta, BackgroundRepeat.REPEAT, 
 			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		this.setBackground(new Background(imagenDeLaCarta));
->>>>>>> af04a548f75040730041d2079a6986f5a81a6188
+
 	}
 
 }

@@ -1,11 +1,7 @@
 package algo3.AlGoOh.vista;
 
-<<<<<<< HEAD
 import algo3.AlgoOh.handlers.BotonJugarEventHandler;
 import algo3.AlgoOh.handlers.TextoEventHandler;
-=======
-import algo3.AlGoOh.AlGoOh;
->>>>>>> af04a548f75040730041d2079a6986f5a81a6188
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

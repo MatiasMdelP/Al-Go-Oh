@@ -1,9 +1,7 @@
 package algo3.AlGoOh;
 
 import java.util.Random;
-
-import algo3.AlGoOh.vista.Tablero;
-import algo3.AlGoOh.vista.VentanaDeCartasEnMano;
+import algo3.AlgoOh.modelo.*;
 import javafx.scene.layout.Background;
 
 public class AlGoOh {
