@@ -1,6 +1,13 @@
-package algo3.AlGoOh;
+package algo3.AlGoOh.Efectos;
 
 import java.util.Iterator;
+
+import algo3.AlGoOh.Campo;
+import algo3.AlGoOh.Carta;
+import algo3.AlGoOh.Estado;
+import algo3.AlGoOh.Jugador;
+import algo3.AlGoOh.Monstruo;
+import algo3.AlgoOh.Exceptions.InterrumpirAtaqueException;
 
 public class EfectoAgujeroOscuro implements Efecto{
 	

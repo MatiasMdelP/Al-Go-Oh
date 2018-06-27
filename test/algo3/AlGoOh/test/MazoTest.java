@@ -4,10 +4,10 @@ package algo3.AlGoOh.test;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-import algo3.AlGoOh.ElMazoNoTieneCartasException;
 import algo3.AlGoOh.InvocacionNormal;
 import algo3.AlGoOh.Mazo;
 import algo3.AlGoOh.Monstruo;
+import algo3.AlgoOh.Exceptions.ElMazoNoTieneCartasException;
 
 
 public class MazoTest {

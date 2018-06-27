@@ -2,18 +2,18 @@ package algo3.AlGoOh.test;
 
 import org.junit.Test;
 
-import algo3.AlGoOh.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Carta;
-import algo3.AlGoOh.EfectoAumentar500Ataque;
-import algo3.AlGoOh.EfectoCilindroMagico;
-import algo3.AlGoOh.EfectoVacio;
 import algo3.AlGoOh.InvocacionNormal;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
-import algo3.AlGoOh.MonstruoNoPuedeAtacarException;
-import algo3.AlGoOh.MonstruosInsuficientesParaSacrificioException;
-import algo3.AlGoOh.NoHayMasFasesException;
-import algo3.AlGoOh.ZonaNoTieneMasEspacioException;
+import algo3.AlGoOh.Efectos.EfectoAumentar500Ataque;
+import algo3.AlGoOh.Efectos.EfectoCilindroMagico;
+import algo3.AlGoOh.Efectos.EfectoVacio;
+import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlgoOh.Exceptions.MonstruoNoPuedeAtacarException;
+import algo3.AlgoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
+import algo3.AlgoOh.Exceptions.NoHayMasFasesException;
+import algo3.AlgoOh.Exceptions.ZonaNoTieneMasEspacioException;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;

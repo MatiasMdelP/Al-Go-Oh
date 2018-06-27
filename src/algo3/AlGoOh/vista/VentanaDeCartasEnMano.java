@@ -6,11 +6,11 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import algo3.AlGoOh.Carta;
-import algo3.AlGoOh.EfectoAgujeroOscuro;
-import algo3.AlGoOh.EfectoVacio;
 import algo3.AlGoOh.InvocacionNormal;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
+import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
+import algo3.AlGoOh.Efectos.EfectoVacio;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

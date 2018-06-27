@@ -1,8 +1,6 @@
 package algo3.AlgoOh.handlers;
 
 import javax.swing.JOptionPane;
-
-import algo3.AlGoOh.AlGoOh;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

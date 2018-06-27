@@ -1,5 +1,6 @@
 package algo3.AlGoOh;
 
+import algo3.AlgoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 
 public class Invocacion1Sacrificio implements Invocacion{
 

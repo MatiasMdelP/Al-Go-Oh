@@ -4,6 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
+import algo3.AlGoOh.Efectos.EfectoAumentar500Ataque;
+import algo3.AlGoOh.Efectos.EfectoCilindroMagico;
+import algo3.AlGoOh.Efectos.EfectoDestruirMonstruoAtacante;
+import algo3.AlGoOh.Efectos.EfectoFisura;
+import algo3.AlGoOh.Efectos.EfectoJinzo7;
+import algo3.AlGoOh.Efectos.EfectoOllaDeLaCodicia;
+import algo3.AlGoOh.Efectos.EfectoSogen;
+import algo3.AlGoOh.Efectos.EfectoVacio;
+import algo3.AlGoOh.Efectos.EfectoWasteland;
+import algo3.AlgoOh.Exceptions.ElMazoNoTieneCartasException;
+import algo3.AlgoOh.Exceptions.InvocacionDragonDefinitivoDeOjosAzules;
+
 public class Mazo {
 
 	private List<Carta> baraja = new ArrayList<Carta>();
@@ -43,8 +56,8 @@ public class Mazo {
 		Monstruo brujaOscura = new Monstruo("Bruja Oscura", null, new Invocacion1Sacrificio(), 1800, 1700);
 		agregarUnaCartaAlMazo(brujaOscura);
 		
-		//Araña Lanzadora
-		Monstruo arania = new Monstruo("Araña Lanzadora", null, new Invocacion2Sacrificios(), 2200, 2500);
+		//Araï¿½a Lanzadora
+		Monstruo arania = new Monstruo("Araï¿½a Lanzadora", null, new Invocacion2Sacrificios(), 2200, 2500);
 		agregarUnaCartaAlMazo(arania);
 		
 		//Frostosaurus

@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import algo3.AlGoOh.*;
+import algo3.AlGoOh.Efectos.EfectoCartaCompuesta;
 class EstadoTest {
 
 	@Test

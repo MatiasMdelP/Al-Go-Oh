@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
-import algo3.AlGoOh.AlGoOh;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

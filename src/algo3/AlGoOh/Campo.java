@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import algo3.AlgoOh.Exceptions.CartaNoEncontradaException;
+import algo3.AlgoOh.Exceptions.InterrumpirAtaqueException;
+import algo3.AlgoOh.Exceptions.MonstruoNoPuedeAtacarException;
+import algo3.AlgoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
+import algo3.AlgoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
+import algo3.AlgoOh.Exceptions.ZonaNoTieneMasEspacioException;
+
 public class Campo {
 	
 	private List<Monstruo> zonaMonstruos = new ArrayList<Monstruo>();

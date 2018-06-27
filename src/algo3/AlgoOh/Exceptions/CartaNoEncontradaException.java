@@ -1,4 +1,4 @@
-package algo3.AlGoOh;
+package algo3.AlgoOh.Exceptions;
 
 public class CartaNoEncontradaException extends RuntimeException {
 

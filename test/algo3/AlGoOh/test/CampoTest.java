@@ -6,6 +6,16 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
 import algo3.AlGoOh.*;
+import algo3.AlGoOh.Efectos.EfectoAumentar500Ataque;
+import algo3.AlGoOh.Efectos.EfectoSogen;
+import algo3.AlGoOh.Efectos.EfectoVacio;
+import algo3.AlGoOh.Efectos.EfectoWasteland;
+import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlgoOh.Exceptions.CartaNoEncontradaException;
+import algo3.AlgoOh.Exceptions.MonstruoNoPuedeAtacarException;
+import algo3.AlgoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
+import algo3.AlgoOh.Exceptions.NoHayMasFasesException;
+import algo3.AlgoOh.Exceptions.ZonaNoTieneMasEspacioException;
 
 public class CampoTest {
 

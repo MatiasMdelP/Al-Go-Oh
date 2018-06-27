@@ -1,5 +1,8 @@
 package algo3.AlGoOh;
 
+import algo3.AlgoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlgoOh.Exceptions.NoHayMasFasesException;
+
 public class FaseFinal implements Fase {
 
 	@Override

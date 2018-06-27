@@ -1,4 +1,9 @@
-package algo3.AlGoOh;
+package algo3.AlGoOh.Efectos;
+
+import algo3.AlGoOh.Campo;
+import algo3.AlGoOh.Estado;
+import algo3.AlGoOh.Jugador;
+import algo3.AlgoOh.Exceptions.InterrumpirAtaqueException;
 
 public interface Efecto {
 

@@ -1,10 +1,10 @@
 package algo3.AlGoOh.vista;
 
-import algo3.AlGoOh.AlGoOh;
-import algo3.AlGoOh.EfectoVacio;
 import algo3.AlGoOh.InvocacionNormal;
 import algo3.AlGoOh.Monstruo;
+import algo3.AlGoOh.Efectos.EfectoVacio;
 import algo3.AlgoOh.handlers.BotonMonstruoEnCampoEventHandler;
+import algo3.AlgoOh.modelo.AlGoOh;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;

@@ -1,4 +1,8 @@
-package algo3.AlGoOh;
+package algo3.AlGoOh.Efectos;
+
+import algo3.AlGoOh.Campo;
+import algo3.AlGoOh.Estado;
+import algo3.AlGoOh.Jugador;
 
 public class EfectoJinzo7 implements Efecto {
 
