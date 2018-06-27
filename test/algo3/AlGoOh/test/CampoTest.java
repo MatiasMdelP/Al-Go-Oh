@@ -64,7 +64,7 @@ public class CampoTest {
 	
 	@Test
 	public void test04AgregarCartasTrampaOMagicasYMandarlasAlCementerio() throws ZonaNoTieneMasEspacioException {
-		Trampa reinforcements1 = new Trampa("Reinforcements", new EfectoAumentar500Ataque());
+		Carta reinforcements1 = new Carta("Reinforcements", new EfectoAumentar500Ataque());
 		Campo campo = new Campo(new Mazo());
 		
 		campo.agregarTrampa(reinforcements1);
