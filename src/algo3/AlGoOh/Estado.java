@@ -18,12 +18,13 @@ public class Estado {
 		return estado;
 	}
 
-	public void actualizarEstado() {
+	private void actualizarEstadoCartas() {
 		List<Carta> cartasEnMano =jugador.getListaDeCartasEnMano();
 		for(Carta carta: cartasEnMano) {
 			carta.modificarEstado(this);
 		}
 	}
+	
 	public void agregarComponenteCartaCompuesta() {
 		contador++;
 		if(contador == 5) {
@@ -32,6 +33,10 @@ public class Estado {
 	}
 	public void declararComoGanador() {
 		estado = true;		
+	}
+	public void actualizarEstado() {
+		actualizarEstadoCartas();
+		
 	}
 
 }

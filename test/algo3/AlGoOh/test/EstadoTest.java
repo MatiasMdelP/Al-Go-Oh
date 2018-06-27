@@ -1,5 +1,7 @@
 package algo3.AlGoOh.test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -29,11 +31,11 @@ class EstadoTest {
 		Jugador jugador = new Jugador();
 		Estado estado = new Estado(jugador);
 		
-		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoVacio(), new InvocacionNormal(), 1000, 1000);
-		Monstruo brazoIzquierdoDelProhibido = new Monstruo("Brazo Izquierdo Del Prohibido", new EfectoVacio(), new InvocacionNormal(), 200, 300);
-		Monstruo piernaIzquierdaDelProhibido = new Monstruo("Pierna Izquierda Del Prohibido", new EfectoVacio(), new InvocacionNormal(), 200, 300);
-		Monstruo brazoDerechoDelProhibido = new Monstruo("Brazo Derecho Del Prohibido", new EfectoVacio(), new InvocacionNormal(), 200, 300);
-		Monstruo piernaDerechaDelProhibido = new Monstruo("Pierna Derecha Del Prohibido", new EfectoVacio(), new InvocacionNormal(), 200, 300);
+		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoCartaCompuesta(), new InvocacionNormal(), 1000, 1000);
+		Monstruo brazoIzquierdoDelProhibido = new Monstruo("Brazo Izquierdo Del Prohibido", new EfectoCartaCompuesta(), new InvocacionNormal(), 200, 300);
+		Monstruo piernaIzquierdaDelProhibido = new Monstruo("Pierna Izquierda Del Prohibido", new EfectoCartaCompuesta(), new InvocacionNormal(), 200, 300);
+		Monstruo brazoDerechoDelProhibido = new Monstruo("Brazo Derecho Del Prohibido", new EfectoCartaCompuesta(), new InvocacionNormal(), 200, 300);
+		Monstruo piernaDerechaDelProhibido = new Monstruo("Pierna Derecha Del Prohibido", new EfectoCartaCompuesta(), new InvocacionNormal(), 200, 300);
 	
 		jugador.agregarCartaEnMano(exodiaElProhibido);
 		jugador.agregarCartaEnMano(brazoIzquierdoDelProhibido);
@@ -67,6 +69,27 @@ class EstadoTest {
 		assertTrue(estado.ganoElJuego());
 	}
 	
+	@Test
+	void test05Habiendo5CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
+		Jugador oponente = new Jugador();
+		Jugador jugador = new Jugador(oponente);
+		Estado estado = new Estado(jugador);
+		
+		for (int i = 0; i <= 38; i++) {
+			jugador.tomarUnaCartaDelMazo();
+		}
+		assertFalse(estado.ganoElJuego());
+		assertFalse(oponente.ganoElJuego());
+		jugador.tomarUnaCartaDelMazo();
+		assertFalse(estado.ganoElJuego());
+		assertTrue(oponente.ganoElJuego());
+	}
 	
-
+	
+	
+	
+	
+	
+	
+	
 }

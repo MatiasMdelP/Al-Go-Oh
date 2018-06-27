@@ -119,11 +119,16 @@ public class Jugador {
 		try {
 			cartasEnMano.add(campo.tomarUnaCartaDelMazo());
 		} catch (ElMazoNoTieneCartasException exception) {
-			estadoGanador.declararComoGanador();
+			oponente.declararComoGanador();
 		}
 	}
 	
+	private void declararComoGanador() {
+		estadoGanador.declararComoGanador();
+	}
+
 	public boolean ganoElJuego(){
+		estadoGanador.actualizarEstado();
 		return estadoGanador.ganoElJuego();
 	}
 	
