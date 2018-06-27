@@ -1,9 +1,11 @@
-package algo3.AlGoOh;
+package algo3.AlGoOh.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
+
+import algo3.AlGoOh.*;
 
 public class JugadorTest {
 	
@@ -400,7 +402,7 @@ public class JugadorTest {
 	public void test19Con4PartesDelExodiaEnManoElJugadorNoGana() {
 		Jugador jugador = new Jugador();
 		
-		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoVacio(), new InvocacionNormal(), 1000, 1000);
+		Monstruo exodiaElProhibido = new Monstruo("Exodia El Prohibido", new EfectoCartaCompuesta(), new InvocacionNormal(), 1000, 1000);
 		Monstruo brazoIzquierdoDelProhibido = new Monstruo("Brazo Izquierdo Del Prohibido", new EfectoVacio(), new InvocacionNormal(), 200, 300);
 		Monstruo piernaIzquierdaDelProhibido = new Monstruo("Pierna Izquierda Del Prohibido", new EfectoVacio(), new InvocacionNormal(), 200, 300);
 		Monstruo brazoDerechoDelProhibido = new Monstruo("Brazo Derecho Del Prohibido", new EfectoVacio(), new InvocacionNormal(), 200, 300);
@@ -453,4 +455,5 @@ public class JugadorTest {
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
+	
 }

@@ -1,9 +1,11 @@
-package algo3.AlGoOh;
+package algo3.AlGoOh.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
+
+import algo3.AlGoOh.*;
 
 public class CampoTest {
 

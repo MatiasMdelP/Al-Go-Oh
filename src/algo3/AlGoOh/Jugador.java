@@ -12,7 +12,7 @@ public class Jugador {
 	private int partesDelExodiaEnMano = 0;
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Fase fase;
-	private Estado estadoGanador;
+	private Estado estadoGanador = new Estado(this);
 	public Jugador() {
 		campo = new Campo(new Mazo());
 		puntosDeVida = 8000;
@@ -150,6 +150,7 @@ public class Jugador {
 	public Jugador pasarTurno() {
 		oponente.FasePreparacion();
 		oponente.tomarUnaCartaDelMazo();
+		estadoGanador.actualizarEstado();
 		return oponente;
 	}
 

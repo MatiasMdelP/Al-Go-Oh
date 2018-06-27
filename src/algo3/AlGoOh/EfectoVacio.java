@@ -11,5 +11,9 @@ public class EfectoVacio implements Efecto {
 	public void realizarEfectoDeVolteo (Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException{
 		
 	}
+	
+	@Override
+	public void modificarEstado(Estado estado) {
+	}
 
 }

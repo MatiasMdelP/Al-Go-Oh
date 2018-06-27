@@ -11,4 +11,7 @@ public class EfectoDestruirMonstruoAtacante implements Efecto{
 		throw new InterrumpirAtaqueException();
 	}
 
+	@Override
+	public void modificarEstado(Estado estado) {
+	}
 }

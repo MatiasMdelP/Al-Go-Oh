@@ -1,9 +1,21 @@
-package algo3.AlGoOh;
+package algo3.AlGoOh.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
+
+import algo3.AlGoOh.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.EfectoDestruirMonstruoAtacante;
+import algo3.AlGoOh.EfectoJinzo7;
+import algo3.AlGoOh.EfectoVacio;
+import algo3.AlGoOh.InvocacionNormal;
+import algo3.AlGoOh.Jugador;
+import algo3.AlGoOh.Monstruo;
+import algo3.AlGoOh.MonstruoNoPuedeAtacarException;
+import algo3.AlGoOh.MonstruosInsuficientesParaSacrificioException;
+import algo3.AlGoOh.NoHayMasFasesException;
+import algo3.AlGoOh.ZonaNoTieneMasEspacioException;
 
 public class MonstruoTest {
 	

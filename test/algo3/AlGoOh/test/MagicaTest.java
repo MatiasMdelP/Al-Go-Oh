@@ -1,6 +1,22 @@
-package algo3.AlGoOh;
+package algo3.AlGoOh.test;
 
 import org.junit.Test;
+
+import algo3.AlGoOh.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Campo;
+import algo3.AlGoOh.Carta;
+import algo3.AlGoOh.EfectoAgujeroOscuro;
+import algo3.AlGoOh.EfectoFisura;
+import algo3.AlGoOh.EfectoVacio;
+import algo3.AlGoOh.InterrumpirAtaqueException;
+import algo3.AlGoOh.InvocacionNormal;
+import algo3.AlGoOh.Jugador;
+import algo3.AlGoOh.Mazo;
+import algo3.AlGoOh.Monstruo;
+import algo3.AlGoOh.MonstruosInsuficientesParaSacrificioException;
+import algo3.AlGoOh.NoPuedeRealizarseEfectoDeVolteoException;
+import algo3.AlGoOh.ZonaNoTieneMasEspacioException;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -138,7 +154,7 @@ public class MagicaTest {
 
 		jugador.agregarCartaMagicaBocaArriba(fisura);
 		
-		assertTrue(brazoIzquierdoDelProhibido.estaEnElCementerio);
+		assertTrue(brazoIzquierdoDelProhibido.estaEnElCementerio());
 		assertFalse(huevoMonstruoso.estaEnElCementerio());
 		assertFalse(monoAcrobata.estaEnElCementerio());
 		assertTrue(fisura.estaEnElCementerio());

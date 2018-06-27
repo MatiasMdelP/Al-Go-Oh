@@ -88,4 +88,5 @@ public class Monstruo extends Carta {
 	public boolean esDragonBlancoDeOjosAzules() {
 		return nombre == "Dragon Blanco De Ojos Azules";
 	}
+	
 }

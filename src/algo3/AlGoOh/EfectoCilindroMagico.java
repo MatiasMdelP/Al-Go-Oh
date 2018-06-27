@@ -12,4 +12,8 @@ public class EfectoCilindroMagico implements Efecto {
 		this.realizarse(campo, campoOponente, unJugador, oponente);
 		throw new InterrumpirAtaqueException();
 	}
+	
+	@Override
+	public void modificarEstado(Estado estado) {
+	}
 }

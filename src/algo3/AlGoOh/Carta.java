@@ -55,4 +55,11 @@ public class Carta {
 		campo = unCampo;
 		campoOponente = unCampoOponente;
 	}
+
+	public void modificarEstado(Estado estado) {
+		if(efecto != null) {
+			this.efecto.modificarEstado(estado);
+		}
+		
+	}
 }
