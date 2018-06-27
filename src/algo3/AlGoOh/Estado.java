@@ -6,14 +6,16 @@ public class Estado {
 
 	private Jugador jugador;
 	private int contador;
+	private boolean estado;
 	
 	public Estado(Jugador jugador) {
 		this.jugador = jugador;
 		contador = 0;
+		estado = false;
 		
 	}
 	public boolean ganoElJuego() {
-		return (contador == 5);
+		return estado;
 	}
 
 	public void actualizarEstado() {
@@ -22,9 +24,14 @@ public class Estado {
 			carta.modificarEstado(this);
 		}
 	}
-	public void agregarComponente() {
+	public void agregarComponenteCartaCompuesta() {
 		contador++;
-		
+		if(contador == 5) {
+			estado = true;	
+		}
+	}
+	public void declararComoGanador() {
+		estado = true;		
 	}
 
 }

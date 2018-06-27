@@ -15,7 +15,7 @@ public class EfectoCartaCompuesta implements Efecto {
 
 	@Override
 	public void modificarEstado(Estado estado) {
-		estado.agregarComponente();
+		estado.agregarComponenteCartaCompuesta();
 
 	}
 

@@ -5,13 +5,11 @@ public class Monstruo extends Carta {
 	
 	private Posicion posicion;
 	private Invocacion invocacion;
-	private boolean esParteDelExodia;
 	
 	public Monstruo(String unNombre, Efecto unEfecto, Invocacion invocacionIngresada, int ataque, int defensa) {
 		super(unNombre, unEfecto);
 		invocacion = invocacionIngresada;
 		estaEnElCementerio = false;
-		esParteDelExodia = verificarSiEsParteDelExodia();
 		posicion = new PosicionAtaque(ataque,defensa);
 	}
 	
@@ -71,15 +69,7 @@ public class Monstruo extends Carta {
 	public int getDanio() {
 		return posicion.danioAtaque();
 	}
-	
-	public boolean esParteDelExodia() {
-		return esParteDelExodia;
-	}
-	
-	private boolean verificarSiEsParteDelExodia() {
-		return ((nombre == "Exodia El Prohibido") || (nombre == "Brazo Izquierdo Del Prohibido") || (nombre == "Pierna Izquierda Del Prohibido") || 
-				(nombre == "Brazo Derecho Del Prohibido") || (nombre == "Pierna Derecha Del Prohibido"));
-	}
+
 
 	public void efectuarSacrificios(Campo campo) throws MonstruosInsuficientesParaSacrificioException {
 		invocacion.efectuarSacrificios(campo);

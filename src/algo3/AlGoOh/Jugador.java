@@ -8,8 +8,6 @@ public class Jugador {
 	private int puntosDeVida;
 	private Campo campo;
 	private Jugador oponente;	
-	private boolean ganoElJuego = false;
-	private int partesDelExodiaEnMano = 0;
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Fase fase;
 	private Estado estadoGanador = new Estado(this);
@@ -40,9 +38,6 @@ public class Jugador {
 
 	public void agregarCartaEnMano(Carta unaCarta) {
 		cartasEnMano.add(unaCarta);
-		if (unaCarta.esParteDelExodia()) {
-			partesDelExodiaEnMano++;
-		}
 	}
 	
 	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException{
@@ -124,23 +119,12 @@ public class Jugador {
 		try {
 			cartasEnMano.add(campo.tomarUnaCartaDelMazo());
 		} catch (ElMazoNoTieneCartasException exception) {
-			oponente.declararComoGanador();
-		}
-	}
-	
-	private void tieneTodasLasPartesDelExodia() {
-		if (partesDelExodiaEnMano == 5) {
-			declararComoGanador();
+			estadoGanador.declararComoGanador();
 		}
 	}
 	
 	public boolean ganoElJuego(){
-		tieneTodasLasPartesDelExodia();
-		return ganoElJuego;
-	}
-	
-	public void declararComoGanador() {
-		ganoElJuego = true;
+		return estadoGanador.ganoElJuego();
 	}
 	
 	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
