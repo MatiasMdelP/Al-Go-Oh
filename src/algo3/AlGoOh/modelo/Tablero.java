@@ -5,12 +5,15 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-
+import algo3.AlGoOh.Carta;
+import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
+import algo3.AlGoOh.vista.BotonMagicaTrampaEnMano;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -80,6 +83,32 @@ public class Tablero extends GridPane{
 			super.setMargin(botonMyTJugador,  espacioEntrePosiciones);
 			this.botonesCartasJugadorInferior.add(botonMyTJugador);
 		}
+		
+		ScrollPane scrollPane = new ScrollPane();
+		super.add(scrollPane, 8, 3);
+		super.setMargin(scrollPane, espacioEntrePosiciones);
+		
+		HBox contenedorHorizontal = new HBox();
+		
+		List<Carta> cartasEnMano = new ArrayList<Carta>();
+		Carta agujeroOscuro1 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro2 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro3 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+
+     	cartasEnMano.add(agujeroOscuro1);
+     	cartasEnMano.add(agujeroOscuro2);
+     	cartasEnMano.add(agujeroOscuro3);
+		
+    	for (Carta unaCarta : cartasEnMano) {
+    		BotonMagicaTrampaEnMano nuevo = new BotonMagicaTrampaEnMano(150, 100, unaCarta);
+    		nuevo.cargarImagen();
+    		contenedorHorizontal.getChildren().add(nuevo);
+    	}
+    	
+    	contenedorHorizontal.setSpacing(0);
+    	contenedorHorizontal.setPadding(new Insets(20));
+		
+		scrollPane.setContent(contenedorHorizontal);
 		
 	}
 
