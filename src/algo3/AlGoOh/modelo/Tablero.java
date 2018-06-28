@@ -86,7 +86,6 @@ public class Tablero extends GridPane{
 		
 		ScrollPane scrollPane = new ScrollPane();
 		super.add(scrollPane, 8, 3);
-		super.setMargin(scrollPane, espacioEntrePosiciones);
 		
 		HBox contenedorHorizontal = new HBox();
 		
@@ -104,11 +103,9 @@ public class Tablero extends GridPane{
     		nuevo.cargarImagen();
     		contenedorHorizontal.getChildren().add(nuevo);
     	}
-    	
-    	contenedorHorizontal.setSpacing(0);
-    	contenedorHorizontal.setPadding(new Insets(20));
 		
 		scrollPane.setContent(contenedorHorizontal);
+		scrollPane.setPrefSize(anchoCartaIngresado*2, altoCartaIngresado);
 		
 	}
 
