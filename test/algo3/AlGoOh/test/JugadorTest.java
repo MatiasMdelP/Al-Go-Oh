@@ -681,9 +681,25 @@ public class JugadorTest {
 			assertTrue(true);
 		}
 	}
+	@Test
+	public void test37AtacarEnFaseFinalLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException, MonstruoNoPuedeAtacarException {
+		Jugador jugador = new Jugador();
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador.pasarFase();
+		jugador.pasarFase();
+		
+		try {
+			jugador.atacarA(0, 0);
+			assertTrue(false);
+		}catch(AccionInvalidaEnEstaFaseException e) {
+			assertTrue(true);
+		}
+	}
+	
 	
 	@Test
-	public void test35PasarFaseEnFaseFinalLanzaNoHayMasFasesException() throws NoHayMasFasesException {
+	public void test36PasarFaseEnFaseFinalLanzaNoHayMasFasesException() throws NoHayMasFasesException {
 		Jugador jugador = new Jugador();
 		
 		jugador.pasarFase();
@@ -693,6 +709,45 @@ public class JugadorTest {
 			jugador.pasarFase();
 			assertTrue(false);
 		}catch(NoHayMasFasesException e){
+			assertTrue(true);
+		}
+	}
+
+	@Test
+	public void test37AtacarConMonstruoDefensaLanzaMonstruoNoPuedeAtacarException() throws AccionInvalidaEnEstaFaseException, NoHayMasFasesException, MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+		Jugador jugador = new Jugador();
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
+		jugador.agregarMonstruoEnDefensa(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador = jugador.pasarTurno();
+		
+		jugador.pasarFase();
+		
+	
+		try {
+			jugador.atacarA(0, 0);
+			assertFalse(false);
+		}catch(MonstruoNoPuedeAtacarException e) {
+			assertTrue(true);
+		}
+	}
+
+	@Test
+	public void test38AgregarMasDe5MonstruosLanzaZonaNoTieneMasEspacioException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+		Jugador jugador = new Jugador();
+		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
+
+		for (int i=0; i<5; i++) {
+			jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			Jugador oponente = jugador.pasarTurno();
+			jugador = oponente.pasarTurno();
+		}
+		
+		try {
+			jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+			assertTrue(false);
+		}catch(ZonaNoTieneMasEspacioException e) {
 			assertTrue(true);
 		}
 	}
