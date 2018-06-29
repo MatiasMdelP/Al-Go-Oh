@@ -9,9 +9,11 @@ import javafx.event.EventHandler;
 public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEvent>{
 
 	private Monstruo monstruo;
+	private int posicion;
 	
-	public BotonMonstruoEnCampoEventHandler(Monstruo unMonstruo) {
+	public BotonMonstruoEnCampoEventHandler(Monstruo unMonstruo, int unaPosicion) {
 		monstruo = unMonstruo;
+		posicion = unaPosicion;
 	}
 	
 	@Override

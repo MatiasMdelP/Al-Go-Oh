@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
+import algo3.AlGoOh.vista.BotonCartaEnMano;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnMano;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
@@ -40,6 +41,11 @@ public class Tablero extends GridPane{
 		anchoCarta = anchoCartaIngresado;
 		altoCarta = altoCartaIngresado;
 		
+		construirTablero();
+		
+	}
+
+	private void construirTablero() {
 		Insets espacioEntrePosiciones = new Insets(10,10,10,10);
 		
 		StackPane mazoOponente = this.crearPosicionMazo();
@@ -60,25 +66,24 @@ public class Tablero extends GridPane{
 		
 		for(int i=2; i<7; i++) {
 						
-			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
+			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta, i-2);
 			super.add(botonMyTOponente, i, 1);
 			super.setMargin(botonMyTOponente, espacioEntrePosiciones);
 			this.botonesCartasJugadorSuperior.add(botonMyTOponente);
 			
-			
-			BotonMonstruoEnCampo botonMonstruoOponente = new BotonMonstruoEnCampo(altoCarta, anchoCarta);
+			BotonMonstruoEnCampo botonMonstruoOponente = new BotonMonstruoEnCampo(altoCarta, anchoCarta, i-2);
 			super.add(botonMonstruoOponente, i, 2);
 			super.setMargin(botonMonstruoOponente, espacioEntrePosiciones);
 			this.botonesMonstruosJugadorSuperior.add(botonMonstruoOponente);
 			
 			
-			BotonMonstruoEnCampo botonMonstruoJugador = new BotonMonstruoEnCampo(altoCarta, anchoCarta);
+			BotonMonstruoEnCampo botonMonstruoJugador = new BotonMonstruoEnCampo(altoCarta, anchoCarta, i-2);
 			super.add(botonMonstruoJugador, i, 3);
 			super.setMargin(botonMonstruoJugador, espacioEntrePosiciones);
 			this.botonesMonstruosJugadorInferior.add(botonMonstruoJugador);
 			
 			
-			BotonMagicaTrampaEnCampo botonMyTJugador = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta);
+			BotonMagicaTrampaEnCampo botonMyTJugador = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta, i-2);
 			super.add(botonMyTJugador, i, 4);
 			super.setMargin(botonMyTJugador,  espacioEntrePosiciones);
 			this.botonesCartasJugadorInferior.add(botonMyTJugador);
@@ -89,27 +94,18 @@ public class Tablero extends GridPane{
 		
 		HBox contenedorHorizontal = new HBox();
 		
-		List<Carta> cartasEnMano = new ArrayList<Carta>();
-		Carta agujeroOscuro1 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
-		Carta agujeroOscuro2 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
-		Carta agujeroOscuro3 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
-
-     	cartasEnMano.add(agujeroOscuro1);
-     	cartasEnMano.add(agujeroOscuro2);
-     	cartasEnMano.add(agujeroOscuro3);
+		List<Carta> cartasEnMano = AlGoOh.getInstance().jugadorActual.getListaDeCartasEnMano();
 		
     	for (Carta unaCarta : cartasEnMano) {
-    		BotonMagicaTrampaEnMano nuevo = new BotonMagicaTrampaEnMano(150, 100, unaCarta);
-    		nuevo.cargarImagen();
-    		contenedorHorizontal.getChildren().add(nuevo);
+    		BotonCartaEnMano cartaEnMano = new BotonCartaEnMano(altoCarta, anchoCarta, unaCarta);
+    		cartaEnMano.cargarImagen();
+    		contenedorHorizontal.getChildren().add(cartaEnMano);
     	}
 		
 		scrollPane.setContent(contenedorHorizontal);
-		scrollPane.setPrefSize(anchoCartaIngresado*2, altoCartaIngresado);
-		
+		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
 	}
-
-
+	
 	private StackPane crearPosicionMonstruoVacia() {
 		StackPane pilaADibujar = new StackPane();
 		
@@ -183,6 +179,6 @@ public class Tablero extends GridPane{
 	}
 	
 	public void actualizarTablero() {
-		
+		construirTablero();
 	}
 }

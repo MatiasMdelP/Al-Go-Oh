@@ -17,12 +17,12 @@ public class BotonMonstruoEnCampo extends Button {
 
 	private Monstruo unMonstruo;
 	
-	public BotonMonstruoEnCampo(int altoCarta, int anchoCarta) {
+	public BotonMonstruoEnCampo(int altoCarta, int anchoCarta, int posicion) {
 		this.setText("Monstruo");
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
 		this.setPrefSize(anchoCarta, altoCarta);
-		BotonMonstruoEnCampoEventHandler botonMonstruoEnCampoEventHandler = new BotonMonstruoEnCampoEventHandler(unMonstruo);
+		BotonMonstruoEnCampoEventHandler botonMonstruoEnCampoEventHandler = new BotonMonstruoEnCampoEventHandler(unMonstruo, posicion);
 		this.setOnAction(botonMonstruoEnCampoEventHandler);
 		this.setStyle("-fx-base: #A52A2A");
 		unMonstruo = null;

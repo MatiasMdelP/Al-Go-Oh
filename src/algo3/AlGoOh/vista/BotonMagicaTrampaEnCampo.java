@@ -17,19 +17,18 @@ public class BotonMagicaTrampaEnCampo extends Button {
 	private AlGoOh juegoDeAlGoOh;
 
 
-	public BotonMagicaTrampaEnCampo(int altoCarta, int anchoCarta) {
+	public BotonMagicaTrampaEnCampo(int altoCarta, int anchoCarta, int posicion) {
 		this.setText("Magica/ \n"
 				+ "Trampa");
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
 		this.setPrefSize(anchoCarta, altoCarta);
-		BotonMagicaTrampaEnCampoEventHandler botonMagicaTrampaEnCampoEventHandler = new BotonMagicaTrampaEnCampoEventHandler();
+		BotonMagicaTrampaEnCampoEventHandler botonMagicaTrampaEnCampoEventHandler = new BotonMagicaTrampaEnCampoEventHandler(posicion);
 		this.setOnAction(botonMagicaTrampaEnCampoEventHandler);
 		this.setStyle("-fx-base: #25d19d");
-		
 	}
 
-	public void cargarCartaEnBoton(Carta cartaADepositar){
+	public void cargarCartaEnBoton(Carta cartaADepositar) {
 		unaCarta = cartaADepositar;
 	}
 	

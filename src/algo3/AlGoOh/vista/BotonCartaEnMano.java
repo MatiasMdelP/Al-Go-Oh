@@ -21,4 +21,11 @@ public class BotonCartaEnMano extends Button{
 		carta = unaCarta;
 	}
 	
+	public void cargarImagen() {
+		Image imagenCarta = new Image("file:src/algo3/AlGoOh/vista/cartas/" + carta.obtenerNombre() + ".png");
+		BackgroundImage imagenDeLaCarta = new BackgroundImage(imagenCarta, BackgroundRepeat.REPEAT, 
+			BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+		this.setBackground(new Background(imagenDeLaCarta));
+	}
+	
 }

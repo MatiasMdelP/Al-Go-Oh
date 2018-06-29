@@ -75,7 +75,7 @@ public class Aplicacion extends Application {
     	Image imagen = new Image("file:src/algo3/AlGoOh/vista/fondo.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 
-        GridPane gridPane = new GridPane();    
+        GridPane gridPane = new GridPane(); 
         
         //Setting size for the pane 
         gridPane.setMinSize(1300, 700); 

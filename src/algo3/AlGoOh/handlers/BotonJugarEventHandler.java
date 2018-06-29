@@ -32,7 +32,7 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
             Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
     		stage.setScene(escenaJuego);
     		stage.setFullScreenExitHint("");
-    		stage.setFullScreenExitHint("Para salir de modo Full Screen, presione Esc");
+    		//stage.setFullScreenExitHint("Para salir de modo Full Screen, presione Esc");
   
     		stage.setFullScreen(true);
     	}

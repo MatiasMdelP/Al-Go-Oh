@@ -6,6 +6,12 @@ import javafx.event.EventHandler;
 
 public class BotonMagicaTrampaEnCampoEventHandler implements EventHandler<ActionEvent>{
 
+	private int posicion;
+
+	public BotonMagicaTrampaEnCampoEventHandler(int unaPosicion) {
+		posicion = unaPosicion;
+	}
+	
 	@Override
     public void handle(ActionEvent actionEvent) {
 		JOptionPane cuadro = new JOptionPane();

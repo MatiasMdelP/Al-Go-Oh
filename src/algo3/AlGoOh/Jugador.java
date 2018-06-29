@@ -22,15 +22,10 @@ public class Jugador {
 	public Jugador() {
 		campo = new Campo(new Mazo());
 		puntosDeVida = 8000;
-		oponente = new Jugador(this);
 		tomarUnaCartaDelMazo();
-		fase = new FasePreparacion();
-	}
-	
-	public Jugador(Jugador jugador) {
-		campo = new Campo(new Mazo());
-		puntosDeVida = 8000;
-		oponente = jugador;
+		tomarUnaCartaDelMazo();
+		tomarUnaCartaDelMazo();
+		tomarUnaCartaDelMazo();
 		tomarUnaCartaDelMazo();
 		fase = new FasePreparacion();
 	}
@@ -164,5 +159,9 @@ public class Jugador {
 
 	public List<Carta> getListaDeCartasEnMano() {
 		return cartasEnMano;
+	}
+
+	public void oponente(Jugador unJugador) {
+		oponente = unJugador;
 	}
 }

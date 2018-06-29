@@ -73,7 +73,8 @@ class EstadoTest {
 	@Test
 	void test05Habiendo5CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
 		Jugador oponente = new Jugador();
-		Jugador jugador = new Jugador(oponente);
+		Jugador jugador = new Jugador();
+		oponente.oponente(jugador);
 		Estado estado = new Estado(jugador);
 		
 		for (int i = 0; i <= 38; i++) {

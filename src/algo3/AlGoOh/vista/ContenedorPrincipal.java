@@ -31,7 +31,7 @@ public class ContenedorPrincipal extends BorderPane {
     String nombreJugador2;
     Jugador jugador1 = new Jugador();
     Jugador jugador2 = new Jugador();
-    private AlGoOh juegoAlGoOh = new AlGoOh();
+    private AlGoOh juegoAlGoOh = AlGoOh.getInstance();
 
     public ContenedorPrincipal(Stage stage) {
     	
@@ -93,14 +93,16 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     private void setCentro(/*Robot robot*/) {
-
+    	
     	try {
-    		juegoAlGoOh.cargarJugadores(new Jugador(), new Jugador());
+    		juegoAlGoOh.cargarJugadores(jugador1, jugador2);
 		} catch (Exception e) {
-			
+			System.out.println("Error");
 		}
-
+    	
     	tablero = new Tablero(anchoCarta, altoCarta);
+    	juegoAlGoOh.cargarTablero(tablero);
+    	
         //canvasCentral = new Canvas(460, 220);
         //vistaRobot = new VistaRobot(robot, canvasCentral);
         //vistaRobot.dibujar();

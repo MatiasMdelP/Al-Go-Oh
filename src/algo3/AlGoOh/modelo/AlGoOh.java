@@ -2,19 +2,22 @@ package algo3.AlGoOh.modelo;
 
 import java.util.Random;
 
+import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Jugador;
-import algo3.AlGoOh.vista.VentanaDeCartasEnMano;
+import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
+import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 
 public class AlGoOh {
 
 	private static AlGoOh INSTANCE = null;
-	private Jugador jugadorActual;
+	public Jugador jugadorActual;
 	private Tablero tablero;
-	private VentanaDeCartasEnMano vistaCartasEnMano;
+	private Jugador oponente;
 	
-	public AlGoOh(){}
+	private AlGoOh(){}
 	private synchronized static void createInstance() {
 		if (INSTANCE == null) { 
 	       INSTANCE = new AlGoOh();
@@ -22,31 +25,33 @@ public class AlGoOh {
 	}
 
 	public static AlGoOh getInstance() {
-	    if (INSTANCE == null) 
+	    if (INSTANCE == null)
 	    	createInstance();
 	    return INSTANCE;
 	}
 	
-	public void cargarJugadores(Jugador jugador1, Jugador jugador2 ) throws Exception {
+	public void cargarJugadores(Jugador jugador1, Jugador jugador2) throws Exception {
 		
 		Random sorteo = new Random();
 				
 		if (sorteo.nextInt(2) == 0) {
 			jugadorActual = jugador1;
+			oponente = jugador2;
 		} else {
 			jugadorActual = jugador2;
+			oponente = jugador1;
 		}
-		jugadorActual.tomarUnaCartaDelMazo();
-		//vistaCartasEnMano = new VentanaDeCartasEnMano(jugadorActual);
+		jugador1.oponente(jugador2);
+		jugador2.oponente(jugador1);
 	}
 	
-	public void cargarElTablero(Tablero unTablero) {
+	public void cargarTablero(Tablero unTablero) {
 		tablero = unTablero;
 	}
 	
 	public void finalizarTurno() {
+		oponente = jugadorActual;
 		jugadorActual = jugadorActual.pasarTurno();
-		jugadorActual.tomarUnaCartaDelMazo();
 		tablero.actualizarTablero();
 		//vistaCartasEnMano.actualizarCartasEnMano(jugadorActual);
 	}
@@ -66,7 +71,6 @@ public class AlGoOh {
 		} catch (Exception e) {
 			
 		}
-		vistaCartasEnMano.actualizarCartasEnMano(jugadorActual);
 	}
 	
 	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
@@ -78,6 +82,12 @@ public class AlGoOh {
 	}
 	
 	public boolean noHayGanador() {
-		return (! jugadorActual.ganoElJuego());
+		return (!jugadorActual.ganoElJuego());
+	}
+	public void agregarCartaAlCampo(Carta carta) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+		if(carta.getClass() == Monstruo.class) {
+			jugadorActual.agregarMonstruoEnAtaque((Monstruo)carta);
+			tablero.actualizarTablero();
+		}
 	}
 }
