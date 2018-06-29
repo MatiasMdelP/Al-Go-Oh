@@ -1,6 +1,6 @@
 package algo3.AlGoOh.Exceptions;
 
-public class MonstruoNoPuedeAtacarException extends Exception {
+public class MonstruoNoPuedeAtacarException extends RuntimeException {
 
 	/**
 	 * 

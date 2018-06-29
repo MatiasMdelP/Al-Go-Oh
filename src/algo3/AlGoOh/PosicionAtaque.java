@@ -34,7 +34,6 @@ public class PosicionAtaque implements Posicion{
 
 	@Override
 	public boolean estaEnAtaque() {
-
 		return true;
 	}
 
@@ -57,6 +56,11 @@ public class PosicionAtaque implements Posicion{
 	@Override
 	public int danioAtaque() {
 		return puntosDeAtaque;
+	}
+
+	@Override
+	public void verificarEstado() {
+		
 	}
 
 

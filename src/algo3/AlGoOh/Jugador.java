@@ -3,13 +3,7 @@ package algo3.AlGoOh;
 import java.util.ArrayList;
 import java.util.List;
 
-import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlGoOh.Exceptions.ElMazoNoTieneCartasException;
-import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
-import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
-import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
-import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
-import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
+import algo3.AlGoOh.Exceptions.*;
 
 public class Jugador {
 	
@@ -134,9 +128,7 @@ public class Jugador {
 		}
 	}
 	
-	private void declararComoGanador() {
-		estadoGanador.declararComoGanador();
-	}
+
 
 	public boolean ganoElJuego(){
 		estadoGanador.actualizarEstado();
@@ -154,9 +146,6 @@ public class Jugador {
 		return oponente;
 	}
 
-	private void FasePreparacion() {
-		fase = new FasePreparacion();
-	}
 
 	public void pasarFase() throws NoHayMasFasesException {
 		fase = fase.pasarFase();
@@ -164,5 +153,14 @@ public class Jugador {
 
 	public List<Carta> getListaDeCartasEnMano() {
 		return cartasEnMano;
+	}
+	
+	private void declararComoGanador() {
+		estadoGanador.declararComoGanador();
+	}
+	
+
+	private void FasePreparacion() {
+		fase = new FasePreparacion();
 	}
 }

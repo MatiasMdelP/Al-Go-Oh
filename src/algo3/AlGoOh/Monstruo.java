@@ -29,9 +29,9 @@ public class Monstruo extends Carta {
 		return posicion.estaEnAtaque();
 	}
 	
-	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
-
-		if (bocaAbajo || !posicion.estaEnAtaque()) throw new MonstruoNoPuedeAtacarException();
+	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) {
+		boca.verificarEstado();
+		posicion.verificarEstado();
 		
 		int diferenciaDelEnfrentamiento = atacado.recibirAtaque(posicion, jugadorAtacado);
 		
@@ -65,9 +65,10 @@ public class Monstruo extends Carta {
 	}
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
-		if (bocaAbajo) 
+		if (boca.getEstado()) {
 			this.darVuelta();
 			efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+		}
 	}
 	
 	public int getDanio() {

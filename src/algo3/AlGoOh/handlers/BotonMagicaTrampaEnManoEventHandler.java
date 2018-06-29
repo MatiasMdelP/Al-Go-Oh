@@ -23,7 +23,7 @@ public class BotonMagicaTrampaEnManoEventHandler implements EventHandler<ActionE
 		int eleccion =JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
-		if (eleccion == 0) {
+		if (eleccion == 0) { 
 			
 		}
     }

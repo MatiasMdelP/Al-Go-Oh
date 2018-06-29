@@ -20,4 +20,6 @@ public interface Posicion {
 
 	int danioAtaque();
 
+	void verificarEstado();
+
 }

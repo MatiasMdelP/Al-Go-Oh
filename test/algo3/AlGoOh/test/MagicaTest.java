@@ -56,9 +56,11 @@ public class MagicaTest {
 		Mazo mazoOponente = new Mazo();
 		
 		agujeroOscuro.darVuelta();
+		assertTrue(agujeroOscuro.estaBocaAbajo());
+
 		agujeroOscuro.agregarAlCampo(new Campo(unMazo), new Campo(mazoOponente));
 		agujeroOscuro.realizarEfecto(null,null);
-		assertFalse(agujeroOscuro.estaBocaAbajo());
+		assertTrue(agujeroOscuro.estaBocaAbajo());
 	}
 	
 	@Test

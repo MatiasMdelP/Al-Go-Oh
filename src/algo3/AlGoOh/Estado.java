@@ -12,12 +12,8 @@ public class Estado {
 		this.jugador = jugador;
 		contador = 0;
 		estado = false;
-		
 	}
-	public boolean ganoElJuego() {
-		return estado;
-	}
-
+	
 	private void actualizarEstadoCartas() {
 		List<Carta> cartasEnMano =jugador.getListaDeCartasEnMano();
 		for(Carta carta: cartasEnMano) {
@@ -25,15 +21,23 @@ public class Estado {
 		}
 	}
 	
+	public boolean ganoElJuego() {
+		return estado;
+	}
+
+
+	
 	public void agregarComponenteCartaCompuesta() {
 		contador++;
 		if(contador == 5) {
-			estado = true;	
+			declararComoGanador();
 		}
 	}
+	
 	public void declararComoGanador() {
 		estado = true;		
 	}
+	
 	public void actualizarEstado() {
 		actualizarEstadoCartas();
 		
