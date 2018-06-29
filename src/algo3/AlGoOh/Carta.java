@@ -6,7 +6,7 @@ import algo3.AlGoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
 
 public class Carta {
 	
-	protected boolean bocaAbajo;
+	protected Boca boca;
 	protected boolean estaEnElCementerio;
 	protected String nombre;
 	protected Efecto efecto;
@@ -16,7 +16,7 @@ public class Carta {
 	public Carta(String nombreDeLaCarta, Efecto unEfecto) {
 		nombre = nombreDeLaCarta;
 		efecto = unEfecto;
-		bocaAbajo = false;
+		boca = new BocaArriba();
 		estaEnElCementerio = false;
 	}
 	
@@ -33,21 +33,19 @@ public class Carta {
 	}
 
 	public boolean estaBocaAbajo() {
-		return bocaAbajo;
+		return boca.getEstado();
 	}
 	
+	//estos tres metodos no contribuyen a la funcionalidade de la cclase pero ayudan a las pruebass
+	
 	public void darVuelta() {
-		bocaAbajo = !bocaAbajo;
+		boca = boca.darVuelta();
 	}
 	
 	public void realizarEfecto(Jugador unJugador, Jugador oponente) {
-		if(bocaAbajo) darVuelta();
+		ponerBocaAbajo();
 		efecto.realizarse(campo, campoOponente, unJugador, oponente);
 		campo.mandarMagicaOTrampaAlCementerio(this);
-	}
-	
-	public boolean esParteDelExodia() {
-		return false;
 	}
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException{
@@ -64,6 +62,9 @@ public class Carta {
 		if(efecto != null) {
 			this.efecto.modificarEstado(estado);
 		}
-		
+	}
+
+	public void ponerBocaAbajo() {
+		boca = boca.ponerBocaAbajo();
 	}
 }

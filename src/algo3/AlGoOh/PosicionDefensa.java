@@ -1,5 +1,7 @@
 package algo3.AlGoOh;
 
+import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
+
 public class PosicionDefensa implements Posicion {
 	
 	private int puntosDeAtaque;
@@ -31,12 +33,6 @@ public class PosicionDefensa implements Posicion {
 	public void efectuarDanio(int diferenciaDelEnfrentamiento, Jugador jugador, Monstruo monstruo ) {
 		monstruo.mandarAlCementerio();
 		jugador.reducirVida(0);
-		
-	}
-
-	@Override
-	public boolean estaEnAtaque() {
-		return false;
 	}
 	
 	@Override
@@ -52,7 +48,6 @@ public class PosicionDefensa implements Posicion {
 	@Override
 	public void agregarPuntos(int puntos) {
 		puntosDeDefensa += puntos;
-		
 	}
 
 	@Override
@@ -60,5 +55,8 @@ public class PosicionDefensa implements Posicion {
 		return puntosDeAtaque;
 	}
 
+	public void verificarEstado() {
+		throw new MonstruoNoPuedeAtacarException();
+	}
 
 }

@@ -12,7 +12,6 @@ import algo3.AlGoOh.Efectos.EfectoCilindroMagico;
 import algo3.AlGoOh.Efectos.EfectoVacio;
 import algo3.AlGoOh.Efectos.EfectoWasteland;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlGoOh.Exceptions.InvocacionDragonDefinitivoDeOjosAzules;
 import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
 import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.NoHayMasFasesException;

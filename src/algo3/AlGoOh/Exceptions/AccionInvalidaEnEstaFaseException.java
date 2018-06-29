@@ -1,6 +1,6 @@
 package algo3.AlGoOh.Exceptions;
 
-public class AccionInvalidaEnEstaFaseException extends Exception {
+public class AccionInvalidaEnEstaFaseException extends RuntimeException {
 
 	/**
 	 * 

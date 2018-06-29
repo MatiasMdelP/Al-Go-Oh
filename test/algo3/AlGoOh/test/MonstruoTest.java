@@ -33,19 +33,25 @@ public class MonstruoTest {
 	@Test
 	public void test01ColocarMonstruoEnAtaque() {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
 		
 		huevoMonstruoso.colocarEnPosicionAtaque();
+		huevoMonstruoso.atacarA(monoAcrobata, unJugador, oponente);
 		
-		assertTrue(huevoMonstruoso.estaEnPosicionDeAtaque());
 	}
 	
-	@Test
+	@Test(expected=MonstruoNoPuedeAtacarException.class)
 	public void test02ColocarMonstruoEnDefensa() {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
+		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);
+		Jugador unJugador = new Jugador();
+		Jugador oponente = new Jugador();
 		
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		
-		assertFalse(huevoMonstruoso.estaEnPosicionDeAtaque());
+		huevoMonstruoso.atacarA(monoAcrobata, unJugador, oponente);
 	}
 	
 	@Test

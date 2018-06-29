@@ -23,7 +23,20 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 
 		String[] options = {"Atacar", "Poner en Ataque", "Poner en Defensa", "Dar vuelta", "Ofrecer como sacrificio", "Cancelar"};
 		int seleccion = JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-		if (seleccion == 0) {
+		switch (seleccion) {
+			case 0: opcionesParaAtacar();
+					break;
+			case 1: monstruo.colocarEnPosicionAtaque();
+					break;
+			case 2: monstruo.colocarEnPosicionDefensa();
+					break;
+			case 3: monstruo.darVuelta();
+					break;
+			default:
+				break;
+		}
+		
+		/*if (seleccion == 0) {
 			opcionesParaAtacar();
 		} else if (seleccion == 1) {
 			monstruo.colocarEnPosicionAtaque();
@@ -31,7 +44,7 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 			monstruo.colocarEnPosicionDefensa();
 		} else if (seleccion == 3) {
 			monstruo.darVuelta();
-		}
+		}*/
     }
 
 	private void opcionesParaAtacar() {
