@@ -33,11 +33,6 @@ public class PosicionAtaque implements Posicion{
 	}
 
 	@Override
-	public boolean estaEnAtaque() {
-		return true;
-	}
-
-	@Override
 	public int calcularDiferenciaDeDanio(Posicion posicion){
 		return posicion.calcularDanio(puntosDeAtaque);
 	}

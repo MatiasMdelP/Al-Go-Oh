@@ -34,11 +34,6 @@ public class PosicionDefensa implements Posicion {
 		monstruo.mandarAlCementerio();
 		jugador.reducirVida(0);
 	}
-
-	@Override
-	public boolean estaEnAtaque() {
-		return false;
-	}
 	
 	@Override
 	public int calcularDiferenciaDeDanio(Posicion posicion){

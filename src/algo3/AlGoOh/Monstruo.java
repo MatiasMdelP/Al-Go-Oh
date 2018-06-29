@@ -24,10 +24,6 @@ public class Monstruo extends Carta {
 	public void colocarEnPosicionDefensa() {
 		posicion = posicion.ponerEnPosicionDefensa();
 	}
-
-	public boolean estaEnPosicionDeAtaque() {
-		return posicion.estaEnAtaque();
-	}
 	
 	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) {
 		boca.verificarEstado();
