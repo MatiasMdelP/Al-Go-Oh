@@ -1,6 +1,6 @@
 package algo3.AlGoOh.Exceptions;
 
-public class NoHayMasFasesException extends Exception {
+public class NoHayMasFasesException extends RuntimeException {
 
 	/**
 	 * 

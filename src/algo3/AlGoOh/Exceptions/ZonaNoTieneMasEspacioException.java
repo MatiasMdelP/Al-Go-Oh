@@ -1,6 +1,6 @@
 package algo3.AlGoOh.Exceptions;
 
-public class ZonaNoTieneMasEspacioException extends Exception {
+public class ZonaNoTieneMasEspacioException extends RuntimeException {
 
 	/**
 	 * 

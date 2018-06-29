@@ -15,7 +15,6 @@ import algo3.AlGoOh.Efectos.EfectoSogen;
 import algo3.AlGoOh.Efectos.EfectoVacio;
 import algo3.AlGoOh.Efectos.EfectoWasteland;
 import algo3.AlGoOh.Exceptions.ElMazoNoTieneCartasException;
-import algo3.AlGoOh.Exceptions.InvocacionDragonDefinitivoDeOjosAzules;
 
 public class Mazo {
 

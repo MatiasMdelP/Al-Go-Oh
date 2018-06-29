@@ -1,7 +1,6 @@
-package algo3.AlGoOh.Exceptions;
+package algo3.AlGoOh;
 
-import algo3.AlGoOh.Campo;
-import algo3.AlGoOh.Invocacion;
+import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 
 public class InvocacionDragonDefinitivoDeOjosAzules implements Invocacion{
 

@@ -33,7 +33,6 @@ public class PosicionDefensa implements Posicion {
 	public void efectuarDanio(int diferenciaDelEnfrentamiento, Jugador jugador, Monstruo monstruo ) {
 		monstruo.mandarAlCementerio();
 		jugador.reducirVida(0);
-		
 	}
 
 	@Override

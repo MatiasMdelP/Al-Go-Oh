@@ -64,7 +64,7 @@ public class Jugador {
 	
 	public void agregarCartaMagicaBocaAbajo(Carta magica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		fase.agregarMagica();
-		if(!magica.estaBocaAbajo()) magica.darVuelta();
+		magica.ponerBocaAbajo();
 		magica.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMagica(magica);
 	}

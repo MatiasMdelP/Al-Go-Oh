@@ -36,12 +36,14 @@ public class Carta {
 		return boca.getEstado();
 	}
 	
+	//estos tres metodos no contribuyen a la funcionalidade de la cclase pero ayudan a las pruebass
+	
 	public void darVuelta() {
 		boca = boca.darVuelta();
 	}
 	
 	public void realizarEfecto(Jugador unJugador, Jugador oponente) {
-		boca = boca.ponerBocaAbajo();
+		ponerBocaAbajo();
 		efecto.realizarse(campo, campoOponente, unJugador, oponente);
 		campo.mandarMagicaOTrampaAlCementerio(this);
 	}
@@ -60,6 +62,9 @@ public class Carta {
 		if(efecto != null) {
 			this.efecto.modificarEstado(estado);
 		}
-		
+	}
+
+	public void ponerBocaAbajo() {
+		boca = boca.ponerBocaAbajo();
 	}
 }

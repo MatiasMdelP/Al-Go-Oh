@@ -2,7 +2,6 @@ package algo3.AlGoOh;
 
 public class BocaArriba implements Boca {
 
-	@Override
 	public Boca darVuelta() {
 		return new BocaAbajo();
 	}
@@ -16,6 +15,5 @@ public class BocaArriba implements Boca {
 	}
 	
 	public void verificarEstado() {
-
 	}
 }

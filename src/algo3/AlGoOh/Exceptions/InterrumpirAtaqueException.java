@@ -1,6 +1,6 @@
 package algo3.AlGoOh.Exceptions;
 
-public class InterrumpirAtaqueException extends Exception {
+public class InterrumpirAtaqueException extends RuntimeException {
 
 	/**
 	 * 
