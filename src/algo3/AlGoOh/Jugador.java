@@ -18,6 +18,11 @@ public class Jugador {
 		campo = new Campo(new Mazo());
 		puntosDeVida = 8000;
 		fase = new FasePreparacion();
+		tomarUnaCartaDelMazo();
+		tomarUnaCartaDelMazo();
+		tomarUnaCartaDelMazo();
+		tomarUnaCartaDelMazo();
+		tomarUnaCartaDelMazo();
 	}
 	
 	public int obtenerPuntosDeVida() {

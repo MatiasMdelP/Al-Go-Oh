@@ -79,7 +79,7 @@ class EstadoTest {
 		
 		Estado estado = new Estado(jugador);
 		
-		for (int i = 0; i <= 39; i++) {
+		for (int i = 0; i <= 34; i++) {
 			jugador.tomarUnaCartaDelMazo();
 		}
 		
