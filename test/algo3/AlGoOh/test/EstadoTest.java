@@ -71,15 +71,18 @@ class EstadoTest {
 	}
 	
 	@Test
-	void test05Habiendo5CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
+	void test05Habiendo40CartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
 		Jugador oponente = new Jugador();
 		Jugador jugador = new Jugador();
 		oponente.oponente(jugador);
+		jugador.oponente(oponente);
+		
 		Estado estado = new Estado(jugador);
 		
-		for (int i = 0; i <= 38; i++) {
+		for (int i = 0; i <= 39; i++) {
 			jugador.tomarUnaCartaDelMazo();
 		}
+		
 		assertFalse(estado.ganoElJuego());
 		assertFalse(oponente.ganoElJuego());
 		jugador.tomarUnaCartaDelMazo();

@@ -31,6 +31,18 @@ public class Campo {
 		return monstruo;
 	}
 	
+	public void ponerEnPosicionAtaque(int numeroDeMonstruo) {
+		zonaMonstruos.get(numeroDeMonstruo).colocarEnPosicionAtaque();
+	}
+	
+	public void ponerEnPosicionDefensa(int numeroDeMonstruo) {
+		zonaMonstruos.get(numeroDeMonstruo).colocarEnPosicionDefensa();
+	}
+	
+	public void darVueltaMonstruo(int numeroDeMonstruo) {
+		zonaMonstruos.get(numeroDeMonstruo).darVuelta();
+	}
+	
 	public void agregarMonstruoASacrificar(int posicionASacrificar) {
 		monstruosASacrificar.add(zonaMonstruos.get(posicionASacrificar));
 	}
@@ -153,28 +165,23 @@ public class Campo {
 	
 	public void sacrificarTresDragonesBlancosDeOjosAzules() throws MonstruosInsuficientesParaSacrificioException{
 		Iterator<Monstruo> iterador = zonaMonstruos.iterator();
+		monstruosASacrificar.clear();
 		
 		int cantDragones = 0;
+		Monstruo monstruoConPosibleSacrificio;
 		
 		while(iterador.hasNext()) {
-			if(iterador.next().esDragonBlancoDeOjosAzules()) {
+			monstruoConPosibleSacrificio = iterador.next();
+			if(monstruoConPosibleSacrificio.esDragonBlancoDeOjosAzules()) {
 				cantDragones++;
+				monstruosASacrificar.add(monstruoConPosibleSacrificio);
 			}
 		}
 		
 		if(cantDragones < 3) {
 			throw new MonstruosInsuficientesParaSacrificioException();
-		} else {
-			iterador = zonaMonstruos.iterator();
-			
-			while(iterador.hasNext()) {
-				Monstruo monstruo = iterador.next();
-				if(monstruo.esDragonBlancoDeOjosAzules()) {
-					monstruo.mandarAlCementerio();
-					iterador.remove();
-				}
-			}
-		}
+		} 
+		sacrificarMonstruos(3);
 	}
 
 	public void mandarMagicaOTrampaAlCementerio(Carta carta) {

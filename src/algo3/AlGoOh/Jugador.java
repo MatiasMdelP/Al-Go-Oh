@@ -13,14 +13,10 @@ public class Jugador {
 	private List<Carta> cartasEnMano = new ArrayList<Carta>();
 	private Fase fase;
 	private Estado estadoGanador = new Estado(this);
+	
 	public Jugador() {
 		campo = new Campo(new Mazo());
 		puntosDeVida = 8000;
-		tomarUnaCartaDelMazo();
-		tomarUnaCartaDelMazo();
-		tomarUnaCartaDelMazo();
-		tomarUnaCartaDelMazo();
-		tomarUnaCartaDelMazo();
 		fase = new FasePreparacion();
 	}
 	
@@ -124,6 +120,17 @@ public class Jugador {
 	}
 	
 
+	public void ponerEnPosicionAtaque(int numeroDeMosntruo) {
+		campo.ponerEnPosicionAtaque(numeroDeMosntruo);
+	}
+	
+	public void ponerEnPosicionDefensa(int numeroDeMosntruo) {
+		campo.ponerEnPosicionDefensa(numeroDeMosntruo);
+	}
+	
+	public void darVueltaMonstruo(int numeroDeMonstruo) {
+		campo.darVueltaMonstruo(numeroDeMonstruo);
+	}
 
 	public boolean ganoElJuego(){
 		estadoGanador.actualizarEstado();

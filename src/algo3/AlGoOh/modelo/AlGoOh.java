@@ -31,9 +31,11 @@ public class AlGoOh {
 	}
 	
 	public void cargarJugadores(Jugador jugador1, Jugador jugador2) throws Exception {
+		jugador1.oponente(jugador2);
+		jugador2.oponente(jugador1);
 		
-		Random sorteo = new Random();
-				
+		Random sorteo = new Random();	
+		
 		if (sorteo.nextInt(2) == 0) {
 			jugadorActual = jugador1;
 			oponente = jugador2;
@@ -41,8 +43,6 @@ public class AlGoOh {
 			jugadorActual = jugador2;
 			oponente = jugador1;
 		}
-		jugador1.oponente(jugador2);
-		jugador2.oponente(jugador1);
 	}
 	
 	public void cargarTablero(Tablero unTablero) {
@@ -71,6 +71,18 @@ public class AlGoOh {
 		} catch (Exception e) {
 			
 		}
+	}
+	
+	public void ponerEnPosicionAtaque(int numeroDeMonstruo) {
+		jugadorActual.ponerEnPosicionAtaque(numeroDeMonstruo);
+	}
+	
+	public void ponerEnPosicionDefensa(int numeroDeMonstruo) {
+		jugadorActual.ponerEnPosicionDefensa(numeroDeMonstruo);
+	}
+	
+	public void darVueltaMonstruo(int numeroDeMonstruo) {
+		jugadorActual.darVueltaMonstruo(numeroDeMonstruo);
 	}
 	
 	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
