@@ -17,6 +17,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -67,6 +72,12 @@ public class Tablero extends GridPane{
 		for(int i=2; i<7; i++) {
 						
 			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta, i-2);
+
+			Image imagenMonstruo = new Image("file:src/algo3/AlGoOh/vista/cartas/Exodia.png");
+		    BackgroundImage imagenDelMonstruo = new BackgroundImage(imagenMonstruo, BackgroundRepeat.REPEAT, 
+		    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+		            
+		    botonMyTOponente.setBackground(new Background(imagenDelMonstruo));
 			super.add(botonMyTOponente, i, 1);
 			super.setMargin(botonMyTOponente, espacioEntrePosiciones);
 			this.botonesCartasJugadorSuperior.add(botonMyTOponente);
@@ -97,7 +108,7 @@ public class Tablero extends GridPane{
 		List<Carta> cartasEnMano = AlGoOh.getInstance().jugadorActual.getListaDeCartasEnMano();
 		
     	for (Carta unaCarta : cartasEnMano) {
-    		BotonCartaEnMano cartaEnMano = new BotonCartaEnMano(altoCarta, anchoCarta, unaCarta);
+    		BotonCartaEnMano cartaEnMano = new BotonCartaEnMano(anchoCarta, altoCarta, unaCarta);
     		cartaEnMano.cargarImagen();
     		contenedorHorizontal.getChildren().add(cartaEnMano);
     	}

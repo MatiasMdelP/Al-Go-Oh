@@ -29,12 +29,10 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
     	} else {
     		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
     		contenedorPrincipal.setNombresDeJugadores(textoJugador1.getText().trim(), textoJugador2.getText().trim());
-            Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
+            Scene escenaJuego = new Scene(contenedorPrincipal, 1300, 650);
+    		stage.sizeToScene();
     		stage.setScene(escenaJuego);
-    		stage.setFullScreenExitHint("");
-    		//stage.setFullScreenExitHint("Para salir de modo Full Screen, presione Esc");
-  
-    		stage.setFullScreen(true);
+    		stage.setMaximized(true);
     	}
     }
     

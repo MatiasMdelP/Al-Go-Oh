@@ -8,11 +8,9 @@ import javafx.event.EventHandler;
 
 public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEvent>{
 
-	private Monstruo monstruo;
 	private int posicion;
 	
-	public BotonMonstruoEnCampoEventHandler(Monstruo unMonstruo, int unaPosicion) {
-		monstruo = unMonstruo;
+	public BotonMonstruoEnCampoEventHandler(int unaPosicion) {
 		posicion = unaPosicion;
 	}
 	
@@ -26,11 +24,11 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 		switch (seleccion) {
 			case 0: opcionesParaAtacar();
 					break;
-			case 1: monstruo.colocarEnPosicionAtaque();
+			case 1: //monstruo.colocarEnPosicionAtaque();
 					break;
-			case 2: monstruo.colocarEnPosicionDefensa();
+			case 2: //monstruo.colocarEnPosicionDefensa();
 					break;
-			case 3: monstruo.darVuelta();
+			case 3: //monstruo.darVuelta();
 					break;
 			default:
 				break;

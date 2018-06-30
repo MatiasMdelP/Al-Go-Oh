@@ -15,22 +15,35 @@ import javafx.scene.layout.BackgroundSize;
 
 public class BotonMonstruoEnCampo extends Button {
 
-	private Monstruo unMonstruo;
-	
 	public BotonMonstruoEnCampo(int altoCarta, int anchoCarta, int posicion) {
 		this.setText("Monstruo");
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
 		this.setPrefSize(anchoCarta, altoCarta);
-		BotonMonstruoEnCampoEventHandler botonMonstruoEnCampoEventHandler = new BotonMonstruoEnCampoEventHandler(unMonstruo, posicion);
+		BotonMonstruoEnCampoEventHandler botonMonstruoEnCampoEventHandler = new BotonMonstruoEnCampoEventHandler(posicion);
 		this.setOnAction(botonMonstruoEnCampoEventHandler);
-		this.setStyle("-fx-base: #A52A2A");
-		unMonstruo = null;
+		//this.setStyle("-fx-base: #A52A2A");
 	}
 	
-	public void cargarMonstruo(Monstruo monstruoEnCampo) {
-		unMonstruo = monstruoEnCampo;
+	public void cargarImagen(String nombreDeLaCarta) {
+		if (nombreDeLaCarta == "") {
+			deshabilitarBoton();
+			this.setText("Monstruo");
+			return;
+		}
+		this.setDisable(false);
+		this.setText("");
+		Image imagenMonstruo = new Image("file:src/algo3/AlGoOh/vista/cartas/" + nombreDeLaCarta + ".png");
+	    BackgroundImage imagenDelMonstruo = new BackgroundImage(imagenMonstruo, BackgroundRepeat.REPEAT, 
+	    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+	            
+	    this.setBackground(new Background(imagenDelMonstruo));
 	}
+	
+	public void deshabilitarBoton() {
+		this.setDisable(true);
+	}
+	
 }
 
 /*if (unMonstruo == null) {

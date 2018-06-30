@@ -149,11 +149,10 @@ public class Jugador {
 	public List<Carta> getListaDeCartasEnMano() {
 		return cartasEnMano;
 	}
-<<<<<<< HEAD
 
 	public void oponente(Jugador unJugador) {
 		oponente = unJugador;
-=======
+	}
 	
 	private void declararComoGanador() {
 		estadoGanador.declararComoGanador();
@@ -162,6 +161,5 @@ public class Jugador {
 
 	private void FasePreparacion() {
 		fase = new FasePreparacion();
->>>>>>> 6ff1332e227d92560e04ae03526ccb3ecbae666e
 	}
 }

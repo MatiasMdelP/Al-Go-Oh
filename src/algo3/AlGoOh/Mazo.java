@@ -56,7 +56,7 @@ public class Mazo {
 		agregarUnaCartaAlMazo(brujaOscura);
 		
 		//Araï¿½a Lanzadora
-		Monstruo arania = new Monstruo("Araï¿½a Lanzadora", null, new Invocacion2Sacrificios(), 2200, 2500);
+		Monstruo arania = new Monstruo("Araña Lanzadora", null, new Invocacion2Sacrificios(), 2200, 2500);
 		agregarUnaCartaAlMazo(arania);
 		
 		//Frostosaurus
