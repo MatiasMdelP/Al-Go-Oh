@@ -66,6 +66,10 @@ public class MagicaTest {
 	@Test
 	public void test05ActivarAgujeroOscuro() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
@@ -90,6 +94,10 @@ public class MagicaTest {
 	@Test
 	public void test06ActivarFisuraYOponenteSoloUnMonstruo() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		
@@ -110,6 +118,10 @@ public class MagicaTest {
 	@Test
 	public void test07ActivarFisuraYOponenteCon2MonstruosYSeDestruyeElDeMenorAtaque() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
@@ -135,6 +147,10 @@ public class MagicaTest {
 	@Test
 	public void test08ActivarFisuraYOponenteConVariosMonstruosYSeDestruyeElDeMenorAtaque() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador= new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
@@ -165,6 +181,11 @@ public class MagicaTest {
 	@Test
 	public void test09RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws InterrumpirAtaqueException, NoPuedeRealizarseEfectoDeVolteoException {
 		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
+		
 		Mazo mazo = new Mazo();
 		Campo campo = new Campo(mazo);
 		Campo campoOponente = new Campo(mazo);
@@ -177,6 +198,10 @@ public class MagicaTest {
 	@Test
 	public void test10ActivarFisuraYOponenteSinMonstruos() throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
 		
 		Carta fisura = new Carta("Fisura", new EfectoFisura());
 		
