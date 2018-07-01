@@ -36,7 +36,7 @@ public class BotonMagicaTrampaEnManoEventHandler implements EventHandler<ActionE
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			tablero.actualizarTablero();
+			tablero.actualizarTablero(AlGoOh.getInstance().jugadorActual);
 		}
     }
 }

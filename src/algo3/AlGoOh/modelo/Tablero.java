@@ -195,9 +195,43 @@ public class Tablero extends GridPane{
 		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
 	}
 	
-	public void actualizarTablero() {
+	public void actualizarTablero(Jugador jugadorActual) {
 		actualizarBotonesMonstruo(jugadorInferior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorInferior);
+		actualizarBotonesMagicaTrampa(jugadorInferior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorInferior);
+		
 		actualizarBotonesMonstruo(jugadorSuperior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorSuperior);
+		actualizarBotonesMagicaTrampa(jugadorSuperior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorSuperior);
+		
+		if (jugadorActual == jugadorSuperior) {
+			for (BotonMagicaTrampaEnCampo unBoton : botonesCartasJugadorInferior) {
+				unBoton.deshabilitarBoton();
+			}
+			for (BotonMonstruoEnCampo unBoton : botonesMonstruosJugadorInferior) {
+				unBoton.deshabilitarBoton();
+			}
+		} else {
+			for (BotonMagicaTrampaEnCampo unBoton : botonesCartasJugadorSuperior) {
+				unBoton.deshabilitarBoton();
+			}
+			for (BotonMonstruoEnCampo unBoton : botonesMonstruosJugadorSuperior) {
+				unBoton.deshabilitarBoton();
+			}
+		}
+	}
+	
+	private void actualizarBotonesMagicaTrampa(List<Carta> listaCartasZona, List<BotonMagicaTrampaEnCampo> botonesMagicaTrampa) {
+		int variableTemporal = 0;
+		for (int i = 0; i < listaCartasZona.size(); i++){
+			Carta uno = listaCartasZona.get(i);
+			botonesMagicaTrampa.get(i).cargarImagen(uno.obtenerNombre());
+			variableTemporal++;
+		}
+		while (variableTemporal <= 4) {
+			botonesMagicaTrampa.get(variableTemporal).cargarImagen("");
+			variableTemporal++;
+		}
+		
+		dibujarCartasEnMano();
 	}
 	
 	private void actualizarBotonesMonstruo(List<Monstruo> listaCartasZona, List<BotonMonstruoEnCampo> botonesMonstruosJugador) {
@@ -212,20 +246,6 @@ public class Tablero extends GridPane{
 			variableTemporal++;
 		}
 		
-		ScrollPane scrollPane = new ScrollPane();
-		super.add(scrollPane, 8, 3);
-		
-		HBox contenedorHorizontal = new HBox();
-		
-		List<Carta> cartasEnMano = AlGoOh.getInstance().jugadorActual.getListaDeCartasEnMano();
-		
-    	for (Carta unaCarta : cartasEnMano) {
-    		BotonCartaEnMano cartaEnMano = new BotonCartaEnMano(anchoCarta, altoCarta, unaCarta);
-    		cartaEnMano.cargarImagen();
-    		contenedorHorizontal.getChildren().add(cartaEnMano);
-    	}
-		
-		scrollPane.setContent(contenedorHorizontal);
-		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
+		dibujarCartasEnMano();
 	}
 }

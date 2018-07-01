@@ -1,5 +1,7 @@
 package algo3.AlGoOh.vista;
 
+import java.awt.Color;
+
 import algo3.AlGoOh.InvocacionNormal;
 import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Efectos.EfectoVacio;
@@ -16,6 +18,7 @@ import javafx.scene.layout.BackgroundSize;
 public class BotonMonstruoEnCampo extends Button {
 
 	public BotonMonstruoEnCampo(int altoCarta, int anchoCarta, int posicion) {
+		this.setDisable(true);
 		this.setText("Monstruo");
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
@@ -29,15 +32,20 @@ public class BotonMonstruoEnCampo extends Button {
 		if (nombreDeLaCarta == "") {
 			deshabilitarBoton();
 			this.setText("Monstruo");
+			Image imagen = new Image("file:src/algo3/AlGoOh/vista/cartas/BotonNulo.png");
+		    BackgroundImage imagenDelBoton = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, 
+		    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+		            
+		    this.setBackground(new Background(imagenDelBoton));
 			return;
 		}
 		this.setDisable(false);
 		this.setText("");
-		Image imagenMonstruo = new Image("file:src/algo3/AlGoOh/vista/cartas/" + nombreDeLaCarta + ".png");
-	    BackgroundImage imagenDelMonstruo = new BackgroundImage(imagenMonstruo, BackgroundRepeat.REPEAT, 
+		Image imagen = new Image("file:src/algo3/AlGoOh/vista/cartas/" + nombreDeLaCarta + ".png");
+	    BackgroundImage imagenDelBoton = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, 
 	    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 	            
-	    this.setBackground(new Background(imagenDelMonstruo));
+	    this.setBackground(new Background(imagenDelBoton));
 	}
 	
 	public void deshabilitarBoton() {

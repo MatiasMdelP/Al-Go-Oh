@@ -27,6 +27,26 @@ public class BotonMagicaTrampaEnCampo extends Button {
 		this.setOnAction(botonMagicaTrampaEnCampoEventHandler);
 		
 	}
+	
+	public void cargarImagen(String nombreDeLaCarta) {
+		if (nombreDeLaCarta == "") {
+			deshabilitarBoton();
+			this.setText("Magica/ \n"
+					+ "Trampa");
+			return;
+		}
+		this.setDisable(false);
+		this.setText("");
+		Image imagenMonstruo = new Image("file:src/algo3/AlGoOh/vista/cartas/" + nombreDeLaCarta + ".png");
+	    BackgroundImage imagenDelMonstruo = new BackgroundImage(imagenMonstruo, BackgroundRepeat.REPEAT, 
+	    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+	            
+	    this.setBackground(new Background(imagenDelMonstruo));
+	}
+	
+	public void deshabilitarBoton() {
+		this.setDisable(true);
+	}
 
 	public void cargarCartaEnBoton(Carta cartaADepositar) {
 		unaCarta = cartaADepositar;

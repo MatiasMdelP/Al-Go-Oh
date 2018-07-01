@@ -53,7 +53,7 @@ public class AlGoOh {
 	public void finalizarTurno() {
 		oponente = jugadorActual;
 		jugadorActual = jugadorActual.pasarTurno();
-		tablero.actualizarTablero();
+		tablero.actualizarTablero(jugadorActual);
 		//vistaCartasEnMano.actualizarCartasEnMano(jugadorActual);
 	}
 	
@@ -63,7 +63,7 @@ public class AlGoOh {
 		} catch (NoHayMasFasesException exception) {
 			this.finalizarTurno();
 		}
-		tablero.actualizarTablero();
+		tablero.actualizarTablero(jugadorActual);
 	}
 	
 	public void atacar(int numeroAtacante, int numeroAtacado) {
@@ -102,7 +102,10 @@ public class AlGoOh {
 		
 		if(carta.getClass() == Monstruo.class) {
 			jugadorActual.agregarMonstruoEnAtaque((Monstruo)carta);
-			tablero.actualizarTablero();
+			tablero.actualizarTablero(jugadorActual);
+		} else {
+			jugadorActual.agregarCartaMagicaBocaArriba(carta);
+			tablero.actualizarTablero(jugadorActual);
 		}
 	}
 }
