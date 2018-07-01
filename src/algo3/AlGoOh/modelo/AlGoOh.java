@@ -10,6 +10,8 @@ import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
 import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class AlGoOh {
 
@@ -101,11 +103,47 @@ public class AlGoOh {
 	public void agregarCartaAlCampo(Carta carta) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		
 		if(carta.getClass() == Monstruo.class) {
-			jugadorActual.agregarMonstruoEnAtaque((Monstruo)carta);
-			tablero.actualizarTablero(jugadorActual);
+			try {
+				jugadorActual.agregarMonstruoEnAtaque((Monstruo)carta);
+				tablero.actualizarTablero(jugadorActual);
+			} catch (MonstruosInsuficientesParaSacrificioException e) {
+				alertaSacrificiosInsuficientes();
+			} catch (ZonaNoTieneMasEspacioException e) {
+				alertaNoHayMasEspacioEnLaZona();
+			} catch (AccionInvalidaEnEstaFaseException e) {
+				alertaAccionInvalidaEnFase();
+			}
 		} else {
 			jugadorActual.agregarCartaMagicaBocaArriba(carta);
 			tablero.actualizarTablero(jugadorActual);
 		}
+	}
+	
+	private void alertaSacrificiosInsuficientes() {
+		Alert alert = new Alert(AlertType.WARNING,""
+				+ "Antes de invocar al monstruo debe hacer los sacrificios necesarios. \n"
+				);
+        alert.setTitle("Sacrificion insuficientes...");
+
+        alert.showAndWait();
+	}
+	
+	private void alertaNoHayMasEspacioEnLaZona() {
+		Alert alert = new Alert(AlertType.WARNING,""
+				+ "No se puede invocar mas invocar esta carta porque no \n"
+				+ "hay mas espacio en el campo. \n"
+				);
+        alert.setTitle("Zona sin lugar...");
+
+        alert.showAndWait();
+	}
+	
+	private void alertaAccionInvalidaEnFase() {
+		Alert alert = new Alert(AlertType.WARNING,""
+				+ "No se pueden invocar monstruos en esta fase. \n"
+				);
+        alert.setTitle("Accion en fase invalida...");
+
+        alert.showAndWait();
 	}
 }
