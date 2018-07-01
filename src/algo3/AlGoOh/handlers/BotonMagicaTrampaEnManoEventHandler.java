@@ -33,7 +33,6 @@ public class BotonMagicaTrampaEnManoEventHandler implements EventHandler<ActionE
 			try {
 				AlGoOh.getInstance().jugadorActual.agregarCartaMagicaBocaArriba(carta);
 			} catch (ZonaNoTieneMasEspacioException | AccionInvalidaEnEstaFaseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			tablero.actualizarTablero(AlGoOh.getInstance().jugadorActual);

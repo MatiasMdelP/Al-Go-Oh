@@ -29,20 +29,17 @@ public class BotonMonstruoEnCampo extends Button {
 	}
 	
 	public void cargarImagen(String nombreDeLaCarta) {
+		Image imagen;
 		if (nombreDeLaCarta == "") {
 			deshabilitarBoton();
 			this.setText("Monstruo");
-			Image imagen = new Image("file:src/algo3/AlGoOh/vista/cartas/BotonNulo.png");
-		    BackgroundImage imagenDelBoton = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, 
-		    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-		            
-		    this.setBackground(new Background(imagenDelBoton));
-			return;
+			imagen = new Image("file:src/algo3/AlGoOh/vista/cartas/BotonNulo.png");
+		} else {
+			this.setDisable(false);
+			this.setText("");
+			imagen = new Image("file:src/algo3/AlGoOh/vista/cartas/" + nombreDeLaCarta + ".png");
 		}
-		this.setDisable(false);
-		this.setText("");
-		Image imagen = new Image("file:src/algo3/AlGoOh/vista/cartas/" + nombreDeLaCarta + ".png");
-	    BackgroundImage imagenDelBoton = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, 
+		BackgroundImage imagenDelBoton = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, 
 	    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 	            
 	    this.setBackground(new Background(imagenDelBoton));

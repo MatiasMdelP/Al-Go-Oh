@@ -115,7 +115,7 @@ public class Mazo {
 		agregarUnaCartaAlMazo(piernaDerechaDelProhibido);
 		
 		//Jinzo7
-		Monstruo jinzo7 = new Monstruo("Jinzo #7", new EfectoJinzo7(), new InvocacionNormal(), 500, 400);
+		Monstruo jinzo7 = new Monstruo("Jinzo7", new EfectoJinzo7(), new InvocacionNormal(), 500, 400);
 		agregarUnaCartaAlMazo(jinzo7);
 		
 		//Insecto come hombres

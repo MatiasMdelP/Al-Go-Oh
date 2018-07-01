@@ -56,6 +56,7 @@ public class Jugador {
 		fase.agregarMagica();
 		magica.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMagica(magica);
+		cartasEnMano.remove(magica);
 		magica.realizarEfecto(this, oponente);
 	}
 	
