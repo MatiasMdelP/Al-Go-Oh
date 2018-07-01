@@ -24,7 +24,7 @@ public class BotonMonstruoEnMano extends Button {
 		unMonstruo = (Monstruo) carta;//Este cast... Hace ruido...
 		BotonMonstruoEnManoEventHandler botonMonstruoEnManoEventHandler = new BotonMonstruoEnManoEventHandler(unMonstruo);
 		this.setOnAction(botonMonstruoEnManoEventHandler);
-		//Le saque el color de fondo porque sino no te deja poner una imagen atras
+		
 	}
 
 	public BotonMonstruoEnMano(int altoCarta, int anchoCarta, Monstruo carta) {

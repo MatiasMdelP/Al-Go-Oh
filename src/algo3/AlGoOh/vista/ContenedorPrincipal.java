@@ -100,7 +100,7 @@ public class ContenedorPrincipal extends BorderPane {
 			System.out.println("Error");
 		}
     	
-    	tablero = new Tablero(anchoCarta, altoCarta);
+    	tablero = new Tablero(anchoCarta, altoCarta, jugador1, jugador2);
     	juegoAlGoOh.cargarTablero(tablero);
     	
         //canvasCentral = new Canvas(460, 220);

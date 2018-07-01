@@ -5,7 +5,11 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.WildcardLoader;
+
 import algo3.AlGoOh.Carta;
+import algo3.AlGoOh.Jugador;
+import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
 import algo3.AlGoOh.vista.BotonCartaEnMano;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
@@ -35,6 +39,8 @@ public class Tablero extends GridPane{
 	private int anchoCarta;
 	private int altoCarta;
 	private AlGoOh juegoAlGoOh;
+	private Jugador jugadorSuperior;
+	private Jugador jugadorInferior;
 	
 	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorSuperior = new ArrayList<BotonMonstruoEnCampo>();
 	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorSuperior = new ArrayList<BotonMagicaTrampaEnCampo>();
@@ -42,9 +48,11 @@ public class Tablero extends GridPane{
 	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorInferior = new ArrayList<BotonMonstruoEnCampo>();
 	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorInferior = new ArrayList<BotonMagicaTrampaEnCampo>();
 	
-	public Tablero(int anchoCartaIngresado, int altoCartaIngresado) {
+	public Tablero(int anchoCartaIngresado, int altoCartaIngresado, Jugador jugador1, Jugador jugador2) {
 		anchoCarta = anchoCartaIngresado;
 		altoCarta = altoCartaIngresado;
+		jugadorSuperior = jugador1;
+		jugadorInferior = jugador2;
 		
 		construirTablero();
 		
@@ -72,12 +80,6 @@ public class Tablero extends GridPane{
 		for(int i=2; i<7; i++) {
 						
 			BotonMagicaTrampaEnCampo botonMyTOponente = new BotonMagicaTrampaEnCampo(altoCarta, anchoCarta, i-2);
-
-			Image imagenMonstruo = new Image("file:src/algo3/AlGoOh/vista/cartas/Exodia.png");
-		    BackgroundImage imagenDelMonstruo = new BackgroundImage(imagenMonstruo, BackgroundRepeat.REPEAT, 
-		    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-		            
-		    botonMyTOponente.setBackground(new Background(imagenDelMonstruo));
 			super.add(botonMyTOponente, i, 1);
 			super.setMargin(botonMyTOponente, espacioEntrePosiciones);
 			this.botonesCartasJugadorSuperior.add(botonMyTOponente);
@@ -100,21 +102,7 @@ public class Tablero extends GridPane{
 			this.botonesCartasJugadorInferior.add(botonMyTJugador);
 		}
 		
-		ScrollPane scrollPane = new ScrollPane();
-		super.add(scrollPane, 8, 3);
-		
-		HBox contenedorHorizontal = new HBox();
-		
-		List<Carta> cartasEnMano = AlGoOh.getInstance().jugadorActual.getListaDeCartasEnMano();
-		
-    	for (Carta unaCarta : cartasEnMano) {
-    		BotonCartaEnMano cartaEnMano = new BotonCartaEnMano(anchoCarta, altoCarta, unaCarta);
-    		cartaEnMano.cargarImagen();
-    		contenedorHorizontal.getChildren().add(cartaEnMano);
-    	}
-		
-		scrollPane.setContent(contenedorHorizontal);
-		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
+		dibujarCartasEnMano();
 	}
 	
 	private StackPane crearPosicionMonstruoVacia() {
@@ -189,7 +177,55 @@ public class Tablero extends GridPane{
 		return pilaADibujar;
 	}
 	
+	private void dibujarCartasEnMano() {
+		ScrollPane scrollPane = new ScrollPane();
+		super.add(scrollPane, 8, 3);
+		
+		HBox contenedorHorizontal = new HBox();
+		
+		List<Carta> cartasEnMano = AlGoOh.getInstance().jugadorActual.getListaDeCartasEnMano();
+		
+    	for (Carta unaCarta : cartasEnMano) {
+    		BotonCartaEnMano cartaEnMano = new BotonCartaEnMano(anchoCarta, altoCarta, unaCarta);
+    		cartaEnMano.cargarImagen();
+    		contenedorHorizontal.getChildren().add(cartaEnMano);
+    	}
+		
+		scrollPane.setContent(contenedorHorizontal);
+		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
+	}
+	
 	public void actualizarTablero() {
-		construirTablero();
+		actualizarBotonesMonstruo(jugadorInferior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorInferior);
+		actualizarBotonesMonstruo(jugadorSuperior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorSuperior);
+	}
+	
+	private void actualizarBotonesMonstruo(List<Monstruo> listaCartasZona, List<BotonMonstruoEnCampo> botonesMonstruosJugador) {
+		int variableTemporal = 0;
+		for (int i = 0; i < listaCartasZona.size(); i++){
+			Monstruo uno = listaCartasZona.get(i);
+			botonesMonstruosJugador.get(i).cargarImagen(uno.obtenerNombre());
+			variableTemporal++;
+		}
+		while (variableTemporal <= 4) {
+			botonesMonstruosJugador.get(variableTemporal).cargarImagen("");
+			variableTemporal++;
+		}
+		
+		ScrollPane scrollPane = new ScrollPane();
+		super.add(scrollPane, 8, 3);
+		
+		HBox contenedorHorizontal = new HBox();
+		
+		List<Carta> cartasEnMano = AlGoOh.getInstance().jugadorActual.getListaDeCartasEnMano();
+		
+    	for (Carta unaCarta : cartasEnMano) {
+    		BotonCartaEnMano cartaEnMano = new BotonCartaEnMano(anchoCarta, altoCarta, unaCarta);
+    		cartaEnMano.cargarImagen();
+    		contenedorHorizontal.getChildren().add(cartaEnMano);
+    	}
+		
+		scrollPane.setContent(contenedorHorizontal);
+		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
 	}
 }

@@ -1,5 +1,6 @@
 package algo3.AlGoOh.modelo;
 
+import java.util.List;
 import java.util.Random;
 
 import algo3.AlGoOh.Carta;
@@ -96,7 +97,9 @@ public class AlGoOh {
 	public boolean noHayGanador() {
 		return (!jugadorActual.ganoElJuego());
 	}
+	
 	public void agregarCartaAlCampo(Carta carta) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+		
 		if(carta.getClass() == Monstruo.class) {
 			jugadorActual.agregarMonstruoEnAtaque((Monstruo)carta);
 			tablero.actualizarTablero();

@@ -31,6 +31,14 @@ public class Campo {
 		return monstruo;
 	}
 	
+	public List<Monstruo> getListaDeCartasEnZonaMonstruo() {
+		return zonaMonstruos;
+	}
+	
+	public List<Carta> getListaDeCartasEnZonaMagicaTrampa() {
+		return zonaMagicasYTrampas;
+	}
+	
 	public void ponerEnPosicionAtaque(int numeroDeMonstruo) {
 		zonaMonstruos.get(numeroDeMonstruo).colocarEnPosicionAtaque();
 	}
@@ -65,8 +73,8 @@ public class Campo {
 	
 	public void agregarTrampa(Carta trampa) throws ZonaNoTieneMasEspacioException {
 		verificarCapacidadDeZonas(zonaMagicasYTrampas);
-		zonaMagicasYTrampas.add(trampa);
 		trampa.darVuelta();
+		zonaMagicasYTrampas.add(trampa);
 		zonaTrampas.add(trampa);
 	}
 	
@@ -190,4 +198,5 @@ public class Campo {
 		zonaTrampas.remove(carta);
 		carta.mandarAlCementerio();
 	}
+
 }

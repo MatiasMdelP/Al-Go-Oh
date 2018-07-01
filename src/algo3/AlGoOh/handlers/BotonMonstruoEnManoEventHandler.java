@@ -27,11 +27,10 @@ public class BotonMonstruoEnManoEventHandler implements EventHandler<ActionEvent
 		
 		if (seleccion == 0) {
 			monstruo.colocarEnPosicionAtaque();
-			formaDeColocarLaCarta();
 		} else if (seleccion == 1) {
 			monstruo.colocarEnPosicionDefensa();
-			formaDeColocarLaCarta();
 		} 
+		formaDeColocarLaCarta();
     }
 	
 	public void formaDeColocarLaCarta() {

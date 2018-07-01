@@ -43,6 +43,7 @@ public class Jugador {
 		monstruo.colocarEnPosicionAtaque();
 		monstruo.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMonstruo(monstruo);
+		cartasEnMano.remove(monstruo);
 	}
 
 	public void agregarMonstruoEnDefensa(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException{
@@ -127,6 +128,7 @@ public class Jugador {
 
 	public void ponerEnPosicionAtaque(int numeroDeMosntruo) {
 		campo.ponerEnPosicionAtaque(numeroDeMosntruo);
+		cartasEnMano.remove(numeroDeMosntruo);
 	}
 	
 	public void ponerEnPosicionDefensa(int numeroDeMosntruo) {
@@ -162,6 +164,14 @@ public class Jugador {
 		return cartasEnMano;
 	}
 
+	public List<Monstruo> getListaDeCartasEnZonaMonstruo() {
+		return campo.getListaDeCartasEnZonaMonstruo();
+	}
+	
+	public List<Carta> getListaDeCartasEnZonaMagicaTrampa() {
+		return campo.getListaDeCartasEnZonaMagicaTrampa();
+	}
+	
 	public void oponente(Jugador unJugador) {
 		oponente = unJugador;
 	}
