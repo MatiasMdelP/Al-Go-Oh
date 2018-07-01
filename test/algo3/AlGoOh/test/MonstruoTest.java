@@ -134,6 +134,10 @@ public class MonstruoTest {
 	@Test
 	public void test08ActivarJinzo7() throws ZonaNoTieneMasEspacioException, MonstruosInsuficientesParaSacrificioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
 		
 		Monstruo jinzo7 = new Monstruo("Jinzo #7", new EfectoJinzo7(), new InvocacionNormal(), 500, 400);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900); //Monstruo Atacado
@@ -156,6 +160,10 @@ public class MonstruoTest {
 	@Test
 	public void test09VoltearInsectoComeHombres() throws MonstruoNoPuedeAtacarException, ZonaNoTieneMasEspacioException, MonstruosInsuficientesParaSacrificioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
 		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
 		
 		Monstruo insectoComeHombres = new Monstruo("Insecto come hombres", new EfectoDestruirMonstruoAtacante(), new InvocacionNormal(), 450, 600);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
@@ -187,6 +195,10 @@ public class MonstruoTest {
 		monoAcrobata.colocarEnPosicionAtaque();
 		
 		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		jugador.oponente(oponente);
+		oponente.oponente(jugador);
 		
 		huevoMonstruoso.atacarA(monoAcrobata, jugador, jugador.pasarTurno());
 		
