@@ -4,6 +4,7 @@ import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.modelo.Tablero;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -24,6 +25,7 @@ public class ContenedorPrincipal extends BorderPane {
     //VistaRobot vistaRobot;
     //Canvas canvasCentral;
     private Tablero tablero;
+    private Mano mano;
     private int anchoCarta = 100;
     private int altoCarta = 150;
     VBox contenedorCentral;
@@ -36,11 +38,11 @@ public class ContenedorPrincipal extends BorderPane {
     public ContenedorPrincipal(Stage stage) {
     	
         this.setMenu(stage);
-        this.setCentro();
+        this.setCentroyPie();
         //this.setConsola();
         this.setBotonera();
         this.setMinSize(1100, 700);
-        stage.setFullScreen(false);
+        stage.setFullScreen(true);
         this.setPrefSize(1100, 7000);
         this.jugar();
     }
@@ -96,15 +98,15 @@ public class ContenedorPrincipal extends BorderPane {
         this.setTop(menuBar);
     }
 
-    private void setCentro(/*Robot robot*/) {
+    private void setCentroyPie(/*Robot robot*/) {
     	
     	try {
     		juegoAlGoOh.cargarJugadores(jugador1, jugador2, this);
 		} catch (Exception e) {
 			System.out.println("Error");
 		}
-    	
-    	tablero = new Tablero(anchoCarta, altoCarta, jugador1, jugador2);
+    	mano = new Mano(anchoCarta, altoCarta);
+    	tablero = new Tablero(anchoCarta, altoCarta, jugador1, jugador2, mano);
     	juegoAlGoOh.cargarTablero(tablero);
     	
         //canvasCentral = new Canvas(460, 220);
@@ -120,6 +122,10 @@ public class ContenedorPrincipal extends BorderPane {
         tablero.setBackground(new Background(imagenDeFondo));
 
         this.setCenter(tablero);
+        super.setMargin(tablero, new Insets(10,10,10,10));
+    	this.setBottom(mano);
+    	super.setAlignment(mano, Pos.BOTTOM_CENTER);
+    	super.setMargin(mano, new Insets(10,10,10,10));
     }
 
     public BarraDeMenu getBarraDeMenu() {
