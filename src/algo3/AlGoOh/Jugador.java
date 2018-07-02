@@ -149,6 +149,10 @@ public class Jugador {
 		this.campo.recibirAtaque(monstruoAtacante, jugadorAtacante, this);
 	}
 	
+	public void mandarAlCementerioAlMonstruoDefinido() {
+		campo.mandarAlCementerioAlMonstruoDefinido();
+	}
+	
 	public Jugador pasarTurno() {
 		oponente.FasePreparacion();
 		oponente.tomarUnaCartaDelMazo();
