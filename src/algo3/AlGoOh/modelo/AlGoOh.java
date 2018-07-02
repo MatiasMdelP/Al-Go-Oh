@@ -79,6 +79,7 @@ public class AlGoOh {
 		} catch (Exception e) {
 			
 		}
+		tablero.actualizarTablero(jugadorActual);
 		contenedorJugadores.actualizarDatosDeJugadores();
 	}
 	

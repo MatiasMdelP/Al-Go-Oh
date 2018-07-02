@@ -125,10 +125,19 @@ public class Campo {
 	
 	public void atacarA(Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
 		jugadorAtacado.recibirAtaque(monstruo,jugadorAtacante);
+		if (monstruo.estaEnElCementerio()) {
+			zonaMonstruos.remove(monstruo);
+		}		
 	}
 
 	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante, Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarException {
 		monstruoAtacante.atacarA(monstruo, jugadorAtacante, jugadorAtacado);
+		/*if (monstruoAtacante.estaEnElCementerio()) {
+			zonaMonstruos.remove(monstruoAtacante);
+		}*/
+		if (monstruo.estaEnElCementerio()) {
+			zonaMonstruos.remove(monstruo);
+		}
 	}
 	
 	public void definirMonstruo(int nroDeMonstruo) {
