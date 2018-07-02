@@ -15,6 +15,7 @@ import algo3.AlGoOh.vista.BotonCartaEnMano;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnMano;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
+import algo3.AlGoOh.vista.ContenedorPrincipal;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,6 +27,7 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -53,7 +55,6 @@ public class Tablero extends GridPane{
 		altoCarta = altoCartaIngresado;
 		jugadorSuperior = jugador1;
 		jugadorInferior = jugador2;
-		
 		construirTablero();
 		
 	}
@@ -216,7 +217,7 @@ public class Tablero extends GridPane{
 			for (BotonMonstruoEnCampo unBoton : botonesMonstruosJugadorSuperior) {
 				unBoton.deshabilitarBoton();
 			}
-		}
+		}		
 	}
 	
 	private void actualizarBotonesMagicaTrampa(List<Carta> listaCartasZona, List<BotonMagicaTrampaEnCampo> botonesMagicaTrampa) {

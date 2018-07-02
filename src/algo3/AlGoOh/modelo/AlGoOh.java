@@ -10,6 +10,7 @@ import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
 import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
+import algo3.AlGoOh.vista.ContenedorPrincipal;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -19,6 +20,7 @@ public class AlGoOh {
 	public Jugador jugadorActual;
 	private Tablero tablero;
 	private Jugador oponente;
+	private ContenedorPrincipal contenedorJugadores;
 	
 	private AlGoOh(){}
 	private synchronized static void createInstance() {
@@ -33,9 +35,10 @@ public class AlGoOh {
 	    return INSTANCE;
 	}
 	
-	public void cargarJugadores(Jugador jugador1, Jugador jugador2) throws Exception {
+	public void cargarJugadores(Jugador jugador1, Jugador jugador2, ContenedorPrincipal contenedor) throws Exception {
 		jugador1.oponente(jugador2);
 		jugador2.oponente(jugador1);
+		contenedorJugadores = contenedor;
 		
 		Random sorteo = new Random();	
 		
@@ -56,6 +59,7 @@ public class AlGoOh {
 		oponente = jugadorActual;
 		jugadorActual = jugadorActual.pasarTurno();
 		tablero.actualizarTablero(jugadorActual);
+		contenedorJugadores.actualizarDatosDeJugadores();
 		//vistaCartasEnMano.actualizarCartasEnMano(jugadorActual);
 	}
 	
@@ -66,6 +70,7 @@ public class AlGoOh {
 			this.finalizarTurno();
 		}
 		tablero.actualizarTablero(jugadorActual);
+		contenedorJugadores.actualizarDatosDeJugadores();
 	}
 	
 	public void atacar(int numeroAtacante, int numeroAtacado) {
@@ -74,6 +79,7 @@ public class AlGoOh {
 		} catch (Exception e) {
 			
 		}
+		contenedorJugadores.actualizarDatosDeJugadores();
 	}
 	
 	public void ponerEnPosicionAtaque(int numeroDeMonstruo) {
@@ -94,6 +100,7 @@ public class AlGoOh {
 		} catch (AccionInvalidaEnEstaFaseException e) {
 			//e.printStackTrace();
 		}
+		contenedorJugadores.actualizarDatosDeJugadores();
 	}
 	
 	public boolean noHayGanador() {
@@ -117,6 +124,7 @@ public class AlGoOh {
 			jugadorActual.agregarCartaMagicaBocaArriba(carta);
 			tablero.actualizarTablero(jugadorActual);
 		}
+		contenedorJugadores.actualizarDatosDeJugadores();
 	}
 	
 	private void alertaSacrificiosInsuficientes() {

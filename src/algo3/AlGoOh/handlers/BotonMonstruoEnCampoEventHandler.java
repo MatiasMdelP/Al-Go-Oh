@@ -39,7 +39,21 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 
 	private void opcionesParaAtacar() {
 		String[] carreras = {"0", "1", "2", "3", "4"};
-		int respuesta = (int) JOptionPane.showInputDialog(null, "Seleccione posicion del monstruo a atacar", "Atacar a:", JOptionPane.DEFAULT_OPTION, null, carreras, carreras[0]);
-		AlGoOh.getInstance().atacar(posicion, respuesta);
+		String respuesta = (String) JOptionPane.showInputDialog(null, "Seleccione posicion del monstruo a atacar", "Atacar a:", JOptionPane.DEFAULT_OPTION, null, carreras, carreras[0]);
+		//AlGoOh.getInstance().atacar(posicion, respuesta);
+		switch (respuesta) {
+			case "0": 	AlGoOh.getInstance().atacar(posicion, 0);
+						break;
+			case "1": 	AlGoOh.getInstance().atacar(posicion, 1);
+						break;
+			case "2": 	AlGoOh.getInstance().atacar(posicion, 2);
+						break;
+			case "3": 	AlGoOh.getInstance().atacar(posicion, 3);
+						break;
+			case "4": 	AlGoOh.getInstance().atacar(posicion, 4);
+						break;
+		default:
+			break;
+		}
 	}
 }

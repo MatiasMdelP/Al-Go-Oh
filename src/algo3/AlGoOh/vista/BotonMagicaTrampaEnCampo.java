@@ -20,6 +20,7 @@ public class BotonMagicaTrampaEnCampo extends Button {
 	public BotonMagicaTrampaEnCampo(int altoCarta, int anchoCarta, int posicion) {
 		this.setText("Magica/ \n"
 				+ "Trampa");
+		this.setDisable(true);
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
 		this.setPrefSize(anchoCarta, altoCarta);

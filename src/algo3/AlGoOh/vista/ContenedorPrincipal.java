@@ -87,6 +87,10 @@ public class ContenedorPrincipal extends BorderPane {
         this.setLeft(contenedorVertical);
     }
 
+    public void actualizarDatosDeJugadores() {
+    	setBotonera();
+    }
+    
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
         this.setTop(menuBar);
@@ -95,7 +99,7 @@ public class ContenedorPrincipal extends BorderPane {
     private void setCentro(/*Robot robot*/) {
     	
     	try {
-    		juegoAlGoOh.cargarJugadores(jugador1, jugador2);
+    		juegoAlGoOh.cargarJugadores(jugador1, jugador2, this);
 		} catch (Exception e) {
 			System.out.println("Error");
 		}
