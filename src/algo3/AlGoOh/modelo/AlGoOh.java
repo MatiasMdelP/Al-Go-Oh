@@ -78,7 +78,7 @@ public class AlGoOh {
 		try {
 			jugadorActual.atacarA(numeroAtacante, numeroAtacado);
 		} catch (AccionInvalidaEnEstaFaseException e) {
-			alertaAccionInvalidaEnFase();
+			//alertaAccionInvalidaEnFase();
 		}
 		tablero.actualizarTablero(jugadorActual);
 		contenedorJugadores.actualizarDatosDeJugadores();
@@ -101,7 +101,7 @@ public class AlGoOh {
 		try {
 			jugadorActual.agregarMonstruoASacrificar(posicionDelMonstruo);
 		} catch (AccionInvalidaEnEstaFaseException e) {
-			alertaAccionInvalidaEnFase();
+			//alertaAccionInvalidaEnFase();
 		}
 		contenedorJugadores.actualizarDatosDeJugadores();
 	}
@@ -110,7 +110,18 @@ public class AlGoOh {
 		return (!jugadorActual.ganoElJuego());
 	}
 	
-	public void agregarCartaAlCampo(Carta carta) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarCartaTrampa(Carta cartaTrampa) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+		jugadorActual.agregarCartaTrampa(cartaTrampa);
+		tablero.actualizarTablero(jugadorActual);
+	}
+	
+	public void agregarMonstruoAlCampo(Carta unMonstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+		jugadorActual.agregarMonstruoEnAtaque((Monstruo)unMonstruo);
+		tablero.actualizarTablero(jugadorActual);
+		contenedorJugadores.actualizarDatosDeJugadores();
+	}
+	
+	/*public void agregarCartaAlCampo(Carta carta) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		
 		if(carta.getClass() == Monstruo.class) {
 			try {
@@ -128,35 +139,7 @@ public class AlGoOh {
 			tablero.actualizarTablero(jugadorActual);
 		}
 		contenedorJugadores.actualizarDatosDeJugadores();
-	}
-	
-	private void alertaSacrificiosInsuficientes() {
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "Antes de invocar al monstruo debe hacer los sacrificios necesarios. \n"
-				);
-        alert.setTitle("Sacrificion insuficientes...");
-
-        alert.showAndWait();
-	}
-	
-	private void alertaNoHayMasEspacioEnLaZona() {
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "No se puede invocar mas invocar esta carta porque no \n"
-				+ "hay mas espacio en el campo. \n"
-				);
-        alert.setTitle("Zona sin lugar...");
-
-        alert.showAndWait();
-	}
-	
-	private void alertaAccionInvalidaEnFase() {
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "No se pueden invocar monstruos en esta fase. \n"
-				);
-        alert.setTitle("Accion en fase invalida...");
-
-        alert.showAndWait();
-	}
+	}*/
 	
 	public String getNombreDeFase() {
 		return jugadorActual.getNombreDeFase();
