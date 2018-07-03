@@ -241,8 +241,12 @@ public class Tablero extends GridPane{
 	private void actualizarBotonesMagicaTrampa(List<Carta> listaCartasZona, List<BotonMagicaTrampaEnCampo> botonesMagicaTrampa) {
 		int variableTemporal = 0;
 		for (int i = 0; i < listaCartasZona.size(); i++){
-			Carta uno = listaCartasZona.get(i);
-			botonesMagicaTrampa.get(i).cargarImagen(uno.obtenerNombre());
+			Carta unaCarta = listaCartasZona.get(i);
+			if (unaCarta.estaBocaAbajo()) {
+				botonesMagicaTrampa.get(i).cargarImagen("cartaBocaAbajo");
+			} else {
+				botonesMagicaTrampa.get(i).cargarImagen(unaCarta.obtenerNombre());
+			}
 			variableTemporal++;
 		}
 		while (variableTemporal <= 4) {
