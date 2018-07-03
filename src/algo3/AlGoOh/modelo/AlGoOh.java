@@ -94,6 +94,7 @@ public class AlGoOh {
 	
 	public void darVueltaMonstruo(int numeroDeMonstruo) {
 		jugadorActual.darVueltaMonstruo(numeroDeMonstruo);
+		tablero.actualizarTablero(jugadorActual);
 	}
 	
 	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
