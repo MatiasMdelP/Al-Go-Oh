@@ -44,7 +44,7 @@ public class Tablero extends GridPane{
 	private AlGoOh juegoAlGoOh;
 	private Jugador jugadorSuperior;
 	private Jugador jugadorInferior;
-	private	Mano mano;
+	//private	Mano mano;
 	
 	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorSuperior = new ArrayList<BotonMonstruoEnCampo>();
 	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorSuperior = new ArrayList<BotonMagicaTrampaEnCampo>();
@@ -52,14 +52,14 @@ public class Tablero extends GridPane{
 	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorInferior = new ArrayList<BotonMonstruoEnCampo>();
 	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorInferior = new ArrayList<BotonMagicaTrampaEnCampo>();
 	
-	public Tablero(int anchoCartaIngresado, int altoCartaIngresado, Jugador jugador1, Jugador jugador2, Mano manoIngresada) {
+	public Tablero(int anchoCartaIngresado, int altoCartaIngresado, Jugador jugador1, Jugador jugador2) {
 		anchoCarta = anchoCartaIngresado;
 		altoCarta = altoCartaIngresado;
 		jugadorSuperior = jugador1;
 		jugadorInferior = jugador2;
-		mano = manoIngresada;
+		
 		construirTablero();
-		this.setPrefSize(500, 500);
+		//this.setPrefSize(500, 500);
 	}
 
 	private void construirTablero() {
@@ -182,7 +182,7 @@ public class Tablero extends GridPane{
 	}
 	
 	private void dibujarCartasEnMano() {
-		/*ScrollPane scrollPane = new ScrollPane();
+		ScrollPane scrollPane = new ScrollPane();
 		super.add(scrollPane, 8, 3);
 		
 		HBox contenedorHorizontal = new HBox();
@@ -196,8 +196,8 @@ public class Tablero extends GridPane{
     	}
 		scrollPane.setContent(contenedorHorizontal);
 		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
-		*/
-		mano.actualizarMano();
+		
+		//mano.actualizarMano();
 	}
 	
 	public void actualizarTablero(Jugador jugadorActual) {

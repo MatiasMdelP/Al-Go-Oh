@@ -22,10 +22,8 @@ import javafx.stage.Stage;
 public class ContenedorPrincipal extends BorderPane {
 
     private BarraDeMenu menuBar;
-    //VistaRobot vistaRobot;
-    //Canvas canvasCentral;
     private Tablero tablero;
-    private Mano mano;
+    //private Mano mano;
     private int anchoCarta = 100;
     private int altoCarta = 150;
     VBox contenedorCentral;
@@ -38,17 +36,12 @@ public class ContenedorPrincipal extends BorderPane {
     public ContenedorPrincipal(Stage stage) {
     	
         this.setMenu(stage);
-        this.setCentroyPie();
+        this.setCentro();
         //this.setConsola();
         this.setBotonera();
         this.setMinSize(1100, 700);
         stage.setFullScreen(true);
         this.setPrefSize(1100, 7000);
-        this.jugar();
-    }
-
-    private void jugar() {
-    	
     }
     
     public void setNombresDeJugadores(String unNombre, String otroNombre) {
@@ -98,15 +91,15 @@ public class ContenedorPrincipal extends BorderPane {
         this.setTop(menuBar);
     }
 
-    private void setCentroyPie(/*Robot robot*/) {
+    private void setCentro() {
     	
     	try {
     		juegoAlGoOh.cargarJugadores(jugador1, jugador2, this);
 		} catch (Exception e) {
 			System.out.println("Error");
 		}
-    	mano = new Mano(anchoCarta, altoCarta);
-    	tablero = new Tablero(anchoCarta, altoCarta, jugador1, jugador2, mano);
+    	//mano = new Mano(anchoCarta, altoCarta);
+    	tablero = new Tablero(anchoCarta, altoCarta, jugador1, jugador2);
     	juegoAlGoOh.cargarTablero(tablero);
     	
         //canvasCentral = new Canvas(460, 220);
@@ -122,10 +115,10 @@ public class ContenedorPrincipal extends BorderPane {
         tablero.setBackground(new Background(imagenDeFondo));
 
         this.setCenter(tablero);
-        super.setMargin(tablero, new Insets(10,10,10,10));
-    	this.setBottom(mano);
-    	super.setAlignment(mano, Pos.BOTTOM_CENTER);
-    	super.setMargin(mano, new Insets(10,10,10,10));
+        //super.setMargin(tablero, new Insets(10,10,10,10));
+    	//this.setBottom(mano);
+    	//super.setAlignment(mano, Pos.BOTTOM_CENTER);
+    	//super.setMargin(mano, new Insets(10,10,10,10));
     }
 
     public BarraDeMenu getBarraDeMenu() {
