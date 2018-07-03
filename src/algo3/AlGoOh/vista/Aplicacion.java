@@ -41,8 +41,6 @@ public class Aplicacion extends Application {
         stage.setMaximized(true);
      
         stage.show();
-        
-        
     }
     
     public void configurarPantallaInicial(Stage stage) {
@@ -77,7 +75,7 @@ public class Aplicacion extends Application {
 
         GridPane gridPane = new GridPane(); 
         
-        //Setting size for the pane 
+        //Setting size for the pane
         gridPane.setMinSize(1300, 700); 
         
         //Setting the padding

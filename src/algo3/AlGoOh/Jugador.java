@@ -189,4 +189,8 @@ public class Jugador {
 	private void FasePreparacion() {
 		fase = new FasePreparacion();
 	}
+
+	public String getNombreDeFase() {
+		return fase.getNombreDeFase();
+	}
 }

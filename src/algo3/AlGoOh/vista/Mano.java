@@ -34,5 +34,4 @@ public class Mano extends ScrollPane{
 		super.setPrefSize(anchoCarta*2.5, altoCarta);
 	
 	}
-	
 }

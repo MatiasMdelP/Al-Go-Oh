@@ -38,4 +38,9 @@ public class FasePreparacion implements Fase {
 		throw new AccionInvalidaEnEstaFaseException();
 	}
 
+	@Override
+	public String getNombreDeFase() {
+		return "Fase de Preparacion";
+	}
+
 }

@@ -36,4 +36,9 @@ public class FaseFinal implements Fase {
 	public void activarMagica() throws AccionInvalidaEnEstaFaseException {
 		
 	}
+
+	@Override
+	public String getNombreDeFase() {
+		return "Fase Final";
+	}
 }

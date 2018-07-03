@@ -35,4 +35,8 @@ public class FaseAtaque implements Fase {
 	public void activarMagica() throws AccionInvalidaEnEstaFaseException {
 		throw new AccionInvalidaEnEstaFaseException();
 	}
+
+	public String getNombreDeFase() {
+		return "Fase de Ataque";
+	}
 }

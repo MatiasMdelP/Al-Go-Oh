@@ -77,8 +77,8 @@ public class AlGoOh {
 	public void atacar(int numeroAtacante, int numeroAtacado) {
 		try {
 			jugadorActual.atacarA(numeroAtacante, numeroAtacado);
-		} catch (Exception e) {
-			
+		} catch (AccionInvalidaEnEstaFaseException e) {
+			alertaAccionInvalidaEnFase();
 		}
 		tablero.actualizarTablero(jugadorActual);
 		contenedorJugadores.actualizarDatosDeJugadores();
@@ -101,7 +101,7 @@ public class AlGoOh {
 		try {
 			jugadorActual.agregarMonstruoASacrificar(posicionDelMonstruo);
 		} catch (AccionInvalidaEnEstaFaseException e) {
-			//e.printStackTrace();
+			alertaAccionInvalidaEnFase();
 		}
 		contenedorJugadores.actualizarDatosDeJugadores();
 	}
@@ -156,5 +156,9 @@ public class AlGoOh {
         alert.setTitle("Accion en fase invalida...");
 
         alert.showAndWait();
+	}
+	
+	public String getNombreDeFase() {
+		return jugadorActual.getNombreDeFase();
 	}
 }

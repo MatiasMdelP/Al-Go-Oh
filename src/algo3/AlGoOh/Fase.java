@@ -19,5 +19,7 @@ public interface Fase {
 
 	public void atacar() throws AccionInvalidaEnEstaFaseException;
 
-	public void activarMagica() throws AccionInvalidaEnEstaFaseException;	
+	public void activarMagica() throws AccionInvalidaEnEstaFaseException;
+	
+	public String getNombreDeFase();
 }
