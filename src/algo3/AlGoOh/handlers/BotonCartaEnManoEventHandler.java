@@ -29,36 +29,24 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 		int eleccion =JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
-		switch (eleccion) {
-		case 0: try {
-					AlGoOh.getInstance().agregarMonstruoAlCampo(carta);
-				} catch (MonstruosInsuficientesParaSacrificioException e) {
-					alertaSacrificiosInsuficientes();
-				} catch (ZonaNoTieneMasEspacioException e) {
-					alertaNoHayMasEspacioEnLaZona();
-				} catch (AccionInvalidaEnEstaFaseException e) {
-					alertaAccionInvalidaEnFase();
-				}
-				break;
-		case 1: try {
-					AlGoOh.getInstance().agregarCartaMagica(carta);
-				} catch (ZonaNoTieneMasEspacioException e) {
-					alertaNoHayMasEspacioEnLaZona();
-				} catch (AccionInvalidaEnEstaFaseException e) {
-					alertaAccionInvalidaEnFase();
-				}
-				break;
-		case 2: try {
-					AlGoOh.getInstance().agregarCartaTrampa(carta);
-				} catch (ZonaNoTieneMasEspacioException e) {
-					alertaNoHayMasEspacioEnLaZona();
-				} catch (AccionInvalidaEnEstaFaseException e) {
-					alertaAccionInvalidaEnFase();
-				}
-				break;
-		case 3:
-		default:
-			break;
+		try {
+			switch (eleccion) {
+				case 0: AlGoOh.getInstance().agregarMonstruoAlCampo(carta);
+						break;
+				case 1: AlGoOh.getInstance().agregarCartaMagica(carta);
+						break;
+				case 2: AlGoOh.getInstance().agregarCartaTrampa(carta);
+						break;
+				case 3:
+						break;
+			}
+			
+		} catch (ZonaNoTieneMasEspacioException e) {
+			alertaNoHayMasEspacioEnLaZona();
+		} catch (AccionInvalidaEnEstaFaseException e) {
+			alertaAccionInvalidaEnFase();
+		} catch (MonstruosInsuficientesParaSacrificioException e) {
+			alertaSacrificiosInsuficientes();
 		}
     }
 	private void alertaSacrificiosInsuficientes() {
@@ -82,7 +70,7 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 	
 	private void alertaAccionInvalidaEnFase() {
 		Alert alert = new Alert(AlertType.WARNING,""
-				+ "No se pueden invocar monstruos en esta fase. \n"
+				+ "No se pueden invocar dicha carta en esta fase. \n"
 				);
         alert.setTitle("Accion en fase invalida...");
 

@@ -34,6 +34,7 @@ public class BotonMonstruoEnCampo extends Button {
 			deshabilitarBoton();
 			this.setText("Monstruo");
 			imagen = new Image("file:src/algo3/AlGoOh/vista/cartas/BotonNulo.png");
+			this.setRotate(0);
 		} else {
 			this.setDisable(false);
 			this.setText("");
