@@ -49,6 +49,7 @@ public class AlGoOh {
 			jugadorActual = jugador2;
 			oponente = jugador1;
 		}
+		jugadorActual.tomarUnaCartaDelMazo();
 	}
 	
 	public void cargarTablero(Tablero unTablero) {

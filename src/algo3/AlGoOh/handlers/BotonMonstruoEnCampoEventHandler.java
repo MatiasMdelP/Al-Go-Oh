@@ -31,6 +31,7 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 					break;
 			case 3: AlGoOh.getInstance().darVueltaMonstruo(posicion);
 					break;
+			case 4: AlGoOh.getInstance().agregarMonstruoASacrificar(posicion);
 			default:
 				break;
 		}
