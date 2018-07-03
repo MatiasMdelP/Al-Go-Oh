@@ -4,15 +4,18 @@ import javax.swing.JOptionPane;
 
 import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.modelo.AlGoOh;
+import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEvent>{
 
 	private int posicion;
+	private BotonMonstruoEnCampo botonMonstruoEnCampo;
 	
-	public BotonMonstruoEnCampoEventHandler(int unaPosicion) {
+	public BotonMonstruoEnCampoEventHandler(int unaPosicion, BotonMonstruoEnCampo unBoton) {
 		posicion = unaPosicion;
+		botonMonstruoEnCampo = unBoton;
 	}
 	
 	@Override
@@ -26,8 +29,10 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 			case 0: opcionesParaAtacar();
 					break;
 			case 1: AlGoOh.getInstance().ponerEnPosicionAtaque(posicion);
+					botonMonstruoEnCampo.setRotate(0);
 					break;
 			case 2: AlGoOh.getInstance().ponerEnPosicionDefensa(posicion);
+					botonMonstruoEnCampo.setRotate(90);
 					break;
 			case 3: AlGoOh.getInstance().darVueltaMonstruo(posicion);
 					break;
