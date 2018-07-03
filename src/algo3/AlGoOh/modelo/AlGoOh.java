@@ -115,10 +115,14 @@ public class AlGoOh {
 		tablero.actualizarTablero(jugadorActual);
 	}
 	
+	public void agregarCartaMagica(Carta cartaMagica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+		jugadorActual.agregarCartaMagicaBocaArriba(cartaMagica);
+		tablero.actualizarTablero(jugadorActual);
+	}
+	
 	public void agregarMonstruoAlCampo(Carta unMonstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		jugadorActual.agregarMonstruoEnAtaque((Monstruo)unMonstruo);
 		tablero.actualizarTablero(jugadorActual);
-		contenedorJugadores.actualizarDatosDeJugadores();
 	}
 	
 	/*public void agregarCartaAlCampo(Carta carta) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {

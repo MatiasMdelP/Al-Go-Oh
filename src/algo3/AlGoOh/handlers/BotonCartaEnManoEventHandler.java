@@ -40,7 +40,14 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 					alertaAccionInvalidaEnFase();
 				}
 				break;
-		case 1:
+		case 1: try {
+					AlGoOh.getInstance().agregarCartaMagica(carta);
+				} catch (ZonaNoTieneMasEspacioException e) {
+					alertaNoHayMasEspacioEnLaZona();
+				} catch (AccionInvalidaEnEstaFaseException e) {
+					alertaAccionInvalidaEnFase();
+				}
+				break;
 		case 2: try {
 					AlGoOh.getInstance().agregarCartaTrampa(carta);
 				} catch (ZonaNoTieneMasEspacioException e) {
