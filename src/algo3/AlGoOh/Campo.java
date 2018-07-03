@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.junit.experimental.theories.FromDataPoints;
+
 import algo3.AlGoOh.Exceptions.CartaNoEncontradaException;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
@@ -201,6 +203,10 @@ public class Campo {
 		zonaMagicas.remove(carta);
 		zonaTrampas.remove(carta);
 		carta.mandarAlCementerio();
+	}
+	
+	public void vaciarMonstruosEnCampo() {
+		zonaMonstruos.clear();
 	}
 
 }
