@@ -19,6 +19,7 @@ public class Campo {
 	private List <Carta> zonaMagicasYTrampas = new ArrayList<Carta>();
 	private List<Carta> zonaMagicas = new ArrayList<Carta>();
 	private List<Carta> zonaTrampas = new ArrayList<Carta>();
+	private Carta cartaDeCampo = null; /*agregue*/
 	private Mazo mazo;
 	private Monstruo monstruo;
 	private int nroMonstruoDefinido;
@@ -39,6 +40,15 @@ public class Campo {
 	
 	public List<Carta> getListaDeCartasEnZonaMagicaTrampa() {
 		return zonaMagicasYTrampas;
+	}
+	
+	public Carta getCartaDeCampo() {
+		return cartaDeCampo;
+	}
+	
+	public void agregarCartaDeCampo(Carta unaCartaDeCampo, Jugador duenioDeCarta, Jugador oponente) {
+		cartaDeCampo = unaCartaDeCampo;
+		cartaDeCampo.realizarEfecto(duenioDeCarta, oponente);
 	}
 	
 	public void ponerEnPosicionAtaque(int numeroDeMonstruo) {
@@ -206,6 +216,9 @@ public class Campo {
 	}
 	
 	public void vaciarMonstruosEnCampo() {
+		for (Monstruo unMonstruo : zonaMonstruos) {
+			unMonstruo.mandarAlCementerio();
+		}
 		zonaMonstruos.clear();
 	}
 

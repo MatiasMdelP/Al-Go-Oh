@@ -37,7 +37,7 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 						break;
 				case 2: AlGoOh.getInstance().agregarCartaTrampa(carta);
 						break;
-				case 3:
+				case 3: AlGoOh.getInstance().agregarCartaCampo(carta);
 						break;
 			}
 			

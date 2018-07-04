@@ -50,6 +50,7 @@ public class Jugador {
 		fase.agregarMonstruo();
 		monstruo.colocarEnPosicionDefensa();
 		campo.agregarMonstruo(monstruo);
+		cartasEnMano.remove(monstruo);
 	}
 	
 	public void agregarCartaMagicaBocaArriba(Carta magica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
@@ -65,18 +66,22 @@ public class Jugador {
 		magica.ponerBocaAbajo();
 		magica.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMagica(magica);
+		cartasEnMano.remove(magica);
 	}
 	
 	public void agregarCartaTrampa(Carta trampa) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		fase.agregarTrampa();
 		trampa.agregarAlCampo(campo, oponente.campo);
 		campo.agregarTrampa(trampa);
+		cartasEnMano.remove(trampa);
 	}
 	
 	public void agregarCartaCampo(Carta cartaCampo) throws AccionInvalidaEnEstaFaseException {
 		fase.agregarCampo();
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
-		cartaCampo.realizarEfecto(this, oponente);
+		//cartaCampo.realizarEfecto(this, oponente); LO PASE AL CAMPO
+		campo.agregarCartaDeCampo(cartaCampo, this, oponente); //Agregue
+		cartasEnMano.remove(cartaCampo); //Agregue
 	}
 
 	public void activarMagica(int nroDeCarta) throws AccionInvalidaEnEstaFaseException {
@@ -175,6 +180,10 @@ public class Jugador {
 	
 	public List<Carta> getListaDeCartasEnZonaMagicaTrampa() {
 		return campo.getListaDeCartasEnZonaMagicaTrampa();
+	}
+	
+	public Carta getCartaDeCampo() {
+		return campo.getCartaDeCampo();
 	}
 	
 	public void oponente(Jugador unJugador) {

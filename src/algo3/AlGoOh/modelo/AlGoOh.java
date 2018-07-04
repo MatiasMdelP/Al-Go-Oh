@@ -125,6 +125,11 @@ public class AlGoOh {
 		tablero.actualizarTablero(jugadorActual);
 	}
 	
+	public void agregarCartaCampo(Carta cartaDeCampo) throws AccionInvalidaEnEstaFaseException {
+		jugadorActual.agregarCartaCampo(cartaDeCampo);
+		tablero.agregarCartaCampo(jugadorActual);
+	}
+	
 	/*public void agregarCartaAlCampo(Carta carta) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		
 		if(carta.getClass() == Monstruo.class) {

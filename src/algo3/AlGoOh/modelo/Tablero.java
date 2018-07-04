@@ -51,6 +51,9 @@ public class Tablero extends GridPane{
 	Label tituloFase = new Label();
 	//private Mano mano;
 	
+	private BotonCartaDeCampo campoJugadorSuperior;
+	private BotonCartaDeCampo campoJugadorInferior;
+	
 	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorSuperior = new ArrayList<BotonMonstruoEnCampo>();
 	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorSuperior = new ArrayList<BotonMagicaTrampaEnCampo>();
 	
@@ -75,19 +78,21 @@ public class Tablero extends GridPane{
 		super.setMargin(mazoOponente,espacioEntrePosiciones);
 		
 		//StackPane campoOponente = this.crearPosicionCampoVacio();
-		BotonCartaDeCampo campoOponente = new BotonCartaDeCampo(altoCarta, anchoCarta);
-		super.add(campoOponente, 7, 2);
-		super.setMargin(campoOponente, espacioEntrePosiciones);
+		//BotonCartaDeCampo 
+		campoJugadorSuperior = new BotonCartaDeCampo(altoCarta, anchoCarta);
+		super.add(campoJugadorSuperior, 7, 2);
+		super.setMargin(campoJugadorSuperior, espacioEntrePosiciones);
 	
 		//StackPane campoJugador = this.crearPosicionCampoVacio();
 		//super.add(this.crearPosicionCampoVacio(), 1, 3);
-		BotonCartaDeCampo campoJugador = new BotonCartaDeCampo(altoCarta, anchoCarta);
-		super.add(campoJugador, 1, 3);
-		super.setMargin(campoJugador, espacioEntrePosiciones);
+		//BotonCartaDeCampo 
+		campoJugadorInferior = new BotonCartaDeCampo(altoCarta, anchoCarta);
+		super.add(campoJugadorInferior, 1, 3);
+		super.setMargin(campoJugadorInferior, espacioEntrePosiciones);
 		
 		StackPane mazoJugador = this.crearPosicionMazo();
 		super.add(mazoJugador, 7, 4);
-		super.setMargin(campoJugador, espacioEntrePosiciones);
+		super.setMargin(campoJugadorInferior, espacioEntrePosiciones);
 		
 		for(int i=2; i<7; i++) {
 						
@@ -234,6 +239,14 @@ public class Tablero extends GridPane{
 		}
 		
 		generarDescripcionDeFase();
+	}
+	
+	public void agregarCartaCampo(Jugador jugadorActual) {
+		if (jugadorActual == jugadorSuperior) {
+			campoJugadorSuperior.cargarImagen(jugadorSuperior.getCartaDeCampo().obtenerNombre());
+		} else {
+			campoJugadorInferior.cargarImagen(jugadorInferior.getCartaDeCampo().obtenerNombre());
+		}
 	}
 	
 	private void generarDescripcionDeFase() {
