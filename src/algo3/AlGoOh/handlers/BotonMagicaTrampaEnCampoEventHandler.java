@@ -24,7 +24,7 @@ public class BotonMagicaTrampaEnCampoEventHandler implements EventHandler<Action
 				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		
 		if (eleccion == 0) {
-			
+			AlGoOh.getInstance().darVueltaCartaMagica(posicion);
 		}
     }
 }

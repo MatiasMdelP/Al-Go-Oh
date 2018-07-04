@@ -33,7 +33,7 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 			switch (eleccion) {
 				case 0: AlGoOh.getInstance().agregarMonstruoAlCampo(carta);
 						break;
-				case 1: AlGoOh.getInstance().agregarCartaMagica(carta);
+				case 1: agregarMagicaBocaArribaOBocaAbajo();
 						break;
 				case 2: AlGoOh.getInstance().agregarCartaTrampa(carta);
 						break;
@@ -49,6 +49,19 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 			alertaSacrificiosInsuficientes();
 		}
     }
+	
+	private void agregarMagicaBocaArribaOBocaAbajo() {
+		String[] options = {"Boca Arriba", "Boca Abajo"};
+		int eleccion =JOptionPane.showOptionDialog(null, "Como desea colocar la carta Magica?", "Accion", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		switch (eleccion) {
+			case 0: AlGoOh.getInstance().agregarCartaMagicaBocaArriba(carta);
+					break;
+			case 1: AlGoOh.getInstance().agregarCartaMagicaBocaAbajo(carta);
+					break;
+		}
+	}
+	
 	private void alertaSacrificiosInsuficientes() {
 		Alert alert = new Alert(AlertType.WARNING,""
 				+ "Antes de invocar al monstruo debe hacer los sacrificios necesarios. \n"

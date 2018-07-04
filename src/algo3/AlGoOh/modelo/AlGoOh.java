@@ -97,6 +97,11 @@ public class AlGoOh {
 		tablero.actualizarTablero(jugadorActual);
 	}
 	
+	public void darVueltaCartaMagica(int numeroDeMagica) {
+		jugadorActual.activarMagica(numeroDeMagica);
+		tablero.actualizarTablero(jugadorActual);
+	}
+	
 	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
 		try {
 			jugadorActual.agregarMonstruoASacrificar(posicionDelMonstruo);
@@ -115,8 +120,13 @@ public class AlGoOh {
 		tablero.actualizarTablero(jugadorActual);
 	}
 	
-	public void agregarCartaMagica(Carta cartaMagica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarCartaMagicaBocaArriba(Carta cartaMagica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		jugadorActual.agregarCartaMagicaBocaArriba(cartaMagica);
+		tablero.actualizarTablero(jugadorActual);
+	}
+	
+	public void agregarCartaMagicaBocaAbajo(Carta cartaMagica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+		jugadorActual.agregarCartaMagicaBocaAbajo(cartaMagica);
 		tablero.actualizarTablero(jugadorActual);
 	}
 	
