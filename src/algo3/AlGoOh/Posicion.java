@@ -12,7 +12,9 @@ public interface Posicion {
 
 	int calcularDiferenciaDeDanio(Posicion posicion);
 
-	void agregarPuntos(int puntos);
+	void agregarPuntosDeAtaque(int puntos);
+	
+	void agregarPuntosDeDefensa(int puntos);
 
 	int calcularDanio(int puntosDeDefensa);
 

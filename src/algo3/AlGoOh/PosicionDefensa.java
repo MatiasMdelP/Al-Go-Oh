@@ -47,7 +47,12 @@ public class PosicionDefensa implements Posicion {
 	}
 
 	@Override
-	public void agregarPuntos(int puntos) {
+	public void agregarPuntosDeAtaque(int puntos) {
+		puntosDeAtaque += puntos;
+	}
+	
+	@Override
+	public void agregarPuntosDeDefensa(int puntos) {
 		puntosDeDefensa += puntos;
 	}
 

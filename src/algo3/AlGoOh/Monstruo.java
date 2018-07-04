@@ -45,11 +45,11 @@ public class Monstruo extends Carta {
 	}
 
 	public void agregarPuntosDeAtaque(int puntos) {
-		posicion.agregarPuntos(puntos);
+		posicion.agregarPuntosDeAtaque(puntos);
 	}
 	
 	public void agregarPuntosDeDefensa(int puntos) {
-		posicion.agregarPuntos(puntos);
+		posicion.agregarPuntosDeDefensa(puntos);
 	}
 	
 	public boolean tieneMenorAtaqueQue(Monstruo otroMonstruo) {
