@@ -11,6 +11,7 @@ import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
+import algo3.AlGoOh.vista.BotonCartaDeCampo;
 import algo3.AlGoOh.vista.BotonCartaEnMano;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnMano;
@@ -73,12 +74,15 @@ public class Tablero extends GridPane{
 		super.add(mazoOponente, 1, 1);
 		super.setMargin(mazoOponente,espacioEntrePosiciones);
 		
-		StackPane campoOponente = this.crearPosicionCampoVacio();
+		//StackPane campoOponente = this.crearPosicionCampoVacio();
+		BotonCartaDeCampo campoOponente = new BotonCartaDeCampo(altoCarta, anchoCarta);
 		super.add(campoOponente, 7, 2);
 		super.setMargin(campoOponente, espacioEntrePosiciones);
 	
-		StackPane campoJugador = this.crearPosicionCampoVacio();
-		super.add(this.crearPosicionCampoVacio(), 1, 3);
+		//StackPane campoJugador = this.crearPosicionCampoVacio();
+		//super.add(this.crearPosicionCampoVacio(), 1, 3);
+		BotonCartaDeCampo campoJugador = new BotonCartaDeCampo(altoCarta, anchoCarta);
+		super.add(campoJugador, 1, 3);
 		super.setMargin(campoJugador, espacioEntrePosiciones);
 		
 		StackPane mazoJugador = this.crearPosicionMazo();
