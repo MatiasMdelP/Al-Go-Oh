@@ -6,11 +6,6 @@ import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.modelo.Tablero;
 import javafx.geometry.Insets;
-<<<<<<< HEAD
-=======
-import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
->>>>>>> 9866913bdde45fb177bbc222bce16e9d61b04595
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;

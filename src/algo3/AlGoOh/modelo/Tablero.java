@@ -217,11 +217,11 @@ public class Tablero extends GridPane{
 	}
 	
 	public void actualizarTablero(Jugador jugadorActual) {
-		actualizarBotonesMonstruo(jugadorInferior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorInferior);
-		actualizarBotonesMonstruo(jugadorInferior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorInferior);
+		actualizarBotones(jugadorInferior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorInferior);
+		actualizarBotones(jugadorInferior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorInferior);
 		
-		actualizarBotonesMonstruo(jugadorSuperior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorSuperior);
-		actualizarBotonesMonstruo(jugadorSuperior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorSuperior);
+		actualizarBotones(jugadorSuperior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorSuperior);
+		actualizarBotones(jugadorSuperior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorSuperior);
 		
 		if (jugadorActual == jugadorSuperior) {
 			for (BotonCampo unBoton : botonesCartasJugadorInferior) {
@@ -257,7 +257,7 @@ public class Tablero extends GridPane{
 	}
 
 	
-	private void actualizarBotonesMonstruo(List<Carta> listaCartasZona, List<BotonCampo> botones) {
+	private void actualizarBotones(List<? extends Carta> listaCartasZona, List<BotonCampo> botones) {
 		int variableTemporal = 0;
 		for (int i = 0; i < listaCartasZona.size(); i++){
 			Carta carta = listaCartasZona.get(i);
