@@ -1,8 +1,6 @@
 package algo3.AlGoOh.handlers;
 
 import javax.swing.JOptionPane;
-
-import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import javafx.event.ActionEvent;

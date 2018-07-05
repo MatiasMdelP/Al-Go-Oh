@@ -2,9 +2,7 @@ package algo3.AlGoOh.handlers;
 
 import javax.swing.JOptionPane;
 
-import algo3.AlGoOh.InvocacionNormal;
 import algo3.AlGoOh.Monstruo;
-import algo3.AlGoOh.Efectos.EfectoVacio;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

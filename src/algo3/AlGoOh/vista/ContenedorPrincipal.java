@@ -51,22 +51,9 @@ public class ContenedorPrincipal extends BorderPane {
     }
     
     private void setBotonera() {
-    
-    	Label etiqJugador1 = new Label();
-    	etiqJugador1.setText(nombreJugador1 + ": \n"
-    			+ jugador1.obtenerPuntosDeVida());
-    	etiqJugador1.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
-
-        etiqJugador1.setTextFill(Color.web("#000000"));
-    	
-    	Label etiqJugador2 = new Label();
-    	etiqJugador2.setText(nombreJugador2 + ": \n"
-    			+ jugador2.obtenerPuntosDeVida());
-    	etiqJugador2.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
-    	etiqJugador2.setTextFill(Color.web("#000000"));
-    	
+    	Label etiqJugador1 = crearLabelJugador(nombreJugador1, jugador1);
+    	Label etiqJugador2 = crearLabelJugador(nombreJugador2, jugador2);
     	BotonFinalizarTurno botonPasarTurno = new BotonFinalizarTurno(juegoAlGoOh);
-    	
     	BotonCambiarFase botonCambiarFase = new BotonCambiarFase(juegoAlGoOh);
     	
     	VBox contenedorDeBotones = new VBox(botonPasarTurno, botonCambiarFase);
@@ -82,6 +69,14 @@ public class ContenedorPrincipal extends BorderPane {
         this.setLeft(contenedorVertical);
     }
 
+    private Label crearLabelJugador(String nombreJugador, Jugador jugador) {
+    	Label label = new Label();
+    	label.setText(nombreJugador + ": \n" + jugador.obtenerPuntosDeVida());
+    	label.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
+    	label.setTextFill(Color.web("#000000"));
+        return label;
+    }
+    
     public void actualizarDatosDeJugadores() {
     	setBotonera();
     }

@@ -12,7 +12,6 @@ public class BotonCambiarFaseEventHandler implements EventHandler<ActionEvent>{
 		juego = unJuego;
 	}
 	
-	@Override
     public void handle(ActionEvent actionEvent) {
 		juego.pasarALaSiguienteFase();
     }

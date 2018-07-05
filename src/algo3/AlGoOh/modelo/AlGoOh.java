@@ -1,6 +1,5 @@
 package algo3.AlGoOh.modelo;
 
-import java.util.List;
 import java.util.Random;
 
 import algo3.AlGoOh.Carta;
@@ -11,8 +10,6 @@ import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
 import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 import algo3.AlGoOh.vista.ContenedorPrincipal;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 public class AlGoOh {
 
