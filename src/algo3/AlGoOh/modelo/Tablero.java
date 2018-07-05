@@ -11,6 +11,7 @@ import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
+import algo3.AlGoOh.vista.BotonCampo;
 import algo3.AlGoOh.vista.BotonCartaDeCampo;
 import algo3.AlGoOh.vista.BotonCartaEnMano;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
@@ -54,11 +55,11 @@ public class Tablero extends GridPane{
 	private BotonCartaDeCampo campoJugadorSuperior;
 	private BotonCartaDeCampo campoJugadorInferior;
 	
-	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorSuperior = new ArrayList<BotonMonstruoEnCampo>();
-	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorSuperior = new ArrayList<BotonMagicaTrampaEnCampo>();
+	private List<BotonCampo> botonesMonstruosJugadorSuperior = new ArrayList<BotonCampo>();
+	private List<BotonCampo> botonesCartasJugadorSuperior = new ArrayList<BotonCampo>();
 	
-	private List<BotonMonstruoEnCampo> botonesMonstruosJugadorInferior = new ArrayList<BotonMonstruoEnCampo>();
-	private List<BotonMagicaTrampaEnCampo> botonesCartasJugadorInferior = new ArrayList<BotonMagicaTrampaEnCampo>();
+	private List<BotonCampo> botonesMonstruosJugadorInferior = new ArrayList<BotonCampo>();
+	private List<BotonCampo> botonesCartasJugadorInferior = new ArrayList<BotonCampo>();
 	
 	public Tablero(int anchoCartaIngresado, int altoCartaIngresado, Jugador jugador1, Jugador jugador2) {
 		anchoCarta = anchoCartaIngresado;
@@ -217,23 +218,23 @@ public class Tablero extends GridPane{
 	
 	public void actualizarTablero(Jugador jugadorActual) {
 		actualizarBotonesMonstruo(jugadorInferior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorInferior);
-		actualizarBotonesMagicaTrampa(jugadorInferior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorInferior);
+		actualizarBotonesMonstruo(jugadorInferior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorInferior);
 		
 		actualizarBotonesMonstruo(jugadorSuperior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorSuperior);
-		actualizarBotonesMagicaTrampa(jugadorSuperior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorSuperior);
+		actualizarBotonesMonstruo(jugadorSuperior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorSuperior);
 		
 		if (jugadorActual == jugadorSuperior) {
-			for (BotonMagicaTrampaEnCampo unBoton : botonesCartasJugadorInferior) {
+			for (BotonCampo unBoton : botonesCartasJugadorInferior) {
 				unBoton.deshabilitarBoton();
 			}
-			for (BotonMonstruoEnCampo unBoton : botonesMonstruosJugadorInferior) {
+			for (BotonCampo unBoton : botonesMonstruosJugadorInferior) {
 				unBoton.deshabilitarBoton();
 			}
 		} else {
-			for (BotonMagicaTrampaEnCampo unBoton : botonesCartasJugadorSuperior) {
+			for (BotonCampo unBoton : botonesCartasJugadorSuperior) {
 				unBoton.deshabilitarBoton();
 			}
-			for (BotonMonstruoEnCampo unBoton : botonesMonstruosJugadorSuperior) {
+			for (BotonCampo unBoton : botonesMonstruosJugadorSuperior) {
 				unBoton.deshabilitarBoton();
 			}
 		}
@@ -255,38 +256,20 @@ public class Tablero extends GridPane{
 		tituloFase.setTextFill(Color.CYAN);
 	}
 
-	private void actualizarBotonesMagicaTrampa(List<Carta> listaCartasZona, List<BotonMagicaTrampaEnCampo> botonesMagicaTrampa) {
-		int variableTemporal = 0;
-		for (int i = 0; i < listaCartasZona.size(); i++){
-			Carta unaCarta = listaCartasZona.get(i);
-			if (unaCarta.estaBocaAbajo()) {
-				botonesMagicaTrampa.get(i).cargarImagen("cartaBocaAbajo");
-			} else {
-				botonesMagicaTrampa.get(i).cargarImagen(unaCarta.obtenerNombre());
-			}
-			variableTemporal++;
-		}
-		while (variableTemporal <= 4) {
-			botonesMagicaTrampa.get(variableTemporal).cargarImagen("");
-			variableTemporal++;
-		}
-		
-		dibujarCartasEnMano();
-	}
 	
-	private void actualizarBotonesMonstruo(List<Monstruo> listaCartasZona, List<BotonMonstruoEnCampo> botonesMonstruosJugador) {
+	private void actualizarBotonesMonstruo(List<Carta> listaCartasZona, List<BotonCampo> botones) {
 		int variableTemporal = 0;
 		for (int i = 0; i < listaCartasZona.size(); i++){
-			Monstruo unMonstruo = listaCartasZona.get(i);
-			if (unMonstruo.estaBocaAbajo()) {
-				botonesMonstruosJugador.get(i).cargarImagen("cartaBocaAbajo");
+			Carta carta = listaCartasZona.get(i);
+			if (carta.estaBocaAbajo()) {
+				botones.get(i).cargarImagen("cartaBocaAbajo");
 			} else {
-				botonesMonstruosJugador.get(i).cargarImagen(unMonstruo.obtenerNombre());
+				botones.get(i).cargarImagen(carta.obtenerNombre());
 			}
 			variableTemporal++;
 		}
 		while (variableTemporal <= 4) {
-			botonesMonstruosJugador.get(variableTemporal).cargarImagen("");
+			botones.get(variableTemporal).cargarImagen("");
 			variableTemporal++;
 		}
 		

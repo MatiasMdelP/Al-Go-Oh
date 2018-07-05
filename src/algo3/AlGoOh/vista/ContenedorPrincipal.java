@@ -4,7 +4,6 @@ import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.modelo.Tablero;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -71,9 +70,19 @@ public class ContenedorPrincipal extends BorderPane {
 
     private Label crearLabelJugador(String nombreJugador, Jugador jugador) {
     	Label label = new Label();
-    	label.setText(nombreJugador + ": \n" + jugador.obtenerPuntosDeVida());
+    	int vidaJugador = jugador.obtenerPuntosDeVida();
+    	label.setText(nombreJugador + ": \n" + vidaJugador);
     	label.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
-    	label.setTextFill(Color.web("#000000"));
+    	if (vidaJugador > 5000) {
+    		label.setTextFill(Color.web("#000000")); // negro
+    	}
+    	else if(vidaJugador > 3000){
+    		label.setTextFill(Color.web("#ffff00")); // amarillo
+    	}
+    	else {
+    		label.setTextFill(Color.web("#ff0000")); //rojo
+    	}
+    	
         return label;
     }
     

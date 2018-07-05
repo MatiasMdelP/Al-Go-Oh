@@ -11,7 +11,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 
-public class BotonMagicaTrampaEnCampo extends Button {
+public class BotonMagicaTrampaEnCampo extends Button implements BotonCampo {
 
 	private Carta unaCarta = null;
 	private AlGoOh juegoDeAlGoOh;

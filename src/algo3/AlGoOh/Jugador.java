@@ -171,7 +171,7 @@ public class Jugador {
 		return cartasEnMano;
 	}
 
-	public List<Monstruo> getListaDeCartasEnZonaMonstruo() {
+	public List<Carta> getListaDeCartasEnZonaMonstruo() {
 		return campo.getListaDeCartasEnZonaMonstruo();
 	}
 	

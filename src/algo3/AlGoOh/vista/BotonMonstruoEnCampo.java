@@ -15,7 +15,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 
-public class BotonMonstruoEnCampo extends Button {
+public class BotonMonstruoEnCampo extends Button implements BotonCampo{
 
 	public BotonMonstruoEnCampo(int altoCarta, int anchoCarta, int posicion) {
 		this.setDisable(true);
