@@ -112,11 +112,7 @@ public class ContenedorPrincipal extends BorderPane {
 		switch (eleccion) {
 			case 0: jugador1 = new Jugador();
 					jugador2 = new Jugador();
-					try {
-						AlGoOh.getInstance().cargarJugadores(jugador1, jugador2, this);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+					this.setCentro();
 					break;
 			case 1: System.exit(0);
 					break;
