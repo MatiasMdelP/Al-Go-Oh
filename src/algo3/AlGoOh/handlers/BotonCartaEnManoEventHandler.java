@@ -7,6 +7,7 @@ import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 import algo3.AlGoOh.modelo.AlGoOh;
+import algo3.AlGoOh.vista.MensajesDeAlerta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -15,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 	
 	private Carta carta;
+	private MensajesDeAlerta mensajesDeAlerta = new MensajesDeAlerta();
 	
 	public BotonCartaEnManoEventHandler(Carta cartaPasada) {
 		carta = cartaPasada;
@@ -42,11 +44,11 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 			}
 			
 		} catch (ZonaNoTieneMasEspacioException e) {
-			alertaNoHayMasEspacioEnLaZona();
+			mensajesDeAlerta.alertaNoHayMasEspacioEnLaZona();
 		} catch (AccionInvalidaEnEstaFaseException e) {
-			alertaAccionInvalidaEnFase();
+			mensajesDeAlerta.alertaAccionInvalidaEnFase();
 		} catch (MonstruosInsuficientesParaSacrificioException e) {
-			alertaSacrificiosInsuficientes();
+			mensajesDeAlerta.alertaSacrificiosInsuficientes();
 		}
     }
 	
@@ -60,33 +62,5 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 			case 1: AlGoOh.getInstance().agregarCartaMagicaBocaAbajo(carta);
 					break;
 		}
-	}
-	
-	private void alertaSacrificiosInsuficientes() {
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "Antes de invocar al monstruo debe hacer los sacrificios necesarios. \n"
-				);
-        alert.setTitle("Sacrificion insuficientes...");
-
-        alert.showAndWait();
-	}
-	
-	private void alertaNoHayMasEspacioEnLaZona() {
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "No se puede invocar mas invocar esta carta porque no \n"
-				+ "hay mas espacio en el campo. \n"
-				);
-        alert.setTitle("Zona sin lugar...");
-
-        alert.showAndWait();
-	}
-	
-	private void alertaAccionInvalidaEnFase() {
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "No se pueden invocar dicha carta en esta fase. \n"
-				);
-        alert.setTitle("Accion en fase invalida...");
-
-        alert.showAndWait();
 	}
 }

@@ -1,8 +1,15 @@
 package algo3.AlGoOh.handlers;
 
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
+=======
+
+import algo3.AlGoOh.Monstruo;
+import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+>>>>>>> 9866913bdde45fb177bbc222bce16e9d61b04595
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
+import algo3.AlGoOh.vista.MensajesDeAlerta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -10,6 +17,7 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 
 	private int posicion;
 	private BotonMonstruoEnCampo botonMonstruoEnCampo;
+	private MensajesDeAlerta mensajesDeAlerta = new MensajesDeAlerta();
 	
 	public BotonMonstruoEnCampoEventHandler(int unaPosicion, BotonMonstruoEnCampo unBoton) {
 		posicion = unaPosicion;
@@ -23,20 +31,26 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 
 		String[] options = {"Atacar", "Poner en Ataque", "Poner en Defensa", "Dar vuelta", "Ofrecer como sacrificio", "Cancelar"};
 		int seleccion = JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-		switch (seleccion) {
-			case 0: opcionesParaAtacar();
-					break;
-			case 1: AlGoOh.getInstance().ponerEnPosicionAtaque(posicion);
-					botonMonstruoEnCampo.setRotate(0);
-					break;
-			case 2: AlGoOh.getInstance().ponerEnPosicionDefensa(posicion);
-					botonMonstruoEnCampo.setRotate(90);
-					break;
-			case 3: AlGoOh.getInstance().darVueltaMonstruo(posicion);
-					break;
-			case 4: AlGoOh.getInstance().agregarMonstruoASacrificar(posicion);
+		
+		try {
+			switch (seleccion) {
+				case 0: opcionesParaAtacar();
+						break;
+				case 1: AlGoOh.getInstance().ponerEnPosicionAtaque(posicion);
+						botonMonstruoEnCampo.setRotate(0);
+						break;
+				case 2: AlGoOh.getInstance().ponerEnPosicionDefensa(posicion);
+						botonMonstruoEnCampo.setRotate(90);
+						break;
+				case 3: AlGoOh.getInstance().darVueltaMonstruo(posicion);
+						break;
+				case 4: AlGoOh.getInstance().agregarMonstruoASacrificar(posicion);
+						break;
 			default:
 				break;
+			}
+		} catch (AccionInvalidaEnEstaFaseException e) {
+			mensajesDeAlerta.alertaAccionInvalidaEnFase();
 		}
 		
     }
