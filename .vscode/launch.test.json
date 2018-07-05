@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "TP2",
+                "projectName": "TP2",
+                "workingDirectory": "/media/gero17illescas/Documentos/Java/TP2",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "TP2",
+                "projectName": "TP2",
+                "workingDirectory": "/media/gero17illescas/Documentos/Java/TP2",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
