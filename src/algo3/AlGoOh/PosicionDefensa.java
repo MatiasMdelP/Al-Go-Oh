@@ -12,51 +12,42 @@ public class PosicionDefensa implements Posicion {
 		this.puntosDeDefensa = puntosDeDefensa;
 	}
 		
-	@Override
 	public Posicion ponerEnPosicionAtaque() {
 		return new PosicionAtaque(puntosDeAtaque,puntosDeDefensa);
 	}
 	
-	@Override
 	public Posicion ponerEnPosicionDefensa() {
 		return this;
 	}
 	
-	@Override
 	public int devolverDanio(int diferenciaDelEnfrentamiento) {
 		if (diferenciaDelEnfrentamiento < 0)
 			return 0;
 		return diferenciaDelEnfrentamiento;
 	}
 	
-	@Override
 	public void efectuarDanio(int diferenciaDelEnfrentamiento, Jugador jugador, Monstruo monstruo ) {
 		monstruo.mandarAlCementerio();
 		jugador.reducirVida(0);
 		jugador.mandarAlCementerioAlMonstruoDefinido();
 	}
 	
-	@Override
 	public int calcularDiferenciaDeDanio(Posicion posicion){
 		return posicion.calcularDanio(puntosDeDefensa);
 	}
 	
-	@Override
 	public int calcularDanio(int puntos) {
 		return puntosDeDefensa - puntos;
 	}
 
-	@Override
 	public void agregarPuntosDeAtaque(int puntos) {
 		puntosDeAtaque += puntos;
 	}
 	
-	@Override
 	public void agregarPuntosDeDefensa(int puntos) {
 		puntosDeDefensa += puntos;
 	}
 
-	@Override
 	public int danioAtaque() {
 		return puntosDeAtaque;
 	}

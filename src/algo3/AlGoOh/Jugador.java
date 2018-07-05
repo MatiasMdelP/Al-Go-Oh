@@ -2,7 +2,6 @@ package algo3.AlGoOh;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import algo3.AlGoOh.Exceptions.*;
 
 public class Jugador {
@@ -18,18 +17,16 @@ public class Jugador {
 		campo = new Campo(new Mazo());
 		puntosDeVida = 8000;
 		fase = new FasePreparacion();
-		tomarUnaCartaDelMazo();
-		tomarUnaCartaDelMazo();
-		tomarUnaCartaDelMazo();
-		tomarUnaCartaDelMazo();
-		tomarUnaCartaDelMazo();
+		for (int i = 0; i < 5; ++i) {
+			tomarUnaCartaDelMazo();
+		}
 	}
 	
 	public int obtenerPuntosDeVida() {
 		return puntosDeVida;
 	}
 	
-	public void agregarMonstruoASacrificar(int posicionDelMonstruo) throws AccionInvalidaEnEstaFaseException {
+	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
 		fase.sacrificar();
 		campo.agregarMonstruoASacrificar(posicionDelMonstruo);
 	}
@@ -38,7 +35,7 @@ public class Jugador {
 		cartasEnMano.add(unaCarta);
 	}
 	
-	public void agregarMonstruoEnAtaque(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException{
+	public void agregarMonstruoEnAtaque(Monstruo monstruo){
 		fase.agregarMonstruo();
 		monstruo.colocarEnPosicionAtaque();
 		monstruo.agregarAlCampo(campo, oponente.campo);
@@ -46,14 +43,14 @@ public class Jugador {
 		cartasEnMano.remove(monstruo);
 	}
 
-	public void agregarMonstruoEnDefensa(Monstruo monstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException{
+	public void agregarMonstruoEnDefensa(Monstruo monstruo) {
 		fase.agregarMonstruo();
 		monstruo.colocarEnPosicionDefensa();
 		campo.agregarMonstruo(monstruo);
 		cartasEnMano.remove(monstruo);
 	}
 	
-	public void agregarCartaMagicaBocaArriba(Carta magica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarCartaMagicaBocaArriba(Carta magica) {
 		fase.agregarMagica();
 		magica.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMagica(magica);
@@ -61,7 +58,7 @@ public class Jugador {
 		magica.realizarEfecto(this, oponente);
 	}
 	
-	public void agregarCartaMagicaBocaAbajo(Carta magica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarCartaMagicaBocaAbajo(Carta magica) {
 		fase.agregarMagica();
 		magica.ponerBocaAbajo();
 		magica.agregarAlCampo(campo, oponente.campo);
@@ -69,14 +66,14 @@ public class Jugador {
 		cartasEnMano.remove(magica);
 	}
 	
-	public void agregarCartaTrampa(Carta trampa) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarCartaTrampa(Carta trampa) {
 		fase.agregarTrampa();
 		trampa.agregarAlCampo(campo, oponente.campo);
 		campo.agregarTrampa(trampa);
 		cartasEnMano.remove(trampa);
 	}
 	
-	public void agregarCartaCampo(Carta cartaCampo) throws AccionInvalidaEnEstaFaseException {
+	public void agregarCartaCampo(Carta cartaCampo) {
 		fase.agregarCampo();
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
 		//cartaCampo.realizarEfecto(this, oponente); LO PASE AL CAMPO
@@ -84,24 +81,24 @@ public class Jugador {
 		cartasEnMano.remove(cartaCampo); //Agregue
 	}
 
-	public void activarMagica(int nroDeCarta) throws AccionInvalidaEnEstaFaseException {
+	public void activarMagica(int nroDeCarta) {
 		fase.activarMagica();
 		campo.obtenerMagicaOTrampa(nroDeCarta).realizarEfecto(this, oponente);
 	}
 	
-	public void activarMonstruo(int nroDeCarta) throws AccionInvalidaEnEstaFaseException {
+	public void activarMonstruo(int nroDeCarta) {
 		fase.atacar();
 		campo.definirMonstruo(nroDeCarta);
 		campo.obtenerMonstruo().realizarEfecto(this, oponente);
 	}
 	
-	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) throws MonstruoNoPuedeAtacarException, AccionInvalidaEnEstaFaseException {
+	public void atacarA(int nroMonstruoAtacante, int nroMonstruoAtacado) {
 		fase.atacar();
 		campo.definirMonstruo(nroMonstruoAtacante);
 		oponente.recibirAtaque(campo, nroMonstruoAtacado, this);
 	}
 	
-	private void recibirAtaque(Campo campoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
+	private void recibirAtaque(Campo campoAtacante, int nroMonstruoAtacado, Jugador jugadorAtacante) {
 		campo.definirMonstruo(nroMonstruoAtacado);
 		try {
 			campo.activarTrampa(campo, campoAtacante, this, jugadorAtacante);
@@ -150,7 +147,7 @@ public class Jugador {
 		return estadoGanador.ganoElJuego();
 	}
 	
-	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante) throws MonstruoNoPuedeAtacarException {
+	public void recibirAtaque(Monstruo monstruoAtacante, Jugador jugadorAtacante){
 		this.campo.recibirAtaque(monstruoAtacante, jugadorAtacante, this);
 	}
 	

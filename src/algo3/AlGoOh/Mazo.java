@@ -4,30 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
-import algo3.AlGoOh.Efectos.EfectoAumentar500Ataque;
-import algo3.AlGoOh.Efectos.EfectoCilindroMagico;
-import algo3.AlGoOh.Efectos.EfectoDestruirMonstruoAtacante;
-import algo3.AlGoOh.Efectos.EfectoFisura;
-import algo3.AlGoOh.Efectos.EfectoJinzo7;
-import algo3.AlGoOh.Efectos.EfectoOllaDeLaCodicia;
-import algo3.AlGoOh.Efectos.EfectoSacrificioDragonBlanco;
-import algo3.AlGoOh.Efectos.EfectoSogen;
-import algo3.AlGoOh.Efectos.EfectoVacio;
-import algo3.AlGoOh.Efectos.EfectoWasteland;
+import algo3.AlGoOh.Efectos.*;
 import algo3.AlGoOh.Exceptions.ElMazoNoTieneCartasException;
 
 public class Mazo {
 
 	private List<Carta> baraja = new ArrayList<Carta>();
 	
+	private boolean seQuedoSinCartas() {
+		return baraja.isEmpty();
+	}
+	
 	public Carta tomarUnaCarta() {
-		if (seQuedoSinCartas()) {
+		if (seQuedoSinCartas())
 			throw new ElMazoNoTieneCartasException();
-		}
 		
 		Random eleccionDeCarta = new Random();
-		
 		return (baraja.remove(eleccionDeCarta.nextInt(baraja.size())));
 	}
 	
@@ -35,10 +27,6 @@ public class Mazo {
 		baraja.add(unaCarta);
 	}
 	
-	public boolean seQuedoSinCartas() {
-		return baraja.isEmpty();
-	}
-
 	public void inicializarMazo() {
 		//Huevo Monstruoso
 		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null,new InvocacionNormal(), 600, 900);

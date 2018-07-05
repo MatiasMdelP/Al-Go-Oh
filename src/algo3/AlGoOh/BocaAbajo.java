@@ -21,7 +21,6 @@ public class BocaAbajo implements Boca {
 		throw new MonstruoNoPuedeAtacarException();
 	}
 
-	@Override
 	public Boca realizarEfectoDeVolteo(Efecto efecto, Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
 		Boca boca = darVuelta();
 		efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);

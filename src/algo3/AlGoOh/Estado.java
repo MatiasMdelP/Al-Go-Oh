@@ -15,7 +15,7 @@ public class Estado {
 	}
 	
 	private void actualizarEstadoCartas() {
-		List<Carta> cartasEnMano =jugador.getListaDeCartasEnMano();
+		List<Carta> cartasEnMano = jugador.getListaDeCartasEnMano();
 		for(Carta carta: cartasEnMano) {
 			carta.modificarEstado(this);
 		}
@@ -25,8 +25,6 @@ public class Estado {
 		return estado;
 	}
 
-
-	
 	public void agregarComponenteCartaCompuesta() {
 		contador++;
 		if(contador == 5) {
@@ -40,7 +38,6 @@ public class Estado {
 	
 	public void actualizarEstado() {
 		actualizarEstadoCartas();
-		
 	}
 
 }

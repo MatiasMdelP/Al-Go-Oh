@@ -1,25 +1,22 @@
 package algo3.AlGoOh;
 
-import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
-
 public interface Fase {
 
-	public Fase pasarFase() throws NoHayMasFasesException;
+	public Fase pasarFase();
 
-	public void sacrificar() throws AccionInvalidaEnEstaFaseException;
+	public void sacrificar();
 
-	public void agregarMonstruo() throws AccionInvalidaEnEstaFaseException;
+	public void agregarMonstruo();
 
-	public void agregarMagica() throws AccionInvalidaEnEstaFaseException;
+	public void agregarMagica();
 
-	public void agregarTrampa() throws AccionInvalidaEnEstaFaseException;
+	public void agregarTrampa();
 	
-	public void agregarCampo() throws AccionInvalidaEnEstaFaseException;
+	public void agregarCampo();
 
-	public void atacar() throws AccionInvalidaEnEstaFaseException;
+	public void atacar();
 
-	public void activarMagica() throws AccionInvalidaEnEstaFaseException;
+	public void activarMagica();
 	
 	public String getNombreDeFase();
 }

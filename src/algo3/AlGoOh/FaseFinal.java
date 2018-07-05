@@ -5,39 +5,38 @@ import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
 
 public class FaseFinal implements Fase {
 
-	public Fase pasarFase() throws NoHayMasFasesException {
+	public Fase pasarFase(){
 		throw new NoHayMasFasesException();
 	}
 
-	public void sacrificar() throws AccionInvalidaEnEstaFaseException {
+	public void sacrificar(){
 		throw new AccionInvalidaEnEstaFaseException();		
 	}
 
-	public void agregarMonstruo() throws AccionInvalidaEnEstaFaseException {
+	public void agregarMonstruo(){
 		throw new AccionInvalidaEnEstaFaseException();		
 	}
 
-	public void agregarMagica() throws AccionInvalidaEnEstaFaseException {
+	public void agregarMagica(){
 		throw new AccionInvalidaEnEstaFaseException();		
 	}
 
-	public void agregarTrampa() throws AccionInvalidaEnEstaFaseException {
+	public void agregarTrampa(){
 		throw new AccionInvalidaEnEstaFaseException();		
 	}
 
-	public void agregarCampo() throws AccionInvalidaEnEstaFaseException {
+	public void agregarCampo(){
 		throw new AccionInvalidaEnEstaFaseException();
 	}
 	
-	public void atacar() throws AccionInvalidaEnEstaFaseException {
+	public void atacar(){
 		throw new AccionInvalidaEnEstaFaseException();		
 	}
 
-	public void activarMagica() throws AccionInvalidaEnEstaFaseException {
+	public void activarMagica(){
 		
 	}
-
-	@Override
+	
 	public String getNombreDeFase() {
 		return "Fase Final";
 	}

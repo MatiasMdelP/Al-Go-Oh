@@ -16,13 +16,11 @@ public class EfectoAumentar500Ataque implements Efecto{
 		this.realizarse(campo, campoOponente, unJugador, oponente);
 	}
 	
-	@Override
 	public void modificarEstado(Estado estado) {
-	}
-
-	@Override
-	public void sacrificar(List<Monstruo>  monstruosASacrificar, Monstruo monstruo) {
-		// TODO Auto-generated method stub
 		
+	}
+	
+	public void sacrificar(List<Monstruo>  monstruosASacrificar, Monstruo monstruo) {
+
 	}
 }

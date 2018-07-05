@@ -18,13 +18,10 @@ public class EfectoDestruirMonstruoAtacante implements Efecto{
 		throw new InterrumpirAtaqueException();
 	}
 
-	@Override
 	public void modificarEstado(Estado estado) {
 	}
 
-	@Override
 	public void sacrificar(List<Monstruo>  monstruosASacrificar, Monstruo monstruo) {
-		// TODO Auto-generated method stub
 		
 	}
 }
