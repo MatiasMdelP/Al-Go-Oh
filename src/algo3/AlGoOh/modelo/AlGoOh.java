@@ -75,11 +75,7 @@ public class AlGoOh {
 	}
 	
 	public void atacar(int numeroAtacante, int numeroAtacado) {
-		try {
-			jugadorActual.atacarA(numeroAtacante, numeroAtacado);
-		} catch (AccionInvalidaEnEstaFaseException e) {
-			//alertaAccionInvalidaEnFase();
-		}
+		jugadorActual.atacarA(numeroAtacante, numeroAtacado);
 		tablero.actualizarTablero(jugadorActual);
 		contenedorJugadores.actualizarDatosDeJugadores();
 	}
@@ -103,11 +99,8 @@ public class AlGoOh {
 	}
 	
 	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
-		try {
-			jugadorActual.agregarMonstruoASacrificar(posicionDelMonstruo);
-		} catch (AccionInvalidaEnEstaFaseException e) {
-			//alertaAccionInvalidaEnFase();
-		}
+		jugadorActual.agregarMonstruoASacrificar(posicionDelMonstruo);
+		
 		contenedorJugadores.actualizarDatosDeJugadores();
 	}
 	
