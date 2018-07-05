@@ -56,8 +56,8 @@ public class CampoTest {
 		campo.agregarMonstruo(huevoMonstruoso);
 		campo.agregarMonstruo(monoAcrobata);
 		
-		campo.mandarMonstruoAlCementerio(1);
-		campo.mandarMonstruoAlCementerio(0);
+		campo.mandarMonstruoAlCementerio(huevoMonstruoso);
+		campo.mandarMonstruoAlCementerio(monoAcrobata);
 		assertTrue(huevoMonstruoso.estaEnElCementerio());
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}

@@ -1,5 +1,7 @@
 package algo3.AlGoOh;
 
+import algo3.AlGoOh.Efectos.Efecto;
+
 public class BocaArriba implements Boca {
 
 	public Boca darVuelta() {
@@ -15,5 +17,11 @@ public class BocaArriba implements Boca {
 	}
 	
 	public void verificarEstado() {
+	}
+
+	@Override
+	public Boca realizarEfectoDeVolteo(Efecto efecto, Campo campo, Campo campoOponente, Jugador unJugador,
+			Jugador oponente) {
+		return this;
 	}
 }

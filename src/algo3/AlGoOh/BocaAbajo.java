@@ -1,5 +1,6 @@
 package algo3.AlGoOh;
 
+import algo3.AlGoOh.Efectos.Efecto;
 import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
 
 public class BocaAbajo implements Boca {
@@ -18,6 +19,13 @@ public class BocaAbajo implements Boca {
 
 	public void verificarEstado() {
 		throw new MonstruoNoPuedeAtacarException();
+	}
+
+	@Override
+	public Boca realizarEfectoDeVolteo(Efecto efecto, Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
+		Boca boca = darVuelta();
+		efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
+		return boca;
 	}
 	
 }

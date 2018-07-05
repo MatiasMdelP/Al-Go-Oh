@@ -3,9 +3,6 @@ package algo3.AlGoOh;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import org.junit.experimental.theories.FromDataPoints;
-
 import algo3.AlGoOh.Exceptions.CartaNoEncontradaException;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
@@ -98,10 +95,6 @@ public class Campo {
 	public Carta tomarUnaCartaDelMazo() {
 		return mazo.tomarUnaCarta();
 	}
-
-	public void mandarMonstruoAlCementerio(int nroDeCarta) {
-		zonaMonstruos.remove(nroDeCarta).mandarAlCementerio();
-	}
 	
 	public void mandarMonstruoAlCementerio(Monstruo monstruo) {
 		if(!zonaMonstruos.contains(monstruo)) {
@@ -164,12 +157,8 @@ public class Campo {
 	public Iterator<Monstruo> iterarMonstruos() {
 		return zonaMonstruos.iterator();
 	}
-	
-	public Iterator<Carta> iterarMagicasYTrampas() {
-		return zonaMagicasYTrampas.iterator();
-	}
 
-	public void sacrificarMonstruos(int cantidad) throws MonstruosInsuficientesParaSacrificioException {
+	public void sacrificarMonstruos(int cantidad) {
 		Monstruo monstruoASacrificar;
 		
 		try {
@@ -187,7 +176,7 @@ public class Campo {
 		monstruosASacrificar.clear();
 	}
 	
-	public void sacrificarTresDragonesBlancosDeOjosAzules() throws MonstruosInsuficientesParaSacrificioException{
+	public void efectuarSacrficios(){
 		Iterator<Monstruo> iterador = iterarMonstruos();
 		
 		Monstruo monstruoConPosibleSacrificio;

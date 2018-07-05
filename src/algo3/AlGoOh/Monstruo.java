@@ -1,12 +1,7 @@
 package algo3.AlGoOh;
 
-import java.util.Iterator;
 import java.util.List;
-
 import algo3.AlGoOh.Efectos.Efecto;
-import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
-import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
-import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 
 public class Monstruo extends Carta {
 	
@@ -63,29 +58,20 @@ public class Monstruo extends Carta {
 		return (getDanio() > puntosDelMonstruoRival);
 	}
 	
-	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {
-		if (boca.getEstado()) {
-			this.darVuelta();
-			efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
-		}
+	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
+		boca.realizarEfectoDeVolteo(efecto, campo, campoOponente, unJugador, oponente);
 	}
 	
 	public int getDanio() {
 		return posicion.danioAtaque();
 	}
 
-
-	public void efectuarSacrificios(Campo campo) throws MonstruosInsuficientesParaSacrificioException {
+	public void efectuarSacrificios(Campo campo) {
 		invocacion.efectuarSacrificios(campo);
-	}
-
-	public boolean esDragonBlancoDeOjosAzules() {
-		return nombre == "Dragon Blanco De Ojos Azules";
 	}
 
 	public void sacrificarse(List<Monstruo> monstruosASacrificar) {
 		efecto.sacrificar(monstruosASacrificar, this);
-		
 	}
 	
 }
