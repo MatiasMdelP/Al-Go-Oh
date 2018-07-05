@@ -50,6 +50,7 @@ public class AlGoOh {
 			oponente = jugador1;
 		}
 		jugadorActual.tomarUnaCartaDelMazo();
+		actualizarJuego();
 	}
 	
 	public void cargarTablero(Tablero unTablero) {
@@ -59,9 +60,7 @@ public class AlGoOh {
 	public void finalizarTurno() {
 		oponente = jugadorActual;
 		jugadorActual = jugadorActual.pasarTurno();
-		tablero.actualizarTablero(jugadorActual);
-		contenedorJugadores.actualizarDatosDeJugadores();
-		//vistaCartasEnMano.actualizarCartasEnMano(jugadorActual);
+		actualizarJuego();
 	}
 	
 	public void pasarALaSiguienteFase() {
@@ -70,14 +69,12 @@ public class AlGoOh {
 		} catch (NoHayMasFasesException exception) {
 			this.finalizarTurno();
 		}
-		tablero.actualizarTablero(jugadorActual);
-		contenedorJugadores.actualizarDatosDeJugadores();
+		actualizarJuego();
 	}
 	
 	public void atacar(int numeroAtacante, int numeroAtacado) {
 		jugadorActual.atacarA(numeroAtacante, numeroAtacado);
-		tablero.actualizarTablero(jugadorActual);
-		contenedorJugadores.actualizarDatosDeJugadores();
+		actualizarJuego();
 	}
 	
 	public void ponerEnPosicionAtaque(int numeroDeMonstruo) {
@@ -90,12 +87,12 @@ public class AlGoOh {
 	
 	public void darVueltaMonstruo(int numeroDeMonstruo) {
 		jugadorActual.darVueltaMonstruo(numeroDeMonstruo);
-		tablero.actualizarTablero(jugadorActual);
+		actualizarJuego();
 	}
 	
 	public void darVueltaCartaMagica(int numeroDeMagica) {
 		jugadorActual.activarMagica(numeroDeMagica);
-		tablero.actualizarTablero(jugadorActual);
+		actualizarJuego();
 	}
 	
 	public void agregarMonstruoASacrificar(int posicionDelMonstruo) {
@@ -104,54 +101,43 @@ public class AlGoOh {
 		contenedorJugadores.actualizarDatosDeJugadores();
 	}
 	
+	private void actualizarJuego() {
+		if (!jugadorActual.ganoElJuego()) {
+			tablero.actualizarTablero(jugadorActual);
+			contenedorJugadores.actualizarDatosDeJugadores();
+		} else {
+			contenedorJugadores.ganadorDelJuego(jugadorActual);
+		}
+	}
+	
 	public boolean noHayGanador() {
 		return (!jugadorActual.ganoElJuego());
 	}
 	
 	public void agregarCartaTrampa(Carta cartaTrampa) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		jugadorActual.agregarCartaTrampa(cartaTrampa);
-		tablero.actualizarTablero(jugadorActual);
+		actualizarJuego();
 	}
 	
 	public void agregarCartaMagicaBocaArriba(Carta cartaMagica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		jugadorActual.agregarCartaMagicaBocaArriba(cartaMagica);
-		tablero.actualizarTablero(jugadorActual);
+		actualizarJuego();
 	}
 	
 	public void agregarCartaMagicaBocaAbajo(Carta cartaMagica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		jugadorActual.agregarCartaMagicaBocaAbajo(cartaMagica);
-		tablero.actualizarTablero(jugadorActual);
+		actualizarJuego();
 	}
 	
 	public void agregarMonstruoAlCampo(Carta unMonstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
 		jugadorActual.agregarMonstruoEnAtaque((Monstruo)unMonstruo);
-		tablero.actualizarTablero(jugadorActual);
+		actualizarJuego();
 	}
 	
 	public void agregarCartaCampo(Carta cartaDeCampo) throws AccionInvalidaEnEstaFaseException {
 		jugadorActual.agregarCartaCampo(cartaDeCampo);
-		tablero.agregarCartaCampo(jugadorActual);
+		actualizarJuego();
 	}
-	
-	/*public void agregarCartaAlCampo(Carta carta) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
-		
-		if(carta.getClass() == Monstruo.class) {
-			try {
-				jugadorActual.agregarMonstruoEnAtaque((Monstruo)carta);
-				tablero.actualizarTablero(jugadorActual);
-			} catch (MonstruosInsuficientesParaSacrificioException e) {
-				alertaSacrificiosInsuficientes();
-			} catch (ZonaNoTieneMasEspacioException e) {
-				alertaNoHayMasEspacioEnLaZona();
-			} catch (AccionInvalidaEnEstaFaseException e) {
-				alertaAccionInvalidaEnFase();
-			}
-		} else {
-			jugadorActual.agregarCartaMagicaBocaArriba(carta);
-			tablero.actualizarTablero(jugadorActual);
-		}
-		contenedorJugadores.actualizarDatosDeJugadores();
-	}*/
 	
 	public String getNombreDeFase() {
 		return jugadorActual.getNombreDeFase();

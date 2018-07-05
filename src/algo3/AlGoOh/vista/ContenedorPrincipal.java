@@ -1,11 +1,15 @@
 package algo3.AlGoOh.vista;
 
+import javax.swing.JOptionPane;
+
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.modelo.Tablero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -85,6 +89,39 @@ public class ContenedorPrincipal extends BorderPane {
     public void actualizarDatosDeJugadores() {
     	setBotonera();
     }
+    
+    public void ganadorDelJuego(Jugador unJugador) {
+    	if (unJugador == jugador1) {
+    		ganador(nombreJugador1);
+    	} else {
+    		ganador(nombreJugador2);
+    	}
+    }
+    
+    private void ganador(String nombreDelGanador) {
+		/*Alert alert = new Alert(AlertType.INFORMATION,""
+				+ "FELICITACIONES " + nombreDelGanador.toUpperCase() + "!!!! HAS GANADO LA PARTIDA."
+				);
+        alert.setTitle("Fin del juego");
+
+        alert.showAndWait();*/
+    	String ganador = "FELICITACIONES " + nombreDelGanador.toUpperCase() + "!!!! HAS GANADO LA PARTIDA.";
+    	String[] options = {"Juego nuevo", "Salir"};
+		int eleccion =JOptionPane.showOptionDialog(null, ganador, "Fin del Juego", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+		switch (eleccion) {
+			case 0: jugador1 = new Jugador();
+					jugador2 = new Jugador();
+					try {
+						AlGoOh.getInstance().cargarJugadores(jugador1, jugador2, this);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+			case 1: System.exit(0);
+					break;
+		}
+	}
     
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
