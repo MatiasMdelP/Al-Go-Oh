@@ -1,13 +1,12 @@
 package algo3.AlGoOh.Efectos;
 
-import java.util.Iterator;
-
 import algo3.AlGoOh.Campo;
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Estado;
 import algo3.AlGoOh.Jugador;
-import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
+import algo3.AlGoOh.Monstruo;
+import java.util.List;
 
 public class EfectoAgujeroOscuro implements Efecto{
 	
@@ -41,6 +40,12 @@ public class EfectoAgujeroOscuro implements Efecto{
 
 	@Override
 	public void modificarEstado(Estado estado) {
+	}
+
+	@Override
+	public void sacrificar(List<Monstruo>  monstruosASacrificar, Monstruo monstruo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

@@ -7,29 +7,31 @@ import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 import algo3.AlGoOh.Monstruo;
 import java.util.List;
 
-public class EfectoCartaCompuesta implements Efecto {
+
+public class EfectoSacrificioDragonBlanco implements Efecto {
 
 	@Override
 	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) {
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente)
 			throws InterrumpirAtaqueException {
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void modificarEstado(Estado estado) {
-		estado.agregarComponenteCartaCompuesta();
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void sacrificar(List<Monstruo>  monstruosASacrificar, Monstruo monstruo) {
-		// TODO Auto-generated method stub
-		
+		monstruosASacrificar.add(monstruo);		
 	}
 
 }

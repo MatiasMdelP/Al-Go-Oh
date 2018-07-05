@@ -4,6 +4,8 @@ import algo3.AlGoOh.Campo;
 import algo3.AlGoOh.Estado;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
+import algo3.AlGoOh.Monstruo;
+import java.util.List;
 
 public class EfectoVacio implements Efecto {
 
@@ -19,6 +21,12 @@ public class EfectoVacio implements Efecto {
 	
 	@Override
 	public void modificarEstado(Estado estado) {
+	}
+
+	@Override
+	public void sacrificar(List<Monstruo>  monstruosASacrificar, Monstruo monstruo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

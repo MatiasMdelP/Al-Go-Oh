@@ -12,6 +12,7 @@ import algo3.AlGoOh.*;
 import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
 import algo3.AlGoOh.Efectos.EfectoCartaCompuesta;
 import algo3.AlGoOh.Efectos.EfectoCilindroMagico;
+import algo3.AlGoOh.Efectos.EfectoSacrificioDragonBlanco;
 import algo3.AlGoOh.Efectos.EfectoVacio;
 import algo3.AlGoOh.Efectos.EfectoWasteland;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
@@ -386,9 +387,9 @@ public class JugadorTest {
 		Monstruo huevoMonstruoso3 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata3 = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
 		
-		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonBlanco3 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoVacio(), new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoSacrificioDragonBlanco(), new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoSacrificioDragonBlanco(), new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco3 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoSacrificioDragonBlanco(), new Invocacion2Sacrificios(), 3000, 2500);
 		
 		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", new EfectoVacio(), 
 									new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);

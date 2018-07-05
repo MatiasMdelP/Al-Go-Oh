@@ -7,6 +7,9 @@ import algo3.AlGoOh.Estado;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
 
+import algo3.AlGoOh.Monstruo;
+import java.util.List;
+
 public class EfectoWasteland implements Efecto {
 
 	@Override
@@ -23,5 +26,11 @@ public class EfectoWasteland implements Efecto {
 	
 	@Override
 	public void modificarEstado(Estado estado) {
+	}
+
+	@Override
+	public void sacrificar(List<Monstruo>  monstruosASacrificar, Monstruo monstruo) {
+		// TODO Auto-generated method stub
+		
 	}
 }

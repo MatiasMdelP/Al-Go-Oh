@@ -11,6 +11,7 @@ import algo3.AlGoOh.Efectos.EfectoDestruirMonstruoAtacante;
 import algo3.AlGoOh.Efectos.EfectoFisura;
 import algo3.AlGoOh.Efectos.EfectoJinzo7;
 import algo3.AlGoOh.Efectos.EfectoOllaDeLaCodicia;
+import algo3.AlGoOh.Efectos.EfectoSacrificioDragonBlanco;
 import algo3.AlGoOh.Efectos.EfectoSogen;
 import algo3.AlGoOh.Efectos.EfectoVacio;
 import algo3.AlGoOh.Efectos.EfectoWasteland;
@@ -56,7 +57,7 @@ public class Mazo {
 		agregarUnaCartaAlMazo(brujaOscura);
 		
 		//Araï¿½a Lanzadora
-		Monstruo arania = new Monstruo("Araña Lanzadora", null, new Invocacion2Sacrificios(), 2200, 2500);
+		Monstruo arania = new Monstruo("Araï¿½a Lanzadora", null, new Invocacion2Sacrificios(), 2200, 2500);
 		agregarUnaCartaAlMazo(arania);
 		
 		//Frostosaurus
@@ -84,10 +85,10 @@ public class Mazo {
 		agregarUnaCartaAlMazo(monoAcrobata2);
 		
 		//Dragon Blanco
-		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", null, new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", null, new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonBlanco3 = new Monstruo("Dragon Blanco De Ojos Azules", null, new Invocacion2Sacrificios(), 3000, 2500);
-		Monstruo dragonBlanco4 = new Monstruo("Dragon Blanco De Ojos Azules", null, new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco1 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoSacrificioDragonBlanco(), new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco2 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoSacrificioDragonBlanco(), new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco3 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoSacrificioDragonBlanco(), new Invocacion2Sacrificios(), 3000, 2500);
+		Monstruo dragonBlanco4 = new Monstruo("Dragon Blanco De Ojos Azules", new EfectoSacrificioDragonBlanco(), new Invocacion2Sacrificios(), 3000, 2500);
 		agregarUnaCartaAlMazo(dragonBlanco1);
 		agregarUnaCartaAlMazo(dragonBlanco2);
 		agregarUnaCartaAlMazo(dragonBlanco3);

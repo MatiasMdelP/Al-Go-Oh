@@ -188,21 +188,15 @@ public class Campo {
 	}
 	
 	public void sacrificarTresDragonesBlancosDeOjosAzules() throws MonstruosInsuficientesParaSacrificioException{
-		Iterator<Monstruo> iterador = zonaMonstruos.iterator();
-		monstruosASacrificar.clear();
+		Iterator<Monstruo> iterador = iterarMonstruos();
 		
-		int cantDragones = 0;
 		Monstruo monstruoConPosibleSacrificio;
-		
 		while(iterador.hasNext()) {
 			monstruoConPosibleSacrificio = iterador.next();
-			if(monstruoConPosibleSacrificio.esDragonBlancoDeOjosAzules()) {
-				cantDragones++;
-				monstruosASacrificar.add(monstruoConPosibleSacrificio);
-			}
+			monstruoConPosibleSacrificio.sacrificarse(monstruosASacrificar);
 		}
 		
-		if(cantDragones < 3) {
+		if(monstruosASacrificar.size() < 3) {
 			throw new MonstruosInsuficientesParaSacrificioException();
 		} 
 		sacrificarMonstruos(3);

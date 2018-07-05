@@ -1,5 +1,8 @@
 package algo3.AlGoOh;
 
+import java.util.Iterator;
+import java.util.List;
+
 import algo3.AlGoOh.Efectos.Efecto;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
@@ -78,6 +81,11 @@ public class Monstruo extends Carta {
 
 	public boolean esDragonBlancoDeOjosAzules() {
 		return nombre == "Dragon Blanco De Ojos Azules";
+	}
+
+	public void sacrificarse(List<Monstruo> monstruosASacrificar) {
+		efecto.sacrificar(monstruosASacrificar, this);
+		
 	}
 	
 }
