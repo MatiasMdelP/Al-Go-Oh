@@ -59,9 +59,7 @@ public class Carta {
 	}
 
 	public void modificarEstado(Estado estado) {
-		if(efecto != null) {
-			this.efecto.modificarEstado(estado);
-		}
+		this.efecto.modificarEstado(estado);
 	}
 
 	public void ponerBocaAbajo() {

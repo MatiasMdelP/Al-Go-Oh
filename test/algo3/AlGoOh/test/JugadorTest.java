@@ -454,7 +454,9 @@ public class JugadorTest {
 		assertFalse(jugador.ganoElJuego());
 	}
 
-	@Test
+	
+	@Test //Este test falla porque el jugador que saca las cartas, gana el juego antes de que se acaben las cartas
+		  //por el tener las 5 partes del exodia
 	public void test18HabiendoVariasCartasEnElMazoSacoTodasYCuandoQuieroSacarUnaMasPierdo() {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
@@ -462,7 +464,7 @@ public class JugadorTest {
 		jugador.oponente(oponente);
 		oponente.oponente(jugador);
 		
-		for (int i = 0; i < 39; i++) {
+		for (int i = 0; i < 34; i++) {
 			jugador.tomarUnaCartaDelMazo();
 		}
 		

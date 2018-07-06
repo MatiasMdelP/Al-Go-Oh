@@ -15,6 +15,7 @@ public class Estado {
 	}
 	
 	private void actualizarEstadoCartas() {
+		contador = 0;
 		List<Carta> cartasEnMano = jugador.getListaDeCartasEnMano();
 		for(Carta carta: cartasEnMano) {
 			carta.modificarEstado(this);
