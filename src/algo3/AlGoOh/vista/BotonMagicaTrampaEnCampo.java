@@ -2,7 +2,6 @@ package algo3.AlGoOh.vista;
 
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.handlers.BotonMagicaTrampaEnCampoEventHandler;
-import algo3.AlGoOh.modelo.AlGoOh;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -14,8 +13,6 @@ import javafx.scene.layout.BackgroundSize;
 public class BotonMagicaTrampaEnCampo extends Button implements BotonCampo {
 
 	private Carta unaCarta = null;
-	private AlGoOh juegoDeAlGoOh;
-
 
 	public BotonMagicaTrampaEnCampo(int altoCarta, int anchoCarta, int posicion) {
 		this.setText("Magica/ \n"

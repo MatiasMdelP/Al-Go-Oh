@@ -10,10 +10,8 @@ import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.MensajesDeAlerta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
-public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
+public class BotonCartaEnManoEventHandler extends BotonCarta implements EventHandler<ActionEvent>{
 	
 	private Carta carta;
 	private MensajesDeAlerta mensajesDeAlerta = new MensajesDeAlerta();
@@ -28,8 +26,7 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 		cuadro.setMessageType(1);
 
 		String[] options = {"Agregar Monstruo al campo", "Agregar Magica al campo", "Agregar Trampa al campo", "Agregar carta de Campo", "Cancelar"};
-		int eleccion =JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, 
-				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		int eleccion = obtenerOpcionMenu(options,"Que accion quiere realizar?", "Accion");
 		
 		try {
 			switch (eleccion) {
@@ -54,8 +51,7 @@ public class BotonCartaEnManoEventHandler implements EventHandler<ActionEvent>{
 	
 	private void agregarMagicaBocaArribaOBocaAbajo() {
 		String[] options = {"Boca Arriba", "Boca Abajo"};
-		int eleccion =JOptionPane.showOptionDialog(null, "Como desea colocar la carta Magica?", "Accion", JOptionPane.DEFAULT_OPTION, 
-				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		int eleccion = obtenerOpcionMenu(options,"Como desea colocar la carta Magica?", "Accion");
 		switch (eleccion) {
 			case 0: AlGoOh.getInstance().agregarCartaMagicaBocaArriba(carta);
 					break;
