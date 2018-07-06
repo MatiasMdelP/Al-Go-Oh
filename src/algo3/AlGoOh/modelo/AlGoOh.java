@@ -123,8 +123,14 @@ public class AlGoOh {
 		actualizarJuego();
 	}
 	
-	public void agregarMonstruoAlCampo(Carta unMonstruo) {
-		jugadorActual.agregarMonstruoEnAtaque((Monstruo)unMonstruo);
+		
+	public void agregarMonstruoEnAtaque(Carta monstruo){
+		jugadorActual.agregarMonstruoEnAtaque((Monstruo) monstruo);
+		actualizarJuego();
+	}
+
+	public void agregarMonstruoEnDefensa(Carta monstruo) {
+		jugadorActual.agregarMonstruoEnDefensa((Monstruo) monstruo);
 		actualizarJuego();
 	}
 	

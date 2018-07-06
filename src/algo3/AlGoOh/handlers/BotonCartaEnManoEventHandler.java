@@ -1,5 +1,7 @@
 package algo3.AlGoOh.handlers;
 
+import static org.junit.jupiter.api.Assumptions.assumingThat;
+
 import javax.swing.JOptionPane;
 
 import algo3.AlGoOh.Carta;
@@ -30,7 +32,7 @@ public class BotonCartaEnManoEventHandler extends BotonCarta implements EventHan
 		
 		try {
 			switch (eleccion) {
-				case 0: AlGoOh.getInstance().agregarMonstruoAlCampo(carta);
+				case 0: agregarMonstruoAlCampo();
 						break;
 				case 1: agregarMagicaBocaArribaOBocaAbajo();
 						break;
@@ -49,9 +51,31 @@ public class BotonCartaEnManoEventHandler extends BotonCarta implements EventHan
 		}
     }
 	
-	private void agregarMagicaBocaArribaOBocaAbajo() {
+	private void agregarMonstruoAlCampo() {
+		/*String[] options = {"Posicion Ataque", "Posicion Defensa"};
+		int eleccion = obtenerOpcionMenu(options,"En que posicion desea colocar el Monstruo?", "Accion");
+		
+		switch (eleccion) {
+			case 0: AlGoOh.getInstance().agregarMonstruoEnAtaque(carta);
+					break;
+			case 1: AlGoOh.getInstance().agregarMonstruoEnDefensa(carta);
+					break;
+		}*/
+		
+		int respuestaBoca = preguntarColocacionDeCarta();
+		if (respuestaBoca == 1) {
+			carta.darVuelta();
+		}
+		AlGoOh.getInstance().agregarMonstruoEnAtaque(carta);
+	}
+	
+	private int preguntarColocacionDeCarta() {
 		String[] options = {"Boca Arriba", "Boca Abajo"};
-		int eleccion = obtenerOpcionMenu(options,"Como desea colocar la carta Magica?", "Accion");
+		return obtenerOpcionMenu(options,"Como desea colocar la carta?", "Accion");
+	}
+	
+	private void agregarMagicaBocaArribaOBocaAbajo() {
+		int eleccion = preguntarColocacionDeCarta();
 		switch (eleccion) {
 			case 0: AlGoOh.getInstance().agregarCartaMagicaBocaArriba(carta);
 					break;

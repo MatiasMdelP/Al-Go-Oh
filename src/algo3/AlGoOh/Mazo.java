@@ -29,46 +29,46 @@ public class Mazo {
 	
 	public void inicializarMazo() {
 		//Huevo Monstruoso
-		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", null,new InvocacionNormal(), 600, 900);
-		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", null,new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal(), 600, 900);
+		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal(), 600, 900);
 		agregarUnaCartaAlMazo(huevoMonstruoso1);
 		agregarUnaCartaAlMazo(huevoMonstruoso2);
 		
 		//Digitron
-		Monstruo digitron1 = new Monstruo("Digitron", null,new InvocacionNormal(), 1500, 0);
-		Monstruo digitron2 = new Monstruo("Digitron", null,new InvocacionNormal(), 1500, 0);
+		Monstruo digitron1 = new Monstruo("Digitron", new EfectoVacio(),new InvocacionNormal(), 1500, 0);
+		Monstruo digitron2 = new Monstruo("Digitron", new EfectoVacio(),new InvocacionNormal(), 1500, 0);
 		agregarUnaCartaAlMazo(digitron1);
 		agregarUnaCartaAlMazo(digitron2);
 		
 		//Bruja Oscura
-		Monstruo brujaOscura = new Monstruo("Bruja Oscura", null, new Invocacion1Sacrificio(), 1800, 1700);
+		Monstruo brujaOscura = new Monstruo("Bruja Oscura", new EfectoVacio(), new Invocacion1Sacrificio(), 1800, 1700);
 		agregarUnaCartaAlMazo(brujaOscura);
 		
 		//Ara�a Lanzadora
-		Monstruo arania = new Monstruo("Arania Lanzadora", null, new Invocacion2Sacrificios(), 2200, 2500);
+		Monstruo arania = new Monstruo("Arania Lanzadora", new EfectoVacio(), new Invocacion2Sacrificios(), 2200, 2500);
 		agregarUnaCartaAlMazo(arania);
 		
 		//Frostosaurus
-		Monstruo frostosaurus1 = new Monstruo("Frostosaurus", null, new Invocacion1Sacrificio(), 2600, 1700);
-		Monstruo frostosaurus2 = new Monstruo("Frostosaurus", null, new Invocacion1Sacrificio(), 2600, 1700);
+		Monstruo frostosaurus1 = new Monstruo("Frostosaurus", new EfectoVacio(), new Invocacion1Sacrificio(), 2600, 1700);
+		Monstruo frostosaurus2 = new Monstruo("Frostosaurus", new EfectoVacio(), new Invocacion1Sacrificio(), 2600, 1700);
 		agregarUnaCartaAlMazo(frostosaurus1);	
 		agregarUnaCartaAlMazo(frostosaurus2);
 		
 		//Rata De La Prevencion
-		Monstruo rata1 = new Monstruo("Rata De La Prevencion", null, new InvocacionNormal(), 500, 2000);
-		Monstruo rata2 = new Monstruo("Rata De La Prevencion", null, new InvocacionNormal(), 500, 2000);
+		Monstruo rata1 = new Monstruo("Rata De La Prevencion", new EfectoVacio(), new InvocacionNormal(), 500, 2000);
+		Monstruo rata2 = new Monstruo("Rata De La Prevencion", new EfectoVacio(), new InvocacionNormal(), 500, 2000);
 		agregarUnaCartaAlMazo(rata1);
 		agregarUnaCartaAlMazo(rata2);
 		
 		//Serpiente Espiral
-		Monstruo serpiente1 = new Monstruo("Serpiente Espiral", null, new Invocacion2Sacrificios(), 2900, 2900);
-		Monstruo serpiente2 = new Monstruo("Serpiente Espiral", null, new Invocacion2Sacrificios(), 2900, 2900);
+		Monstruo serpiente1 = new Monstruo("Serpiente Espiral", new EfectoVacio(), new Invocacion2Sacrificios(), 2900, 2900);
+		Monstruo serpiente2 = new Monstruo("Serpiente Espiral", new EfectoVacio(), new Invocacion2Sacrificios(), 2900, 2900);
 		agregarUnaCartaAlMazo(serpiente1);
 		agregarUnaCartaAlMazo(serpiente2);
 		
 		//Mono Acrobata
-		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", null, new InvocacionNormal(), 1000, 1800);
-		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", null, new InvocacionNormal(), 1000, 1800);
+		Monstruo monoAcrobata1 = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
+		Monstruo monoAcrobata2 = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
 		agregarUnaCartaAlMazo(monoAcrobata1);
 		agregarUnaCartaAlMazo(monoAcrobata2);
 		
@@ -83,11 +83,11 @@ public class Mazo {
 		agregarUnaCartaAlMazo(dragonBlanco4);
 		
 		//Dragon Meteoro
-		Monstruo dragonMeteoro = new Monstruo("Dragon Meteoro", null, new Invocacion1Sacrificio(), 1800, 2000);
+		Monstruo dragonMeteoro = new Monstruo("Dragon Meteoro", new EfectoVacio(), new Invocacion1Sacrificio(), 1800, 2000);
 		agregarUnaCartaAlMazo(dragonMeteoro);
 		
 		//Dragon Definitivo
-		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", null,
+		Monstruo dragonDefinitivo = new Monstruo("Dragon Definitivo De Ojos Azules", new EfectoVacio(),
 				new InvocacionDragonDefinitivoDeOjosAzules(), 4500, 3800);
 		agregarUnaCartaAlMazo(dragonDefinitivo);
 		
