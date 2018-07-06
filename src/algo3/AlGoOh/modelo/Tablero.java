@@ -217,11 +217,12 @@ public class Tablero extends GridPane{
 	}
 	
 	public void actualizarTablero(Jugador jugadorActual) {
+		//Volvi a agregar los dos metodos de actualizar porque me tiraba errores por el tipo Carta-Monstruo
 		actualizarBotonesMonstruo(jugadorInferior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorInferior);
-		actualizarBotonesMonstruo(jugadorInferior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorInferior);
+		actualizarBotonesCarta(jugadorInferior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorInferior);
 		
 		actualizarBotonesMonstruo(jugadorSuperior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorSuperior);
-		actualizarBotonesMonstruo(jugadorSuperior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorSuperior);
+		actualizarBotonesCarta(jugadorSuperior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorSuperior);
 		
 		if (jugadorActual == jugadorSuperior) {
 			for (BotonCampo unBoton : botonesCartasJugadorInferior) {
@@ -256,8 +257,26 @@ public class Tablero extends GridPane{
 		tituloFase.setTextFill(Color.CYAN);
 	}
 
+	private void actualizarBotonesMonstruo(List<Monstruo> listaCartasZona, List<BotonCampo> botonesMonstruosJugador) {
+		int variableTemporal = 0;
+		for (int i = 0; i < listaCartasZona.size(); i++){
+			Monstruo unMonstruo = listaCartasZona.get(i);
+			if (unMonstruo.estaBocaAbajo()) {
+				botonesMonstruosJugador.get(i).cargarImagen("cartaBocaAbajo");
+			} else {
+				botonesMonstruosJugador.get(i).cargarImagen(unMonstruo.obtenerNombre());
+			}
+			variableTemporal++;
+		}
+		while (variableTemporal <= 4) {
+			botonesMonstruosJugador.get(variableTemporal).cargarImagen("");
+			variableTemporal++;
+		}
+		
+		dibujarCartasEnMano();
+	}
 	
-	private void actualizarBotonesMonstruo(List<Carta> listaCartasZona, List<BotonCampo> botones) {
+	private void actualizarBotonesCarta(List<Carta> listaCartasZona, List<BotonCampo> botones) {
 		int variableTemporal = 0;
 		for (int i = 0; i < listaCartasZona.size(); i++){
 			Carta carta = listaCartasZona.get(i);

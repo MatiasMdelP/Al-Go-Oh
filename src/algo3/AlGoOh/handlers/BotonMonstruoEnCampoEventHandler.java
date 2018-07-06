@@ -1,12 +1,7 @@
 package algo3.AlGoOh.handlers;
 
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
-=======
-
-import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
->>>>>>> 9866913bdde45fb177bbc222bce16e9d61b04595
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import algo3.AlGoOh.vista.MensajesDeAlerta;
