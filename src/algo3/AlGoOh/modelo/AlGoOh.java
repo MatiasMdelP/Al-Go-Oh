@@ -44,7 +44,7 @@ public class AlGoOh {
 			oponente = jugador1;
 		}
 		jugadorActual.tomarUnaCartaDelMazo();
-		actualizarJuego();
+		//actualizarJuego();
 	}
 	
 	public void cargarTablero(Tablero unTablero) {
@@ -130,7 +130,7 @@ public class AlGoOh {
 	
 	public void agregarCartaCampo(Carta cartaDeCampo) {
 		jugadorActual.agregarCartaCampo(cartaDeCampo);
-		actualizarJuego();
+		tablero.agregarCartaCampo(jugadorActual);
 	}
 	
 	public String getNombreDeFase() {
