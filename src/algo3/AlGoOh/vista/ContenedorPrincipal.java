@@ -7,7 +7,6 @@ import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.modelo.Tablero;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;

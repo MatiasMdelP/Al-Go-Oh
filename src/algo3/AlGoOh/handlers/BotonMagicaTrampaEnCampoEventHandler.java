@@ -8,7 +8,7 @@ import algo3.AlGoOh.vista.MensajesDeAlerta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonMagicaTrampaEnCampoEventHandler implements EventHandler<ActionEvent>{
+public class BotonMagicaTrampaEnCampoEventHandler extends BotonCarta implements EventHandler<ActionEvent>{
 
 	private int posicion;
 	private MensajesDeAlerta mensajesDeAlerta = new MensajesDeAlerta();
@@ -23,8 +23,7 @@ public class BotonMagicaTrampaEnCampoEventHandler implements EventHandler<Action
 		cuadro.setMessageType(1);
 
 		String[] options = {"Dar vuelta", "Cancelar"};
-		int eleccion = JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, 
-				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		int eleccion = obtenerOpcionMenu(options,"Que accion quiere realizar?", "Accion");
 		try {
 			if (eleccion == 0) {
 				AlGoOh.getInstance().darVueltaCartaMagica(posicion);

@@ -1,7 +1,6 @@
 package algo3.AlGoOh.handlers;
 
 import javax.swing.JOptionPane;
-import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
@@ -9,7 +8,7 @@ import algo3.AlGoOh.vista.MensajesDeAlerta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEvent>{
+public class BotonMonstruoEnCampoEventHandler extends BotonCarta implements EventHandler<ActionEvent>{
 
 	private int posicion;
 	private BotonMonstruoEnCampo botonMonstruoEnCampo;
@@ -26,10 +25,9 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
 		cuadro.setMessageType(1);
 
 		String[] options = {"Atacar", "Poner en Ataque", "Poner en Defensa", "Dar vuelta", "Ofrecer como sacrificio", "Cancelar"};
-		int seleccion = JOptionPane.showOptionDialog(null, "Que accion quiere realizar?", "Accion", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-		
+		int eleccion = obtenerOpcionMenu(options,"Que accion quiere realizar?", "Accion");
 		try {
-			switch (seleccion) {
+			switch (eleccion) {
 				case 0: opcionesParaAtacar();
 						break;
 				case 1: AlGoOh.getInstance().ponerEnPosicionAtaque(posicion);
@@ -52,19 +50,19 @@ public class BotonMonstruoEnCampoEventHandler implements EventHandler<ActionEven
     }
 
 	private void opcionesParaAtacar() {
-		String[] carreras = {"0", "1", "2", "3", "4"};
-		String respuesta = (String) JOptionPane.showInputDialog(null, "Seleccione posicion del monstruo a atacar", "Atacar a:", JOptionPane.DEFAULT_OPTION, null, carreras, carreras[0]);
-		//AlGoOh.getInstance().atacar(posicion, respuesta);
-		switch (respuesta) {
-			case "0": 	AlGoOh.getInstance().atacar(posicion, 0);
+		String[] options = {"0", "1", "2", "3", "4"};
+		int eleccion = obtenerOpcionMenu(options,"Seleccione posicion del monstruo a atacar", "Atacar a:");
+		
+		switch (eleccion) {
+			case 0: 	AlGoOh.getInstance().atacar(posicion, 0);
 						break;
-			case "1": 	AlGoOh.getInstance().atacar(posicion, 1);
+			case 1: 	AlGoOh.getInstance().atacar(posicion, 1);
 						break;
-			case "2": 	AlGoOh.getInstance().atacar(posicion, 2);
+			case 2: 	AlGoOh.getInstance().atacar(posicion, 2);
 						break;
-			case "3": 	AlGoOh.getInstance().atacar(posicion, 3);
+			case 3: 	AlGoOh.getInstance().atacar(posicion, 3);
 						break;
-			case "4": 	AlGoOh.getInstance().atacar(posicion, 4);
+			case 4: 	AlGoOh.getInstance().atacar(posicion, 4);
 						break;
 		default:
 			break;

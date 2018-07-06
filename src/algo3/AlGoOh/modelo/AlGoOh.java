@@ -5,10 +5,7 @@ import java.util.Random;
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.Monstruo;
-import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
-import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.NoHayMasFasesException;
-import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 import algo3.AlGoOh.vista.ContenedorPrincipal;
 
 public class AlGoOh {
@@ -32,7 +29,7 @@ public class AlGoOh {
 	    return INSTANCE;
 	}
 	
-	public void cargarJugadores(Jugador jugador1, Jugador jugador2, ContenedorPrincipal contenedor) throws Exception {
+	public void cargarJugadores(Jugador jugador1, Jugador jugador2, ContenedorPrincipal contenedor) {
 		jugador1.oponente(jugador2);
 		jugador2.oponente(jugador1);
 		contenedorJugadores = contenedor;
@@ -111,27 +108,27 @@ public class AlGoOh {
 		return (!jugadorActual.ganoElJuego());
 	}
 	
-	public void agregarCartaTrampa(Carta cartaTrampa) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarCartaTrampa(Carta cartaTrampa) {
 		jugadorActual.agregarCartaTrampa(cartaTrampa);
 		actualizarJuego();
 	}
 	
-	public void agregarCartaMagicaBocaArriba(Carta cartaMagica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarCartaMagicaBocaArriba(Carta cartaMagica) {
 		jugadorActual.agregarCartaMagicaBocaArriba(cartaMagica);
 		actualizarJuego();
 	}
 	
-	public void agregarCartaMagicaBocaAbajo(Carta cartaMagica) throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarCartaMagicaBocaAbajo(Carta cartaMagica) {
 		jugadorActual.agregarCartaMagicaBocaAbajo(cartaMagica);
 		actualizarJuego();
 	}
 	
-	public void agregarMonstruoAlCampo(Carta unMonstruo) throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	public void agregarMonstruoAlCampo(Carta unMonstruo) {
 		jugadorActual.agregarMonstruoEnAtaque((Monstruo)unMonstruo);
 		actualizarJuego();
 	}
 	
-	public void agregarCartaCampo(Carta cartaDeCampo) throws AccionInvalidaEnEstaFaseException {
+	public void agregarCartaCampo(Carta cartaDeCampo) {
 		jugadorActual.agregarCartaCampo(cartaDeCampo);
 		actualizarJuego();
 	}

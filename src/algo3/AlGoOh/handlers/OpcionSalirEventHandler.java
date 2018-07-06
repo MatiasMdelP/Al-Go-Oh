@@ -9,7 +9,7 @@ public class OpcionSalirEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-    	int respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
+    	int respuesta = JOptionPane.showConfirmDialog(null, "Â¿Esta seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
     	if (respuesta == 0) {
     		System.exit(0);
     	}

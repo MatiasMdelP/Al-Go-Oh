@@ -2,8 +2,6 @@ package algo3.AlGoOh.vista;
 
 import java.io.File;
 
-
-
 import algo3.AlGoOh.handlers.BotonJugarEventHandler;
 import algo3.AlGoOh.handlers.TextoEventHandler;
 import javafx.application.Application;
@@ -26,7 +24,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaView;
 
 public class Aplicacion extends Application {
 
@@ -49,20 +46,18 @@ public class Aplicacion extends Application {
      
         stage.show();
     }
-    
+    private Label crearEtiquetaJugador(String nombre) {
+    	Label etiquetaJugador = new Label();
+    	etiquetaJugador.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
+    	etiquetaJugador.setText(nombre + ":");
+    	etiquetaJugador.setTextFill(Color.web("#000000"));
+    	etiquetaJugador.setStyle("-fx-font: normal bold 20px 'serif' "); 
+    	return etiquetaJugador;
+    }
     public void configurarPantallaInicial(Stage stage) {
-    	Label etiquetaJugador1 = new Label();
-    	etiquetaJugador1.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-
-        etiquetaJugador1.setText("Jugador 1:");
-        etiquetaJugador1.setTextFill(Color.web("#000000"));
-
-    	Label etiquetaJugador2 = new Label();
-    	etiquetaJugador2.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-
-        etiquetaJugador2.setText("Jugador 2:");
-        etiquetaJugador2.setTextFill(Color.web("#000000"));
-        
+    	Label etiquetaJugador1 = crearEtiquetaJugador("Jugador 1");
+    	Label etiquetaJugador2 = crearEtiquetaJugador("Jugador 2");
+       
     	TextField textoJugador1 = new TextField();
     	textoJugador1.setPromptText("Nombre del Jugador 1...");
 
@@ -111,9 +106,6 @@ public class Aplicacion extends Application {
         //Styling nodes  
         //botonJugar.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;"); 
         //button2.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;"); 
-         
-        etiquetaJugador1.setStyle("-fx-font: normal bold 20px 'serif' "); 
-        etiquetaJugador2.setStyle("-fx-font: normal bold 20px 'serif' ");  
        
         BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, textoJugador1, textoJugador2,mediaPlayer);
         botonJugar.setOnAction(botonJugarEventHandler);
