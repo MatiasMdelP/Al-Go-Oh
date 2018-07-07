@@ -1,7 +1,5 @@
 package algo3.AlGoOh.vista;
 
-import java.io.File;
-
 import algo3.AlGoOh.handlers.BotonJugarEventHandler;
 import algo3.AlGoOh.handlers.TextoEventHandler;
 import javafx.application.Application;
@@ -22,8 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.Media;
+
 
 public class Aplicacion extends Application {
 
@@ -77,10 +74,7 @@ public class Aplicacion extends Application {
 
         GridPane gridPane = new GridPane(); 
         
-        String path = "src/algo3/AlGoOh/audio/intro.mp3";
-        Media media = new Media(new File(path).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setAutoPlay(true);
+        Audio.reproducirIntro();
         
         //Setting size for the pane
         gridPane.setMinSize(1300, 700); 
@@ -107,7 +101,7 @@ public class Aplicacion extends Application {
         //botonJugar.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;"); 
         //button2.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;"); 
        
-        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, textoJugador1, textoJugador2,mediaPlayer);
+        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, textoJugador1, textoJugador2);
         botonJugar.setOnAction(botonJugarEventHandler);
         gridPane.setBackground(new Background(imagenDeFondo));
   

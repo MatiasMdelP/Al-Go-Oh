@@ -1,11 +1,15 @@
 package algo3.AlGoOh.handlers;
 
+import java.io.File;
+
+import algo3.AlGoOh.vista.Audio;
 import algo3.AlGoOh.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -18,11 +22,10 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
     private TextField textoJugador2;
 	private MediaPlayer mediaPlayer;
     
-    public BotonJugarEventHandler(Stage stage, TextField jugador1, TextField jugador2, MediaPlayer mediaPlayer) {
+    public BotonJugarEventHandler(Stage stage, TextField jugador1, TextField jugador2) {
         this.stage = stage;
         textoJugador1 = jugador1;
         textoJugador2 = jugador2;
-        this.mediaPlayer = mediaPlayer;
     }
 
     @Override
@@ -36,7 +39,7 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
     		stage.sizeToScene();
     		stage.setScene(escenaJuego);
     		stage.setMaximized(true);
-    		mediaPlayer.pause();
+    		Audio.reproducirBatalla();
     	}
     }
     
