@@ -22,6 +22,10 @@ public class AlGoOh {
 	       INSTANCE = new AlGoOh();
 	    }
 	}
+	
+	public Jugador obtenerJugadorActual() {
+		return jugadorActual;
+	}
 
 	public static AlGoOh getInstance() {
 	    if (INSTANCE == null)

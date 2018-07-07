@@ -66,9 +66,7 @@ public class Tablero extends GridPane{
 		altoCarta = altoCartaIngresado;
 		jugadorSuperior = jugador1;
 		jugadorInferior = jugador2;
-		
 		construirTablero();
-		//this.setPrefSize(500, 500);
 	}
 
 	private void construirTablero() {
