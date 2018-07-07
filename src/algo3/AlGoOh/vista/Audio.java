@@ -28,6 +28,7 @@ public class Audio {
         Media media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setOnRepeat(null);
 	}
 	
 	public static void reproducirVictoria() {

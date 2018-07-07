@@ -1,7 +1,4 @@
 package algo3.AlGoOh.handlers;
-
-import static org.junit.jupiter.api.Assumptions.assumingThat;
-
 import javax.swing.JOptionPane;
 
 import algo3.AlGoOh.Carta;
@@ -26,7 +23,7 @@ public class BotonCartaEnManoEventHandler extends BotonCarta implements EventHan
     public void handle(ActionEvent actionEvent) {
 		JOptionPane cuadro = new JOptionPane();
 		cuadro.setMessageType(1);
-
+		
 		String[] options = {"Agregar Monstruo al campo", "Agregar Magica al campo", "Agregar Trampa al campo", "Agregar carta de Campo", "Cancelar"};
 		int eleccion = obtenerOpcionMenu(options,"Que accion quiere realizar?", "Accion");
 		

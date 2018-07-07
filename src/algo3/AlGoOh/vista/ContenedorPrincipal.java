@@ -109,6 +109,7 @@ public class ContenedorPrincipal extends BorderPane {
         alert.showAndWait();*/
     	String ganador = "FELICITACIONES " + nombreDelGanador.toUpperCase() + "!!!! HAS GANADO LA PARTIDA.";
     	String[] options = {"Juego nuevo", "Salir"};
+    	Audio.reproducirVictoria();
 		int eleccion =JOptionPane.showOptionDialog(null, ganador, "Fin del Juego", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 		switch (eleccion) {
