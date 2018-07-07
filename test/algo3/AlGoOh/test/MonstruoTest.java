@@ -36,8 +36,6 @@ public class MonstruoTest {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
-		huevoMonstruoso.pasarTurno();
-		huevoMonstruoso.colocarEnPosicionAtaque();
 		huevoMonstruoso.atacarA(monoAcrobata, unJugador, oponente);
 		
 	}
