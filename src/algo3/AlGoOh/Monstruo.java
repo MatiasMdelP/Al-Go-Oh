@@ -7,20 +7,37 @@ public class Monstruo extends Carta {
 	
 	private Posicion posicion;
 	private Invocacion invocacion;
+	private Turno turnoDeInvocacion;
 	
 	public Monstruo(String unNombre, Efecto unEfecto, Invocacion invocacionIngresada, int ataque, int defensa) {
 		super(unNombre, unEfecto);
 		invocacion = invocacionIngresada;
 		estaEnElCementerio = false;
 		posicion = new PosicionAtaque(ataque,defensa);
+		turnoDeInvocacion= new TurnoActual();
+	}
+	
+	public void invocarBocaAbajo() {
+		super.darVuelta();
 	}
 	
 	public void colocarEnPosicionAtaque() {
+		turnoDeInvocacion.verificarAcciones();
 		posicion = posicion.ponerEnPosicionAtaque();
 	}
 	
 	public void colocarEnPosicionDefensa() {
+		turnoDeInvocacion.verificarAcciones();
 		posicion = posicion.ponerEnPosicionDefensa();
+	}
+	
+	public void darVuelta() {
+		turnoDeInvocacion.verificarAcciones();
+		super.darVuelta();
+	}
+	
+	public void pasarTurno() {
+		turnoDeInvocacion = turnoDeInvocacion.pasarTurno();
 	}
 	
 	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) {

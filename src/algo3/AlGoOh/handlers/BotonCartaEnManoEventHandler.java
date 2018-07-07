@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 import javax.swing.JOptionPane;
 
 import algo3.AlGoOh.Carta;
+import algo3.AlGoOh.Monstruo;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
@@ -61,12 +62,12 @@ public class BotonCartaEnManoEventHandler extends BotonCarta implements EventHan
 			case 1: AlGoOh.getInstance().agregarMonstruoEnDefensa(carta);
 					break;
 		}*/
-		
+		Monstruo cartaMonstruo = (Monstruo) carta;
 		int respuestaBoca = preguntarColocacionDeCarta();
 		if (respuestaBoca == 1) {
-			carta.darVuelta();
+			cartaMonstruo.invocarBocaAbajo();
 		}
-		AlGoOh.getInstance().agregarMonstruoEnAtaque(carta);
+		AlGoOh.getInstance().agregarMonstruoEnAtaque(cartaMonstruo);
 	}
 	
 	private int preguntarColocacionDeCarta() {

@@ -20,6 +20,16 @@ public class MensajesDeAlerta {
         alert.showAndWait();
 	}
 	
+	public void alertaAccionDeMonstruoProhibidaEnTurno() {
+		Audio.reproducirAlerta() ;
+		Alert alert = new Alert(AlertType.ERROR,""
+				+ "No puede realizar esta accion ya que invoco al Monstruo en el turno actual. \n"
+				+ "Para poder hacerlo, debe esperar al siguiente turno. \n"
+				);
+        alert.setTitle("Accion prohibida en Monstruo...");
+        alert.showAndWait();
+	} 
+	
 	public void alertaNoHayMasEspacioEnLaZona() {
 		Audio.reproducirAlerta() ;
 		Alert alert = new Alert(AlertType.WARNING,""

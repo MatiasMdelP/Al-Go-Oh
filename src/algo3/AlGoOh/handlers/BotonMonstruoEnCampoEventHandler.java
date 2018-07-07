@@ -2,6 +2,7 @@ package algo3.AlGoOh.handlers;
 
 import javax.swing.JOptionPane;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.MonstruoInvocadoEnTurnoActualException;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import algo3.AlGoOh.vista.MensajesDeAlerta;
@@ -45,6 +46,8 @@ public class BotonMonstruoEnCampoEventHandler extends BotonCarta implements Even
 			}
 		} catch (AccionInvalidaEnEstaFaseException e) {
 			mensajesDeAlerta.alertaAccionInvalidaEnFase();
+		} catch (MonstruoInvocadoEnTurnoActualException e) {
+			mensajesDeAlerta.alertaAccionDeMonstruoProhibidaEnTurno();
 		}
 		
     }
