@@ -23,9 +23,8 @@ public class MonstruoTest {
 	public void test01CrecarMonstruoYVerificarQueEstaBocaArriba() {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		
-		huevoMonstruoso.colocarEnPosicionAtaque();
-		
 		assertFalse(huevoMonstruoso.estaBocaAbajo());
+		huevoMonstruoso.pasarTurno();
 		huevoMonstruoso.darVuelta();
 		assertTrue(huevoMonstruoso.estaBocaAbajo());
 	}
@@ -37,6 +36,7 @@ public class MonstruoTest {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
+		huevoMonstruoso.pasarTurno();
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		huevoMonstruoso.atacarA(monoAcrobata, unJugador, oponente);
 		
@@ -49,6 +49,7 @@ public class MonstruoTest {
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
+		huevoMonstruoso.pasarTurno();
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		
 		huevoMonstruoso.atacarA(monoAcrobata, unJugador, oponente);
@@ -75,7 +76,9 @@ public class MonstruoTest {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900); //Monstruo Atacado
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
 		
+		huevoMonstruoso.pasarTurno();
 		huevoMonstruoso.colocarEnPosicionAtaque();
+		monoAcrobata.pasarTurno();
 		monoAcrobata.colocarEnPosicionAtaque();
 		Jugador unJugador = new Jugador();
 		Jugador oponente = new Jugador();
@@ -93,7 +96,8 @@ public class MonstruoTest {
 	public void test06AtacarConMonstruoConMenorAtaqueSeDestruyeAtacanteYVerificarQueEstaEnElCementerio() {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900); //Monstruo Atacante
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);     //Monstruo Atacado
-		
+		huevoMonstruoso.pasarTurno();
+		monoAcrobata.pasarTurno();
 		huevoMonstruoso.colocarEnPosicionAtaque();
 		monoAcrobata.colocarEnPosicionAtaque();
 
@@ -114,7 +118,8 @@ public class MonstruoTest {
 	public void test07AtacarAMonstruoEnModoDefensaConMayorAtaqueYSeDestruyeAtacado() {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900); //Monstruo Atacado
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
-		
+		huevoMonstruoso.pasarTurno();
+		monoAcrobata.pasarTurno();
 		huevoMonstruoso.colocarEnPosicionDefensa();
 		monoAcrobata.colocarEnPosicionAtaque();
 		
@@ -168,6 +173,7 @@ public class MonstruoTest {
 		Monstruo insectoComeHombres = new Monstruo("Insecto come hombres", new EfectoDestruirMonstruoAtacante(), new InvocacionNormal(), 450, 600);
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		
+		insectoComeHombres.pasarTurno();
 		insectoComeHombres.darVuelta();
 		
 		jugador.agregarMonstruoEnDefensa(insectoComeHombres);
@@ -190,9 +196,8 @@ public class MonstruoTest {
 	public void test10MonstruoEnPosicionDefensaNoPuedeAtacarYNadieSufroDanio() throws MonstruoNoPuedeAtacarException {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900); //Monstruo Atacado
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
-		
+		huevoMonstruoso.pasarTurno();
 		huevoMonstruoso.colocarEnPosicionDefensa();
-		monoAcrobata.colocarEnPosicionAtaque();
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
@@ -212,9 +217,7 @@ public class MonstruoTest {
 	public void test11MonstruoBocaAbajoNoPuedeAtacarYNadieSufroDanio() throws MonstruoNoPuedeAtacarException {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900); //Monstruo Atacado
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	  //Monstruo Atacante
-		
-		huevoMonstruoso.colocarEnPosicionAtaque();
-		monoAcrobata.colocarEnPosicionAtaque();
+		huevoMonstruoso.pasarTurno();
 		
 		huevoMonstruoso.darVuelta();
 		

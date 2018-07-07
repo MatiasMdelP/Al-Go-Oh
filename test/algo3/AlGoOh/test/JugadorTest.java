@@ -156,6 +156,8 @@ public class JugadorTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
+		huevoMonstruoso.pasarTurno();
+		monoAcrobata.pasarTurno();
 		
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		
@@ -185,7 +187,9 @@ public class JugadorTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(),1000, 1800);
-
+		huevoMonstruoso.pasarTurno();
+		monoAcrobata.pasarTurno();
+		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		
 		jugador = jugador.pasarTurno();
@@ -215,6 +219,8 @@ public class JugadorTest {
 		Monstruo huevoMonstruoso1 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 		Monstruo huevoMonstruoso2 = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);
 
+		huevoMonstruoso1.pasarTurno();
+		huevoMonstruoso2.pasarTurno();
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso1);
 		
@@ -427,7 +433,7 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnAtaque(dragonBlanco3);
 		jugador = jugador.pasarTurno();
 		jugador = jugador.pasarTurno();
-		jugador.agregarMonstruoEnDefensa(dragonDefinitivo);
+		jugador.agregarMonstruoEnAtaque(dragonDefinitivo);
 
 		assertTrue(dragonBlanco1.estaEnElCementerio());
 		assertTrue(dragonBlanco2.estaEnElCementerio());
@@ -824,6 +830,7 @@ public class JugadorTest {
 		oponente.oponente(jugador);
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
+		huevoMonstruoso.pasarTurno();
 		jugador.agregarMonstruoEnDefensa(huevoMonstruoso);
 		jugador = jugador.pasarTurno();
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);

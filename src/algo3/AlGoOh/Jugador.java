@@ -45,7 +45,7 @@ public class Jugador {
 
 	public void agregarMonstruoEnDefensa(Monstruo monstruo) {
 		fase.agregarMonstruo();
-		//monstruo.colocarEnPosicionDefensa();
+		monstruo.colocarEnPosicionDefensa();
 		campo.agregarMonstruo(monstruo);
 		cartasEnMano.remove(monstruo);
 	}
