@@ -77,10 +77,12 @@ public class AlGoOh {
 	
 	public void ponerEnPosicionAtaque(int numeroDeMonstruo) {
 		jugadorActual.ponerEnPosicionAtaque(numeroDeMonstruo);
+		actualizarJuego();
 	}
 	
 	public void ponerEnPosicionDefensa(int numeroDeMonstruo) {
 		jugadorActual.ponerEnPosicionDefensa(numeroDeMonstruo);
+		actualizarJuego();
 	}
 	
 	public void darVueltaMonstruo(int numeroDeMonstruo) {

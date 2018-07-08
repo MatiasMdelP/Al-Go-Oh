@@ -2,6 +2,7 @@ package algo3.AlGoOh;
 
 import java.util.List;
 import algo3.AlGoOh.Efectos.Efecto;
+import javafx.scene.control.Button;
 
 public class Monstruo extends Carta {
 	
@@ -21,6 +22,10 @@ public class Monstruo extends Carta {
 		super.darVuelta();
 	}
 	
+	public void rotarBoton(Button unBoton) {
+		posicion.rotarBoton(unBoton);
+	}
+	
 	public void colocarEnPosicionAtaque() {
 		turnoDeInvocacion.verificarAcciones();
 		posicion = posicion.ponerEnPosicionAtaque();
@@ -38,6 +43,7 @@ public class Monstruo extends Carta {
 	
 	public void pasarTurno() {
 		turnoDeInvocacion = turnoDeInvocacion.pasarTurno();
+		posicion.pasarTurno();
 	}
 	
 	public void atacarA(Monstruo atacado, Jugador jugadorAtacante, Jugador jugadorAtacado) {

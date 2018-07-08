@@ -49,4 +49,14 @@ public class MensajesDeAlerta {
         alert.showAndWait();
 	}
 	
+	public void alertaMonstruoNoPuedeAtacar() {
+		Audio.reproducirAlerta() ;
+		Alert alert = new Alert(AlertType.WARNING,""
+				+ "Este monstruo no puede realizar un ataque. \n"
+				+ "Esto se debe a que se encuentra en Posicion de Defensa, o porque ya realizo un ataque en este turno. \n"
+				);
+        alert.setTitle("Monstruo no puede atacar...");
+        alert.showAndWait();
+	}
+	
 }

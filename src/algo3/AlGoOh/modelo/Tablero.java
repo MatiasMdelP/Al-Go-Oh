@@ -263,6 +263,7 @@ public class Tablero extends GridPane{
 			} else {
 				botones.get(i).cargarImagen(carta.obtenerNombre());
 			}
+			carta.rotarBoton((Button) botones.get(i));
 			variableTemporal++;
 		}
 		while (variableTemporal <= 4) {

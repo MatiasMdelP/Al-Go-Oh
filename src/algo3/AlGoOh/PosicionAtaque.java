@@ -1,14 +1,19 @@
 package algo3.AlGoOh;
 
+import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
+import javafx.scene.control.Button;
+
 public class PosicionAtaque implements Posicion{
 	
 
 	private int puntosDeAtaque;
 	private int puntosDeDefensa;
+	private boolean atacoEnEsteTurno;
 
 	public PosicionAtaque(int puntosDeAtaque, int puntosDeDefensa) {
 		this.puntosDeAtaque = puntosDeAtaque;
 		this.puntosDeDefensa = puntosDeDefensa;
+		atacoEnEsteTurno = false;
 	}
 
 	public Posicion ponerEnPosicionAtaque() {
@@ -50,8 +55,17 @@ public class PosicionAtaque implements Posicion{
 	}
 
 	public void verificarEstado() {
-		
+		if (atacoEnEsteTurno) {
+			throw new MonstruoNoPuedeAtacarException();
+		}
+		atacoEnEsteTurno = true;
 	}
 
-
+	public void rotarBoton(Button unBoton) {
+		unBoton.setRotate(0);
+	}
+	
+	public void pasarTurno() {
+		atacoEnEsteTurno = false;
+	}
 }
