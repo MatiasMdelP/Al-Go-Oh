@@ -126,6 +126,7 @@ public class ContenedorPrincipal extends BorderPane {
 			case 0: jugador1 = new Jugador();
 					jugador2 = new Jugador();
 					this.setCentro();
+					this.setBotonera();
 					break;
 			case 1: System.exit(0);
 					break;

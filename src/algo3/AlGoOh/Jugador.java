@@ -116,6 +116,7 @@ public class Jugador {
 	public void reducirVida(int danio) {
 		puntosDeVida -= danio;
 		if(puntosDeVida <= 0) {
+			puntosDeVida = 0;
 			oponente.declararComoGanador();
 		}
 	}
