@@ -543,8 +543,8 @@ public class JugadorTest {
 		assertTrue(monoAcrobata.estaEnElCementerio());
 	}
 	
-	@Test
-	public void test22InvocarDosMonstruosEnLaMismaFaseLanzaAccionInvalidaEnEstaFaseException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test22InvocarDosMonstruosEnLaMismaFaseLanzaAccionInvalidaEnEstaFaseException(){
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -554,22 +554,13 @@ public class JugadorTest {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
 		
-		try {
-			jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		} catch (AccionInvalidaEnEstaFaseException e) {
-			assertTrue(false);
-		}
 		
-		try {
-			jugador.agregarMonstruoEnAtaque(monoAcrobata);
-			assertTrue(false);
-		}catch( AccionInvalidaEnEstaFaseException excepcion) {
-			assertTrue(true);
-		}
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 	}
 	
-	@Test
-	public void test23AtacarEnFaseDePreparacionLanzaAccionInvalidaEnEstaFaseException() throws MonstruoNoPuedeAtacarException, MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException{
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test23AtacarEnFaseDePreparacionLanzaAccionInvalidaEnEstaFaseException() {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -579,16 +570,11 @@ public class JugadorTest {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-		
-		try {
-			jugador.atacarA(0, 0);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+	
+		jugador.atacarA(0, 0);
 	}
-	@Test
-	public void test24ActivarMagicaEnFaseDePreparacionLanzaAccionInvalidaEnEstaFaseException() throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test24ActivarMagicaEnFaseDePreparacionLanzaAccionInvalidaEnEstaFaseException() {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -599,47 +585,33 @@ public class JugadorTest {
 		
 		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
 		
-		try {
-			jugador.activarMagica(0);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		
+		jugador.activarMagica(0);
 	}
 
 
-	@Test
-	public void test25AgregarMonstruoEnFaseAtaqueLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, NoHayMasFasesException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test25AgregarMonstruoEnFaseAtaqueLanzaAccionInvalidaException() {
 		Jugador jugador = new Jugador();
 		
 		jugador.pasarFase();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
 		
-		try {
-			jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 	}
 	
-	@Test
-	public void test26AgregarMagicaEnFaseAtaqueLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, NoHayMasFasesException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test26AgregarMagicaEnFaseAtaqueLanzaAccionInvalidaException() {
 		Jugador jugador = new Jugador();
 		
 		jugador.pasarFase();
 		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
-		try {
-			jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
 	}
 
-	@Test
-	public void test27SacrificarMonstruoEnFaseAtaqueLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test27SacrificarMonstruoEnFaseAtaqueLanzaAccionInvalidaException() {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -650,15 +622,11 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		jugador.pasarFase();
 		
-		try {
-			jugador.agregarMonstruoASacrificar(0);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		
+		jugador.agregarMonstruoASacrificar(0);
 	}
-	@Test
-	public void test28ActivarMagicaEnFaseAtaqueLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, NoHayMasFasesException, AccionInvalidaEnEstaFaseException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test28ActivarMagicaEnFaseAtaqueLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -669,60 +637,44 @@ public class JugadorTest {
 		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
 		jugador.pasarFase();
 		
-		try {
-			jugador.activarMagica(0);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		jugador.activarMagica(0);
+	
 	}
 	
-	@Test
-	public void test29AgregarTrampaEnFaseAtaqueLanzaAccionInvalidaException() throws ZonaNoTieneMasEspacioException, NoHayMasFasesException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test29AgregarTrampaEnFaseAtaqueLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
 		Carta trampa = new Carta("Cilindro Magico", new EfectoCilindroMagico());
 		jugador.pasarFase();
 		
-		try {
-			jugador.agregarCartaTrampa(trampa);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		jugador.agregarCartaTrampa(trampa);
+
 	}
 	
-	@Test
-	public void test30AgregarCampoEnFaseAtaqueLanzaAccionInvalidaException() throws NoHayMasFasesException, ZonaNoTieneMasEspacioException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test30AgregarCampoEnFaseAtaqueLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
 		Carta cartaCampo = new Carta("Wasteland", new EfectoWasteland());
 		jugador.pasarFase();
 		
-		try {
-			jugador.agregarCartaTrampa(cartaCampo);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		jugador.agregarCartaTrampa(cartaCampo);
 	}
 
-	@Test
-	public void test31AgregarMonstruoEnFaseFinalLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, NoHayMasFasesException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test31AgregarMonstruoEnFaseFinalLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
 		
 		jugador.pasarFase();
 		jugador.pasarFase();
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(),new InvocacionNormal() ,600, 900);
 		
-		try {
-			jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
+	
 	}
 
-	@Test
-	public void test32SacrificarMonstruoEnFaseFinalLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test32SacrificarMonstruoEnFaseFinalLanzaAccionInvalidaException() {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -733,59 +685,45 @@ public class JugadorTest {
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		jugador.pasarFase();
 		jugador.pasarFase();
-		try {
-			jugador.agregarMonstruoASacrificar(0);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		
+		jugador.agregarMonstruoASacrificar(0);
 	}
-	@Test
-	public void test33AgregarTrampaEnFaseFinalLanzaAccionInvalidaException() throws ZonaNoTieneMasEspacioException, NoHayMasFasesException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test33AgregarTrampaEnFaseFinalLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
 		Carta trampa = new Carta("Cilindro Magico", new EfectoCilindroMagico());
 		jugador.pasarFase();
 		jugador.pasarFase();
-		try {
-			jugador.agregarCartaTrampa(trampa);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		
+		jugador.agregarCartaTrampa(trampa);
+	
 	}
 	
-	@Test
-	public void test34AgregarCampoEnFaseFinalLanzaAccionInvalidaException() throws NoHayMasFasesException, ZonaNoTieneMasEspacioException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test34AgregarCampoEnFaseFinalLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
 		Carta cartaCampo = new Carta("Wasteland", new EfectoWasteland());
 		jugador.pasarFase();
 		jugador.pasarFase();
 		
-		try {
-			jugador.agregarCartaTrampa(cartaCampo);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+
+		jugador.agregarCartaTrampa(cartaCampo);
 	}
 	
-	@Test
-	public void test35AgregarMagicaEnFaseFinalLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, NoHayMasFasesException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test35AgregarMagicaEnFaseFinalLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
 		
 		jugador.pasarFase();
 		jugador.pasarFase();
 		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
 		
-		try {
-			jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		
+		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
+	
 	}
-	@Test
-	public void test36AtacarEnFaseFinalLanzaAccionInvalidaException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException, NoHayMasFasesException, MonstruoNoPuedeAtacarException {
+	@Test(expected=AccionInvalidaEnEstaFaseException.class)
+	public void test36AtacarEnFaseFinalLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -797,32 +735,24 @@ public class JugadorTest {
 		jugador.pasarFase();
 		jugador.pasarFase();
 		
-		try {
-			jugador.atacarA(0, 0);
-			assertTrue(false);
-		}catch(AccionInvalidaEnEstaFaseException e) {
-			assertTrue(true);
-		}
+		
+		jugador.atacarA(0, 0);
 	}
 	
 	
-	@Test
-	public void test37PasarFaseEnFaseFinalLanzaNoHayMasFasesException() throws NoHayMasFasesException {
+	@Test(expected=NoHayMasFasesException.class)
+	public void test37PasarFaseEnFaseFinalLanzaNoHayMasFasesException(){
 		Jugador jugador = new Jugador();
 		
 		jugador.pasarFase();
 		jugador.pasarFase();
 	
-		try {
-			jugador.pasarFase();
-			assertTrue(false);
-		}catch(NoHayMasFasesException e){
-			assertTrue(true);
-		}
+
+		jugador.pasarFase();
 	}
 
-	@Test
-	public void test38AtacarConMonstruoDefensaLanzaMonstruoNoPuedeAtacarException() throws AccionInvalidaEnEstaFaseException, NoHayMasFasesException, MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException {
+	@Test(expected=MonstruoNoPuedeAtacarException.class)
+	public void test38AtacarConMonstruoDefensaLanzaMonstruoNoPuedeAtacarException(){
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -839,16 +769,12 @@ public class JugadorTest {
 		jugador.pasarFase();
 		
 	
-		try {
-			jugador.atacarA(0, 0);
-			assertFalse(false);
-		}catch(MonstruoNoPuedeAtacarException e) {
-			assertTrue(true);
-		}
+		
+		jugador.atacarA(0, 0);
 	}
 
-	@Test
-	public void test39AgregarMasDe5MonstruosLanzaZonaNoTieneMasEspacioException() throws MonstruosInsuficientesParaSacrificioException, ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	@Test(expected=ZonaNoTieneMasEspacioException.class)
+	public void test39AgregarMasDe5MonstruosLanzaZonaNoTieneMasEspacioException() {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -863,16 +789,12 @@ public class JugadorTest {
 			jugador = oponente.pasarTurno();
 		}
 		
-		try {
-			jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
-			assertTrue(false);
-		}catch(ZonaNoTieneMasEspacioException e) {
-			assertTrue(true);
-		}
+		
+		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 	}
 	
-	@Test
-	public void test40AgregarMasDe5CartasMagicasLanzaZonaNoTieneMasEspacioException() throws ZonaNoTieneMasEspacioException, AccionInvalidaEnEstaFaseException {
+	@Test(expected=ZonaNoTieneMasEspacioException.class)
+	public void test40AgregarMasDe5CartasMagicasLanzaZonaNoTieneMasEspacioException() {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -886,11 +808,7 @@ public class JugadorTest {
 			oponente = jugador.pasarTurno();
 			jugador = oponente.pasarTurno();
 		}
-		try {
-			jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
-			assertTrue(false);
-		}catch(ZonaNoTieneMasEspacioException e) {
-			assertTrue(true);
-		}
+		
+		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
 	}
 }
