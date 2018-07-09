@@ -143,6 +143,7 @@ public class AlGoOh {
 	public void agregarCartaCampo(Carta cartaDeCampo) {
 		jugadorActual.agregarCartaCampo(cartaDeCampo);
 		tablero.agregarCartaCampo(jugadorActual);
+		actualizarJuego();
 	}
 	
 	public String getNombreDeFase() {
