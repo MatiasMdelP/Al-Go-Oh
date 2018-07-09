@@ -44,7 +44,7 @@ public class Mazo {
 		Monstruo brujaOscura = new Monstruo("Bruja Oscura", new EfectoVacio(), new Invocacion1Sacrificio(), 1800, 1700);
 		agregarUnaCartaAlMazo(brujaOscura);
 		
-		//Ara�a Lanzadora
+		//Arania Lanzadora
 		Monstruo arania = new Monstruo("Arania Lanzadora", new EfectoVacio(), new Invocacion2Sacrificios(), 2200, 2500);
 		agregarUnaCartaAlMazo(arania);
 		
@@ -114,41 +114,41 @@ public class Mazo {
 		agregarUnaCartaAlMazo(insectoComeHombres2);
 		
 		//Agujero Oscuro
-		Carta agujeroOscuro1 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
-		Carta agujeroOscuro2 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro1 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro(), new HandlerCartaMagica());
+		Carta agujeroOscuro2 = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro(), new HandlerCartaMagica());
 		agregarUnaCartaAlMazo(agujeroOscuro1);
 		agregarUnaCartaAlMazo(agujeroOscuro2);
 		
 		//Cilindro Magico
-		Carta cilindroMagico1 = new Carta("Cilindro Magico", new EfectoCilindroMagico());
-		Carta cilindroMagico2 = new Carta("Cilindro Magico", new EfectoCilindroMagico());
+		Carta cilindroMagico1 = new Carta("Cilindro Magico", new EfectoCilindroMagico(), new HandlerCartaTrampa());
+		Carta cilindroMagico2 = new Carta("Cilindro Magico", new EfectoCilindroMagico(), new HandlerCartaTrampa());
 		agregarUnaCartaAlMazo(cilindroMagico1);
 		agregarUnaCartaAlMazo(cilindroMagico2);
 		
 		//Olla de la Codicia
-		Carta ollaDeLaCodicia1 = new Carta("Olla De La Codicia", new EfectoOllaDeLaCodicia());
-		Carta ollaDeLaCodicia2 = new Carta("Olla De La Codicia", new EfectoOllaDeLaCodicia());
+		Carta ollaDeLaCodicia1 = new Carta("Olla De La Codicia", new EfectoOllaDeLaCodicia(), new HandlerCartaMagica());
+		Carta ollaDeLaCodicia2 = new Carta("Olla De La Codicia", new EfectoOllaDeLaCodicia(), new HandlerCartaMagica());
 		agregarUnaCartaAlMazo(ollaDeLaCodicia1);
 		agregarUnaCartaAlMazo(ollaDeLaCodicia2);
 		
 		//Fisura
-		Carta fisura1 = new Carta("Fisura", new EfectoFisura());
-		Carta fisura2 = new Carta("Fisura", new EfectoFisura());
+		Carta fisura1 = new Carta("Fisura", new EfectoFisura(), new HandlerCartaTrampa());
+		Carta fisura2 = new Carta("Fisura", new EfectoFisura(), new HandlerCartaTrampa());
 		agregarUnaCartaAlMazo(fisura1);
 		agregarUnaCartaAlMazo(fisura2);
 		
 		//Reinforcements
-		Carta reinforcements = new Carta("Reinforcements", new EfectoAumentar500Ataque());
+		Carta reinforcements = new Carta("Reinforcements", new EfectoAumentar500Ataque(), new HandlerCartaTrampa());
 		agregarUnaCartaAlMazo(reinforcements);
 		
 		//Sogen
-		Carta sogen1 = new Carta("Sogen", new EfectoSogen());
-		Carta sogen2 = new Carta("Sogen", new EfectoSogen());
+		Carta sogen1 = new Carta("Sogen", new EfectoSogen(), new HandlerCartaCampo());
+		Carta sogen2 = new Carta("Sogen", new EfectoSogen(), new HandlerCartaCampo());
 		agregarUnaCartaAlMazo(sogen1);
 		agregarUnaCartaAlMazo(sogen2);
 		
 		//Wasteland
-		Carta wasteland = new Carta("Wasteland", new EfectoWasteland());
+		Carta wasteland = new Carta("Wasteland", new EfectoWasteland(), new HandlerCartaCampo());
 		agregarUnaCartaAlMazo(wasteland);
 		
 	}

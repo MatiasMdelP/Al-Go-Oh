@@ -2,6 +2,8 @@ package algo3.AlGoOh;
 
 import java.util.List;
 import algo3.AlGoOh.Efectos.Efecto;
+import algo3.AlGoOh.handlers.BotonCarta;
+import algo3.AlGoOh.handlers.BotonMonstruoEnManoEventHandler;
 import javafx.scene.control.Button;
 
 public class Monstruo extends Carta {
@@ -11,7 +13,7 @@ public class Monstruo extends Carta {
 	private Turno turnoDeInvocacion;
 	
 	public Monstruo(String unNombre, Efecto unEfecto, Invocacion invocacionIngresada, int ataque, int defensa) {
-		super(unNombre, unEfecto);
+		super(unNombre, unEfecto, null);
 		invocacion = invocacionIngresada;
 		estaEnElCementerio = false;
 		posicion = new PosicionAtaque(ataque,defensa);
@@ -96,5 +98,7 @@ public class Monstruo extends Carta {
 	public void sacrificarse(List<Monstruo> monstruosASacrificar) {
 		efecto.sacrificar(monstruosASacrificar, this);
 	}
-	
+	public BotonCarta getHandler() {
+		return new BotonMonstruoEnManoEventHandler(this);
+	}
 }

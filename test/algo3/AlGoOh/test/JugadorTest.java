@@ -581,7 +581,7 @@ public class JugadorTest {
 		jugador.oponente(oponente);
 		oponente.oponente(jugador);
 		
-		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro(), null);
 		
 		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
 		
@@ -605,7 +605,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		
 		jugador.pasarFase();
-		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro(), null);
 		
 		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
 	}
@@ -633,7 +633,7 @@ public class JugadorTest {
 		jugador.oponente(oponente);
 		oponente.oponente(jugador);
 		
-		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro(), null);
 		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
 		jugador.pasarFase();
 		
@@ -644,7 +644,7 @@ public class JugadorTest {
 	@Test(expected=AccionInvalidaEnEstaFaseException.class)
 	public void test29AgregarTrampaEnFaseAtaqueLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
-		Carta trampa = new Carta("Cilindro Magico", new EfectoCilindroMagico());
+		Carta trampa = new Carta("Cilindro Magico", new EfectoCilindroMagico(), null);
 		jugador.pasarFase();
 		
 		jugador.agregarCartaTrampa(trampa);
@@ -654,7 +654,7 @@ public class JugadorTest {
 	@Test(expected=AccionInvalidaEnEstaFaseException.class)
 	public void test30AgregarCampoEnFaseAtaqueLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
-		Carta cartaCampo = new Carta("Wasteland", new EfectoWasteland());
+		Carta cartaCampo = new Carta("Wasteland", new EfectoWasteland(), null);
 		jugador.pasarFase();
 		
 		jugador.agregarCartaTrampa(cartaCampo);
@@ -691,7 +691,7 @@ public class JugadorTest {
 	@Test(expected=AccionInvalidaEnEstaFaseException.class)
 	public void test33AgregarTrampaEnFaseFinalLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
-		Carta trampa = new Carta("Cilindro Magico", new EfectoCilindroMagico());
+		Carta trampa = new Carta("Cilindro Magico", new EfectoCilindroMagico(), null);
 		jugador.pasarFase();
 		jugador.pasarFase();
 		
@@ -702,7 +702,7 @@ public class JugadorTest {
 	@Test(expected=AccionInvalidaEnEstaFaseException.class)
 	public void test34AgregarCampoEnFaseFinalLanzaAccionInvalidaException(){
 		Jugador jugador = new Jugador();
-		Carta cartaCampo = new Carta("Wasteland", new EfectoWasteland());
+		Carta cartaCampo = new Carta("Wasteland", new EfectoWasteland(), null);
 		jugador.pasarFase();
 		jugador.pasarFase();
 		
@@ -716,7 +716,7 @@ public class JugadorTest {
 		
 		jugador.pasarFase();
 		jugador.pasarFase();
-		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro(), null);
 		
 		
 		jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);
@@ -801,7 +801,7 @@ public class JugadorTest {
 		jugador.oponente(oponente);
 		oponente.oponente(jugador);
 				
-		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro());
+		Carta agujeroOscuro = new Carta("Agujero Oscuro", new EfectoAgujeroOscuro(), null);
 		
 		for (int i=0; i<5; i++) {
 			jugador.agregarCartaMagicaBocaAbajo(agujeroOscuro);

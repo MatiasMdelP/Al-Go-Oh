@@ -23,7 +23,7 @@ public class TrampaTest {
 
 	@Test
 	public void test01CrearCartaTrampaYVerificarQueEstaArriba() {
-		Carta cartaTrampa = new Carta("Un nombre", new EfectoVacio());
+		Carta cartaTrampa = new Carta("Un nombre", new EfectoVacio(), null);
 		
 		assertFalse(cartaTrampa.estaBocaAbajo());
 	}
@@ -38,7 +38,7 @@ public class TrampaTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	
-		Carta cilindroMagico = new Carta("Cilindro Magico", new EfectoCilindroMagico());
+		Carta cilindroMagico = new Carta("Cilindro Magico", new EfectoCilindroMagico(), null);
 		
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		jugador.agregarCartaTrampa(cilindroMagico);
@@ -66,7 +66,7 @@ public class TrampaTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal() ,1000, 1800);	
-		Carta reinforcements = new Carta("Reinforcements", new EfectoAumentar500Ataque());
+		Carta reinforcements = new Carta("Reinforcements", new EfectoAumentar500Ataque(), null);
 		
 		jugador.agregarMonstruoEnAtaque(huevoMonstruoso);
 		jugador.agregarCartaTrampa(reinforcements);

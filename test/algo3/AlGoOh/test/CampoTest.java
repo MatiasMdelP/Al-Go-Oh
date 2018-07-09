@@ -60,7 +60,7 @@ public class CampoTest {
 	
 	@Test
 	public void test04AgregarCartasTrampaOMagicasYMandarlasAlCementerio() throws ZonaNoTieneMasEspacioException {
-		Carta reinforcements1 = new Carta("Reinforcements", new EfectoAumentar500Ataque());
+		Carta reinforcements1 = new Carta("Reinforcements", new EfectoAumentar500Ataque(), null);
 		Campo campo = new Campo(new Mazo());
 		
 		campo.agregarTrampa(reinforcements1);
@@ -104,7 +104,7 @@ public class CampoTest {
 		
 		jugador.agregarMonstruoEnDefensa(huevoMonstruoso);
 		
-		Carta wasteland = new Carta("Wasteland", new EfectoWasteland());
+		Carta wasteland = new Carta("Wasteland", new EfectoWasteland(), null);
 		
 		jugador = jugador.pasarTurno();
 		
@@ -136,7 +136,7 @@ public class CampoTest {
 		
 		jugador.agregarMonstruoEnDefensa(huevoMonstruoso);
 		
-		Carta sogen = new Carta("Sogen", new EfectoSogen());
+		Carta sogen = new Carta("Sogen", new EfectoSogen(), null);
 		jugador.agregarCartaCampo(sogen);
 		
 		jugador = jugador.pasarTurno();
