@@ -1,7 +1,7 @@
 package algo3.AlGoOh.vista;
 
 import algo3.AlGoOh.Carta;
-import algo3.AlGoOh.handlers.BotonMagicaTrampaEnManoEventHandler;
+import algo3.AlGoOh.handlers.BotonMagicaEnManoEventHandler;
 import algo3.AlGoOh.modelo.Tablero;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -22,7 +22,7 @@ public class BotonMagicaTrampaEnMano extends Button {
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
 		this.setPrefSize(anchoCarta, altoCarta);
-		BotonMagicaTrampaEnManoEventHandler botonMagicaTrampaEnManoEventHandleroEventHandler = new BotonMagicaTrampaEnManoEventHandler(cartaPasada, tablero);
+		BotonMagicaEnManoEventHandler botonMagicaTrampaEnManoEventHandleroEventHandler = new BotonMagicaEnManoEventHandler(cartaPasada);
 		this.setOnAction(botonMagicaTrampaEnManoEventHandleroEventHandler);
 		
 	}

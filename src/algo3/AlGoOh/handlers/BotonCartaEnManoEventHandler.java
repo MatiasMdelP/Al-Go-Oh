@@ -1,7 +1,5 @@
 package algo3.AlGoOh.handlers;
 
-import static org.junit.jupiter.api.Assumptions.assumingThat;
-
 import javax.swing.JOptionPane;
 
 import algo3.AlGoOh.Carta;
@@ -68,11 +66,6 @@ public class BotonCartaEnManoEventHandler extends BotonCarta implements EventHan
 			cartaMonstruo.invocarBocaAbajo();
 		}
 		AlGoOh.getInstance().agregarMonstruoEnAtaque(cartaMonstruo);
-	}
-	
-	private int preguntarColocacionDeCarta() {
-		String[] options = {"Boca Arriba", "Boca Abajo"};
-		return obtenerOpcionMenu(options,"Como desea colocar la carta?", "Accion");
 	}
 	
 	private void agregarMagicaBocaArribaOBocaAbajo() {
