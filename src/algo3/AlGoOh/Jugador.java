@@ -37,7 +37,7 @@ public class Jugador {
 	
 	public void agregarMonstruoEnAtaque(Monstruo monstruo){
 		fase.agregarMonstruo();
-		monstruo.colocarEnPosicionAtaque();
+		//monstruo.colocarEnPosicionAtaque();
 		monstruo.agregarAlCampo(campo, oponente.campo);
 		campo.agregarMonstruo(monstruo);
 		cartasEnMano.remove(monstruo);
@@ -116,6 +116,7 @@ public class Jugador {
 	public void reducirVida(int danio) {
 		puntosDeVida -= danio;
 		if(puntosDeVida <= 0) {
+			puntosDeVida = 0;
 			oponente.declararComoGanador();
 		}
 	}
@@ -158,6 +159,7 @@ public class Jugador {
 	public Jugador pasarTurno() {
 		oponente.FasePreparacion();
 		oponente.tomarUnaCartaDelMazo();
+		campo.pasarTurno();
 		estadoGanador.actualizarEstado();
 		return oponente;
 	}

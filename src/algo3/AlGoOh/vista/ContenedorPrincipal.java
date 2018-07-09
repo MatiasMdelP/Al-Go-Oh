@@ -6,7 +6,9 @@ import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.modelo.Tablero;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -40,15 +42,24 @@ public class ContenedorPrincipal extends BorderPane {
         this.setCentro();
         //this.setConsola();
         this.setBotonera();
-        this.setMinSize(1100, 700);
-        stage.setFullScreen(true);
-        this.setPrefSize(1100, 7000);
+        this.setMinSize(1300, 700);
+        stage.setFullScreen(false);
+        this.setPrefSize(1300, 7000);
+        stage.setMaximized(true);
     }
     
     public void setNombresDeJugadores(String unNombre, String otroNombre) {
     	nombreJugador1 = unNombre;
     	nombreJugador2 = otroNombre;
         this.setBotonera();
+    }
+    
+    public void determinarQuienComienza() {
+    	if (AlGoOh.getInstance().obtenerJugadorActual() == jugador1) {
+    		mensajeDeComienzo(nombreJugador1);
+    	} else {
+    		mensajeDeComienzo(nombreJugador2);
+    	}
     }
     
     private void setBotonera() {
@@ -109,13 +120,13 @@ public class ContenedorPrincipal extends BorderPane {
         alert.showAndWait();*/
     	String ganador = "FELICITACIONES " + nombreDelGanador.toUpperCase() + "!!!! HAS GANADO LA PARTIDA.";
     	String[] options = {"Juego nuevo", "Salir"};
-    	Audio.reproducirVictoria();
 		int eleccion =JOptionPane.showOptionDialog(null, ganador, "Fin del Juego", JOptionPane.DEFAULT_OPTION, 
 				JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 		switch (eleccion) {
 			case 0: jugador1 = new Jugador();
 					jugador2 = new Jugador();
 					this.setCentro();
+					this.setBotonera();
 					break;
 			case 1: System.exit(0);
 					break;
@@ -125,8 +136,17 @@ public class ContenedorPrincipal extends BorderPane {
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
         this.setTop(menuBar);
+        stage.setMaximized(true);
     }
 
+    private void mensajeDeComienzo(String unNombre) {
+    	Alert alert = new Alert(AlertType.INFORMATION,""
+				+ "El encargado de comenzar con el juego es " + unNombre.toUpperCase() + ". \n"
+				);
+        alert.setTitle("Jugador mano");
+        alert.showAndWait();
+    }
+    
     private void setCentro() {
     	
     	try {
@@ -137,7 +157,7 @@ public class ContenedorPrincipal extends BorderPane {
     	//mano = new Mano(anchoCarta, altoCarta);
     	tablero = new Tablero(anchoCarta, altoCarta, jugador1, jugador2);
     	juegoAlGoOh.cargarTablero(tablero);
-    	
+    
         //canvasCentral = new Canvas(460, 220);
         //vistaRobot = new VistaRobot(robot, canvasCentral);
         //vistaRobot.dibujar();

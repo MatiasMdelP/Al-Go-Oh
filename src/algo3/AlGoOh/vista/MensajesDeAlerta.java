@@ -20,6 +20,16 @@ public class MensajesDeAlerta {
         alert.showAndWait();
 	}
 	
+	public void alertaAccionDeMonstruoProhibidaEnTurno() {
+		Audio.reproducirAlerta() ;
+		Alert alert = new Alert(AlertType.ERROR,""
+				+ "No puede realizar esta accion ya que invoco al Monstruo en el turno actual. \n"
+				+ "Para poder hacerlo, debe esperar al siguiente turno. \n"
+				);
+        alert.setTitle("Accion prohibida en Monstruo...");
+        alert.showAndWait();
+	} 
+	
 	public void alertaNoHayMasEspacioEnLaZona() {
 		Audio.reproducirAlerta() ;
 		Alert alert = new Alert(AlertType.WARNING,""
@@ -36,6 +46,16 @@ public class MensajesDeAlerta {
 				+ "Accion invalida para esta fase del juego. \n"
 				);
         alert.setTitle("Accion en fase invalida...");
+        alert.showAndWait();
+	}
+	
+	public void alertaMonstruoNoPuedeAtacar() {
+		Audio.reproducirAlerta() ;
+		Alert alert = new Alert(AlertType.WARNING,""
+				+ "Este monstruo no puede realizar un ataque. \n"
+				+ "Esto se debe a que se encuentra en Posicion de Defensa, o porque ya realizo un ataque en este turno. \n"
+				);
+        alert.setTitle("Monstruo no puede atacar...");
         alert.showAndWait();
 	}
 	

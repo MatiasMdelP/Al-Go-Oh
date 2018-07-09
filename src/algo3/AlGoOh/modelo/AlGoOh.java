@@ -22,6 +22,10 @@ public class AlGoOh {
 	       INSTANCE = new AlGoOh();
 	    }
 	}
+	
+	public Jugador obtenerJugadorActual() {
+		return jugadorActual;
+	}
 
 	public static AlGoOh getInstance() {
 	    if (INSTANCE == null)
@@ -73,10 +77,12 @@ public class AlGoOh {
 	
 	public void ponerEnPosicionAtaque(int numeroDeMonstruo) {
 		jugadorActual.ponerEnPosicionAtaque(numeroDeMonstruo);
+		actualizarJuego();
 	}
 	
 	public void ponerEnPosicionDefensa(int numeroDeMonstruo) {
 		jugadorActual.ponerEnPosicionDefensa(numeroDeMonstruo);
+		actualizarJuego();
 	}
 	
 	public void darVueltaMonstruo(int numeroDeMonstruo) {

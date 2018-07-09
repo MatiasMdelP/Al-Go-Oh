@@ -198,6 +198,12 @@ public class Campo {
 		carta.mandarAlCementerio();
 	}
 	
+	public void pasarTurno() {
+		for (Monstruo unMonstruo : zonaMonstruos) {
+			unMonstruo.pasarTurno();
+		}
+	}
+	
 	public void vaciarMonstruosEnCampo() {
 		for (Monstruo unMonstruo : zonaMonstruos) {
 			unMonstruo.mandarAlCementerio();

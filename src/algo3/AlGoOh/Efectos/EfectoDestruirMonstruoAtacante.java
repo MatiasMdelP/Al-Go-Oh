@@ -11,6 +11,7 @@ public class EfectoDestruirMonstruoAtacante implements Efecto{
 	
 	public void realizarse(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente){
 		campoOponente.mandarMonstruoDefinidoAlCementerio();
+		campo.obtenerMonstruo().darVuelta();
 	}
 	
 	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException {

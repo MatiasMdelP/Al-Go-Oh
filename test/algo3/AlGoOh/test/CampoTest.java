@@ -24,7 +24,6 @@ public class CampoTest {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Campo campo = new Campo(new Mazo());
 		
-		huevoMonstruoso.colocarEnPosicionAtaque();
 		campo.agregarMonstruo(huevoMonstruoso);
 		campo.definirMonstruo(0);
 		
@@ -37,7 +36,6 @@ public class CampoTest {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Campo campo = new Campo(new Mazo());
 		
-		huevoMonstruoso.colocarEnPosicionAtaque();
 		campo.agregarMonstruo(huevoMonstruoso);
 		campo.definirMonstruo(0);
 		
@@ -51,8 +49,6 @@ public class CampoTest {
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);
 		Campo campo = new Campo(new Mazo());
 		
-		huevoMonstruoso.colocarEnPosicionAtaque();
-		monoAcrobata.colocarEnPosicionDefensa();
 		campo.agregarMonstruo(huevoMonstruoso);
 		campo.agregarMonstruo(monoAcrobata);
 		
@@ -78,7 +74,6 @@ public class CampoTest {
 	public void test05MandarMonstruoNoAgregadoAlCementerioYobtenerExcepcion() {
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal() ,600, 900);
 		Campo campo = new Campo(new Mazo());
-		huevoMonstruoso.colocarEnPosicionAtaque();
 			
 		campo.mandarMonstruoAlCementerio(huevoMonstruoso);
 	}
@@ -100,6 +95,8 @@ public class CampoTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900);// 900 + 300 = 1200
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800);	//1000+200 = 1200
+		huevoMonstruoso.pasarTurno();
+		monoAcrobata.pasarTurno();
 		
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		
@@ -130,6 +127,8 @@ public class CampoTest {
 		
 		Monstruo huevoMonstruoso = new Monstruo("Huevo Monstruoso", new EfectoVacio(), new InvocacionNormal(), 600, 900); // 900 + 500 = 1400
 		Monstruo monoAcrobata = new Monstruo("Mono Acrobata", new EfectoVacio(), new InvocacionNormal(), 1000, 1800); 	  // 1000 + 200 = 1200
+		huevoMonstruoso.pasarTurno();
+		monoAcrobata.pasarTurno();
 		
 		jugador.agregarMonstruoEnAtaque(monoAcrobata);
 		

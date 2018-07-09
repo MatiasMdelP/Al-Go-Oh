@@ -1,5 +1,7 @@
 package algo3.AlGoOh;
 
+import javafx.scene.control.Button;
+
 public interface Posicion {
 
 	Posicion ponerEnPosicionAtaque();
@@ -22,4 +24,7 @@ public interface Posicion {
 
 	void verificarEstado();
 
+	void rotarBoton(Button unBoton);
+	
+	void pasarTurno();
 }

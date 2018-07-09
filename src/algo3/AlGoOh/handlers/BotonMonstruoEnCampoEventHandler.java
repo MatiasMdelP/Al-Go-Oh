@@ -2,6 +2,8 @@ package algo3.AlGoOh.handlers;
 
 import javax.swing.JOptionPane;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
+import algo3.AlGoOh.Exceptions.MonstruoInvocadoEnTurnoActualException;
+import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import algo3.AlGoOh.vista.MensajesDeAlerta;
@@ -31,10 +33,10 @@ public class BotonMonstruoEnCampoEventHandler extends BotonCarta implements Even
 				case 0: opcionesParaAtacar();
 						break;
 				case 1: AlGoOh.getInstance().ponerEnPosicionAtaque(posicion);
-						botonMonstruoEnCampo.setRotate(0);
+						//botonMonstruoEnCampo.setRotate(0);
 						break;
 				case 2: AlGoOh.getInstance().ponerEnPosicionDefensa(posicion);
-						botonMonstruoEnCampo.setRotate(90);
+						//botonMonstruoEnCampo.setRotate(90);
 						break;
 				case 3: AlGoOh.getInstance().darVueltaMonstruo(posicion);
 						break;
@@ -45,6 +47,10 @@ public class BotonMonstruoEnCampoEventHandler extends BotonCarta implements Even
 			}
 		} catch (AccionInvalidaEnEstaFaseException e) {
 			mensajesDeAlerta.alertaAccionInvalidaEnFase();
+		} catch (MonstruoInvocadoEnTurnoActualException e) {
+			mensajesDeAlerta.alertaAccionDeMonstruoProhibidaEnTurno();
+		} catch (MonstruoNoPuedeAtacarException e) {
+			mensajesDeAlerta.alertaMonstruoNoPuedeAtacar();
 		}
 		
     }
