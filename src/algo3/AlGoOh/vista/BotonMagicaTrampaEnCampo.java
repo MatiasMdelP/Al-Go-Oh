@@ -1,7 +1,7 @@
 package algo3.AlGoOh.vista;
 
 import algo3.AlGoOh.Carta;
-import algo3.AlGoOh.handlers.BotonMagicaTrampaEnCampoEventHandler;
+import algo3.AlGoOh.handlers.cartasEnCampo.BotonMagicaTrampaEnCampoEventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;

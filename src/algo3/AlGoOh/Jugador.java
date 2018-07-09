@@ -76,7 +76,6 @@ public class Jugador {
 	public void agregarCartaCampo(Carta cartaCampo) {
 		fase.agregarCampo();
 		cartaCampo.agregarAlCampo(campo, oponente.campo);
-		//cartaCampo.realizarEfecto(this, oponente); LO PASE AL CAMPO
 		campo.agregarCartaDeCampo(cartaCampo, this, oponente); //Agregue
 		cartasEnMano.remove(cartaCampo); //Agregue
 	}

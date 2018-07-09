@@ -1,6 +1,6 @@
 package algo3.AlGoOh.handlers;
 
-import algo3.AlGoOh.vista.Audio;
+import algo3.AlGoOh.audio.Audio;
 import algo3.AlGoOh.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

@@ -1,9 +1,10 @@
-package algo3.AlGoOh.handlers;
+package algo3.AlGoOh.handlers.cartasEnCampo;
 
 import javax.swing.JOptionPane;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Exceptions.MonstruoInvocadoEnTurnoActualException;
 import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
+import algo3.AlGoOh.handlers.BotonCarta;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.MensajesDeAlerta;
 import javafx.event.ActionEvent;

@@ -1,7 +1,7 @@
 package algo3.AlGoOh.vista;
 
 
-import algo3.AlGoOh.handlers.BotonMonstruoEnCampoEventHandler;
+import algo3.AlGoOh.handlers.cartasEnCampo.BotonMonstruoEnCampoEventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -45,13 +45,3 @@ public class BotonMonstruoEnCampo extends Button implements BotonCampo{
 	}
 	
 }
-
-/*if (unMonstruo == null) {
-	this.setDisable(true);
-} else {
-	Image imagenMonstruo = new Image("file:src/algo3/AlGoOh/vista/" + unMonstruo.obtenerNombre() + ".png");
-    BackgroundImage imagenDelMonstruo = new BackgroundImage(imagenMonstruo, BackgroundRepeat.REPEAT, 
-    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-            
-	this.setBackground(new Background(imagenDelMonstruo));
-}*/

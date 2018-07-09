@@ -1,4 +1,4 @@
-package algo3.AlGoOh.handlers;
+package algo3.AlGoOh.handlers.cartasEnMano;
 
 import javax.swing.JOptionPane;
 
@@ -6,17 +6,18 @@ import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
 import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
+import algo3.AlGoOh.handlers.BotonCarta;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.vista.MensajesDeAlerta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonCampoEnManoEventHandler extends BotonCarta implements EventHandler<ActionEvent>{
+public class BotonTrampaEnManoEventHandler extends BotonCarta implements EventHandler<ActionEvent>{
 
 	private Carta carta;
 	private MensajesDeAlerta mensajesDeAlerta = new MensajesDeAlerta();
 	
-	public BotonCampoEnManoEventHandler(Carta cartaPasada) {
+	public BotonTrampaEnManoEventHandler(Carta cartaPasada) {
 		carta = cartaPasada;
 	}
 	
@@ -29,7 +30,7 @@ public class BotonCampoEnManoEventHandler extends BotonCarta implements EventHan
 		int eleccion = obtenerOpcionMenu(options,"Que accion quiere realizar?", "Accion");
 		try {
 			switch (eleccion) {
-				case 0: AlGoOh.getInstance().agregarCartaCampo(carta);
+				case 0: AlGoOh.getInstance().agregarCartaTrampa(carta);;
 						break;
 			}
 			

@@ -26,7 +26,6 @@ public class ContenedorPrincipal extends BorderPane {
 
     private BarraDeMenu menuBar;
     private Tablero tablero;
-    //private Mano mano;
     private int anchoCarta = 100;
     private int altoCarta = 150;
     VBox contenedorCentral;

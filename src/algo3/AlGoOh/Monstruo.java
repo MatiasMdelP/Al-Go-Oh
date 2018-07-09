@@ -3,7 +3,7 @@ package algo3.AlGoOh;
 import java.util.List;
 import algo3.AlGoOh.Efectos.Efecto;
 import algo3.AlGoOh.handlers.BotonCarta;
-import algo3.AlGoOh.handlers.BotonMonstruoEnManoEventHandler;
+import algo3.AlGoOh.handlers.cartasEnMano.BotonMonstruoEnManoEventHandler;
 import javafx.scene.control.Button;
 
 public class Monstruo extends Carta {

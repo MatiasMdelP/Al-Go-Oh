@@ -1,7 +1,7 @@
 package algo3.AlGoOh;
 
 import algo3.AlGoOh.handlers.BotonCarta;
-import algo3.AlGoOh.handlers.BotonTrampaEnManoEventHandler;
+import algo3.AlGoOh.handlers.cartasEnMano.BotonTrampaEnManoEventHandler;
 
 public class HandlerCartaTrampa implements HandlerCarta {
 

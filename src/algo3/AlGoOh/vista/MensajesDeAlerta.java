@@ -1,12 +1,11 @@
 package algo3.AlGoOh.vista;
 
+import algo3.AlGoOh.audio.Audio;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class MensajesDeAlerta {
 
-
-	
 	public void alertaSacrificiosInsuficientes() {
 		imprimir("Antes de invocar al monstruo debe hacer los sacrificios necesarios. \n"
 				,"Sacrificion insuficientes...");

@@ -1,5 +1,6 @@
 package algo3.AlGoOh.vista;
 
+import algo3.AlGoOh.audio.Audio;
 import algo3.AlGoOh.handlers.BotonJugarEventHandler;
 import algo3.AlGoOh.handlers.TextoEventHandler;
 import javafx.application.Application;
