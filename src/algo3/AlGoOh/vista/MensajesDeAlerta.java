@@ -1,4 +1,5 @@
 package algo3.AlGoOh.vista;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 

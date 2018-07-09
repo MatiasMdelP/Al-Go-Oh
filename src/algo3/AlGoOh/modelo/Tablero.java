@@ -2,6 +2,7 @@ package algo3.AlGoOh.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Jugador;
 import algo3.AlGoOh.vista.BotonCampo;
@@ -55,15 +56,10 @@ public class Tablero extends GridPane{
 		super.add(mazoOponente, 1, 1);
 		super.setMargin(mazoOponente,espacioEntrePosiciones);
 		
-		//StackPane campoOponente = this.crearPosicionCampoVacio();
-		//BotonCartaDeCampo 
 		campoJugadorSuperior = new BotonCartaDeCampo(altoCarta, anchoCarta);
 		super.add(campoJugadorSuperior, 7, 2);
 		super.setMargin(campoJugadorSuperior, espacioEntrePosiciones);
 	
-		//StackPane campoJugador = this.crearPosicionCampoVacio();
-		//super.add(this.crearPosicionCampoVacio(), 1, 3);
-		//BotonCartaDeCampo 
 		campoJugadorInferior = new BotonCartaDeCampo(altoCarta, anchoCarta);
 		super.add(campoJugadorInferior, 1, 3);
 		super.setMargin(campoJugadorInferior, espacioEntrePosiciones);
@@ -133,8 +129,6 @@ public class Tablero extends GridPane{
     	}
 		scrollPane.setContent(contenedorHorizontal);
 		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
-		
-		//mano.actualizarMano();
 	}
 	
 	public void actualizarTablero(Jugador jugadorActual) {

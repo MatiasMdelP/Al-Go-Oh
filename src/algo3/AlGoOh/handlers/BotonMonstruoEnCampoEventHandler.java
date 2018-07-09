@@ -5,7 +5,6 @@ import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Exceptions.MonstruoInvocadoEnTurnoActualException;
 import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
 import algo3.AlGoOh.modelo.AlGoOh;
-import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import algo3.AlGoOh.vista.MensajesDeAlerta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,12 +12,10 @@ import javafx.event.EventHandler;
 public class BotonMonstruoEnCampoEventHandler extends BotonCarta implements EventHandler<ActionEvent>{
 
 	private int posicion;
-	private BotonMonstruoEnCampo botonMonstruoEnCampo;
 	private MensajesDeAlerta mensajesDeAlerta = new MensajesDeAlerta();
 	
-	public BotonMonstruoEnCampoEventHandler(int unaPosicion, BotonMonstruoEnCampo unBoton) {
+	public BotonMonstruoEnCampoEventHandler(int unaPosicion) {
 		posicion = unaPosicion;
-		botonMonstruoEnCampo = unBoton;
 	}
 	
 	@Override
@@ -33,10 +30,8 @@ public class BotonMonstruoEnCampoEventHandler extends BotonCarta implements Even
 				case 0: opcionesParaAtacar();
 						break;
 				case 1: AlGoOh.getInstance().ponerEnPosicionAtaque(posicion);
-						//botonMonstruoEnCampo.setRotate(0);
 						break;
 				case 2: AlGoOh.getInstance().ponerEnPosicionDefensa(posicion);
-						//botonMonstruoEnCampo.setRotate(90);
 						break;
 				case 3: AlGoOh.getInstance().darVueltaMonstruo(posicion);
 						break;
