@@ -1,11 +1,7 @@
 package algo3.AlGoOh.vista;
 
-import java.io.File;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 public class MensajesDeAlerta {
 

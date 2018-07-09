@@ -18,9 +18,8 @@ public class BotonMonstruoEnCampo extends Button implements BotonCampo{
 		this.setMinHeight(altoCarta);
 		this.setMaxHeight(anchoCarta);
 		this.setPrefSize(anchoCarta, altoCarta);
-		BotonMonstruoEnCampoEventHandler botonMonstruoEnCampoEventHandler = new BotonMonstruoEnCampoEventHandler(posicion, this);
+		BotonMonstruoEnCampoEventHandler botonMonstruoEnCampoEventHandler = new BotonMonstruoEnCampoEventHandler(posicion);
 		this.setOnAction(botonMonstruoEnCampoEventHandler);
-		//this.setStyle("-fx-base: #A52A2A");
 	}
 	
 	public void cargarImagen(String nombreDeLaCarta) {
