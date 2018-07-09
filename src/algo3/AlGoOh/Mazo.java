@@ -132,8 +132,8 @@ public class Mazo {
 		agregarUnaCartaAlMazo(ollaDeLaCodicia2);
 		
 		//Fisura
-		Carta fisura1 = new Carta("Fisura", new EfectoFisura(), new HandlerCartaTrampa());
-		Carta fisura2 = new Carta("Fisura", new EfectoFisura(), new HandlerCartaTrampa());
+		Carta fisura1 = new Carta("Fisura", new EfectoFisura(), new HandlerCartaMagica());
+		Carta fisura2 = new Carta("Fisura", new EfectoFisura(), new HandlerCartaMagica());
 		agregarUnaCartaAlMazo(fisura1);
 		agregarUnaCartaAlMazo(fisura2);
 		
