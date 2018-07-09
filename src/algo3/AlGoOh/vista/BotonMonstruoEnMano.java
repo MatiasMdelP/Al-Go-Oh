@@ -11,7 +11,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 
-public class BotonMonstruoEnMano extends Button {
+public class BotonMonstruoEnMano extends Button implements BotonEnMano{
 
 	private Monstruo unMonstruo;
 	

@@ -8,7 +8,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 
-public class BotonCartaDeCampo extends Button{
+public class BotonCartaDeCampo extends Button implements BotonEnMano{
 
 	public BotonCartaDeCampo(int altoCarta, int anchoCarta) {
 		this.setText("Campo");
@@ -33,5 +33,11 @@ public class BotonCartaDeCampo extends Button{
 	    		BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 	            
 	    this.setBackground(new Background(imagenDeLaCarta));
+	}
+
+	@Override
+	public void cargarImagen() {
+		// TODO Auto-generated method stub
+		
 	}
 }

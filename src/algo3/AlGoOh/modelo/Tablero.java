@@ -1,6 +1,7 @@
 package algo3.AlGoOh.modelo;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -14,12 +15,14 @@ import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
 import algo3.AlGoOh.vista.BotonCampo;
 import algo3.AlGoOh.vista.BotonCartaDeCampo;
 import algo3.AlGoOh.vista.BotonCartaEnMano;
+import algo3.AlGoOh.vista.BotonEnMano;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnMano;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
 import algo3.AlGoOh.vista.ContenedorPrincipal;
 import algo3.AlGoOh.vista.Mano;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -206,16 +209,16 @@ public class Tablero extends GridPane{
 		List<Carta> cartasEnMano = AlGoOh.getInstance().jugadorActual.getListaDeCartasEnMano();
 		
     	for (Carta unaCarta : cartasEnMano) {
-    		BotonCartaEnMano cartaEnMano = new BotonCartaEnMano(anchoCarta, altoCarta, unaCarta);
+    		BotonEnMano cartaEnMano = new BotonCartaEnMano(anchoCarta, altoCarta, unaCarta);
     		cartaEnMano.cargarImagen();
-    		contenedorHorizontal.getChildren().add(cartaEnMano);
+    		contenedorHorizontal.getChildren().add((Node) cartaEnMano);
     	}
 		scrollPane.setContent(contenedorHorizontal);
 		scrollPane.setPrefSize(anchoCarta*2.5, altoCarta);
 		
 		//mano.actualizarMano();
 	}
-	
+
 	public void actualizarTablero(Jugador jugadorActual) {
 		actualizarBotones(jugadorInferior.getListaDeCartasEnZonaMonstruo(), botonesMonstruosJugadorInferior);
 		actualizarBotones(jugadorInferior.getListaDeCartasEnZonaMagicaTrampa(), botonesCartasJugadorInferior);

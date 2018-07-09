@@ -3,6 +3,7 @@ package algo3.AlGoOh;
 import algo3.AlGoOh.Efectos.Efecto;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 import algo3.AlGoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
+import algo3.AlGoOh.vista.BotonEnMano;
 import javafx.event.EventHandler;
 
 public class Carta {
@@ -13,6 +14,7 @@ public class Carta {
 	protected Efecto efecto;
 	protected Campo campo;
 	protected Campo campoOponente;
+	private BotonEnMano boton;
 
 	public Carta(String nombreDeLaCarta, Efecto unEfecto) {
 		nombre = nombreDeLaCarta;
