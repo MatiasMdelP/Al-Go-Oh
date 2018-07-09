@@ -4,8 +4,6 @@ import algo3.AlGoOh.Efectos.Efecto;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 import algo3.AlGoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
 import algo3.AlGoOh.handlers.BotonCarta;
-import algo3.AlGoOh.handlers.BotonCartaEnManoEventHandler;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 public class Carta {

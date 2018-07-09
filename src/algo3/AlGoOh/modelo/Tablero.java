@@ -2,55 +2,34 @@ package algo3.AlGoOh.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JPanel;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.WildcardLoader;
-
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.Jugador;
-import algo3.AlGoOh.Monstruo;
-import algo3.AlGoOh.Efectos.EfectoAgujeroOscuro;
 import algo3.AlGoOh.vista.BotonCampo;
 import algo3.AlGoOh.vista.BotonCartaDeCampo;
 import algo3.AlGoOh.vista.BotonCartaEnMano;
 import algo3.AlGoOh.vista.BotonMagicaTrampaEnCampo;
-import algo3.AlGoOh.vista.BotonMagicaTrampaEnMano;
 import algo3.AlGoOh.vista.BotonMonstruoEnCampo;
-import algo3.AlGoOh.vista.ContenedorPrincipal;
-import algo3.AlGoOh.vista.Mano;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class Tablero extends GridPane{
 
 	private int anchoCarta;
 	private int altoCarta;
-	private AlGoOh juegoAlGoOh;
 	private Jugador jugadorSuperior;
 	private Jugador jugadorInferior;
 	Label tituloFase = new Label();
-	//private Mano mano;
 	
 	private BotonCartaDeCampo campoJugadorSuperior;
 	private BotonCartaDeCampo campoJugadorInferior;
@@ -121,62 +100,6 @@ public class Tablero extends GridPane{
 		dibujarCartasEnMano();
 		generarDescripcionDeFase();
 		super.add(tituloFase, 8, 1);
-	}
-	
-	private StackPane crearPosicionMonstruoVacia() {
-		StackPane pilaADibujar = new StackPane();
-		
-		Rectangle rectangulo = new Rectangle();
-		rectangulo.setStroke(Color.BLACK);
-		rectangulo.setWidth(anchoCarta);
-		rectangulo.setHeight(altoCarta);
-		rectangulo.setFill(Color.BROWN);
-		rectangulo.fillProperty();
-
-		Rectangle rectanguloDefensa = new Rectangle();
-		rectanguloDefensa.setFill(Color.TRANSPARENT);
-		rectanguloDefensa.setStroke(Color.BLACK);
-		rectanguloDefensa.setStrokeWidth(3); 	
-		rectanguloDefensa.setWidth(altoCarta);
-		rectanguloDefensa.setHeight(anchoCarta);
-		rectanguloDefensa.getStrokeDashArray().addAll(25d, 10d);
-		
-		Text m = new Text("Monstruo");
-		
-		pilaADibujar.getChildren().addAll(rectangulo,rectanguloDefensa, m);
-		return pilaADibujar;
-	}
-
-	private StackPane crearPosicionMagicaYTrampaVacia() {
-		
-		StackPane pilaADibujar = new StackPane();
-		
-		Rectangle rectangulo = new Rectangle();
-		rectangulo.setStroke(Color.BLACK);
-		rectangulo.setWidth(anchoCarta);
-		rectangulo.setHeight(altoCarta);
-		rectangulo.setFill(Color.DARKCYAN);
-		rectangulo.fillProperty();
-
-		Text m = new Text("Magica/Trampa");
-		
-		pilaADibujar.getChildren().addAll(rectangulo, m);
-		return pilaADibujar;		
-	}
-
-	private StackPane crearPosicionCampoVacio() {
-		StackPane pilaADibujar = new StackPane();
-		
-		Rectangle rectangulo = new Rectangle();
-		rectangulo.setStroke(Color.BLACK);
-		rectangulo.setWidth(anchoCarta);
-		rectangulo.setHeight(altoCarta);
-		rectangulo.setFill(Color.GREEN);
-		rectangulo.fillProperty();
-
-		Text m = new Text("Campo");
-		pilaADibujar.getChildren().addAll(rectangulo, m);
-		return pilaADibujar;
 	}
 
 	private StackPane crearPosicionMazo() {

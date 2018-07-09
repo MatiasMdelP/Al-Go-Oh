@@ -1,62 +1,39 @@
 package algo3.AlGoOh.vista;
-
-import java.io.File;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 public class MensajesDeAlerta {
 
 
 	
 	public void alertaSacrificiosInsuficientes() {
-		Audio.reproducirAlerta() ;
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "Antes de invocar al monstruo debe hacer los sacrificios necesarios. \n"
-				);
-        alert.setTitle("Sacrificion insuficientes...");
-        alert.showAndWait();
+		imprimir("Antes de invocar al monstruo debe hacer los sacrificios necesarios. \n"
+				,"Sacrificion insuficientes...");
 	}
 	
 	public void alertaAccionDeMonstruoProhibidaEnTurno() {
-		Audio.reproducirAlerta() ;
-		Alert alert = new Alert(AlertType.ERROR,""
-				+ "No puede realizar esta accion ya que invoco al Monstruo en el turno actual. \n"
-				+ "Para poder hacerlo, debe esperar al siguiente turno. \n"
-				);
-        alert.setTitle("Accion prohibida en Monstruo...");
-        alert.showAndWait();
+		imprimir("No puede realizar esta accion ya que invoco al Monstruo en el turno actual. \n"
+				+ "Para poder hacerlo, debe esperar al siguiente turno. \n","Accion prohibida en Monstruo...");
 	} 
 	
 	public void alertaNoHayMasEspacioEnLaZona() {
-		Audio.reproducirAlerta() ;
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "No se puede invocar mas invocar esta carta porque no \n"
-				+ "hay mas espacio en el campo. \n"
-				);
-        alert.setTitle("Zona sin lugar...");
-        alert.showAndWait();
+		imprimir("No se puede invocar mas invocar esta carta porque no \n"
+				+ "hay mas espacio en el campo. \n","Zona sin lugar...");
 	}
 	
 	public void alertaAccionInvalidaEnFase() {
-		Audio.reproducirAlerta() ;
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "Accion invalida para esta fase del juego. \n"
-				);
-        alert.setTitle("Accion en fase invalida...");
-        alert.showAndWait();
+		imprimir("Accion invalida para esta fase del juego. \n","Accion en fase invalida...");
 	}
 	
 	public void alertaMonstruoNoPuedeAtacar() {
+		imprimir( "Este monstruo no puede realizar un ataque. \n"
+				+ "Esto se debe a que se encuentra en Posicion de Defensa, o porque ya realizo un ataque en este turno. \n",
+				"Monstruo no puede atacar...");
+	}
+	private void imprimir(String mensaje1, String mensaje2) {
 		Audio.reproducirAlerta() ;
-		Alert alert = new Alert(AlertType.WARNING,""
-				+ "Este monstruo no puede realizar un ataque. \n"
-				+ "Esto se debe a que se encuentra en Posicion de Defensa, o porque ya realizo un ataque en este turno. \n"
-				);
-        alert.setTitle("Monstruo no puede atacar...");
+		Alert alert = new Alert(AlertType.WARNING,mensaje1);
+        alert.setTitle(mensaje2);
         alert.showAndWait();
 	}
-	
 }

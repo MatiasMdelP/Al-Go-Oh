@@ -2,7 +2,6 @@ package algo3.AlGoOh.vista;
 
 import algo3.AlGoOh.Carta;
 import algo3.AlGoOh.handlers.BotonCarta;
-import algo3.AlGoOh.handlers.BotonCartaEnManoEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -19,8 +18,8 @@ public class BotonCartaEnMano extends Button{
 	
 	public BotonCartaEnMano(int anchoCarta, int altoCarta, Carta unaCarta) {
 		super.setPrefSize(anchoCarta,altoCarta);
-		BotonCarta botonCartaEnManoEventHandler = unaCarta.getHandler();
-		this.setOnAction((EventHandler<ActionEvent>) botonCartaEnManoEventHandler);
+		BotonCarta handler = unaCarta.getHandler();
+		this.setOnAction((EventHandler<ActionEvent>) handler);
 		carta = unaCarta;
 	}
 	
