@@ -8,6 +8,9 @@ import javafx.scene.media.MediaPlayer;
 public class Audio {
 	private static MediaPlayer mediaPlayer;
 
+	public static void reproducirClick() {
+		reproducir("src/algo3/AlGoOh/audio/click.mp3");
+	}
 	public static void reproducirAlerta() {
 		reproducir("src/algo3/AlGoOh/audio/alerta.mp3");
 	}
