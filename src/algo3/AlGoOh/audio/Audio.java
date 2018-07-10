@@ -25,7 +25,7 @@ public class Audio {
 	}
 	
 	public static void reproducirVictoria() {
-		mediaPlayer.pause();
+		//mediaPlayer.pause();
         reproducir("src/algo3/AlGoOh/audio/victoria.mp3");
 	}
 	private static void reproducir (String path) {

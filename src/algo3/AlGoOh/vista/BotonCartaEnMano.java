@@ -16,6 +16,7 @@ public class BotonCartaEnMano extends Button{
 
 	private Carta carta;
 	
+	@SuppressWarnings("unchecked")
 	public BotonCartaEnMano(int anchoCarta, int altoCarta, Carta unaCarta) {
 		super.setPrefSize(anchoCarta,altoCarta);
 		BotonCarta handler = unaCarta.getHandler();

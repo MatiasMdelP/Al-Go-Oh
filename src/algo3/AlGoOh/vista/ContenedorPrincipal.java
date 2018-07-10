@@ -3,6 +3,7 @@ package algo3.AlGoOh.vista;
 import javax.swing.JOptionPane;
 
 import algo3.AlGoOh.Jugador;
+import algo3.AlGoOh.audio.Audio;
 import algo3.AlGoOh.modelo.AlGoOh;
 import algo3.AlGoOh.modelo.Tablero;
 import javafx.geometry.Insets;
@@ -117,6 +118,7 @@ public class ContenedorPrincipal extends BorderPane {
         alert.setTitle("Fin del juego");
 
         alert.showAndWait();*/
+    	Audio.reproducirVictoria();
     	String ganador = "FELICITACIONES " + nombreDelGanador.toUpperCase() + "!!!! HAS GANADO LA PARTIDA.";
     	String[] options = {"Juego nuevo", "Salir"};
 		int eleccion =JOptionPane.showOptionDialog(null, ganador, "Fin del Juego", JOptionPane.DEFAULT_OPTION, 
