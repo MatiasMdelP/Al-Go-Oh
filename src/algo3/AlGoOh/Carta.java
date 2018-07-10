@@ -2,7 +2,6 @@ package algo3.AlGoOh;
 
 import algo3.AlGoOh.Efectos.Efecto;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
-import algo3.AlGoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
 import algo3.AlGoOh.handlers.BotonCarta;
 import javafx.scene.control.Button;
 
@@ -54,7 +53,7 @@ public class Carta {
 		campo.mandarMagicaOTrampaAlCementerio(this);
 	}
 	
-	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws NoPuedeRealizarseEfectoDeVolteoException, InterrumpirAtaqueException{
+	public void realizarEfectoDeVolteo(Campo campo, Campo campoOponente, Jugador unJugador, Jugador oponente) throws InterrumpirAtaqueException{
 		efecto.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
 		this.darVuelta();
 	}

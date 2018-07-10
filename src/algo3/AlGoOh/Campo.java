@@ -7,7 +7,6 @@ import algo3.AlGoOh.Exceptions.CartaNoEncontradaException;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 import algo3.AlGoOh.Exceptions.MonstruoNoPuedeAtacarException;
 import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
-import algo3.AlGoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
 import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 
 public class Campo {
@@ -122,8 +121,6 @@ public class Campo {
 			trampa.mandarAlCementerio();
 			trampa.realizarEfectoDeVolteo(campo, campoOponente, unJugador, oponente);
 		} catch (IndexOutOfBoundsException e) {
-			
-		} catch (NoPuedeRealizarseEfectoDeVolteoException e) {
 			
 		}
 	}

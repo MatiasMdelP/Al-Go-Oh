@@ -14,7 +14,6 @@ import algo3.AlGoOh.Efectos.EfectoVacio;
 import algo3.AlGoOh.Exceptions.AccionInvalidaEnEstaFaseException;
 import algo3.AlGoOh.Exceptions.InterrumpirAtaqueException;
 import algo3.AlGoOh.Exceptions.MonstruosInsuficientesParaSacrificioException;
-import algo3.AlGoOh.Exceptions.NoPuedeRealizarseEfectoDeVolteoException;
 import algo3.AlGoOh.Exceptions.ZonaNoTieneMasEspacioException;
 
 import static org.junit.Assert.assertTrue;
@@ -180,7 +179,7 @@ public class MagicaTest {
 	}
 	
 	@Test
-	public void test09RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws InterrumpirAtaqueException, NoPuedeRealizarseEfectoDeVolteoException {
+	public void test09RealizarEfectoDeVolteoLevantaNoPuedeRealizarseException() throws InterrumpirAtaqueException {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
